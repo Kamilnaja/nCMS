@@ -3,6 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import { createStore, combineReducers } from "redux";
+import { Provider } from 'react-redux';
+import { settingsReducer } from './reducers/settingsReducer';
+const store = createStore(
+    combineReducers({ settings: settingsReducer }),
+    {},
+);
 
-ReactDOM.render(<App />, document.getElementById('root'));
+store.subscribe(() => {
+    console.log("Store updated", store.getState());
+})
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+    , document.getElementById('root'));
 registerServiceWorker();
