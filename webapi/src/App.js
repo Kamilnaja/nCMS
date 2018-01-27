@@ -14,7 +14,7 @@ class App extends Component {
         ></Header>
         <SetTitle
           title={this.props.settings.title}
-          setTitle={() => this.props.setTitle()}
+          setTitle={() => this.props.setTitle("Anna")}
         >
         </SetTitle>
       </div>
@@ -35,13 +35,16 @@ const mapDispatchToProps = (dispatch) => {
         .then((res) => {
           var title = res.data[0].title;
           dispatch({
-            type: "SET_TITLE",
+            type: "GET_TITLE",
             payload: title
           });
         })
     },
-    setTitle() {
-      console.log('new title was setted')
+    setTitle(data) {
+      console.log(data)
+      dispatch({
+        type: "SET_TITLE"
+      })
     }
   }
 }
