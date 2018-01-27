@@ -10,7 +10,19 @@ exports.main_site_display_name = (req, res) => {
             res.send(data);
         })
 }
-
-exports.main_site_save_name = (req, res) => {
-    return
+// todo -
+exports.main_site_save_title = (req, res) => {
+    MainSiteModel.findOne({ title: { $ne: null } }, (err, data) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            data.title = req.body.title
+            data.save((err, data) => {
+                if (err) {
+                    res.status(500).send(err);
+                }
+                res.status(200).send(data);
+            })
+        }
+    })
 }

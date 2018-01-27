@@ -27,8 +27,8 @@ export default class setTitle extends Component {
 
     handleSubmit(evt) {
         evt.preventDefault();
-        alert('data was sended' + this.state.inputValue)
-        axios.post('http://localhost:8080/api/site_title', {
+        // alert('data was sended' + this.state.inputValue)
+        axios.put('http://localhost:8080/site_title', {
             title: this.state.inputValue
         })
             .then((res) => {
