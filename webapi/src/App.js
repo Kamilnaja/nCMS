@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Header from './components/Header';
-import SetTitle from './components/setTitle';
+import ChangeSettings from './components/changeSettings';
 import AdminPanel from './components/adminPanel';
 import Main from './components/main';
 import Footer from './components/footer';
@@ -44,7 +44,7 @@ const mapDispatchToProps = (dispatch) => {
           });
         })
     },
-    setTitle(data) {
+    ChangeSettings(data) {
       console.log(data)
       dispatch({
         type: "SET_TITLE"

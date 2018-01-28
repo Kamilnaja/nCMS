@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import SetTitle from './setTitle';
+import ChangeSettings from './changeSettings';
 import axios from 'axios';
 export default class adminPanel extends Component {
     render() {
         return (
             <section className="admin-panel">
                 <p>This is admin panel</p>
-                <SetTitle
-                    setTitle={() => this.props.setTitle()}
+                <ChangeSettings
+                    ChangeSettings={() => this.props.ChangeSettings()}
                 >
-                </SetTitle>
+                </ChangeSettings>
             </section>
         )
     }
@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch) => {
                     });
                 })
         },
-        setTitle(data) {
+        ChangeSettings(data) {
             console.log(data)
             dispatch({
                 type: "SET_TITLE"
