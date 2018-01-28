@@ -6,7 +6,9 @@ export default class Header extends Component {
     render() {
         return (
             <div>
-                <header>{this.props.title}</header>
+                <header className="header">
+                    <h1 className="header-site-title">{this.props.title}</h1>
+                </header>
             </div>
         )
     }

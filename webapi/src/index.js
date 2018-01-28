@@ -6,6 +6,8 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers } from "redux";
 import { Provider } from 'react-redux';
 import { settingsReducer } from './reducers/settingsReducer';
+import { BrowserRouter } from 'react-router-dom';
+
 const store = createStore(
     combineReducers({ settings: settingsReducer }),
     {},

@@ -13,15 +13,19 @@ export default class setTitle extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <h2>Zmień tytuł</h2>
-                <div>
-                    <label>Nowy tytuł</label>
-                    <input value={this.state.inputValue} onChange={e => this.updateInputValue(e)}></input>
-                    <input type="submit" value="change">
-                    </input>
-                </div>
-            </form>
+            <div className="form">
+                <form onSubmit={this.handleSubmit}>
+                    <h2 className="form-title">Zmień tytuł</h2>
+                    <div>
+                        <label>Nowy tytuł</label>
+                        <div>
+                            <input value={this.state.inputValue} onChange={e => this.updateInputValue(e)}></input><br />
+                            <input type="submit" value="change" className="btn"></input>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
         )
     };
 

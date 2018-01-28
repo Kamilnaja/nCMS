@@ -1,5 +1,5 @@
 export const settingsReducer = (state = {
-    title: 'Lorem ipsum'
+    title: ''
 }, action) => {
     switch (action.type) {
         case "GET_TITLE":

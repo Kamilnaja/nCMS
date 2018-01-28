@@ -10,7 +10,7 @@ exports.main_site_display_name = (req, res) => {
             res.send(data);
         })
 }
-// todo -
+
 exports.main_site_save_title = (req, res) => {
     MainSiteModel.findOne({ title: { $ne: null } }, (err, data) => {
         if (err) {
