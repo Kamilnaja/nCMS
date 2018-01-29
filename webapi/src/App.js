@@ -50,9 +50,9 @@ const mapDispatchToProps = (dispatch) => {
         })
     },
     ChangeSettings(data) {
-      console.log(data)
+      console.log(data);
       dispatch({
-        type: "SET_TITLE"
+        type: "CHANGE_SETTINGS"
       })
     }
   }

@@ -1,6 +1,4 @@
-export const settingsReducer = (state = {
-    title: ''
-}, action) => {
+export const settingsReducer = (state = {}, action) => {
     switch (action.type) {
         case "GET_SETTINGS":
             state = {

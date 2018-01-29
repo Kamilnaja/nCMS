@@ -21,17 +21,20 @@ export default class changeSettings extends Component {
                     <div>
                         <div>
                             <label>Nowy tytuł</label>
-                            <input value={this.state.titleValue} onChange={e => this.updateTitleValue(e)} /><br />
+                            <div>
+                                <input value={this.state.titleValue} onChange={e => this.updateTitleValue(e)} required /><br />
+                            </div>
                         </div>
                         <div>
                             <label>Zmień podtytuł</label>
-                            <input value={this.state.subtitleValue} onChange={e => this.updateSubtitleValue(e)} />
+                            <div>
+                                <input value={this.state.subtitleValue} onChange={e => this.updateSubtitleValue(e)} />
+                            </div>
                         </div>
                         <input type="submit" value="change" className="btn" />
                     </div>
                 </form>
             </div>
-
         )
     };
 
