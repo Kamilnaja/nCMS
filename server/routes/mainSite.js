@@ -2,8 +2,6 @@ var express = require('express');
 var router = express.Router();
 var main_site_ctrl = require('../controllers/mainSiteControllers');
 
-router.get('/site_title', main_site_ctrl.main_site_display_name);
-// router.options('/site_title', main_site_ctrl.main_site_save_title);
-router.put('/site_title', main_site_ctrl.main_site_save_title);
-
+router.get('/api/settings', main_site_ctrl.main_site_get_settings);
+router.post('/api/settings', main_site_ctrl.main_site_save_settings)
 module.exports = router;

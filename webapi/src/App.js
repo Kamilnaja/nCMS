@@ -15,6 +15,7 @@ class App extends Component {
         <div className="App">
           <Header
             title={this.props.settings.title}
+            subtitle={this.props.settings.subtitle}
             getTitle={() => this.props.getTitle()}
           ></Header>
           <Route exact path="/" component={Main} />
@@ -35,12 +36,16 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getTitle() {
-      axios.get('http://localhost:8080/site_title')
+      axios.get('http://localhost:8080/api/settings')
         .then((res) => {
           var title = res.data[0].title;
+          var subtitle = res.data[0].subtitle;
           dispatch({
             type: "GET_TITLE",
-            payload: title
+            payload: {
+              title: title,
+              subtitle: subtitle
+            }
           });
         })
     },

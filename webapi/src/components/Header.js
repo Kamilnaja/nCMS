@@ -8,6 +8,7 @@ export default class Header extends Component {
             <div>
                 <header className="header">
                     <h1 className="header-site-title">{this.props.title}</h1>
+                    <h2 className="">{this.props.subtitle}</h2>
                 </header>
             </div>
         )

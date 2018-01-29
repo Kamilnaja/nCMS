@@ -38,7 +38,7 @@ export default class changeSettings extends Component {
     handleSubmit(evt) {
         evt.preventDefault();
         if (this.state.titleValue.length) {
-            axios.put('http://localhost:8080/site_title', {
+            axios.put('http://localhost:8080/api/settings', {
                 title: this.state.titleValue,
                 subtitle: this.state.subtitleValue
             })

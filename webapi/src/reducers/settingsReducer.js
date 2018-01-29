@@ -5,7 +5,8 @@ export const settingsReducer = (state = {
         case "GET_TITLE":
             state = {
                 ...state,
-                title: action.payload
+                title: action.payload.title,
+                subtitle: action.payload.subtitle
             };
             break;
     }

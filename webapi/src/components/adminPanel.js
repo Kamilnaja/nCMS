@@ -21,16 +21,6 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        getTitle() {
-            axios.get('http://localhost:8080/site_title')
-                .then((res) => {
-                    var title = res.data[0].title;
-                    dispatch({
-                        type: "GET_TITLE",
-                        payload: title
-                    });
-                })
-        },
         ChangeSettings(data) {
             console.log(data)
             dispatch({
@@ -38,5 +28,4 @@ const mapDispatchToProps = (dispatch) => {
             })
         }
     }
-
 }
