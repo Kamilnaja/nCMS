@@ -4,13 +4,32 @@ import axios from 'axios';
 export default class adminPanel extends Component {
     render() {
         return (
-            <section className="admin-panel">
-                <p>This is admin panel</p>
-                <ChangeSettings
-                    ChangeSettings={() => this.props.ChangeSettings()}
-                >
-                </ChangeSettings>
-            </section>
+            <div className="admin-panel">
+                <section className="admin-panel-sidebar">
+                    <ul className="admin-panel-sidebar-menu">
+                        <li>
+                            <a>Settings</a>
+                        </li>
+                        <li>
+                            <a>Articles</a>
+                        </li>
+                        <li>
+                            <a>
+                                Pages
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+                <section className="admin-panel-main">
+                    <p>This is admin panel</p>
+                    <ChangeSettings
+                        ChangeSettings={() => this.props.ChangeSettings()}
+                    >
+                    </ChangeSettings>
+                </section>
+
+            </div>
+
         )
     }
 }

@@ -20,15 +20,15 @@ export default class changeSettings extends Component {
                     <h2 className="form-title">Zmień tytuł</h2>
                     <div>
                         <div>
-                            <label>Nowy tytuł</label>
-                            <div>
-                                <input value={this.state.titleValue} onChange={e => this.updateTitleValue(e)} required /><br />
+                            <div className="input-wrap">
+                                <label>Nowy tytuł</label>
+                                <input type="text" value={this.state.titleValue} onChange={e => this.updateTitleValue(e)} required />
                             </div>
                         </div>
                         <div>
-                            <label>Zmień podtytuł</label>
-                            <div>
-                                <input value={this.state.subtitleValue} onChange={e => this.updateSubtitleValue(e)} />
+                            <div className="input-wrap">
+                                <label>Zmień podtytuł</label>
+                                <input type="text" value={this.state.subtitleValue} onChange={e => this.updateSubtitleValue(e)} />
                             </div>
                         </div>
                         <input type="submit" value="change" className="btn" />
