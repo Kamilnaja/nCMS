@@ -2,7 +2,7 @@ export const settingsReducer = (state = {
     title: ''
 }, action) => {
     switch (action.type) {
-        case "GET_TITLE":
+        case "GET_SETTINGS":
             state = {
                 ...state,
                 title: action.payload.title,

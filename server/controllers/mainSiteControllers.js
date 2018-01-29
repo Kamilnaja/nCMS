@@ -26,18 +26,3 @@ exports.main_site_save_settings = (req, res) => {
         }
     })
 }
-exports.main_site_save_title = (req, res) => {
-    MainSiteModel.findOne({ title: { $ne: null } }, (err, data) => {
-        if (err) {
-            res.status(500).send(err);
-        } else {
-            data.title = req.body.title
-            data.save((err, data) => {
-                if (err) {
-                    res.status(500).send(err);
-                }
-                res.status(200).send(data);
-            })
-        }
-    })
-}

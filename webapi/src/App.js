@@ -41,7 +41,7 @@ const mapDispatchToProps = (dispatch) => {
           var title = res.data[0].title;
           var subtitle = res.data[0].subtitle;
           dispatch({
-            type: "GET_TITLE",
+            type: "GET_SETTINGS",
             payload: {
               title: title,
               subtitle: subtitle
