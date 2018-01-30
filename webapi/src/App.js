@@ -46,19 +46,32 @@ const mapDispatchToProps = (dispatch) => {
               title: title,
               subtitle: subtitle
             }
-          });
+          })
+        }).catch((err) => {
+          dispatch({
+            type: "FETCH_SETTINGS_ERROR",
+            payload: err
+          })
         })
     },
 
     getPosts() {
+      dispatch({ type: "FETCH_POSTS_START" });
       axios.get('http://localhost:8080/api/posts')
         .then((res) => {
-          let post = res.data.map((record) => record.date);
-          console.log(post);
+          dispatch({
+            type: "RECEIVE_POSTS",
+            payload: res
+          })
+
+        }).catch((err) => {
+          dispatch({
+            type: "FETCH_POSTS_ERROR",
+            payload: err
+          })
         })
     },
     ChangeSettings(data) {
-      console.log(data);
       dispatch({
         type: "CHANGE_SETTINGS"
       })

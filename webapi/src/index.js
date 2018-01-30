@@ -3,14 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from 'react-redux';
 import { settingsReducer } from './reducers/settingsReducer';
 import { BrowserRouter } from 'react-router-dom';
+import logger from 'redux-logger';
 
 const store = createStore(
     combineReducers({ settings: settingsReducer }),
-    {},
+    applyMiddleware(logger)
 );
 
 store.subscribe(() => {
