@@ -49,6 +49,14 @@ const mapDispatchToProps = (dispatch) => {
           });
         })
     },
+
+    getPosts() {
+      axios.get('http://localhost:8080/api/posts')
+        .then((res) => {
+          let post = res.data.map((record) => record.date);
+          console.log(post);
+        })
+    },
     ChangeSettings(data) {
       console.log(data);
       dispatch({

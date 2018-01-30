@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var mySchema = mongoose.Schema({
+var settingsSchema = mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -8,4 +8,4 @@ var mySchema = mongoose.Schema({
         type: String
     }
 })
-module.exports = mySchema;
+module.exports = settingsSchema;

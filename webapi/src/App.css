@@ -61,13 +61,38 @@ p, label {
 .header {
   border-bottom: 1px solid #000;
   padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.header a {
+  text-decoration: none;
+  color: black;
+}
+
 .main {
   padding: 15px;
 }
 .header-site-title {
   font-size: 20px;
 }
+
+.header-site-main-menu {
+  display: inline-block;
+}
+
+.header-site-main-menu li {
+  display: inline;
+  border-right: 2px solid grey;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.header-site-main-menu li:last-child {
+  border-right: 2px solid transparent;
+}
+
 /* form */
 .form {
   margin-top: 15px;
