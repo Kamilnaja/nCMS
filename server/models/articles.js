@@ -6,7 +6,7 @@ var articlesSchema = mongoose.Schema({
     author: {
         type: String
     },
-    addedData: {
+    title: {
         type: String
     },
     content: {

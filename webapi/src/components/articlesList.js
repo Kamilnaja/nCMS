@@ -18,6 +18,7 @@ class ArticlesList extends Component {
                 console.log(this.props)
             }
                 <ul className="post-wrapper">
+                    {console.log(this.props.posts)}
                     {
                         this.props.posts.map((post, id) => (
 
@@ -26,9 +27,11 @@ class ArticlesList extends Component {
                                     {post.title}
                                 </h2>
                                 <div className="single-post-body">
-                                    {post.body}
+                                    {post.content}
                                 </div>
-                                <footer className="single-post-footer"></footer>
+                                <footer className="single-post-footer">
+                                    {post.author}
+                                </footer>
                                 <br />
                             </li>
                         ))
