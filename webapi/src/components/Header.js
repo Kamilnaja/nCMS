@@ -5,7 +5,7 @@ import { itemsFetchData } from '../actions/items';
 
 class Header extends Component {
     componentDidMount() {
-        this.props.fetchData('http://599167402df2f40011e4929a.mockapi.io/items')
+        this.props.fetchData('http://localhost:8080/api/settings')
     }
     render() {
         if (this.props.hasErrored) {
@@ -17,11 +17,12 @@ class Header extends Component {
         return (
             <div>
                 <header className="header">
-                    {this.props.items.map((item) => (
+                    {console.log(this.props.items[0])}
+                    {/* {this.props.items.map((item) => (
                         <li key={item.id}>
                             {item.label}
                         </li>
-                    ))}
+                    ))} */}
                     <Link to='/'>
                         <h1 className="header-site-title">
                             {/* {this.props.title} */}

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ChangeSettings from './changeSettings';
-import axios from 'axios';
 export default class adminPanel extends Component {
     render() {
         return (

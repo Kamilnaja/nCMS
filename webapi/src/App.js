@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { connect } from 'react-redux';
-import axios from 'axios';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/Header';
-import ChangeSettings from './components/changeSettings';
 import AdminPanel from './components/adminPanel';
 import Main from './components/main';
 import Footer from './components/footer';
