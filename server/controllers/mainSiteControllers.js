@@ -624,6 +624,7 @@ exports.main_site_save_settings = (req, res) => {
         } else {
             data.title = req.body.title;
             data.subtitle = req.body.subtitle;
+            data.footer = req.body.footer;
             data.save((err, data) => {
                 if (err) {
                     res.status(500).send(err);

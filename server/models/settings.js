@@ -6,6 +6,9 @@ var settingsSchema = mongoose.Schema({
     },
     subtitle: {
         type: String
+    },
+    footer: {
+        type: String
     }
 })
 module.exports = settingsSchema;

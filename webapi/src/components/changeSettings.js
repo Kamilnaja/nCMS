@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 export default class changeSettings extends Component {
     render() {
@@ -11,13 +10,13 @@ export default class changeSettings extends Component {
                         <div>
                             <div className="input-wrap">
                                 <label>Nowy tytuł</label>
-                                <input type="text" value={this.state.titleValue} onChange={e => this.updateTitleValue(e)} required />
+                                <input type="text" required />
                             </div>
                         </div>
                         <div>
                             <div className="input-wrap">
                                 <label>Zmień podtytuł</label>
-                                <input type="text" value={this.state.subtitleValue} onChange={e => this.updateSubtitleValue(e)} />
+                                <input type="text" />
                             </div>
                         </div>
                         <input type="submit" value="change" className="btn" />
@@ -26,31 +25,4 @@ export default class changeSettings extends Component {
             </div>
         )
     };
-
-    handleSubmit(evt) {
-        evt.preventDefault();
-        if (this.state.titleValue.length) {
-            axios.put('http://localhost:8080/api/settings', {
-                title: this.state.titleValue,
-                subtitle: this.state.subtitleValue
-            })
-                .then((res) => {
-                    console.log(res)
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
-            // todo - force update title 
-        };
-    }
-    updateTitleValue(evt) {
-        this.setState({
-            titleValue: evt.target.value
-        });
-    }
-    updateSubtitleValue(evt) {
-        this.setState({
-            subtitleValue: evt.target.value
-        })
-    }
 }
