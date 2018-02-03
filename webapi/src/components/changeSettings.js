@@ -2,17 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 export default class changeSettings extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            titleValue: '',
-            subtitleValue: ''
-        }
-        this.updateTitleValue = this.updateTitleValue.bind(this);
-        this.updateSubtitleValue = this.updateSubtitleValue.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
     render() {
         return (
             <div className="form">

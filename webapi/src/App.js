@@ -13,11 +13,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Header
-            title={this.props.settings.title}
-            subtitle={this.props.settings.subtitle}
-            getTitle={() => this.props.getTitle()}
-          ></Header>
+          <Header></Header>
           <Route exact path="/" component={Main} />
           <Route exact path="/admin" component={AdminPanel} />
           <Footer />
@@ -27,57 +23,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    settings: state.settings
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getTitle() {
-      axios.get('http://localhost:8080/api/settings')
-        .then((res) => {
-          var title = res.data[0].title;
-          var subtitle = res.data[0].subtitle;
-          dispatch({
-            type: "GET_SETTINGS",
-            payload: {
-              title: title,
-              subtitle: subtitle
-            }
-          })
-        }).catch((err) => {
-          dispatch({
-            type: "FETCH_SETTINGS_ERROR",
-            payload: err
-          })
-        })
-    },
-
-    getPosts() {
-      dispatch({ type: "FETCH_POSTS_START" });
-      axios.get('http://localhost:8080/api/posts')
-        .then((res) => {
-          dispatch({
-            type: "RECEIVE_POSTS",
-            payload: res
-          })
-
-        }).catch((err) => {
-          dispatch({
-            type: "FETCH_POSTS_ERROR",
-            payload: err
-          })
-        })
-    },
-    ChangeSettings(data) {
-      dispatch({
-        type: "CHANGE_SETTINGS"
-      })
-    }
-  }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App

@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-export default class Header extends Component {
+import { connect } from 'react-redux';
+import { itemsFetchData } from '../actions/items';
+
+class Header extends Component {
     componentDidMount() {
-        this.props.getTitle()
+        this.props.fetchData('http://599167402df2f40011e4929a.mockapi.io/items')
     }
     render() {
+        if (this.props.hasErrored) {
+            return <p>Sorry! There was an eror loading the items</p>
+        }
+        if (this.props.isLoading) {
+            return <p>Loading</p>
+        }
         return (
             <div>
                 <header className="header">
+                    {this.props.items.map((item) => (
+                        <li key={item.id}>
+                            {item.label}
+                        </li>
+                    ))}
                     <Link to='/'>
                         <h1 className="header-site-title">
-                            {this.props.title}
+                            {/* {this.props.title} */}
                         </h1>
-                        <h2 className="">{this.props.subtitle}</h2>
+                        {/* <h2 className="">{this.props.subtitle}</h2> */}
                     </Link>
                     <ul className="header-site-main-menu">
                         <li>
@@ -31,3 +45,18 @@ export default class Header extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        items: state.items,
+        hasErrored: state.itemsHasErrored,
+        isLoading: state.itemsIsLoading
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url) => dispatch(itemsFetchData(url))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
