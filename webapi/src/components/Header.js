@@ -19,8 +19,8 @@ class Header extends Component {
                 <header className="header">
                     <Link to='/'>
                         {
-                            this.props.items.map((item) => (
-                                <div key={item._id}>
+                            this.props.items.map((item, id) => (
+                                <div key={id}>
                                     <h1 className="header-site-title" key={item.title}>
                                         {item.title}
                                     </h1>

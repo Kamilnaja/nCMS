@@ -115,6 +115,9 @@ section {
 footer {
   margin-top: 20px;
   padding: 15px;
+  /* put to the bottom */
+  position: absolute;
+  bottom: 0;
 }
 
 .admin-panel {

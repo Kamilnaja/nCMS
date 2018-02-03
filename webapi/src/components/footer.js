@@ -14,14 +14,15 @@ class Footer extends Component {
         }
         return (
             <footer>
-                <p>
+                <div>
                     {
-                        this.props.items.map((item) => (
-                            <div key={item._id}>{item.footer}</div>
+                        this.props.items.map((item, id) => (
+                            <p key={id}>
+                                {item.footer}
+                            </p>
                         ))
                     }
-                    Website footer
-                </p>
+                </div>
             </footer>
         )
     }
