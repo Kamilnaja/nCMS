@@ -17,17 +17,19 @@ class Header extends Component {
         return (
             <div>
                 <header className="header">
-                    {console.log(this.props.items[0])}
-                    {/* {this.props.items.map((item) => (
-                        <li key={item.id}>
-                            {item.label}
-                        </li>
-                    ))} */}
                     <Link to='/'>
-                        <h1 className="header-site-title">
-                            {/* {this.props.title} */}
-                        </h1>
-                        {/* <h2 className="">{this.props.subtitle}</h2> */}
+                        {
+                            this.props.items.map((item) => (
+                                <div key={item._id}>
+                                    <h1 className="header-site-title" key={item.title}>
+                                        {item.title}
+                                    </h1>
+                                    <h2 className="header-site-subtitle" key={item.subtitle}>
+                                        {item.subtitle}
+                                    </h2>
+                                </div>
+                            ))
+                        }
                     </Link>
                     <ul className="header-site-main-menu">
                         <li>
