@@ -13,7 +13,7 @@ class Footer extends Component {
             return <p>Ładowanie stopki</p>
         }
         return (
-            <footer>
+            <footer className="footer">
                 <div>
                     {
                         this.props.items.map((item, id) => (

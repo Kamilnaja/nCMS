@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { itemsFetchData } from '../actions/items';
+import { postsFetchData } from '../actions/posts';
 
 class ArticlesList extends Component {
     componentDidMount() {
@@ -14,16 +14,26 @@ class ArticlesList extends Component {
             return <p>Wczytywanie postów</p>
         }
         return (
-            <div>
-                {/* {
-                    this.props.items.map((item, id) => (
-                        <ul key={id}>
-                            <li key={item}>
-                                {item.title}
+            <div>{
+                console.log(this.props)
+            }
+                <ul className="post-wrapper">
+                    {
+                        this.props.posts.map((post, id) => (
+
+                            <li key={id} className="single-post-wrapper">
+                                <h2 className="single-post-title">
+                                    {post.title}
+                                </h2>
+                                <div className="single-post-body">
+                                    {post.body}
+                                </div>
+                                <footer className="single-post-footer"></footer>
+                                <br />
                             </li>
-                        </ul>
-                    ))
-                } */}
+                        ))
+                    }
+                </ul>
             </div>
 
         )
@@ -32,15 +42,15 @@ class ArticlesList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        items: state.items,
-        hasErrored: state.itemsHasErrored,
-        isLoading: state.itemsIsLoading
+        posts: state.posts,
+        hasErrored: state.postsHasErrored,
+        isLoading: state.postsIsLoading
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchData: (url) => dispatch(itemsFetchData(url))
+        fetchData: (url) => dispatch(postsFetchData(url))
     };
 };
 
