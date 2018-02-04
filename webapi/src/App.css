@@ -69,6 +69,13 @@ p, label {
 .header a {
   text-decoration: none;
   color: black;
+  transition: 0.3s all ease;
+  letter-spacing: 0.11px;
+}
+
+.header-site-main-menu .active {
+  font-weight: bold;
+  letter-spacing: 0;
 }
 
 .main {

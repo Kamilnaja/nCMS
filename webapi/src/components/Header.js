@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { itemsFetchData } from '../actions/items';
 import SiteTitle from './siteTitle';
+import { BrowserRouter } from 'react-router-dom';
 
 class Header extends Component {
     componentDidMount() {
@@ -16,23 +17,28 @@ class Header extends Component {
             return <p>Loading</p>
         }
         return (
-            <div>
+            <BrowserRouter>
                 <header className="header">
                     <SiteTitle settings={this.props.items}></SiteTitle>
                     <ul className="header-site-main-menu">
                         <li>
-                            <Link to="/admin">
-                                Admin Panel
-                                </Link>
+                            <NavLink to="/" activeClassName="active" exact={true}>
+                                Home
+                            </NavLink>
                         </li>
                         <li>
-                            <Link to="/settings">
+                            <NavLink to="/admin" activeClassName="active" exact={true}>
+                                Admin Panel
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/settings" activeClassName="active" exact={true}>
                                 Settings
-                            </Link>
+                            </NavLink>
                         </li>
                     </ul>
                 </header>
-            </div>
+            </BrowserRouter>
         )
     }
 }

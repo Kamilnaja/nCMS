@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ArticlesList from './articlesList';
 import { connect } from 'react-redux';
 import { postsFetchData } from '../actions/posts';
+import { PropTypes } from 'prop-types';
 
 class Main extends Component {
     componentDidMount() {
@@ -29,5 +30,8 @@ const mapDispatchToProps = (dispatch) => {
         fetchData: (url) => dispatch(postsFetchData(url))
     };
 };
+
+Main.PropTypes = {
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
