@@ -12,18 +12,7 @@ class ArticleFormPage extends Component {
     }
     render() {
         return (
-            <div className="form-wrapper">
-                <form>
-                    <h2 className="form-title">
-                        Dodaj nowy artykuł
-                    </h2>
-                    <div className="input-wrap">
-                        <label>Tytuł artykułu</label>
-                        <input type="text" />
-                    </div>
-                    <input className="btn" type="submit" value="zapisz" />
-                </form>
-            </div>
+            <ArticleForm></ArticleForm>
         )
     }
 }
