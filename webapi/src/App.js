@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/Header';
-import AdminPanel from './components/adminPanel';
+import AdminPanel from './components/adminPanel/adminPanel';
 import Main from './components/main';
 import Footer from './components/footer';
 class App extends Component {

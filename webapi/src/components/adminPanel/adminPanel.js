@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ChangeSettings from './changeSettings';
-import ArticleForm from './adminPanel/articleForm';
+import ArticleForm from './articleForm';
 
 export default class adminPanel extends Component {
     render() {
