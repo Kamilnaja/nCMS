@@ -19,6 +19,13 @@ export function postsFetchDataSuccess(posts) {
     }
 }
 
+export function postsIsSaving(bool) {
+    return {
+        type: 'POSTS_IS_SAVING',
+        isSaving: bool
+    }
+}
+
 export function postsFetchData(url) {
     return (dispatch) => {
         dispatch(postsIsLoading(true));

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-export default class changeSettings extends Component {
+export default class ChangeSettings extends Component {
     render() {
         return (
-            <div className="form">
+            <div className="form-wrapper">
                 <form onSubmit={this.handleSubmit}>
                     <h2 className="form-title">Zmień tytuł</h2>
                     <div>

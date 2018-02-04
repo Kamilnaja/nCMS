@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ChangeSettings from './changeSettings';
+import ArticleForm from './adminPanel/articleForm';
+
 export default class adminPanel extends Component {
     render() {
         return (
@@ -20,30 +22,12 @@ export default class adminPanel extends Component {
                     </ul>
                 </section>
                 <section className="admin-panel-main">
-                    <p>This is admin panel</p>
-                    <ChangeSettings
-                        ChangeSettings={() => this.props.ChangeSettings()}
-                    >
-                    </ChangeSettings>
+                    <div className="admin-panel-forms-wrapper">
+                        <ChangeSettings></ChangeSettings>
+                        <ArticleForm></ArticleForm>
+                    </div>
                 </section>
-
             </div>
-
         )
-    }
-}
-const mapStateToProps = (state) => {
-    return {
-        settings: state.settings
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        ChangeSettings(data) {
-            console.log(data)
-            dispatch({
-                type: "CHANGE_SETTINGS"
-            })
-        }
     }
 }

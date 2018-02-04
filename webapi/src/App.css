@@ -101,6 +101,12 @@ p, label {
   font-weight: bold;
   margin-bottom: 5px;
 }
+.form-wrapper {
+  margin-left: 15px;
+}
+.admin-panel-forms-wrapper {
+  display: flex;
+}
 
 /* buttons */
 .btn {
@@ -133,7 +139,8 @@ section {
 };
 
 .admin-panel-main {
-  flex: 1
+  flex: 1;
+  display: flex;
 }
 .admin-panel-sidebar-menu {
   background-color:cornflowerblue;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { itemsFetchData } from '../actions/items';
+import SiteTitle from './siteTitle';
 
 class Header extends Component {
     componentDidMount() {
@@ -17,20 +18,7 @@ class Header extends Component {
         return (
             <div>
                 <header className="header">
-                    <Link to='/'>
-                        {
-                            this.props.items.map((item, id) => (
-                                <div key={id}>
-                                    <h1 className="header-site-title" key={item.title}>
-                                        {item.title}
-                                    </h1>
-                                    <h2 className="header-site-subtitle" key={item.subtitle}>
-                                        {item.subtitle}
-                                    </h2>
-                                </div>
-                            ))
-                        }
-                    </Link>
+                    <SiteTitle settings={this.props.items}></SiteTitle>
                     <ul className="header-site-main-menu">
                         <li>
                             <Link to="/admin">

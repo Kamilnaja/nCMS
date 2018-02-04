@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { postsFetchData } from '../actions/posts';
+import SingleArticle from './singleArticle';
 
 class ArticlesList extends Component {
     componentDidMount() {
@@ -14,29 +15,8 @@ class ArticlesList extends Component {
             return <p>Wczytywanie postów</p>
         }
         return (
-            <div>{
-                console.log(this.props)
-            }
-                <ul className="post-wrapper">
-                    {console.log(this.props.posts)}
-                    {
-                        this.props.posts.map((post, id) => (
-
-                            <li key={id} className="single-post-wrapper">
-                                <h2 className="single-post-title">
-                                    {post.title}
-                                </h2>
-                                <div className="single-post-body">
-                                    {post.content}
-                                </div>
-                                <footer className="single-post-footer">
-                                    {post.author}
-                                </footer>
-                                <br />
-                            </li>
-                        ))
-                    }
-                </ul>
+            <div>
+                <SingleArticle articles={this.props.posts}></SingleArticle>
             </div>
 
         )

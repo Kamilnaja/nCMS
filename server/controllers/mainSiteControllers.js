@@ -12,6 +12,15 @@ exports.get_articles = (req, res) => {
         })
 }
 
+exports.save_articles = (req, res) => {
+    var article = new ArticlesModel({ title: 'lorem' });
+    article.save((err) => {
+        if (err) return handleError(err);
+        console.log('item saved');
+        res.send('zapisano wpis');
+    })
+}
+
 exports.main_site_get_settings = (req, res) => {
     SettingsModel.find({})
         .exec((err, data) => {
