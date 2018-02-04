@@ -1,13 +1,33 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 import ArticlesList from './articlesList';
-export default class Main extends Component {
+import { connect } from 'react-redux';
+import { postsFetchData } from '../actions/posts';
 
+class Main extends Component {
+    componentDidMount() {
+        this.props.fetchData('http://localhost:8080/api/posts')
+    }
     render() {
         return (
             <section>
-                <ArticlesList></ArticlesList>
+                <ArticlesList articles={this.props.posts}></ArticlesList>
             </section>
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        posts: state.posts,
+        hasErrored: state.postsHasErrored,
+        isLoading: state.postsIsLoading
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url) => dispatch(postsFetchData(url))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

@@ -1,40 +1,30 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { postsFetchData } from '../actions/posts';
-import SingleArticle from './singleArticle';
+import React from 'react';
 
-class ArticlesList extends Component {
-    componentDidMount() {
-        this.props.fetchData('http://localhost:8080/api/posts')
-    }
-    render() {
-        if (this.props.hasErrored) {
-            return <p>Ups! Problem z załadowaniem postów</p>
-        }
-        if (this.props.isLoading) {
-            return <p>Wczytywanie postów</p>
-        }
-        return (
-            <div>
-                <SingleArticle articles={this.props.posts}></SingleArticle>
-            </div>
+export default function ArticlesList({ articles }) {
 
-        )
-    }
+
+    return (
+        <div>
+            <ul className="post-wrapper">
+                {
+                    articles.map((article, id) => (
+                        <li key={id} className="single-post-wrapper">
+                            <h2 className="single-post-title">
+                                {article.title}
+                            </h2>
+                            <div className="single-post-body">
+                                {article.content}
+                            </div>
+                            <footer className="single-post-footer">
+                                {article.author}
+                            </footer>
+                            <br />
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+
+    )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        posts: state.posts,
-        hasErrored: state.postsHasErrored,
-        isLoading: state.postsIsLoading
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchData: (url) => dispatch(postsFetchData(url))
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ArticlesList);
