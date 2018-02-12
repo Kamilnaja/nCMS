@@ -4,6 +4,15 @@ import { saveArticle, fetchArticle, updateArticle } from '../../actions/posts';
 import ArticleForm from './articleForm';
 
 class ArticleFormPage extends Component {
+
+
+    saveArticle = ({ title }) => {
+
+        return this.props.saveArticle({ title }).then(
+            () => { this.setState({ redirect: true }) },
+        );
+    }
+
     state = {
         redirect: false
     }
@@ -12,7 +21,7 @@ class ArticleFormPage extends Component {
     }
     render() {
         return (
-            <ArticleForm></ArticleForm>
+            <ArticleForm article={this.props.article} saveArticle={this.props.saveArticle}></ArticleForm>
         )
     }
 }

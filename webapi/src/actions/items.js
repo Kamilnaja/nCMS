@@ -1,3 +1,5 @@
+export const ADD_ARTICLE = "ADD_ARTICLE";
+
 export function itemsHasErrored(bool) {
     return {
         type: 'ITEM_HAS_ERRORED',
@@ -16,6 +18,36 @@ export function itemsFetchDataSuccess(items) {
     return {
         type: 'ITEMS_FETCH_DATA_SUCCESS',
         items
+    }
+}
+
+export function addArticle(article) {
+    return {
+        type: ADD_ARTICLE,
+        article
+    }
+}
+
+export function saveArticle(data) {
+    return dispatch => {
+        return fetch('/api/posts', {
+            method: 'post',
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(handleResponse)
+            .then(data => dispatch(addArticle(data.article)));
+    }
+}
+
+function handleResponse(response) {
+    if (response.ok) {
+        return response.json();
+    } else {
+        let error = new Error(response.statusText);
+        error.respone = response;
+        throw error;
     }
 }
 

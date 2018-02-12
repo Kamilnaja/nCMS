@@ -18,10 +18,28 @@ class articleForm extends Component {
             this.setState({ [e.target.name]: e.target.value });
         }
     }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state.title);
+        let errors = {};
+        if (this.state.title === '') {
+            errors.title = "Title can't be empty";
+        }
+        this.setState({ errors });
+        const isValid = Object.keys(errors).length === 0;
+        if (isValid) {
+            const { title } = this.state;
+            this.setState({ loading: true });
+            this.props.saveArticle({ title })
+                .catch((err) => err.response.json().then(({ errors }) => this.setState({ errors, loading: false })));
+        }
+    }
+
     render() {
         return (
             <div className="form-wrapper">
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <h2 className="form-title">
                         Dodaj nowy artykuł
                     </h2>
