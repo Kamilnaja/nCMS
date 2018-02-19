@@ -1,37 +1,34 @@
-import React, { Component } from 'react';
-import ArticlesList from './articlesList';
-import { connect } from 'react-redux';
-import { postsFetchData } from '../actions/posts';
-import { PropTypes } from 'prop-types';
+// import React, { Component } from 'react';
+// import ArticlesList from './articlesList';
+// import { connect } from 'react-redux';
+// import { postsFetchData } from '../actions/posts';
 
-class Main extends Component {
-    componentDidMount() {
-        this.props.fetchData('http://localhost:8080/api/posts')
-    }
-    render() {
-        return (
-            <section>
-                <ArticlesList articles={this.props.posts}></ArticlesList>
-            </section>
-        )
-    }
-}
+// export class Main extends Component {
 
-const mapStateToProps = (state) => {
-    return {
-        posts: state.posts,
-        hasErrored: state.postsHasErrored,
-        isLoading: state.postsIsLoading
-    };
-};
+//     componentDidMount() {
+//         // this.props.posts.dispatch(postsFetchData('http://localhost:8080/api/posts'))
+//         // console.log(this.props.postsFetchData());
+//         console.log(this.props);
+//     }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchData: (url) => dispatch(postsFetchData(url))
-    };
-};
+//     render() {
+//         return (
+//             <section>
+//                 <ArticlesList articles={this.props.posts}></ArticlesList>
+//             </section>
+//         )
+//     }
+// }
 
-Main.PropTypes = {
-}
+// function mapStateToProps(state) {
+//     return {
+//         posts: state.posts,
+//         articles: state.articles
+//     };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+// const mapDispatchToProps = {
+//     postsFetchData
+// }
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Main);

@@ -8,7 +8,7 @@ export default function ArticlesList({ articles }) {
 
     const articlesList = (
         <ul className="post-wrapper">
-            {
+            {/* {
                 articles.map((article, id) => (
                     <li key={id} className="single-post-wrapper">
                         <h2 className="single-post-title">
@@ -23,20 +23,20 @@ export default function ArticlesList({ articles }) {
                         <br />
                     </li>
                 ))
-            }
+            } */}
         </ul>
     )
 
     return (
         <div>
-            {
+            {/* {
                 articles.length === 0 ? emptyMessage : articlesList
-            }
+            } */}
         </div>
 
     )
 }
 
-ArticlesList.propTypes = {
-    articles: PropTypes.array.isRequired
-}
+// ArticlesList.propTypes = {
+//     articles: PropTypes.array.isRequired
+// }

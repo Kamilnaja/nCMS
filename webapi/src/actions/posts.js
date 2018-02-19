@@ -41,4 +41,4 @@ export function postsFetchData(url) {
             .then((posts) => dispatch(postsFetchDataSuccess(posts)))
             .catch(() => dispatch(postsHasErrored(true)))
     };
-}
+};

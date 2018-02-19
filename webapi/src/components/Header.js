@@ -1,9 +1,16 @@
+import { Main } from './main';
+import { ArticlesList } from './articlesList';
+import { AdminPanel } from './adminPanel/adminPanel';
+import { Settings } from './settings';
 import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import {
+    Link, BrowserRouter as Router,
+    withRouter,
+    Route
+} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { itemsFetchData } from '../actions/items';
 import SiteTitle from './siteTitle';
-import { BrowserRouter } from 'react-router-dom';
 
 class Header extends Component {
     componentDidMount() {
@@ -17,36 +24,43 @@ class Header extends Component {
             return <p>Loading</p>
         }
         return (
-            <BrowserRouter>
-                <header className="header">
-                    <SiteTitle settings={this.props.items}></SiteTitle>
-                    <ul className="header-site-main-menu">
-                        <li>
-                            <NavLink to="/" activeClassName="active" exact={true}>
-                                Home
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/admin" activeClassName="active" exact={true}>
-                                Admin Panel
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/settings" activeClassName="active" exact={true}>
-                                Settings
-                            </NavLink>
-                        </li>
-                    </ul>
-                </header>
-            </BrowserRouter>
+            <Router>
+                <div>
+                    <header className="header">
+                        <SiteTitle settings={this.props.items}></SiteTitle>
+                        {/* todo - menu w formie listy  */}
+                        <ul className="header-site-main-menu">
+                            <li>
+                                <Link to="/" >
+                                    Home
+                            </Link>
+                            </li>
+                            <li>
+                                <Link to="/admin">
+                                    Admin Panel
+                            </Link>
+                            </li>
+                            <li>
+                                <Link to="/settings">
+                                    settings
+                            </Link>
+                            </li>
+                        </ul>
+                        {/* <Route exact path='/' component={Main} /> */}
+                    </header>
+                    <Route path='/' component={Main} />
+                    <Route path='/admin' component={AdminPanel} />
+                    <Route path='/settings' component={Settings} />
+                </div>
+
+
+            </Router>
         )
     }
 }
 const mapStateToProps = (state) => {
     return {
-        items: state.items,
-        hasErrored: state.itemsHasErrored,
-        isLoading: state.itemsIsLoading
+        items: state.items
     };
 };
 
@@ -56,4 +70,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

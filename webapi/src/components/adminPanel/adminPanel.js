@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ChangeSettings from './changeSettings';
 import ArticleFormPage from './articleFormPage';
 
-export default class adminPanel extends Component {
+export class AdminPanel extends Component {
     render() {
         return (
             <div className="admin-panel">
