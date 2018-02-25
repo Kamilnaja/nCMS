@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Header';
 import AdminPanel from './components/adminPanel/adminPanel';
 import Main from './components/main';
@@ -13,7 +13,6 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header></Header>
-
           <Footer />
         </div>
       </Router>

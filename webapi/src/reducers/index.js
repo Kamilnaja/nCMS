@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import { items, itemsHasErrored, itemsIsLoading } from './items';
-import { posts } from './posts';
+import { items, itemsHasErrored, itemsIsLoading } from './itemsReducer';
+import { articles } from './postsReducer';
 export default combineReducers({
     items,
-    posts,
     itemsHasErrored,
-    itemsIsLoading
+    itemsIsLoading,
+    articles
 })

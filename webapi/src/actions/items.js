@@ -23,8 +23,22 @@ export function itemsFetchDataSuccess(items) {
 
 export function addArticle(article) {
     return {
-        type: ADD_ARTICLE,
+        type: 'ADD_ARTICLE',
         article
+    }
+}
+
+export function articlesIsLoading(bool) {
+    return {
+        type: 'ARTICLES_IS_LOADING',
+        isLoading: bool
+    }
+}
+
+export function articlesFetchDataSuccess(items) {
+    return {
+        type: 'ARTICLES_FETCH_DATA_SUCCESS',
+        items
     }
 }
 
@@ -64,6 +78,23 @@ export function itemsFetchData(url) {
             })
             .then((response) => response.json())
             .then((items) => dispatch(itemsFetchDataSuccess(items)))
+            .catch(() => dispatch(itemsHasErrored(true)))
+    };
+}
+
+export function fetchArticles(url) {
+    return (dispatch) => {
+        dispatch(articlesIsLoading(true));
+        fetch(url)
+            .then((response) => {
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+                dispatch(articlesIsLoading(false));
+                return response;
+            })
+            .then((response) => response.json())
+            .then((items) => dispatch(articlesFetchDataSuccess(items)))
             .catch(() => dispatch(itemsHasErrored(true)))
     };
 }

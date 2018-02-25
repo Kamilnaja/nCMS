@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ChangeSettings from './changeSettings';
-import ArticleFormPage from './articleFormPage';
 
 export class AdminPanel extends Component {
     render() {
@@ -24,7 +23,6 @@ export class AdminPanel extends Component {
                 <section className="admin-panel-main">
                     <div className="admin-panel-forms-wrapper">
                         <ChangeSettings></ChangeSettings>
-                        <ArticleFormPage></ArticleFormPage>
                     </div>
                 </section>
             </div>

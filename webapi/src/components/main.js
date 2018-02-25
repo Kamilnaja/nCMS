@@ -1,34 +1,42 @@
-// import React, { Component } from 'react';
-// import ArticlesList from './articlesList';
-// import { connect } from 'react-redux';
-// import { postsFetchData } from '../actions/posts';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchArticles } from '../actions/items';
 
-// export class Main extends Component {
+export class Main extends Component {
 
-//     componentDidMount() {
-//         // this.props.posts.dispatch(postsFetchData('http://localhost:8080/api/posts'))
-//         // console.log(this.props.postsFetchData());
-//         console.log(this.props);
-//     }
+    componentDidMount() {
+        this.props.fetchData('http://localhost:8080/api/posts')
+        console.log(this.state);
+    }
 
-//     render() {
-//         return (
-//             <section>
-//                 <ArticlesList articles={this.props.posts}></ArticlesList>
-//             </section>
-//         )
-//     }
-// }
+    render() {
+        const { articles } = this.props;
+        console.log(this.props);
+        return (
+            <section>
+                <div>
+                    {articles.map((item, index) => {
+                        return (<div key={index}>
+                            {item.title}
+                        </div>);
+                    })}
+                </div>
+                {/* <ArticlesList articles={this.props.posts}></ArticlesList> */}
+            </section>
+        )
+    }
+}
 
-// function mapStateToProps(state) {
-//     return {
-//         posts: state.posts,
-//         articles: state.articles
-//     };
-// };
+const mapStateToProps = (state) => {
+    return {
+        articles: state.articles
+    }
+};
 
-// const mapDispatchToProps = {
-//     postsFetchData
-// }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url) => dispatch(fetchArticles(url))
+    }
+}
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Main);
+Main = connect(mapStateToProps, mapDispatchToProps)(Main);

@@ -1,5 +1,4 @@
 import { Main } from './main';
-import { ArticlesList } from './articlesList';
 import { AdminPanel } from './adminPanel/adminPanel';
 import { Settings } from './settings';
 import React, { Component } from 'react';
@@ -16,6 +15,7 @@ class Header extends Component {
     componentDidMount() {
         this.props.fetchData('http://localhost:8080/api/settings')
     }
+
     render() {
         if (this.props.hasErrored) {
             return <p>Sorry! There was an eror loading the items</p>
