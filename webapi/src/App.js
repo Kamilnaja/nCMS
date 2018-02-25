@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Header';
-import AdminPanel from './components/adminPanel/adminPanel';
-import Main from './components/main';
 import Footer from './components/footer';
-import Settings from './components/settings';
 
 class App extends Component {
   render() {

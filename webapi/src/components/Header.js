@@ -48,12 +48,9 @@ class Header extends Component {
                         </ul>
                         {/* <Route exact path='/' component={Main} /> */}
                     </header>
-                    <Route path='/' component={Main} />
+                    <Route exact path='/' component={Main} />
                     <Route path='/admin' component={AdminPanel} />
-                    <Route path='/settings' component={Settings} />
                 </div>
-
-
             </Router>
         )
     }
