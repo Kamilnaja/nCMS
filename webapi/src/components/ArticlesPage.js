@@ -7,7 +7,6 @@ export class ArticlesPage extends Component {
 
     componentDidMount() {
         this.props.fetchData('http://localhost:8080/api/posts')
-        console.log(this.state);
     }
 
     render() {
@@ -17,7 +16,7 @@ export class ArticlesPage extends Component {
             <section>
                 <div>
                     return (
-                            <ArticlesItems props={this.props.articles}>
+                    <ArticlesItems props={this.props.articles}>
                     </ArticlesItems>
                     );
                 })}
@@ -28,16 +27,3 @@ export class ArticlesPage extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        articles: state.articles
-    }
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchData: (url) => dispatch(fetchArticles(url))
-    }
-}
-
-ArticlesPage = connect(mapStateToProps, mapDispatchToProps)(ArticlesPage);

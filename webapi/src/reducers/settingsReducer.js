@@ -1,47 +1,22 @@
-const initialState = {
-    fetching: false,
-    fetched: false,
-    error: null,
-    title: '',
-    subtitle: ''
-}
-export const settingsReducer = (state = initialState, action) => {
+const settingsReducer = (state = {
+    title: 1,
+    subtitle: 'lorem'
+},
+    action) => {
     switch (action.type) {
-        case "GET_SETTINGS": {
-            return {
+        case "SET_TITLE":
+            state = {
                 ...state,
-                title: action.payload.title,
-                subtitle: action.payload.subtitle
+                title: action.payload
             }
             break;
-        }
-
-        case "FETCH_POSTS_START": {
-            return {
+        case "SET_SUBTITLE":
+            state = {
                 ...state,
-                fetching: true
+                title: action.payload
             }
-            break;
-        }
-
-        case "FETCH_POSTS_ERROR": {
-            return {
-                ...state,
-                fetching: false,
-                error: action.payload
-            }
-            break;
-        }
-
-        case "RECEIVE_POSTS": {
-            return {
-                ...state,
-                fetching: false,
-                fetched: true,
-                posts: action.payload
-            }
-            break;
-        }
     }
     return state;
-};
+}
+
+export default settingsReducer;
