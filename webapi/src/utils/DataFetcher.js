@@ -12,7 +12,7 @@ export class DataFetcher {
             url: this.requestUrl
         })
             .then((res) => {
-                return res.data[0].title
+                return res.data[0]
             })
             .catch((err) => {
                 console.log(err)

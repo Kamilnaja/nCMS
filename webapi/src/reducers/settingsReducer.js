@@ -4,17 +4,12 @@ const settingsReducer = (state = {
 },
     action) => {
     switch (action.type) {
-        case "SET_TITLE_FULFILLED":
-            state = {
-                ...state,
-                title: action.payload
-            }
-            break;
 
-        case "SET_SUBTITLE":
+        case "SET_SETTINGS_FULFILLED":
             state = {
                 ...state,
-                title: action.payload
+                title: action.payload.title,
+                subtitle: action.payload.subtitle
             }
     }
     return state;

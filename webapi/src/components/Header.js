@@ -10,24 +10,16 @@ import {
 import { connect } from 'react-redux';
 import SiteTitle from './siteTitle';
 
-export const Header = (props) => {
-    // componentDidMount() {
-    //     this.props.fetchData('http://localhost:8080/api/settings')
-    // }
 
-    // render() {
-    //     if (this.props.hasErrored) {
-    //         return <p>Sorry! There was an eror loading the items</p>
-    //     }
-    //     if (this.props.isLoading) {
-    //         return <p>Loading</p>
-    //     }
+
+export const Header = (props) => {
+
     return (
         <Router>
             <div>
                 <header className="header">
-                    <h1>{props.title}</h1>
-                    <h2>{props.subtitle}</h2>
+                    <h1>{props.settings.title}</h1>
+                    <h2>{props.settings.subtitle}</h2>
                     {/* <SiteTitle settings={this.props.items}></SiteTitle> */}
                     {/* todo - menu w formie listy  */}
                     <ul className="header-site-main-menu">
