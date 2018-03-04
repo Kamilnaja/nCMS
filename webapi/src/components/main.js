@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchArticles } from '../actions/items';
 
 export class Main extends Component {
 
@@ -24,18 +23,4 @@ export class Main extends Component {
             </section>
         )
     }
-}
-
-// const mapStateToProps = (state) => {
-//     return {
-//         articles: state.articles
-//     }
-// };
-
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         fetchData: (url) => dispatch(fetchArticles(url))
-//     }
-// }
-
-// Main = connect(mapStateToProps, mapDispatchToProps)(Main);
+};

@@ -8,7 +8,6 @@ import {
     Route
 } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { itemsFetchData } from '../actions/items';
 import SiteTitle from './siteTitle';
 
 export const Header = (props) => {

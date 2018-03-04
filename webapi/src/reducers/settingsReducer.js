@@ -1,15 +1,16 @@
 const settingsReducer = (state = {
-    title: 1,
+    title: '',
     subtitle: 'lorem'
 },
     action) => {
     switch (action.type) {
-        case "SET_TITLE":
+        case "SET_TITLE_FULFILLED":
             state = {
                 ...state,
                 title: action.payload
             }
             break;
+
         case "SET_SUBTITLE":
             state = {
                 ...state,
