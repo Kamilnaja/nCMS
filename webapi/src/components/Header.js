@@ -1,16 +1,7 @@
-import { Main } from './main';
-import { AdminPanel } from './adminPanel/adminPanel';
-import { Settings } from './settings';
-import React, { Component } from 'react';
+import React from 'react';
 import {
-    Link, BrowserRouter as Router,
-    withRouter,
-    Route
+    Link, BrowserRouter as Router
 } from 'react-router-dom';
-import { connect } from 'react-redux';
-import SiteTitle from './siteTitle';
-
-
 
 export const Header = (props) => {
 
@@ -20,8 +11,6 @@ export const Header = (props) => {
                 <header className="header">
                     <h1>{props.settings.title}</h1>
                     <h2>{props.settings.subtitle}</h2>
-                    {/* <SiteTitle settings={this.props.items}></SiteTitle> */}
-                    {/* todo - menu w formie listy  */}
                     <ul className="header-site-main-menu">
                         <li>
                             <Link to="/" >
@@ -39,12 +28,8 @@ export const Header = (props) => {
                             </Link>
                         </li>
                     </ul>
-                    {/* <Route exact path='/' component={Main} /> */}
                 </header>
-                <Route exact path='/' component={Main} />
-                <Route path='/admin' component={AdminPanel} />
             </div>
         </Router>
     )
-    // }
 }

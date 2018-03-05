@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Header } from './components/Header';
-import Footer from './components/footer';
+import { Footer } from './components/footer';
 import { connect } from 'react-redux';
-import { logger } from 'react-redux';
-import { setTitle, setSettings } from './actions/settingActions';
+import { setSettings } from './actions/settingActions';
 import { DataFetcher } from './utils/DataFetcher';
 import { checkObjectHasAllValues } from './utils/objectValuesChecker';
+import Main from './components/main';
+import { AdminPanel } from './components/adminPanel/adminPanel';
 
 class App extends Component {
 
@@ -24,12 +25,10 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Header
-            // title={this.props.title}
-            // subtitle={this.props.subtitle}
-            settings={this.props.settings}
-          />
-          <Footer />
+          <Header settings={this.props.settings} />
+          <Footer settings={this.props.settings} />
+          <Route exact path='/' component={Main} />
+          <Route path='/admin' component={AdminPanel} />
         </div>
       </Router>
     );
@@ -38,20 +37,16 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    title: state.settings.title,
-    subtitle: state.settings.subtitle,
-    settings: state.settings
+    settings: state.settings,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setTitle: (title) => {
-      dispatch(setTitle(title));
-    },
     setSettings: (data) => {
       dispatch(setSettings(data))
-    }
+    },
+
   }
 }
 
