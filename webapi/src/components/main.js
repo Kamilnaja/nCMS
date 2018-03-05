@@ -9,13 +9,22 @@ class Main extends Component {
         let secondFetcher = new DataFetcher('http://localhost:8080/api/posts')
         this.props.setArticles(secondFetcher.getDataFromApi());
     }
-    render() {
-        return (
 
-            // <ArticlesItems data={this.props.articles} />
-            <div>
-                {/* {this.props.articles} */}
-            </div>
+    render() {
+        if (this.props.articles.data) {
+            var data = this.props.articles.data.map((item) =>
+                <li key={item._id}>
+                    <h2>{item.title}</h2>
+                    <p>{item.content}</p>
+                    <h3>{item.author}</h3>
+                    <hr />
+                </li>)
+        }
+
+        return (
+            <ul>
+                {data}
+            </ul>
         )
     }
 };

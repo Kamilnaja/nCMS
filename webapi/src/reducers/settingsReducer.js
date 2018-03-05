@@ -1,4 +1,4 @@
-const settingsReducer = (state = {},
+const settingsReducer = (state = [],
     action) => {
     switch (action.type) {
 

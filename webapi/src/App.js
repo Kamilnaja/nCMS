@@ -22,12 +22,13 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props.settings)
     return (
       <Router>
         <div className="App">
           <Header settings={this.props.settings} />
-          <Footer settings={this.props.settings} />
           <Route exact path='/' component={Main} />
+          <Footer settings={this.props.settings} />
           <Route path='/admin' component={AdminPanel} />
         </div>
       </Router>

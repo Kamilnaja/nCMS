@@ -1,12 +1,11 @@
-const articlesReducer = (state = {},
+const articlesReducer = (state = [],
     action) => {
     switch (action.type) {
 
         case "SET_ARTICLES_FULFILLED":
             state = {
                 ...state,
-                articles: action.payload,
-                loadStatus: 'success'
+                data: action.payload,
             }
             break;
         default: return state;
