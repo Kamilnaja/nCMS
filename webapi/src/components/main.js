@@ -13,12 +13,12 @@ class Main extends Component {
     render() {
         if (this.props.articles.data) {
             var data = this.props.articles.data.map((item) =>
-                <li key={item._id}>
-                    <h2>{item.title}</h2>
-                    <p>{item.content}</p>
+                <li key={item._id} className="single-post-wrapper">
+                    <h2 className="single-post-title">{item.title}</h2>
+                    <p className="single-post-body">{item.content}</p>
                     <h3>{item.author}</h3>
                     <hr />
-                </li>)
+                </li >)
         }
 
         return (
