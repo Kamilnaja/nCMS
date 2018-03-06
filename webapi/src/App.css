@@ -42,6 +42,7 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -81,8 +82,12 @@ p, label {
 .main {
   padding: 15px;
 }
+
 .header-site-title {
   font-size: 20px;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .header-site-main-menu {

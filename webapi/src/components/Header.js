@@ -9,8 +9,13 @@ export const Header = (props) => {
         <Router>
             <div>
                 <header className="header">
-                    <h1>{props.settings.title}</h1>
-                    <h2>{props.settings.subtitle}</h2>
+                    <div>
+                        <h1 className="header-site-title">
+                            {props.settings.title}
+                        </h1>
+                        <h2>{props.settings.subtitle}</h2>
+                    </div>
+
                     <ul className="header-site-main-menu">
                         <li>
                             <Link to="/" >

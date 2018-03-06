@@ -18,7 +18,8 @@ class Main extends Component {
                     <p className="single-post-body">{item.content}</p>
                     <h3>{item.author}</h3>
                     <hr />
-                </li >)
+                </li >
+            )
         }
 
         return (
