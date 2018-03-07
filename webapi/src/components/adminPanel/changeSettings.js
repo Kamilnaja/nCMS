@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getArticles } from './../../actions/articlesActions';
 
-export default class ChangeSettings extends Component {
+class ChangeSettings extends Component {
     render() {
         return (
             <div>
@@ -29,3 +31,19 @@ export default class ChangeSettings extends Component {
         )
     };
 }
+
+const mapStateToProps = (state) => {
+    return {
+        settings: state.settings
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getArticles: (data) => {
+            dispatch(getArticles(data));
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChangeSettings)

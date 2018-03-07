@@ -1,8 +1,7 @@
 const articlesReducer = (state = [],
     action) => {
     switch (action.type) {
-
-        case "SET_ARTICLES_FULFILLED":
+        case "GET_ARTICLES_FULFILLED":
             state = {
                 ...state,
                 data: action.payload,

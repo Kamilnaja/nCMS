@@ -1,6 +1,6 @@
-export function setArticles(data) {
+export function getArticles(data) {
     return {
-        type: "SET_ARTICLES",
+        type: "GET_ARTICLES",
         payload: data
     }
 }

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/footer';
 import { connect } from 'react-redux';
-import { setSettings } from './actions/settingActions';
+import { getSettings } from './actions/settingActions';
 import { DataFetcher } from './utils/DataFetcher';
 import { checkObjectHasAllValues } from './utils/objectValuesChecker';
 import Main from './components/main';
@@ -17,12 +17,12 @@ class App extends Component {
       !checkObjectHasAllValues(this.props.settings)
     ) {
       let dataFetcher = new DataFetcher('http://localhost:8080/api/settings');
-      this.props.setSettings(dataFetcher.getDataFromApi());
+      this.props.getSettings(dataFetcher.getDataFromApi());
     }
   }
 
   render() {
-    console.log(this.props.settings)
+
     return (
       <Router>
         <div className="App">
@@ -44,8 +44,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setSettings: (data) => {
-      dispatch(setSettings(data))
+    getSettings: (data) => {
+      dispatch(getSettings(data))
     },
 
   }

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setArticles } from './../actions/articlesActions';
+import { getArticles } from './../actions/articlesActions';
 import { DataFetcher } from './../utils/DataFetcher';
 
 class Main extends Component {
 
     componentDidMount() {
         let secondFetcher = new DataFetcher('http://localhost:8080/api/posts')
-        this.props.setArticles(secondFetcher.getDataFromApi());
+        this.props.getArticles(secondFetcher.getDataFromApi());
     }
 
     render() {
@@ -38,10 +38,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setArticles: (data) => {
-            dispatch(setArticles(data))
+        getArticles: (data) => {
+            dispatch(getArticles(data))
         }
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main)
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
