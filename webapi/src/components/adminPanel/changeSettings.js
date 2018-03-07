@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setSettings } from './../../actions/settingActions';
@@ -30,12 +31,20 @@ class ChangeSettings extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.setSettings(
-            {
-                title: this.state.title,
-                subtitle: this.state.subtitle,
-                footer: this.state.footer
-            });
+        axios.put('http://localhost:8080/api/settings', {
+            title: this.state.title,
+            subtitle: this.state.subtitle,
+            footer: this.state.footer
+        })
+            .then(() => {
+                this.props.setSettings(
+                    {
+                        title: this.state.title,
+                        subtitle: this.state.subtitle,
+                        footer: this.state.footer
+                    });
+            })
+
     }
 
     render() {

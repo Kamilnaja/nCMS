@@ -13,12 +13,9 @@ import { AdminPanel } from './components/adminPanel/adminPanel';
 class App extends Component {
 
   componentDidMount() {
-    if (
-      !checkObjectHasAllValues(this.props.settings)
-    ) {
-      let dataFetcher = new DataFetcher('http://localhost:8080/api/settings');
-      this.props.getSettings(dataFetcher.getDataFromApi());
-    }
+
+    let dataFetcher = new DataFetcher('http://localhost:8080/api/settings');
+    this.props.getSettings(dataFetcher.getDataFromApi());
   }
 
   render() {

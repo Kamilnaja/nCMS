@@ -10,7 +10,7 @@ const settingsReducer = (state = [],
                 footer: action.payload[0].footer
             }
             break;
-        // sends new settings 
+
         case "SET_SETTINGS":
             state = {
                 ...state,
