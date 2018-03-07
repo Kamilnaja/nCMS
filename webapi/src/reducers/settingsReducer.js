@@ -10,15 +10,15 @@ const settingsReducer = (state = [],
                 footer: action.payload[0].footer
             }
             break;
-
+        // sends new settings 
         case "SET_SETTINGS":
             state = {
                 ...state,
-                title: 'lorem',
-                subtitle: 'ipsum',
-                footer: 'lorem'
+                title: action.payload.title,
+                subtitle: action.payload.subtitle,
+                footer: action.payload.footer
             }
-
+            break;
         default: return state;
     }
     return state;

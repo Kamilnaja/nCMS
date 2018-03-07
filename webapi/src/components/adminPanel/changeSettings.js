@@ -1,36 +1,92 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getArticles } from './../../actions/articlesActions';
+import { setSettings } from './../../actions/settingActions';
 
 class ChangeSettings extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: '',
+            subtitle: '',
+            footer: ''
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleChangeSubtitle = this.handleChangeSubtitle.bind(this);
+        this.handleChangeFooter = this.handleChangeFooter.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({ title: event.target.value });
+    }
+
+    handleChangeSubtitle(event) {
+        this.setState({ subtitle: event.target.value });
+    }
+
+    handleChangeFooter(event) {
+        this.setState({ footer: event.target.value });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.setSettings(
+            {
+                title: this.state.title,
+                subtitle: this.state.subtitle,
+                footer: this.state.footer
+            });
+    }
+
     render() {
         return (
             <div>
                 <div className="form-wrapper">
-                    <form onSubmit={this.handleSubmit}>
-                        <h2 className="form-title">Zmień tytuł</h2>
+                    <form onSubmit={(e) => this.handleSubmit(e)}>
+                        <h2 className="form-title">
+                            Zmień tytuł
+                        </h2>
                         <div>
                             <div>
                                 <div className="input-wrap">
                                     <label>Nowy tytuł</label>
-                                    <input type="text" required />
+                                    <input
+                                        type="text"
+                                        required
+                                        value={this.state.title}
+                                        onChange={this.handleChange}
+                                    />
                                 </div>
                             </div>
                             <div>
                                 <div className="input-wrap">
                                     <label>Zmień podtytuł</label>
-                                    <input type="text" />
+                                    <input
+                                        type="text"
+                                        required
+                                        value={this.state.subtitle}
+                                        onChange={this.handleChangeSubtitle}
+                                    />
+                                </div>
+                                <div className="input-wrap">
+                                    <label>Zmień tekst stopki</label>
+                                    <input
+                                        type="text"
+                                        required
+                                        value={this.state.footer}
+                                        onChange={this.handleChangeFooter}
+                                    />
                                 </div>
                             </div>
-                            <input type="submit" value="change" className="btn" />
+                            <input type="submit" value="Save" className="btn" />
                         </div>
                     </form>
                 </div>
             </div>
-
         )
     };
 }
+
 
 const mapStateToProps = (state) => {
     return {
@@ -40,8 +96,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getArticles: (data) => {
-            dispatch(getArticles(data));
+        setSettings: (data) => {
+            dispatch(setSettings(data));
         }
     }
 }

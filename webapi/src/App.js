@@ -28,8 +28,8 @@ class App extends Component {
         <div className="App">
           <Header settings={this.props.settings} />
           <Route exact path='/' component={Main} />
-          <Footer settings={this.props.settings} />
           <Route path='/admin' component={AdminPanel} />
+          <Footer settings={this.props.settings} />
         </div>
       </Router>
     );
