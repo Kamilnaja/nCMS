@@ -41,7 +41,6 @@ const mapDispatchToProps = (dispatch) => {
     getSettings: (data) => {
       dispatch(getSettings(data))
     },
-
   }
 }
 

@@ -156,6 +156,7 @@ p, label {
 }
 .admin-panel-forms-wrapper {
   display: flex;
+  flex-grow: 1;
 }
 
 /* buttons */
@@ -184,14 +185,15 @@ section {
 .admin-panel {
   display: flex
 }
+
 .admin-panel-sidebar {
-  flex-basis: 15%;
+  flex-basis: 200px;
 };
 
 .admin-panel-main {
-  flex: 1;
-  display: flex;
+  background-color: red;
 }
+
 .admin-panel-sidebar-menu {
   background-color:cornflowerblue;
   color: white;
@@ -233,3 +235,17 @@ section {
   margin-bottom: 5px;
 }
 
+.edit-options {
+  margin-top: 15px;
+  color: green;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.edit-options i {
+  margin-right: 5px;
+}
+
+.articles-edit {
+  flex-grow: 1;
+}

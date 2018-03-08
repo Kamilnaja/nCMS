@@ -33,16 +33,16 @@ class AdminPanel extends Component {
                         </li>
                     </ul>
                 </section>
-                <section className="admin-panel-main">
-                    <div className="admin-panel-forms-wrapper">
-                        {this.state.isVisible === 'Settings' && <div><ChangeSettings></ChangeSettings></div>}
+                {/* <section className="admin-panel-main"> */}
+                <div className="admin-panel-forms-wrapper">
+                    {this.state.isVisible === 'Settings' && <div><ChangeSettings></ChangeSettings></div>}
 
-                        {this.state.isVisible === 'Articles' && <ManageArticles></ManageArticles>}
+                    {this.state.isVisible === 'Articles' && <ManageArticles></ManageArticles>}
 
-                        {this.state.isVisible === 'Pages' && <ManagePages></ManagePages>}
+                    {this.state.isVisible === 'Pages' && <ManagePages></ManagePages>}
 
-                    </div>
-                </section>
+                </div>
+                {/* </section> */}
             </div>
         )
     }
