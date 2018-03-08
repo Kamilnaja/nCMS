@@ -6,20 +6,17 @@ import { Footer } from './components/footer';
 import { connect } from 'react-redux';
 import { getSettings } from './actions/settingActions';
 import { DataFetcher } from './utils/DataFetcher';
-import { checkObjectHasAllValues } from './utils/objectValuesChecker';
 import Main from './components/main';
-import { AdminPanel } from './components/adminPanel/adminPanel';
+import AdminPanel from './components/adminPanel/adminPanel';
 
 class App extends Component {
 
   componentDidMount() {
-
     let dataFetcher = new DataFetcher('http://localhost:8080/api/settings');
     this.props.getSettings(dataFetcher.getDataFromApi());
   }
 
   render() {
-
     return (
       <Router>
         <div className="App">

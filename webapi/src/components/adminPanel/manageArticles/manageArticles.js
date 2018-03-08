@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-export class Settings extends Component {
+class ManageArticles extends Component {
     constructor(props) {
         super(props);
         this.state = {}
     }
     render() {
         return (
-            <div>Settings</div>
+            <div>Manage articles </div>
         )
     }
 }
+
+export default ManageArticles;
