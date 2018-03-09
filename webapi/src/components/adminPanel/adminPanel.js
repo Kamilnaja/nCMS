@@ -18,7 +18,7 @@ class AdminPanel extends Component {
 
     render() {
         return (
-            <div className="admin-panel">
+            <section className="admin-panel">
                 <section className="admin-panel-sidebar">
 
                     <ul className="admin-panel-sidebar-menu">
@@ -33,7 +33,6 @@ class AdminPanel extends Component {
                         </li>
                     </ul>
                 </section>
-                {/* <section className="admin-panel-main"> */}
                 <div className="admin-panel-forms-wrapper">
                     {this.state.isVisible === 'Settings' && <div><ChangeSettings></ChangeSettings></div>}
 
@@ -42,8 +41,7 @@ class AdminPanel extends Component {
                     {this.state.isVisible === 'Pages' && <ManagePages></ManagePages>}
 
                 </div>
-                {/* </section> */}
-            </div>
+            </section>
         )
     }
 }
