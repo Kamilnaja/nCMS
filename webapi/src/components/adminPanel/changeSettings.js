@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setSettings } from './../../actions/settingActions';
+import { localUrl } from './../../utils/AppConfig';
 
 class ChangeSettings extends Component {
     constructor(props) {
@@ -31,7 +32,7 @@ class ChangeSettings extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        axios.put('http://localhost:8080/api/settings', {
+        axios.put(`${localUrl}/api/settings`, {
             title: this.state.title,
             subtitle: this.state.subtitle,
             footer: this.state.footer

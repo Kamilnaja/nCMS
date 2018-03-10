@@ -1,8 +1,10 @@
 import axios from 'axios';
+import { localUrl } from './../utils/AppConfig';
 
 const articlesReducer = (state = [],
     action) => {
     switch (action.type) {
+
         case "GET_ARTICLES_FULFILLED":
             state = {
                 ...state,
@@ -13,21 +15,24 @@ const articlesReducer = (state = [],
         case "DELETE_ARTICLE":
             axios({
                 method: 'delete',
-                url: `http://localhost:8080/api/posts/${action.payload}`
+                url: `${localUrl}/api/posts/${action.payload}`
             })
                 .then(
                     state = {
                         ...state,
-                        info: 'Skasowano item o id ' + action.payload
+                        statusInfo: 'Skasowano item o id ' + action.payload,
+                        data: state.data
                     }
                 )
-                .catch(
-                    state = {
-                        ...state,
-                        error: 'Nie udało się skasować'
+                .catch((err) => {
+                    if (err.response) {
+                        state = {
+                            ...state,
+                            statusInfo: 'Nie udało się skasować'
+                        }
                     }
-                )
-
+                })
+            break;
 
         default: return state;
     }

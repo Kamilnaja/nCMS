@@ -8,11 +8,12 @@ import { getSettings } from './actions/settingActions';
 import { DataFetcher } from './utils/DataFetcher';
 import Main from './components/main';
 import AdminPanel from './components/adminPanel/adminPanel';
+import { localUrl } from './utils/AppConfig';
 
 class App extends Component {
 
   componentDidMount() {
-    let dataFetcher = new DataFetcher('http://localhost:8080/api/settings');
+    let dataFetcher = new DataFetcher(`${localUrl}/api/settings`);
     this.props.getSettings(dataFetcher.getDataFromApi());
   }
 
