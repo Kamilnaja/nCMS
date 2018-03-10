@@ -14,10 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.set('debug', true);
 
-app.get('/', (req, res) => {
-    res.send('hello');
-})
-
 app.use('/', mainSite);
 
 app.listen(port, () => console.log('listening on ' + port))

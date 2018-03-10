@@ -4,3 +4,10 @@ export function getArticles(data) {
         payload: data
     }
 }
+
+export function deleteArticle(data) {
+    return {
+        type: "DELETE_ARTICLE",
+        payload: data
+    }
+}

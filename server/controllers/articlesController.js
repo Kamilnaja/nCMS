@@ -1,0 +1,40 @@
+var mongoose = require('mongoose');
+var ArticlesSchema = require('../models/articles');
+var ArticlesModel = mongoose.model('Post', ArticlesSchema);
+
+let validateError = function () {
+    return {
+        if(err) { return (err) }
+    }
+}
+
+exports.get_articles = (req, res) => {
+    ArticlesModel.find({})
+        .exec((err, data) => {
+            validateError();
+            res.send(data);
+        })
+}
+
+exports.get_one_article = (req, res, next) => {
+    ArticlesModel.findById(req.params.id, (err, article) => {
+        if (err) { res.send(err) };
+        res.json(article);
+    })
+}
+
+exports.delete_article = (req, res) => {
+    ArticlesModel.findByIdAndRemove(req.params.id, (err, article) => {
+        validateError();
+        res.send(`Usunięto item ${req.params.id}`)
+    })
+}
+
+exports.save_articles = (req, res) => {
+    var article = new ArticlesModel({ title: 'lorem' });
+    article.save((err) => {
+        if (err) return handleError(err);
+        console.log('item saved');
+        res.send('zapisano wpis');
+    })
+}
