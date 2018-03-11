@@ -4,9 +4,11 @@ import { localUrl } from './../utils/AppConfig';
 
 export function getArticles() {
     store.dispatch((dispatch) => {
+
         dispatch({
             type: "GET_ARTICLES_START"
         })
+
         axios.get(`${localUrl}/api/posts`)
             .then((response) => {
                 dispatch({

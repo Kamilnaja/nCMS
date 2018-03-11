@@ -16,8 +16,9 @@ const settingsReducer = (state = [],
                 ...state,
                 settings_error: true
             }
+            break;
 
-        case "SET_SETTINGS":
+        case "SET_SETTINGS_SUCCESS":
             state = {
                 ...state,
                 title: action.payload.title,
@@ -25,6 +26,7 @@ const settingsReducer = (state = [],
                 footer: action.payload.footer
             }
             break;
+
         default: return state;
     }
     return state;

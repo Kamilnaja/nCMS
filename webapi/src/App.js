@@ -5,10 +5,8 @@ import { Header } from './components/Header';
 import { Footer } from './components/footer';
 import { connect } from 'react-redux';
 import { getSettings } from './actions/settingActions';
-import { DataFetcher } from './utils/DataFetcher';
 import Main from './components/main';
 import AdminPanel from './components/adminPanel/adminPanel';
-import { localUrl } from './utils/AppConfig';
 
 class App extends Component {
 

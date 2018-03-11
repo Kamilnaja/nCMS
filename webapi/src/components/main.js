@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getArticles } from './../actions/articlesActions';
-import { localUrl } from './../utils/AppConfig';
 
 class Main extends Component {
 
