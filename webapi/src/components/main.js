@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getArticles } from './../actions/articlesActions';
-import { DataFetcher } from './../utils/DataFetcher';
 import { localUrl } from './../utils/AppConfig';
 
 class Main extends Component {
 
     componentDidMount() {
-        let dataFetcher = new DataFetcher(`${localUrl}/api/posts`)
-        this.props.getArticles(dataFetcher.getDataFromApi());
+        getArticles()
     }
 
     render() {

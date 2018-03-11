@@ -13,8 +13,7 @@ import { localUrl } from './utils/AppConfig';
 class App extends Component {
 
   componentDidMount() {
-    let dataFetcher = new DataFetcher(`${localUrl}/api/settings`);
-    this.props.getSettings(dataFetcher.getDataFromApi());
+    getSettings()
   }
 
   render() {
