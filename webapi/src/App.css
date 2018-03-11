@@ -240,12 +240,36 @@ section {
   color: green;
   display: flex;
   justify-content: flex-start;
+  cursor: pointer;
 }
 
 .edit-options i {
   margin-right: 5px;
+  transition: 0.3s ease color;
+}
+
+.edit-options i:hover {
+  color: goldenrod;
+
 }
 
 .articles-edit {
   flex-grow: 1;
+}
+
+.info-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: salmon;
+  color: white;
+}
+
+.info-box:empty {
+  display: none;
 }

@@ -26,15 +26,19 @@ exports.get_one_article = (req, res, next) => {
 exports.delete_article = (req, res) => {
     ArticlesModel.findByIdAndRemove(req.params.id, (err, article) => {
         validateError();
-        res.send(`Usunięto item ${req.params.id}`)
-    })
+    }).then(
+        ArticlesModel.find({})
+            .exec((err, data) => {
+                validateError();
+                res.send(data);
+            })
+    )
 }
 
 exports.save_articles = (req, res) => {
     var article = new ArticlesModel({ title: 'lorem' });
     article.save((err) => {
         if (err) return handleError(err);
-        console.log('item saved');
-        res.send('zapisano wpis');
+        res.send('Zapisano wpis');
     })
 }

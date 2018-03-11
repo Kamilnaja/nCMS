@@ -7,8 +7,8 @@ import { localUrl } from './../utils/AppConfig';
 class Main extends Component {
 
     componentDidMount() {
-        let secondFetcher = new DataFetcher(`${localUrl}/api/posts`)
-        this.props.getArticles(secondFetcher.getDataFromApi());
+        let dataFetcher = new DataFetcher(`${localUrl}/api/posts`)
+        this.props.getArticles(dataFetcher.getDataFromApi());
     }
 
     render() {
