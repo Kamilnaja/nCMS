@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { getArticles, deleteArticle } from './../../../actions/articlesActions';
 import { connect } from 'react-redux';
-import { DataFetcher } from './../../../utils/DataFetcher';
-import { localUrl } from './../../../utils/AppConfig';
 
 class ManageArticles extends Component {
+
     componentDidMount() {
-        let secondFetcher = new DataFetcher(`${localUrl}/api/posts`)
-        this.props.getArticles(secondFetcher.getDataFromApi());
+        getArticles();
     }
 
     removeItem(itemId) {
@@ -35,7 +33,8 @@ class ManageArticles extends Component {
         return (
             <div className="articles-edit">
                 <div className="info-box">
-                    {this.props.articles.statusInfo}
+                    {/* {this.props.articles} */}
+                    {/* {this.props.articles.statusInfo} */}
                 </div>
                 <h2>Lista artykułów {dataLength}</h2>
                 {data}

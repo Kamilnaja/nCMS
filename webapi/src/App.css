@@ -257,6 +257,11 @@ section {
   flex-grow: 1;
 }
 
+@keyframes hideInfoBox {
+  from {opacity: 100%;}
+  to { opacity: 0}
+}
+
 .info-box {
   position: fixed;
   bottom: 0;
