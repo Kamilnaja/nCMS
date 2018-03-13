@@ -29,7 +29,7 @@ export const Header = (props) => {
                         </li>
                         <li>
                             <Link to="/settings">
-                                settings
+                                Settings
                             </Link>
                         </li>
                     </ul>

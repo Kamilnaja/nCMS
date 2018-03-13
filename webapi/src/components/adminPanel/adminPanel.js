@@ -3,6 +3,7 @@ import ChangeSettings from './changeSettings';
 import { connect } from 'react-redux';
 import ManageArticles from './manageArticles/manageArticles';
 import ManagePages from './managePages/managePages';
+import { withRouter } from 'react-router-dom';
 
 class AdminPanel extends Component {
     constructor(props) {
@@ -53,4 +54,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, null)(AdminPanel);
+export default withRouter(connect(mapStateToProps, null)(AdminPanel));
