@@ -278,3 +278,8 @@ section {
 .info-box:empty {
   display: none;
 }
+
+.article-content {
+  width: 100%;
+  display: block;
+}

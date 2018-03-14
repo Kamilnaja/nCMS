@@ -8,10 +8,6 @@ class ManageArticles extends Component {
         getArticles();
     }
 
-    removeItem(itemId) {
-        this.props.deleteArticle(itemId);
-    }
-
     render() {
         if (this.props.articles.data) {
             var dataLength = this.props.articles.data.length;
@@ -22,7 +18,7 @@ class ManageArticles extends Component {
                     <h3>{item.author}</h3>
                     <div className="edit-options">
                         <i >Edytuj</i>
-                        <i onClick={(itemId) => this.removeItem(item._id)} key={item._id}>
+                        <i onClick={(itemId) => deleteArticle(item._id)} key={item._id}>
                             Usuń
                         </i>
                     </div>
@@ -33,8 +29,6 @@ class ManageArticles extends Component {
         return (
             <div className="articles-edit">
                 <div className="info-box">
-                    {/* {this.props.articles} */}
-                    {/* {this.props.articles.statusInfo} */}
                 </div>
                 <h2>Lista artykułów {dataLength}</h2>
                 {data}

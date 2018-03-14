@@ -1,5 +1,3 @@
-import axios from 'axios'; // todo - remove action move to actions 
-import { localUrl } from './../utils/AppConfig';
 
 const initialState = {
     fetching: false,
@@ -44,28 +42,23 @@ const articlesReducer = (state = initialState,
             break;
         }
 
-        case "DELETE_ARTICLE": {
-            axios({
-                method: 'delete',
-                url: `${localUrl}/api/posts/${action.payload}`
-            })
-                .then(
-                    findElementAndReturnArrayWithoutHim(),
-                    state = {
-                        ...state,
-                        statusInfo: 'Skasowano item o id ' + action.payload,
-                        data: state.data
-                    },
-            )
-                .catch((err) => {
-                    if (err.response) {
-                        state = {
-                            ...state,
-                            statusInfo: 'Nie udało się skasować'
-                        }
-                    }
-                })
+        case "DELETE_ARTICLE_SUCCESS": {
+
+            findElementAndReturnArrayWithoutHim();
+            state = {
+                ...state,
+                statusInfo: 'Skasowano item o id ' + action.payload,
+                data: state.data
+            }
             break;
+        }
+
+        case "DELETE_ARTICLE_FAILED": {
+
+            state = {
+                ...state,
+            }
+            break
         }
         default: return state;
     }

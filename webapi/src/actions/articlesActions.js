@@ -1,10 +1,11 @@
 import axios from 'axios';
 import store from './../store';
 import { localUrl } from './../utils/AppConfig';
-import AddArticles from './../components/adminPanel/AddArticles/AddArticles';
 
 export function getArticles() {
+
     store.dispatch((dispatch) => {
+
         dispatch({
             type: "GET_ARTICLES_START"
         })
@@ -16,6 +17,7 @@ export function getArticles() {
                     payload: response.data
                 })
             })
+
             .catch((err) => {
                 dispatch({
                     type: "GET_ARTICLES_ERROR",
@@ -24,16 +26,35 @@ export function getArticles() {
             })
     })
 }
-
 export function deleteArticle(data) {
-    return {
-        type: "DELETE_ARTICLE",
-        payload: data
-    }
+
+    store.dispatch((dispatch) => {
+        axios({
+            method: 'delete',
+            url: `${localUrl}/api/posts/${data}`
+        })
+            .then(() =>
+                dispatch({
+                    type: "DELETE_ARTICLE_SUCCESS",
+                    payload: data
+                })
+            )
+            .catch((err) => {
+                if (err) {
+                    dispatch({
+                        type: "DELETE_ARTICLE_FAILED",
+                        payload: data
+                    })
+                }
+            })
+    })
+
 }
 
 export function AddNewArticle(data) {
-    return {
 
+    return {
+        type: "ADD_NEW_ARTICLE",
+        payload: data
     }
 }

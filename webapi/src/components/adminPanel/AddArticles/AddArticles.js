@@ -4,6 +4,7 @@ import { AddNewArticle } from './../../../actions/articlesActions';
 
 class AddArticles extends Component {
     constructor(props) {
+
         super(props);
         this.state = {
             articleTitle: '',
@@ -73,6 +74,7 @@ class AddArticles extends Component {
                             type="text"
                             value={this.state.articleMainContent}
                             onChange={this.handleChangeMainContent}
+                            className="article-content"
                         ></textarea>
                     </div>
 
@@ -85,7 +87,7 @@ class AddArticles extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        AddNewArticle: state.articles
+        // AddNewArticle: state.articles
     }
 }
 
