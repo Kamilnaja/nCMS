@@ -6,7 +6,9 @@ class ManagePages extends Component {
     }
     render() {
         return (
-            <div>Manage pages</div>
+            <div>
+                <h2>Manage pages</h2>
+            </div>
         )
     }
 }

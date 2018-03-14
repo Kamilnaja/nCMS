@@ -27,7 +27,7 @@ class ManageArticles extends Component {
                         </i>
                     </div>
                     <hr />
-                </li >
+                </li>
             )
         }
         return (

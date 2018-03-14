@@ -82,7 +82,6 @@ class ChangeSettings extends Component {
     };
 }
 
-
 const mapStateToProps = (state) => {
     return {
         settings: state.settings

@@ -1,10 +1,10 @@
 import axios from 'axios';
 import store from './../store';
 import { localUrl } from './../utils/AppConfig';
+import AddArticles from './../components/adminPanel/AddArticles/AddArticles';
 
 export function getArticles() {
     store.dispatch((dispatch) => {
-
         dispatch({
             type: "GET_ARTICLES_START"
         })
@@ -29,5 +29,11 @@ export function deleteArticle(data) {
     return {
         type: "DELETE_ARTICLE",
         payload: data
+    }
+}
+
+export function AddNewArticle(data) {
+    return {
+
     }
 }

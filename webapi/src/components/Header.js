@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Link, BrowserRouter as Router
+    Link
 } from 'react-router-dom';
 
 export const Header = (props) => {

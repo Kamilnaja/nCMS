@@ -4,7 +4,6 @@ import { localUrl } from './../utils/AppConfig';
 
 export function setSettings(payloadData) {
     store.dispatch((dispatch) => {
-
         dispatch({
             type: "SET_SETTINGS_START"
         })
