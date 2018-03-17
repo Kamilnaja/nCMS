@@ -60,6 +60,14 @@ const articlesReducer = (state = initialState,
             }
             break
         }
+
+        case "ADD_NEW_ARTICLE": {
+            state = {
+                ...state,
+                statusInfo: 'Dodano artykuł o id ' + action.payload,
+            }
+            break;
+        }
         default: return state;
     }
     return state;

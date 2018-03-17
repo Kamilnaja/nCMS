@@ -48,13 +48,22 @@ export function deleteArticle(data) {
                 }
             })
     })
-
 }
 
-export function AddNewArticle(data) {
-
-    return {
-        type: "ADD_NEW_ARTICLE",
-        payload: data
-    }
+export function AddNewArticle(payloadData) {
+    store.dispatch((dispatch) => {
+        axios.post(
+            `${localUrl}/api/posts`, {
+                title: payloadData.articleTitle,
+                subtitle: payloadData.articleSubtitle,
+                content: payloadData.articleMainContent,
+                author: payloadData.articleAuthor
+            })
+            .then(() => {
+                dispatch({
+                    type: "ADD_NEW_ARTICLE",
+                    payload: payloadData
+                })
+            })
+    })
 }

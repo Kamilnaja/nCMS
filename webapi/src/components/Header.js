@@ -9,10 +9,13 @@ export const Header = (props) => {
         <div>
             <header className="header">
                 <div>
-                    <h1 className="header-site-title">
-                        {props.settings.title}
-                    </h1>
-                    <h2>{props.settings.subtitle}</h2>
+                    <Link to="/">
+                        <h1 className="header-site-title">
+                            {props.settings.title}
+                        </h1>
+                        <h2>{props.settings.subtitle}</h2>
+                    </Link>
+
                 </div>
 
                 <ul className="header-site-main-menu">

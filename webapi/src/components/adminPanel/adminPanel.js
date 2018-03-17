@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ManageArticles from './manageArticles/manageArticles';
 import ManagePages from './managePages/managePages';
 import { withRouter } from 'react-router-dom';
-import AddArticles from './AddArticles/AddArticles';
+import AddArticle from './AddArticles/AddArticle';
 import ChangeSettings from './siteSettings/changeSettings';
 
 class AdminPanel extends Component {
@@ -43,7 +43,7 @@ class AdminPanel extends Component {
 
                     {this.state.isVisible === 'Edit articles' && <ManageArticles></ManageArticles>}
 
-                    {this.state.isVisible === 'Add article' && <AddArticles></AddArticles>}
+                    {this.state.isVisible === 'Add article' && <AddArticle></AddArticle>}
 
                     {this.state.isVisible === 'Pages' && <ManagePages></ManagePages>}
 

@@ -6,11 +6,12 @@ var articlesSchema = mongoose.Schema({
     author: {
         type: String
     },
-    title: {
-        type: String
-    },
     content: {
         type: String
+    },
+    subtitle: {
+        type: String
     }
+
 })
 module.exports = articlesSchema;

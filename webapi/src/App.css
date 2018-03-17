@@ -283,3 +283,9 @@ section {
   width: 100%;
   display: block;
 }
+.articles-list {
+  margin-top: 25px;
+}
+.articles-list li {
+  padding-left: 15px;
+}

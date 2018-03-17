@@ -13,6 +13,7 @@ class Main extends Component {
             var data = this.props.articles.data.map((item) =>
                 <li key={item._id} className="single-post-wrapper">
                     <h2 className="single-post-title">{item.title}</h2>
+                    <h3 className="single-post-subtitle">{item.subtitle}</h3>
                     <p className="single-post-body">{item.content}</p>
                     <h3>{item.author}</h3>
                     <hr />
@@ -21,7 +22,7 @@ class Main extends Component {
         }
 
         return (
-            <ul>
+            <ul className="articles-list">
                 {data}
             </ul>
         )

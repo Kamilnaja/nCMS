@@ -36,7 +36,14 @@ exports.delete_article = (req, res) => {
 }
 
 exports.save_articles = (req, res) => {
-    var article = new ArticlesModel({ title: 'lorem' });
+    console.log(req.body);
+    var article = new ArticlesModel(
+        {
+            title: req.body.title,
+            subtitle: req.body.subtitle,
+            author: req.body.author,
+            content: req.body.content
+        });
     article.save((err) => {
         if (err) return handleError(err);
         res.send('Zapisano wpis');

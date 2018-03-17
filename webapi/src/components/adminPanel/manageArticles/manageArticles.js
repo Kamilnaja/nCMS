@@ -17,7 +17,7 @@ class ManageArticles extends Component {
                     <p className="single-post-body">{item.content}</p>
                     <h3>{item.author}</h3>
                     <div className="edit-options">
-                        <i >Edytuj</i>
+                        <i>Edytuj</i>
                         <i onClick={(itemId) => deleteArticle(item._id)} key={item._id}>
                             Usuń
                         </i>

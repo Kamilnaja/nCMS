@@ -3,3 +3,4 @@ webapi/node_modules
 node_modules
 .vs/
 .vscode
+.idea
