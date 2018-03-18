@@ -17,12 +17,15 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
-          <Header settings={this.props.settings} />
-          <Route exact path='/' component={Main} />
-          <Route path='/admin' component={AdminPanel} />
-          <Footer settings={this.props.settings} />
+        <div className="background-app">
+          <div className="App container-app">
+            <Header settings={this.props.settings} />
+            <Route exact path='/' component={Main} />
+            <Route path='/admin' component={AdminPanel} />
+            <Footer settings={this.props.settings} />
+          </div>
         </div>
+
       </Router>
     );
   }
