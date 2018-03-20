@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { AddNewArticle } from './../../../actions/articlesActions';
 
-
 class AddArticles extends Component {
     constructor(props) {
 
@@ -11,7 +10,8 @@ class AddArticles extends Component {
             articleTitle: '',
             articleMainContent: '',
             articleSubtitle: '',
-            articleAuthor: ''
+            articleAuthor: '',
+            statusInfo: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -26,9 +26,18 @@ class AddArticles extends Component {
     handleSubmit(e) {
         e.preventDefault();
         AddNewArticle(this.state);
+        this.setState({
+            articleTitle: '',
+            articleMainContent: '',
+            articleSubtitle: '',
+            articleAuthor: '',
+        })
     }
 
     render() {
+        if (this.props.statusInfo === 'pending') {
+            return <p>Loading</p>
+        }
         return (
 
             <form onSubmit={(e) => this.handleSubmit(e)}>
@@ -73,7 +82,11 @@ class AddArticles extends Component {
         )
     }
 }
-
+const mapStateToProps = (state) => {
+    return {
+        statusInfo: state.statusInfo
+    }
+}
 const mapDispatchToProps = (dispatch) => {
     return {
         saveArticle: (data) => {
@@ -82,4 +95,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(AddArticles);
+export default connect(mapStateToProps, mapDispatchToProps)(AddArticles);

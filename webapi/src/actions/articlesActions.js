@@ -18,7 +18,6 @@ export function getOneArticle(e) {
 }
 
 export function getArticles() {
-
     store.dispatch((dispatch) => {
         dispatch({
             type: "GET_ARTICLES_START"
@@ -40,6 +39,15 @@ export function getArticles() {
             })
     })
 }
+
+export function editArticle(data) {
+    store.dispatch((dispatch) => {
+        dispatch({
+            type: "EDIT_ARTICLE_START"
+        })
+    })
+}
+
 export function deleteArticle(data) {
 
     store.dispatch((dispatch) => {
@@ -66,6 +74,9 @@ export function deleteArticle(data) {
 
 export function AddNewArticle(payloadData) {
     store.dispatch((dispatch) => {
+        dispatch({
+            type: "ADD_ARTICLE_PENDING"
+        })
         axios.post(
             `${localUrl}/api/posts`, {
                 title: payloadData.articleTitle,
@@ -75,9 +86,10 @@ export function AddNewArticle(payloadData) {
             })
             .then(() => {
                 dispatch({
-                    type: "ADD_NEW_ARTICLE",
+                    type: "ADD_NEW_ARTICLE_SUCCESS",
                     payload: payloadData
                 })
             })
     })
 }
+

@@ -61,13 +61,31 @@ const articlesReducer = (state = initialState,
             break
         }
 
-        case "ADD_NEW_ARTICLE": {
+        case "ADD_NEW_ARTICLE_SUCCESS": {
             state = {
                 ...state,
                 statusInfo: 'Dodano artykuł o id ' + action.payload,
+
             }
             break;
         }
+
+        case "ADD_ARTICLE_PENDING": {
+            state = {
+                ...state,
+                statusInfo: 'pending'
+            }
+            break;
+        }
+
+        case "EDIT_ARTICLE_START": {
+            state = {
+                ...state,
+                isOnEdition: true
+            }
+            break;
+        }
+
         default: return state;
     }
     return state;
