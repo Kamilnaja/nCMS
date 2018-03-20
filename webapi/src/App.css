@@ -60,7 +60,7 @@ p, label {
 }
 
 .header {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 20px 15px;
   display: flex;
   justify-content: space-between;
@@ -222,6 +222,10 @@ section {
   padding: 5px;
 }
 
+.single-post-wrapper:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
 .single-post-title {
   display: block;
   font-size: 15px;
@@ -322,3 +326,4 @@ section {
   filter: blur(20px);
   overflow: hidden;
 }
+

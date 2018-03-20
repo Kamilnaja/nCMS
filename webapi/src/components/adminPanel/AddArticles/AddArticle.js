@@ -74,12 +74,6 @@ class AddArticles extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        // AddNewArticle: state.articles
-    }
-}
-
 const mapDispatchToProps = (dispatch) => {
     return {
         saveArticle: (data) => {
@@ -88,4 +82,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddArticles);
+export default connect(null, mapDispatchToProps)(AddArticles);

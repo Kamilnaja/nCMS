@@ -25,7 +25,6 @@ class App extends Component {
             <Footer settings={this.props.settings} />
           </div>
         </div>
-
       </Router>
     );
   }

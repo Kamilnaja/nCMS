@@ -22,7 +22,6 @@ class ManageArticles extends Component {
                             Usuń
                         </i>
                     </div>
-                    <hr />
                 </li>
             )
         }
