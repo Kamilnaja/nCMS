@@ -87,26 +87,22 @@ class ManageArticles extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        articles: state.articles,
-        statusInfo: state.statusInfo,
-        isOnEdition: state.isOnEdition
-    }
-}
+const mapStateToProps = (state) => ({
+    articles: state.articles,
+    statusInfo: state.statusInfo,
+    isOnEdition: state.isOnEdition
+})
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getArticles: (data) => {
-            dispatch(getArticles(data))
-        },
-        deleteArticle: (data) => {
-            dispatch(deleteArticle(data))
-        },
-        editArticle: (data) => {
-            dispatch(editArticle(data))
-        }
+const mapDispatchToProps = (dispatch) => ({
+    getArticles: (data) => {
+        dispatch(getArticles(data))
+    },
+    deleteArticle: (data) => {
+        dispatch(deleteArticle(data))
+    },
+    editArticle: (data) => {
+        dispatch(editArticle(data))
     }
-}
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManageArticles);

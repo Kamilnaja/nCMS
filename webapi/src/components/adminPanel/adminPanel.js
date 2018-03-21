@@ -38,7 +38,7 @@ class AdminPanel extends Component {
                     </ul>
 
                 </section>
-                <div className="admin-panel-forms-wrapper">
+                <section className="admin-panel-forms-wrapper">
                     {this.state.isVisible === 'Settings' && <div><ChangeSettings></ChangeSettings></div>}
 
                     {this.state.isVisible === 'Edit articles' && <ManageArticles></ManageArticles>}
@@ -47,7 +47,7 @@ class AdminPanel extends Component {
 
                     {this.state.isVisible === 'Pages' && <ManagePages></ManagePages>}
 
-                </div>
+                </section>
             </section>
         )
     }

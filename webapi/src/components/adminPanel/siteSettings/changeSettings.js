@@ -82,18 +82,14 @@ class ChangeSettings extends Component {
     };
 }
 
-const mapStateToProps = (state) => {
-    return {
-        settings: state.settings
-    }
-}
+const mapStateToProps = (state) => ({
+    settings: state.settings
+})
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        setSettings: (data) => {
-            dispatch(setSettings(data));
-        }
+const mapDispatchToProps = (dispatch) => ({
+    setSettings: (data) => {
+        dispatch(setSettings(data));
     }
-}
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChangeSettings)
