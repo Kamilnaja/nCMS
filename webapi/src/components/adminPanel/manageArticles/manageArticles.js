@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getArticles, deleteArticle, editArticle } from './../../../actions/articlesActions';
+import { getArticles, deleteArticle, editArticle, cancelEdit, handleSubmit, articleEdited } from './../../../actions/articlesActions';
 import { connect } from 'react-redux';
 
 class ManageArticles extends Component {
@@ -8,12 +8,16 @@ class ManageArticles extends Component {
         getArticles();
     }
 
+    findEditedElementIndex(element) {
+        return (
+            this.props.articles.data.findIndex((x => x._id === this.props.articles.articleEdited))
+        )
+    }
     render() {
         if (this.props.articles.isOnEdition) {
-            // todo - return html
             var data = <form onSubmit={(e) => this.handleSubmit(e)}>
                 <h2 className="form-title">
-                    Edytuj artykuł
+                    Edit an article
                 </h2>
                 <div className="input-wrap">
                     <label>Tytuł</label>
@@ -21,61 +25,73 @@ class ManageArticles extends Component {
                         name="articleTitle"
                         type="text"
                         required
-                        value={this.props.articles.articleTitle}
+                        defaultValue={
+                            this.props.articles.data[
+                                this.findEditedElementIndex()
+                            ].title
+                        }
                         onChange={this.handleChange}
                     >
                     </input>
                 </div>
-
                 <div className="input-wrap">
                     <label>Podtytuł</label>
                     <input
                         name="articleSubtitle"
                         type="text"
-                        value={this.props.articles.articleSubtitle}
+                        defaultValue={
+                            this.props.articles.data[
+                                this.findEditedElementIndex()
+                            ].subtitle
+                        }
                         onChange={this.handleChange}
                     ></input>
                 </div>
-
                 <div className="input-wrap">
                     <label>Treść artykułu</label>
                     <textarea
                         name="articleMainContent"
                         type="text"
-                        value={this.props.articles.articleMainContent}
+                        defaultValue={
+                            this.props.articles.data[
+                                this.findEditedElementIndex()
+                            ].content
+                        }
                         onChange={this.handleChange}
                         className="article-content"
                     ></textarea>
-                </div>
-
+                </div >
                 <input type="submit" value="submit"></input>
-            </form>
+                <input type="button" value="cancel" onClick={() => cancelEdit()}></input>
+            </form >
         }
 
         else if (this.props.articles.data) {
             var dataLength = this.props.articles.data.length;
-            var data = this.props.articles.data.map((item) =>
-                <li key={item._id} className="single-post-wrapper">
-                    <h2 className="single-post-title">
-                        {item.title}
-                    </h2>
-                    <p className="single-post-body">
-                        {item.content}
-                    </p>
-                    <h3>
-                        {item.author}
-                    </h3>
-                    <div className="edit-options">
-                        <i onClick={(itemId) => editArticle(item._id)}>
-                            Edytuj
+            var data = this.props.articles.data.
+                map((item) =>
+                    <li key={item._id} className="single-post-wrapper">
+                        <h2 className="single-post-title">
+                            {item.title}
+                        </h2>
+                        <p className="single-post-body">
+                            {item.content}
+                        </p>
+                        <h3>
+                            {item.author}
+                        </h3>
+                        <div className="edit-options">
+                            <i onClick={(itemId) => editArticle(item._id)}>
+                                Edytuj
                         </i>
-                        <i onClick={(itemId) => deleteArticle(item._id)}>
-                            Usuń
+                            <i onClick={(itemId) => deleteArticle(item._id)}>
+                                Usuń
                         </i>
-                    </div>
-                </li>
-            )
+                        </div>
+                    </li>
+                )
         }
+
         return (
             <div className="articles-edit" >
                 <div className="info-box">
@@ -90,7 +106,6 @@ class ManageArticles extends Component {
 const mapStateToProps = (state) => ({
     articles: state.articles,
     statusInfo: state.statusInfo,
-    isOnEdition: state.isOnEdition
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -102,6 +117,9 @@ const mapDispatchToProps = (dispatch) => ({
     },
     editArticle: (data) => {
         dispatch(editArticle(data))
+    },
+    cancelEdit: (data) => {
+        dispatch(cancelEdit(data))
     }
 })
 

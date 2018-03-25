@@ -9,7 +9,7 @@ import ChangeSettings from './siteSettings/changeSettings';
 class AdminPanel extends Component {
     constructor(props) {
         super(props);
-        this.state = { isVisible: '' }
+        this.state = { isVisible: 'Settings' }
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -21,7 +21,6 @@ class AdminPanel extends Component {
         return (
             <section className="admin-panel">
                 <section className="admin-panel-sidebar">
-
                     <ul className="admin-panel-sidebar-menu">
                         <li>
                             <a onClick={this.handleClick}>Settings</a>
@@ -36,7 +35,6 @@ class AdminPanel extends Component {
                             <a onClick={this.handleClick}>Pages</a>
                         </li>
                     </ul>
-
                 </section>
                 <section className="admin-panel-forms-wrapper">
                     {this.state.isVisible === 'Settings' && <div><ChangeSettings></ChangeSettings></div>}

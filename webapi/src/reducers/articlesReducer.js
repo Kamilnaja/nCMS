@@ -3,7 +3,9 @@ const initialState = {
     fetching: false,
     fetched: false,
     articles: [],
-    error: null
+    error: null,
+    isOnEdition: false,
+    articleEdited: ''
 }
 
 const articlesReducer = (state = initialState,
@@ -81,11 +83,19 @@ const articlesReducer = (state = initialState,
         case "EDIT_ARTICLE_START": {
             state = {
                 ...state,
-                isOnEdition: true
+                isOnEdition: true,
+                articleEdited: action.payload
             }
             break;
         }
 
+        case "CANCEL_EDIT": {
+            state = {
+                ...state,
+                isOnEdition: false
+            }
+            break;
+        }
         default: return state;
     }
     return state;

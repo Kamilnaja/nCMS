@@ -40,10 +40,42 @@ export function getArticles() {
     })
 }
 
+export function handleSubmit(data, payloadData) {
+    store.dispatch((dispatch) => {
+
+        dispatch({
+            type: "SENDING_DATA_START" // todo - change this
+        })
+
+        axios.put(`${localUrl}/api/posts/${data}`,
+            {
+                title: payloadData.articleTitle,
+                subtitle: payloadData.articleSubtitle,
+                content: payloadData.articleMainContent,
+                author: payloadData.articleAuthor
+            })
+            .then(() => {
+                dispatch({
+                    type: "ADD_NEW_ARTICLE_SUCCESS",
+                    payload: payloadData
+                })
+            })
+    })
+}
+
+export function cancelEdit(data) {
+    store.dispatch((dispatch) => {
+        dispatch({
+            type: "CANCEL_EDIT"
+        })
+    })
+}
+
 export function editArticle(data) {
     store.dispatch((dispatch) => {
         dispatch({
-            type: "EDIT_ARTICLE_START"
+            type: "EDIT_ARTICLE_START",
+            payload: data
         })
     })
 }
