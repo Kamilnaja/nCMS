@@ -36,7 +36,6 @@ exports.delete_article = (req, res) => {
 }
 
 exports.save_articles = (req, res) => {
-    console.log(req.body);
     var article = new ArticlesModel(
         {
             title: req.body.title,
@@ -48,4 +47,20 @@ exports.save_articles = (req, res) => {
         if (err) return handleError(err);
         res.send('Zapisano wpis');
     })
+}
+
+exports.update_article = (req, res) => {
+
+    ArticlesModel.findByIdAndUpdate(req.params.id, {
+        title: req.body.title,
+        subtitle: req.body.subtitle,
+        author: req.body.author,
+        content: req.body.content
+    }, (err, ArticlesModel) => {
+        if (err) return handleError(err);
+        res.send('Zapisano');
+    })
+
+
+
 }

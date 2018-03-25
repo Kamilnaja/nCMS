@@ -7,6 +7,8 @@ var articles_ctrl = require('../controllers/articlesController');
 router.get('/api/posts', articles_ctrl.get_articles);
 router.get('/api/posts/:id', articles_ctrl.get_one_article);
 
+router.put('/api/posts/:id', articles_ctrl.update_article);
+
 router.post('/api/posts', articles_ctrl.save_articles);
 
 router.delete('/api/posts/:id', articles_ctrl.delete_article);

@@ -40,24 +40,24 @@ export function getArticles() {
     })
 }
 
-export function handleSubmit(data, payloadData) {
+export function saveEditedArticle(data, editedArticle) {
     store.dispatch((dispatch) => {
 
         dispatch({
             type: "SENDING_DATA_START" // todo - change this
         })
 
-        axios.put(`${localUrl}/api/posts/${data}`,
+        axios.put(`${localUrl}/api/posts/${editedArticle}`,
             {
-                title: payloadData.articleTitle,
-                subtitle: payloadData.articleSubtitle,
-                content: payloadData.articleMainContent,
-                author: payloadData.articleAuthor
+                title: data.articleTitle,
+                subtitle: data.articleSubtitle,
+                content: data.articleMainContent,
+                author: data.articleAuthor
             })
             .then(() => {
                 dispatch({
                     type: "ADD_NEW_ARTICLE_SUCCESS",
-                    payload: payloadData
+                    payload: data
                 })
             })
     })
