@@ -5,6 +5,7 @@ import {
     cancelEdit,
 } from './../../../actions/articlesActions';
 import { InfoBox } from './../../utilsComponents/infoBox';
+import { PropTypes } from 'prop-types';
 
 class EditArticleForm extends Component {
     constructor(props) {
@@ -97,6 +98,11 @@ class EditArticleForm extends Component {
             </div>
         )
     }
+}
+
+EditArticleForm.propTypes = {
+    articles: PropTypes.any.isRequired,
+    statusInfo: PropTypes.string
 }
 
 const mapStateToProps = (state) => ({

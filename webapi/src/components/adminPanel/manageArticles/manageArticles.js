@@ -6,6 +6,7 @@ import {
 } from './../../../actions/articlesActions';
 import EditArticleForm from "./editArticleForm";
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class ManageArticles extends Component {
 
@@ -45,12 +46,17 @@ class ManageArticles extends Component {
 
         return (
             <div className="articles-edit">
-                <h2>Lista artykułów {dataLength}</h2>
+                <h2>Chose an item from {dataLength} articles and edit or delete</h2>
                 {articlesList}
                 {editForm}
             </div>
         )
     }
+}
+
+ManageArticles.propTypes = {
+    articles: PropTypes.any.isRequired, // todo - remove any
+    statusInfo: PropTypes.string
 }
 
 const mapStateToProps = (state) => ({

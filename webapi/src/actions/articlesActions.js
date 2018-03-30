@@ -2,6 +2,25 @@ import axios from 'axios';
 import store from './../store';
 import { localUrl } from './../utils/AppConfig';
 
+function articleDeleted(data) {
+    store.dispatch((dispatch) => {
+        dispatch({
+            type: "DELETE_ARTICLE_SUCCESS",
+            payload: data
+        })
+    })
+}
+
+function handleResponse(response) {
+    if (response.ok) {
+        return response.json();
+    } else {
+        let error = new Error(response.statusText);
+        error.response = response;
+        throw error;
+    }
+}
+
 export function getOneArticle(e) {
     store.dispatch((dispatch) => {
         dispatch({
@@ -71,7 +90,6 @@ export function cancelEdit() {
     })
 }
 
-
 export function showEditionForm(data) {
     store.dispatch((dispatch) => {
         dispatch({
@@ -81,18 +99,15 @@ export function showEditionForm(data) {
     })
 }
 
-export function deleteArticle(data) {
 
+export function deleteArticle(data) {
     store.dispatch((dispatch) => {
         axios({
             method: 'delete',
             url: `${localUrl}/api/posts/${data}`
         })
-            .then(() =>
-                dispatch({
-                    type: "DELETE_ARTICLE_SUCCESS",
-                    payload: data
-                })
+            .then(
+                articleDeleted(data)
             )
             .catch((err) => {
                 if (err) {
@@ -119,7 +134,7 @@ export function AddNewArticle(payloadData) {
             })
             .then(() => {
                 dispatch({
-                    type: "EDIT_ARTICLE_SUCCESS",
+                    type: "ADD_NEW_ARTICLE_SUCCESS",
                     payload: payloadData
                 })
             })

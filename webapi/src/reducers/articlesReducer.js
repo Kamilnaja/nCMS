@@ -1,11 +1,6 @@
 const articlesReducer = (state = [],
     action) => {
 
-    function findElementAndReturnArrayWithoutHim() {
-        const indexOfDeletedElement = state.data.findIndex(x => x._id === action.payload);
-        state.data.splice(indexOfDeletedElement, 1);
-    }
-
     switch (action.type) {
         case "GET_ARTICLES_START": {
             state = {
@@ -35,11 +30,10 @@ const articlesReducer = (state = [],
         }
 
         case "DELETE_ARTICLE_SUCCESS": {
-            findElementAndReturnArrayWithoutHim();
             state = {
                 ...state,
-                statusInfo: 'Skasowano item o id ' + action.payload,
-                data: state.data
+                statusInfo: 'success',
+                data: state.data.filter(item => item._id !== action.payload)
             }
             break;
         }
@@ -47,6 +41,7 @@ const articlesReducer = (state = [],
         case "DELETE_ARTICLE_FAILED": {
             state = {
                 ...state,
+                statusInfo: 'error'
             }
             break
         }
@@ -66,13 +61,15 @@ const articlesReducer = (state = [],
                 statusInfo: 'inprogress',
                 isOnEdition: true
             }
+            break
         }
 
         case "EDIT_ARTICLE_SUCCESS": {
             state = {
                 ...state,
                 statusInfo: 'success',
-                isOnEdition: true
+                isOnEdition: false,
+                data: state.data
             }
             break;
         }
