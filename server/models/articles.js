@@ -15,6 +15,10 @@ var articlesSchema = mongoose.Schema({
     dateOfAdding: {
         type: Date
     }
+},
+    {
+        timestamps: true
+    }
 
-})
+)
 module.exports = articlesSchema;

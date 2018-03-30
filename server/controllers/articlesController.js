@@ -48,7 +48,6 @@ exports.save_articles = (req, res) => {
             subtitle: req.body.subtitle,
             author: req.body.author,
             content: req.body.content,
-            dateOfAdding: getDate()
         });
     article.save((err) => {
         if (err) return handleError(err);
