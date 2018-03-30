@@ -10,6 +10,7 @@ let validateError = function () {
 
 function returnUpdatedArticlesList(req, res) {
     ArticlesModel.find({})
+        .sort({ dateOfAdding: -1 })
         .exec((err, data) => {
             validateError();
             res.send(data);
@@ -41,11 +42,13 @@ exports.delete_article = (req, res) => {
 
 exports.save_articles = (req, res) => {
     var article = new ArticlesModel(
+
         {
             title: req.body.title,
             subtitle: req.body.subtitle,
             author: req.body.author,
-            content: req.body.content
+            content: req.body.content,
+            dateOfAdding: getDate()
         });
     article.save((err) => {
         if (err) return handleError(err);

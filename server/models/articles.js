@@ -11,6 +11,9 @@ var articlesSchema = mongoose.Schema({
     },
     subtitle: {
         type: String
+    },
+    dateOfAdding: {
+        type: Date
     }
 
 })

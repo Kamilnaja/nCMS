@@ -7,6 +7,8 @@ import {
 import EditArticleForm from "./editArticleForm";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import ArticlesList from './../../articlesList';
+import ReturnButtons from './editOptions';
 
 class ManageArticles extends Component {
 
@@ -18,36 +20,23 @@ class ManageArticles extends Component {
         if (this.props.articles.isOnEdition) {
             var editForm = <EditArticleForm></EditArticleForm>
         }
-
         else if (this.props.articles.data) {
             var dataLength = this.props.articles.data.length;
-            var articlesList = this.props.articles.data.map((item) =>
-                <li key={item._id} className="single-post-wrapper">
-                    <h2 className="single-post-title">
-                        {item.title}
-                    </h2>
-                    <p className="single-post-body">
-                        {item.content}
-                    </p>
-                    <h3>
-                        {item.author}
-                    </h3>
-                    <div className="edit-options">
-                        <i onClick={(itemId) => showEditionForm(item._id)}>
-                            Edytuj
-                        </i>
-                        <i onClick={(itemId) => deleteArticle(item._id)}>
-                            Usuń
-                        </i>
-                    </div>
-                </li>
+
+            var articlesList = this.props.articles.data.map((item, key) =>
+                <div key={key} className="single-post-wrapper">
+                    <ArticlesList item={item} ></ArticlesList>
+                    <ReturnButtons item={item}></ReturnButtons>
+                </div>
             )
         }
 
         return (
             <div className="articles-edit">
                 <h2>Chose an item from {dataLength} articles and edit or delete</h2>
-                {articlesList}
+                <ul>
+                    {articlesList}
+                </ul>
                 {editForm}
             </div>
         )
