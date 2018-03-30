@@ -4,6 +4,7 @@ import { AddNewArticle } from './../../../actions/articlesActions';
 import { InfoBox } from '../../utilsComponents/infoBox';
 
 class AddArticles extends Component {
+
     handleSubmit(e) {
         var submitPayload = {
             articleTitle: this.articleTitle.value,
@@ -15,9 +16,13 @@ class AddArticles extends Component {
     }
 
     render() {
+        if (this.props.statusInfo === "success") {
+            var info = <InfoBox title="You have successfully added new article" />
+        }
         return (
+
             <div>
-                <p>{this.props.statusInfo}</p>
+                <div>{info}</div>
                 <form onSubmit={(e) => this.handleSubmit(e)}>
                     <h2 className="form-title">
                         Dodaj artykuł
@@ -54,7 +59,6 @@ class AddArticles extends Component {
 
                     <input type="submit" value="submit"></input>
                 </form>
-                <InfoBox settings={this.props.statusInfo} />
             </div>
         )
     }

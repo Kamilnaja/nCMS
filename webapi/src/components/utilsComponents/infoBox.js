@@ -3,8 +3,7 @@ export const InfoBox = (props) => {
 
     return (
         <div className="info-box">
-            <p>Infobox</p>
-            {props.statusInfo}
+            {props.title}
         </div>
     )
 }
