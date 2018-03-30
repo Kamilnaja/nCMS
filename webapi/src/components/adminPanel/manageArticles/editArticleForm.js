@@ -90,8 +90,8 @@ class EditArticleForm extends Component {
                             className="article-content"
                         ></textarea>
                     </div>
-                    <input type="submit" value="submit"></input>
-                    <input type="button" value="cancel"
+                    <input type="submit" value="submit" className="btn btn-default"></input>
+                    <input type="button" value="cancel" className="btn btn-default"
                         onClick={() => cancelEdit()}></input>
                 </form >
             </div>

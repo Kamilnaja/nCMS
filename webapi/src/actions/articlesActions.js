@@ -64,7 +64,6 @@ export function saveEditedArticle(data, editedArticle) {
 }
 
 export function cancelEdit() {
-    debugger;
     store.dispatch((dispatch) => {
         dispatch({
             type: "EDIT_ARTICLE_CANCEL"

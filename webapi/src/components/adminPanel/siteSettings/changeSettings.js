@@ -55,7 +55,7 @@ class ChangeSettings extends Component {
                                 />
                             </div>
                         </div>
-                        <input type="submit" value="Save" className="btn" />
+                        <input type="submit" value="Save" className="btn btn-default" />
                     </div>
                 </form>
             </div>

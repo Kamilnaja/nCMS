@@ -57,7 +57,7 @@ class AddArticles extends Component {
                         ></textarea>
                     </div>
 
-                    <input type="submit" value="submit"></input>
+                    <input type="submit" value="submit" className="btn btn-default"></input>
                 </form>
             </div>
         )
