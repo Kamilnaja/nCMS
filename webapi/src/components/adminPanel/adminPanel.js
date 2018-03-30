@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import ManageArticles from './manageArticles/manageArticles';
 import ManagePages from './managePages/managePages';
-import { withRouter } from 'react-router-dom';
 import AddArticle from './AddArticles/AddArticle';
 import ChangeSettings from './siteSettings/changeSettings';
 
-class AdminPanel extends Component {
+export default class AdminPanel extends Component {
     constructor(props) {
         super(props);
-        this.state = { isVisible: 'Add article' }
+        this.state = { isVisible: 'Edit settings' }
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -23,7 +21,7 @@ class AdminPanel extends Component {
                 <section className="admin-panel-sidebar">
                     <ul className="admin-panel-sidebar-menu">
                         <li>
-                            <a onClick={this.handleClick}>Settings</a>
+                            <a onClick={this.handleClick}>Edit settings</a>
                         </li>
                         <li>
                             <a onClick={this.handleClick}>Edit articles</a>
@@ -37,7 +35,7 @@ class AdminPanel extends Component {
                     </ul>
                 </section>
                 <section className="admin-panel-forms-wrapper">
-                    {this.state.isVisible === 'Settings' && <div><ChangeSettings></ChangeSettings></div>}
+                    {this.state.isVisible === 'Edit settings' && <ChangeSettings></ChangeSettings>}
 
                     {this.state.isVisible === 'Edit articles' && <ManageArticles></ManageArticles>}
 
@@ -50,12 +48,3 @@ class AdminPanel extends Component {
         )
     }
 }
-
-const mapStateToProps = (state) => {
-    return {
-
-    }
-}
-
-
-export default withRouter(connect(mapStateToProps, null)(AdminPanel));

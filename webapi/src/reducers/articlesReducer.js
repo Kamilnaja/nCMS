@@ -1,14 +1,4 @@
-const initialState = {
-    fetching: false,
-    fetched: false,
-    articles: [],
-    error: null,
-    isOnEdition: false,
-    articleEdited: '',
-    statusInfo: ''
-}
-
-const articlesReducer = (state = initialState,
+const articlesReducer = (state = [],
     action) => {
 
     function findElementAndReturnArrayWithoutHim() {

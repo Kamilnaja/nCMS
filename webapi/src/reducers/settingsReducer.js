@@ -1,7 +1,7 @@
+
 const settingsReducer = (state = [],
     action) => {
     switch (action.type) {
-
         case "GET_SETTINGS_SUCCESS":
             state = {
                 ...state,
@@ -11,21 +11,33 @@ const settingsReducer = (state = [],
             }
             break;
 
-        case "GET_SETTINGS_ERROR":
+        case "GET_SETTINGS_ERROR": {
             state = {
                 ...state,
                 settings_error: true
             }
             break;
+        }
 
-        case "SET_SETTINGS_SUCCESS":
+
+        case "SET_SETTINGS_START": {
+            state = {
+                ...state,
+                statusInfo: 'start'
+            }
+            break;
+        }
+
+        case "SET_SETTINGS_SUCCESS": {
             state = {
                 ...state,
                 title: action.payload.title,
                 subtitle: action.payload.subtitle,
-                footer: action.payload.footer
+                footer: action.payload.footer,
+                statusInfo: 'success'
             }
             break;
+        }
 
         default: return state;
     }

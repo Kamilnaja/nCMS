@@ -1,89 +1,71 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setSettings } from './../../../actions/settingActions';
+import { InfoBox } from './../../utilsComponents/infoBox';
 
 class ChangeSettings extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            title: '',
-            subtitle: '',
-            footer: ''
-        };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleChangeSubtitle = this.handleChangeSubtitle.bind(this);
-        this.handleChangeFooter = this.handleChangeFooter.bind(this);
-    }
-
-    handleChange(event) {
-        this.setState({ title: event.target.value });
-    }
-
-    handleChangeSubtitle(event) {
-        this.setState({ subtitle: event.target.value });
-    }
-
-    handleChangeFooter(event) {
-        this.setState({ footer: event.target.value });
-    }
 
     handleSubmit(e) {
+        var submitPayload = {
+            title: this.title.value,
+            subtitle: this.subtitle.value,
+            footer: this.footer.value
+        }
         e.preventDefault();
-        setSettings(this.state);
+        setSettings(submitPayload);
     }
 
     render() {
+        if (this.props.statusInfo === "success") {
+            var info = <InfoBox title="You have successfully changed the settings" />
+        }
         return (
             <div>
-                <div className="form-wrapper">
-                    <form onSubmit={(e) => this.handleSubmit(e)}>
-                        <h2 className="form-title">
-                            Zmień tytuł
+                <div>{info}</div>
+                <form onSubmit={(e) => this.handleSubmit(e)}>
+                    <h2 className="form-title">
+                        Change the website title
                         </h2>
+                    <div>
                         <div>
-                            <div>
-                                <div className="input-wrap">
-                                    <label>Nowy tytuł</label>
-                                    <input
-                                        type="text"
-                                        required
-                                        value={this.state.title}
-                                        onChange={this.handleChange}
-                                    />
-                                </div>
+                            <div className="input-wrap">
+                                <label>New website name</label>
+                                <input
+                                    type="text"
+                                    required
+                                    ref={(input) => this.title = input}
+                                />
                             </div>
-                            <div>
-                                <div className="input-wrap">
-                                    <label>Zmień podtytuł</label>
-                                    <input
-                                        type="text"
-                                        required
-                                        value={this.state.subtitle}
-                                        onChange={this.handleChangeSubtitle}
-                                    />
-                                </div>
-                                <div className="input-wrap">
-                                    <label>Zmień tekst stopki</label>
-                                    <input
-                                        type="text"
-                                        required
-                                        value={this.state.footer}
-                                        onChange={this.handleChangeFooter}
-                                    />
-                                </div>
-                            </div>
-                            <input type="submit" value="Save" className="btn" />
                         </div>
-                    </form>
-                </div>
+                        <div>
+                            <div className="input-wrap">
+                                <label>New website slogan</label>
+                                <input
+                                    type="text"
+                                    required
+                                    ref={(input) => this.subtitle = input}
+                                />
+                            </div>
+                            <div className="input-wrap">
+                                <label>Text for footer</label>
+                                <input
+                                    type="text"
+                                    required
+                                    ref={(input) => this.footer = input}
+                                />
+                            </div>
+                        </div>
+                        <input type="submit" value="Save" className="btn" />
+                    </div>
+                </form>
             </div>
         )
     };
 }
 
 const mapStateToProps = (state) => ({
-    settings: state.settings
+    settings: state.settings,
+    statusInfo: state.settings.statusInfo
 })
 
 const mapDispatchToProps = (dispatch) => ({
