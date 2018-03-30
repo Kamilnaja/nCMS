@@ -44,7 +44,7 @@ export function saveEditedArticle(data, editedArticle) {
     store.dispatch((dispatch) => {
 
         dispatch({
-            type: "SENDING_DATA_START" // todo - change this
+            type: "EDIT_ARTICLE_START"
         })
 
         axios.put(`${localUrl}/api/posts/${editedArticle}`,
@@ -56,25 +56,27 @@ export function saveEditedArticle(data, editedArticle) {
             })
             .then(() => {
                 dispatch({
-                    type: "ADD_NEW_ARTICLE_SUCCESS",
+                    type: "EDIT_ARTICLE_SUCCESS",
                     payload: data
                 })
             })
     })
 }
 
-export function cancelEdit(data) {
+export function cancelEdit() {
+    debugger;
     store.dispatch((dispatch) => {
         dispatch({
-            type: "CANCEL_EDIT"
+            type: "EDIT_ARTICLE_CANCEL"
         })
     })
 }
 
-export function editArticle(data) {
+
+export function showEditionForm(data) {
     store.dispatch((dispatch) => {
         dispatch({
-            type: "EDIT_ARTICLE_START",
+            type: "SHOW_EDITION_FORM",
             payload: data
         })
     })
@@ -118,7 +120,7 @@ export function AddNewArticle(payloadData) {
             })
             .then(() => {
                 dispatch({
-                    type: "ADD_NEW_ARTICLE_SUCCESS",
+                    type: "EDIT_ARTICLE_SUCCESS",
                     payload: payloadData
                 })
             })

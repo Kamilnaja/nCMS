@@ -35,7 +35,6 @@ const articlesReducer = (state = [],
         }
 
         case "DELETE_ARTICLE_SUCCESS": {
-
             findElementAndReturnArrayWithoutHim();
             state = {
                 ...state,
@@ -46,7 +45,6 @@ const articlesReducer = (state = [],
         }
 
         case "DELETE_ARTICLE_FAILED": {
-
             state = {
                 ...state,
             }
@@ -62,6 +60,31 @@ const articlesReducer = (state = [],
             break;
         }
 
+        case "EDIT_ARTICLE_START": {
+            state = {
+                ...state,
+                statusInfo: 'inprogress',
+                isOnEdition: true
+            }
+        }
+
+        case "EDIT_ARTICLE_SUCCESS": {
+            state = {
+                ...state,
+                statusInfo: 'success',
+                isOnEdition: true
+            }
+            break;
+        }
+
+        case "EDIT_ARTICLE_CANCEL": {
+            state = {
+                ...state,
+                isOnEdition: false
+            }
+            break;
+        }
+
         case "ADD_ARTICLE_PENDING": {
             state = {
                 ...state,
@@ -70,19 +93,11 @@ const articlesReducer = (state = [],
             break;
         }
 
-        case "EDIT_ARTICLE_START": {
+        case "SHOW_EDITION_FORM": {
             state = {
                 ...state,
                 isOnEdition: true,
                 articleEdited: action.payload
-            }
-            break;
-        }
-
-        case "CANCEL_EDIT": {
-            state = {
-                ...state,
-                isOnEdition: false
             }
             break;
         }

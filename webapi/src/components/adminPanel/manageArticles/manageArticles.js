@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
     getArticles,
     deleteArticle,
-    editArticle,
+    showEditionForm,
 } from './../../../actions/articlesActions';
 import EditArticleForm from "./editArticleForm";
 import { connect } from 'react-redux';
@@ -32,7 +32,7 @@ class ManageArticles extends Component {
                         {item.author}
                     </h3>
                     <div className="edit-options">
-                        <i onClick={(itemId) => editArticle(item._id)}>
+                        <i onClick={(itemId) => showEditionForm(item._id)}>
                             Edytuj
                         </i>
                         <i onClick={(itemId) => deleteArticle(item._id)}>
@@ -66,7 +66,7 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(deleteArticle(data))
     },
     editArticle: (data) => {
-        dispatch(editArticle(data))
+        dispatch(showEditionForm(data))
     },
 })
 

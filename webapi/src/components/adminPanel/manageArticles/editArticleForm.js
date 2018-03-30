@@ -4,6 +4,7 @@ import {
     saveEditedArticle,
     cancelEdit,
 } from './../../../actions/articlesActions';
+import { InfoBox } from './../../utilsComponents/infoBox';
 
 class EditArticleForm extends Component {
     constructor(props) {
@@ -13,7 +14,6 @@ class EditArticleForm extends Component {
             articleMainContent: '',
             articleSubtitle: '',
             articleAuthor: '',
-            statusInfo: '',
         }
     }
 
@@ -30,14 +30,19 @@ class EditArticleForm extends Component {
 
     findEditedElementIndex(element) {
         return (
-            this.props.articles.data.findIndex((x => x._id === this.props.articles.articleEdited))
+            this.props.articles.data.findIndex(
+                (x => x._id === this.props.articles.articleEdited)
+            )
         )
     }
 
     render() {
+        if (this.props.statusInfo === "success") {
+            var info = <InfoBox title="You have successfully edited article" />
+        }
         return (
             <div>
-                {this.props.statusInfo}
+                <div>{info}</div>
                 <form onSubmit={(e) => this.handleSubmit(e)} >
                     <h2 className="form-title">
                         Edit an article
@@ -86,7 +91,8 @@ class EditArticleForm extends Component {
                         ></textarea>
                     </div>
                     <input type="submit" value="submit"></input>
-                    <input type="button" value="cancel" onClick={() => cancelEdit()}></input>
+                    <input type="button" value="cancel"
+                        onClick={() => cancelEdit()}></input>
                 </form >
             </div>
         )
@@ -95,7 +101,7 @@ class EditArticleForm extends Component {
 
 const mapStateToProps = (state) => ({
     articles: state.articles,
-    statusInfo: state.statusInfo,
+    statusInfo: state.articles.statusInfo
 })
 
 const mapDispatchToProps = (dispatch) => ({
