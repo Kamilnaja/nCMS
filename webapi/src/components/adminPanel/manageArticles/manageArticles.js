@@ -44,9 +44,7 @@ class ManageArticles extends Component {
         }
 
         return (
-            <div className="articles-edit" >
-                <div className="info-box">
-                </div>
+            <div className="articles-edit">
                 <h2>Lista artykułów {dataLength}</h2>
                 {articlesList}
                 {editForm}

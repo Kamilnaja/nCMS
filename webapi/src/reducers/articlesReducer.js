@@ -1,11 +1,11 @@
-
 const initialState = {
     fetching: false,
     fetched: false,
     articles: [],
     error: null,
     isOnEdition: false,
-    articleEdited: ''
+    articleEdited: '',
+    statusInfo: ''
 }
 
 const articlesReducer = (state = initialState,
@@ -66,8 +66,8 @@ const articlesReducer = (state = initialState,
         case "ADD_NEW_ARTICLE_SUCCESS": {
             state = {
                 ...state,
-                statusInfo: 'Dodano artykuł o id ' + action.payload,
-
+                statusInfo: 'success',
+                isOnEdition: false
             }
             break;
         }
@@ -96,6 +96,7 @@ const articlesReducer = (state = initialState,
             }
             break;
         }
+
         default: return state;
     }
     return state;

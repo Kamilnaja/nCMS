@@ -266,10 +266,6 @@ section {
   flex-grow: 1;
 }
 
-@keyframes hideInfoBox {
-  from {opacity: 100%;}
-  to { opacity: 0}
-}
 
 .info-box {
   position: fixed;
@@ -280,7 +276,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: salmon;
+  background-color: rgba(0, 0, 0, 0.3);
   color: white;
 }
 

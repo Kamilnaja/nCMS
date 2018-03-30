@@ -1,89 +1,67 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { AddNewArticle } from './../../../actions/articlesActions';
+import { InfoBox } from '../../utilsComponents/infoBox';
 
 class AddArticles extends Component {
-    constructor(props) {
-
-        super(props);
-        this.state = {
-            articleTitle: '',
-            articleMainContent: '',
-            articleSubtitle: '',
-            articleAuthor: '',
-            statusInfo: ''
-        };
-
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(e) {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
-
     handleSubmit(e) {
+        var submitPayload = {
+            articleTitle: this.articleTitle.value,
+            articleSubtitle: this.articleSubtitle.value,
+            articleMainContent: this.articleMainContent.value,
+        }
         e.preventDefault();
-        AddNewArticle(this.state);
-        this.setState({
-            articleTitle: '',
-            articleMainContent: '',
-            articleSubtitle: '',
-            articleAuthor: '',
-        })
+        AddNewArticle(submitPayload);
     }
 
     render() {
-        if (this.props.statusInfo === 'pending') {
-            return <p>Loading</p>
-        }
         return (
-
-            <form onSubmit={(e) => this.handleSubmit(e)}>
-                <h2 className="form-title">
-                    Dodaj artykuł
+            <div>
+                <p>{this.props.statusInfo}</p>
+                <form onSubmit={(e) => this.handleSubmit(e)}>
+                    <h2 className="form-title">
+                        Dodaj artykuł
                 </h2>
-                <div className="input-wrap">
-                    <label>Tytuł</label>
-                    <input
-                        name="articleTitle"
-                        type="text"
-                        required
-                        value={this.state.articleTitle}
-                        onChange={this.handleChange}
-                    >
-                    </input>
-                </div>
+                    <div className="input-wrap">
+                        <label>Tytuł</label>
+                        <input
+                            name="articleTitle"
+                            type="text"
+                            required
+                            ref={(input) => this.articleTitle = input}
+                        >
+                        </input>
+                    </div>
 
-                <div className="input-wrap">
-                    <label>Podtytuł</label>
-                    <input
-                        name="articleSubtitle"
-                        type="text"
-                        value={this.state.articleSubtitle}
-                        onChange={this.handleChange}
-                    ></input>
-                </div>
+                    <div className="input-wrap">
+                        <label>Podtytuł</label>
+                        <input
+                            name="articleSubtitle"
+                            type="text"
+                            ref={(input) => this.articleSubtitle = input}
+                        ></input>
+                    </div>
 
-                <div className="input-wrap">
-                    <label>Treść artykułu</label>
-                    <textarea
-                        name="articleMainContent"
-                        type="text"
-                        value={this.state.articleMainContent}
-                        onChange={this.handleChange}
-                        className="article-content"
-                    ></textarea>
-                </div>
+                    <div className="input-wrap">
+                        <label>Treść artykułu</label>
+                        <textarea
+                            name="articleMainContent"
+                            type="text"
+                            ref={(input) => this.articleMainContent = input}
+                            className="article-content"
+                        ></textarea>
+                    </div>
 
-                <input type="submit" value="submit"></input>
-            </form>
+                    <input type="submit" value="submit"></input>
+                </form>
+                <InfoBox settings={this.props.statusInfo} />
+            </div>
         )
     }
 }
+
 const mapStateToProps = (state) => ({
-    statusInfo: state.statusInfo
+    statusInfo: state.articles.statusInfo
 })
 
 const mapDispatchToProps = (dispatch) => ({

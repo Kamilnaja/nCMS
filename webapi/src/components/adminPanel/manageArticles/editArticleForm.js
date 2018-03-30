@@ -14,7 +14,6 @@ class EditArticleForm extends Component {
             articleSubtitle: '',
             articleAuthor: '',
             statusInfo: '',
-            lorem: ''
         }
     }
 
@@ -37,55 +36,59 @@ class EditArticleForm extends Component {
 
     render() {
         return (
-            <form onSubmit={(e) => this.handleSubmit(e)} >
-                <h2 className="form-title">
-                    Edit an article
+            <div>
+                {this.props.statusInfo}
+                <form onSubmit={(e) => this.handleSubmit(e)} >
+                    <h2 className="form-title">
+                        Edit an article
                     </h2>
-                <div className="input-wrap">
-                    <label>Tytuł</label>
-                    <input
-                        name="articleTitle"
-                        type="text"
-                        required
-                        defaultValue={
-                            this.props.articles.data[
-                                this.findEditedElementIndex()
-                            ].title
-                        }
-                        ref={(input) => this.articleTitle = input}
-                    >
-                    </input>
-                </div>
-                <div className="input-wrap">
-                    <label>Podtytuł</label>
-                    <input
-                        name="articleSubtitle"
-                        type="text"
-                        defaultValue={
-                            this.props.articles.data[
-                                this.findEditedElementIndex()
-                            ].subtitle
-                        }
-                        ref={(input) => this.articleSubtitle = input}
-                    ></input>
-                </div>
-                <div className="input-wrap">
-                    <label>Treść artykułu</label>
-                    <textarea
-                        name="articleMainContent"
-                        type="text"
-                        defaultValue={
-                            this.props.articles.data[
-                                this.findEditedElementIndex()
-                            ].content
-                        }
-                        ref={(input) => this.articleMainContent = input}
-                        className="article-content"
-                    ></textarea>
-                </div >
-                <input type="submit" value="submit"></input>
-                <input type="button" value="cancel" onClick={() => cancelEdit()}></input>
-            </form >
+                    <div className="input-wrap">
+                        <label>Tytuł</label>
+                        <input
+                            name="articleTitle"
+                            type="text"
+                            required
+                            defaultValue={
+                                this.props.articles.data[
+                                    this.findEditedElementIndex()
+                                ].title
+                            }
+                            ref={(input) => this.articleTitle = input}
+                        >
+                        </input>
+                    </div>
+                    <div className="input-wrap">
+                        <label>Podtytuł</label>
+                        <input
+                            name="articleSubtitle"
+                            type="text"
+                            defaultValue={
+                                this.props.articles.data[
+                                    this.findEditedElementIndex()
+                                ].subtitle
+                            }
+                            ref={(input) => this.articleSubtitle = input}
+                        ></input>
+                    </div>
+                    <div className="input-wrap">
+                        <label>Treść artykułu</label>
+
+                        <textarea
+                            name="articleMainContent"
+                            type="text"
+                            defaultValue={
+                                this.props.articles.data[
+                                    this.findEditedElementIndex()
+                                ].content
+                            }
+                            ref={(input) => this.articleMainContent = input}
+                            className="article-content"
+                        ></textarea>
+                    </div>
+                    <input type="submit" value="submit"></input>
+                    <input type="button" value="cancel" onClick={() => cancelEdit()}></input>
+                </form >
+            </div>
         )
     }
 }
@@ -105,4 +108,3 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditArticleForm);
-

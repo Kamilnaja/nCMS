@@ -9,7 +9,7 @@ import ChangeSettings from './siteSettings/changeSettings';
 class AdminPanel extends Component {
     constructor(props) {
         super(props);
-        this.state = { isVisible: 'Settings' }
+        this.state = { isVisible: 'Add article' }
         this.handleClick = this.handleClick.bind(this);
     }
 
