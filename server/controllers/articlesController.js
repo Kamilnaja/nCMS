@@ -8,12 +8,16 @@ let validateError = function () {
     }
 }
 
-exports.get_articles = (req, res) => {
+function returnUpdatedArticlesList(req, res) {
     ArticlesModel.find({})
         .exec((err, data) => {
             validateError();
             res.send(data);
         })
+}
+
+exports.get_articles = (req, res) => {
+    returnUpdatedArticlesList(req, res);
 }
 
 exports.get_one_article = (req, res, next) => {
@@ -50,16 +54,20 @@ exports.save_articles = (req, res) => {
 }
 
 exports.update_article = (req, res) => {
-
-    ArticlesModel.findByIdAndUpdate(req.params.id, {
+    var payload = {
         title: req.body.title,
         subtitle: req.body.subtitle,
         author: req.body.author,
         content: req.body.content
-    }, (err, ArticlesModel) => {
-        if (err) return handleError(err);
-        res.send('Zapisano');
-    })
+    }
+    ArticlesModel.findByIdAndUpdate(req.params.id,
+        payload, { new: true }, (err, data) => {
+            if (err) {
+                return handleError(err)
+            } else {
+                returnUpdatedArticlesList(req, res);
+            }
+        })
 
 
 

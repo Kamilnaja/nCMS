@@ -69,7 +69,7 @@ const articlesReducer = (state = [],
                 ...state,
                 statusInfo: 'success',
                 isOnEdition: false,
-                data: state.data
+                data: action.payload
             }
             break;
         }

@@ -11,14 +11,13 @@ function articleDeleted(data) {
     })
 }
 
-function handleResponse(response) {
-    if (response.ok) {
-        return response.json();
-    } else {
-        let error = new Error(response.statusText);
-        error.response = response;
-        throw error;
-    }
+function articleEdited(data) {
+    store.dispatch((dispatch) => {
+        dispatch({
+            type: "EDIT_ARTICLE_SUCCESS",
+            payload: data
+        })
+    })
 }
 
 export function getOneArticle(e) {
@@ -73,12 +72,11 @@ export function saveEditedArticle(data, editedArticle) {
                 content: data.articleMainContent,
                 author: data.articleAuthor
             })
-            .then(() => {
-                dispatch({
-                    type: "EDIT_ARTICLE_SUCCESS",
-                    payload: data
-                })
-            })
+            .then(
+                (res) => {
+                    articleEdited(res.data)
+                }
+            )
     })
 }
 
@@ -98,7 +96,6 @@ export function showEditionForm(data) {
         })
     })
 }
-
 
 export function deleteArticle(data) {
     store.dispatch((dispatch) => {
@@ -140,4 +137,3 @@ export function AddNewArticle(payloadData) {
             })
     })
 }
-
