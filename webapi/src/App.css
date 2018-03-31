@@ -172,7 +172,7 @@ section {
 }
 
 .admin-panel {
-  border-bottom: 1px dashed cornflowerblue; 
+  border-bottom: 1px dashed #405B7D;
   display: flex;
   margin-top: 0;
   padding-top: 0;
@@ -195,8 +195,8 @@ section {
 }
 
 .admin-panel-sidebar-menu {
-  background-color:cornflowerblue;
-  color: white;
+  background-color:#405B7D;
+  color: #fff;
 }
 
 .admin-panel-sidebar-menu a {
@@ -204,6 +204,10 @@ section {
   border-bottom: 1px dashed #000;
   cursor: pointer;
   display: block;
+}
+
+.admin-panel-sidebar-menu a:hover {
+  background-color: #849DB5;
 }
 
 /* input */
@@ -295,6 +299,10 @@ section {
 
 .info-box:empty {
   display: none;
+}
+
+.info-box-warning {
+  background-color: #A2071A;
 }
 
 .article-content {

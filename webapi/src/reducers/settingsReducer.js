@@ -14,7 +14,8 @@ const settingsReducer = (state = [],
         case "GET_SETTINGS_ERROR": {
             state = {
                 ...state,
-                settings_error: true
+                settings_error: true,
+                statusInfo: 'error'
             }
             break;
         }

@@ -1,8 +1,8 @@
 import React from 'react';
 export const InfoBox = (props) => {
-
+    const classes = `${props.modalType} info-box`;
     return (
-        <div className="info-box">
+        <div className={classes}>
             {props.title}
         </div>
     )

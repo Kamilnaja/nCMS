@@ -14,7 +14,8 @@ const articlesReducer = (state = [],
             state = {
                 ...state,
                 fetching: false,
-                error: action.payload
+                error: action.payload,
+                statusInfo: 'error'
             }
             break;
         }

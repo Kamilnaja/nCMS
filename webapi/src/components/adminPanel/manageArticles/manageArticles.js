@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ArticlesList from './../../articlesList';
 import ReturnButtons from './editOptions';
+import { InfoBox } from './../../utilsComponents/infoBox';
 
 class ManageArticles extends Component {
 
@@ -25,6 +26,7 @@ class ManageArticles extends Component {
 
             var articlesList = this.props.articles.data.map((item, key) =>
                 <div key={key} className="single-post-wrapper">
+
                     <ArticlesList item={item} ></ArticlesList>
                     <ReturnButtons item={item}></ReturnButtons>
                 </div>
@@ -34,6 +36,7 @@ class ManageArticles extends Component {
         return (
             <div className="articles-edit">
                 <h2>Chose an item from {dataLength} articles and edit or delete</h2>
+                {dataLength === 0 && <InfoBox title="No articles in db"></InfoBox>}
                 <ul>
                     {articlesList}
                 </ul>
