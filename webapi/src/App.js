@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { getSettings } from './actions/settingActions';
 import Main from './components/main';
 import AdminPanel from './components/adminPanel/adminPanel';
+import LoginScreen from './components/loginScreen';
 
 class App extends Component {
 
@@ -22,6 +23,7 @@ class App extends Component {
             <Header settings={this.props.settings} />
             <Route exact path='/' component={Main} />
             <Route path='/admin' component={AdminPanel} />
+            <Route path='/login' component={LoginScreen} />
             <Footer settings={this.props.settings} />
           </div>
         </div>
@@ -40,7 +42,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getSettings: (data) => {
       dispatch(getSettings(data))
-    },
+    }
   }
 }
 

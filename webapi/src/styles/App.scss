@@ -166,7 +166,28 @@ section {
   margin-bottom: 15px;
 }
 
-.input-wrap input[type=text] {
+.small-form-wrap {
+  padding: 10px 15px;
+  max-width: 500px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 4px solid $accent;
+  margin: 0 auto;
+  box-shadow: $shadow-soft;
+  transition: 0.3s ease;
+  input[type=text], input[type=password] {
+    width: calc(100% - 10px);
+  }
+  input[type=submit] {
+    margin: 0 auto;
+    display: block;
+  }
+  &:hover {
+    box-shadow: $shadow-strong;
+  }
+}
+
+.input-wrap input[type=text],
+.input-wrap input[type=password] {
   display: block;
   padding: 6px;
 }
@@ -174,7 +195,10 @@ section {
 .single-post-wrapper {
   display: block;
   margin-top: 5px;
-  padding: 5px;
+  padding: 10px 15px;
+  time {
+    color: #849DB5;
+  }
 }
 
 .single-post-wrapper:not(:last-child) {
@@ -183,14 +207,17 @@ section {
 
 .single-post-title {
   display: block;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: bold;
+  text-transform: uppercase;
   margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .single-post-body {
   display: block;
-  font-size: 13px;
+  font-size: 16px;
+  line-height: 1.4;
   margin-bottom: 5px;
 }
 

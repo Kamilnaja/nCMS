@@ -3,25 +3,23 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var db = require('./db');
-var mainSite = require('./routes/mainSite');
+var routes = require('./routes/routes');
 var accessControl = require('./accessControl');
 var app = express();
 var port = 8080;
+var _ = require('lodash');
+var bcrypt = require('bcrypt');
+var jwt = require('jwt-simple');
+var User = require('./models/user');
+
 //config 
 app.use(accessControl);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
 mongoose.set('debug', true);
 
-app.use('/', mainSite);
-
-var _ = require('lodash');
-var bcrypt = require('bcrypt');
-var jwt = require('jwt-simple');
-var User = require('./models/user');
-var users = [{ username: 'kamil', password: '$2a$10$Mqb7DT7FpsJTvAcB0HTRdeuZ4eXI71ex4U6gurmUU33s04ShRMQnq' }]
+app.use('/', routes);
 
 function findUserByUsername(username) {
     return _.find(users, { username: username })

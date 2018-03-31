@@ -30,8 +30,8 @@ export const Header = (props) => {
                             </Link>
                     </li>
                     <li>
-                        <Link to="/settings">
-                            Settings
+                        <Link to="/login">
+                            Log In
                             </Link>
                     </li>
                 </ul>

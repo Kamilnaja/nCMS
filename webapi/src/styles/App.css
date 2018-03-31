@@ -179,27 +179,49 @@ section {
 .input-wrap {
   margin-bottom: 15px; }
 
-.input-wrap input[type=text] {
+.small-form-wrap {
+  padding: 10px 15px;
+  max-width: 500px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 4px solid #A2071A;
+  margin: 0 auto;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease; }
+  .small-form-wrap input[type=text], .small-form-wrap input[type=password] {
+    width: calc(100% - 10px); }
+  .small-form-wrap input[type=submit] {
+    margin: 0 auto;
+    display: block; }
+  .small-form-wrap:hover {
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3); }
+
+.input-wrap input[type=text],
+.input-wrap input[type=password] {
   display: block;
   padding: 6px; }
 
 .single-post-wrapper {
   display: block;
   margin-top: 5px;
-  padding: 5px; }
+  padding: 10px 15px; }
+  .single-post-wrapper time {
+    color: #849DB5; }
 
 .single-post-wrapper:not(:last-child) {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
 
 .single-post-title {
   display: block;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: bold;
-  margin-bottom: 5px; }
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  margin-top: 5px; }
 
 .single-post-body {
   display: block;
-  font-size: 13px;
+  font-size: 16px;
+  line-height: 1.4;
   margin-bottom: 5px; }
 
 .edit-options {
