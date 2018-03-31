@@ -15,4 +15,8 @@ router.delete('/api/posts/:id', articles_ctrl.delete_article);
 router.get('/api/settings', main_site_ctrl.main_site_get_settings);
 router.put('/api/settings', main_site_ctrl.main_site_save_settings);
 
+router.post('/user', main_site_ctrl.main_site_save_user);
+router.post('/session', main_site_ctrl.main_site_session);
+router.get('/user', main_site_ctrl.get_user);
+
 module.exports = router;
