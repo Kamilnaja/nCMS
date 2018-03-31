@@ -1,0 +1,289 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif; }
+
+p, label {
+  margin: 5px 0 5px 0;
+  display: inline-block; }
+
+.header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 20px 15px;
+  display: flex;
+  justify-content: space-between; }
+
+@media (max-width: 772px) {
+  .header {
+    flex-flow: column; } }
+
+.header a {
+  text-decoration: none;
+  color: black;
+  transition: 0.3s all ease;
+  letter-spacing: 0.11px; }
+
+.header-site-main-menu .active {
+  font-weight: bold;
+  letter-spacing: 0; }
+
+.main {
+  padding: 15px; }
+
+.header-site-title {
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-transform: uppercase; }
+
+.header-site-main-menu {
+  display: flex;
+  align-items: center; }
+
+.header-site-main-menu li {
+  display: inline;
+  border-right: 2px solid grey;
+  padding-right: 5px;
+  padding-left: 5px; }
+
+.header-site-main-menu li a:hover {
+  color: cornflowerblue;
+  transition: 0.1s ease color; }
+
+.header-site-main-menu li:last-child {
+  border-right: 2px solid transparent; }
+
+@media (max-width: 772px) {
+  .header-site-main-menu {
+    margin-top: 15px;
+    display: block; }
+  .header-site-main-menu li {
+    display: block;
+    padding-left: 0;
+    padding-right: 0;
+    border-right: none; }
+  .header-site-main-menu li a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    display: block; }
+  .header-site-main-menu li:last-child {
+    border-right: none; } }
+
+/* form */
+.form {
+  margin-top: 15px; }
+
+.form-title {
+  font-weight: bold;
+  margin-bottom: 5px; }
+
+.form-wrapper {
+  margin-left: 15px; }
+
+.admin-panel-forms-wrapper {
+  display: flex;
+  flex-grow: 1; }
+
+section {
+  margin-top: 20px;
+  padding: 15px; }
+
+.footer {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: aliceblue; }
+
+.admin-panel {
+  border-bottom: 1px dashed #405B7D;
+  display: flex;
+  margin-top: 0;
+  padding-top: 0; }
+
+@media (max-width: 772px) {
+  .admin-panel {
+    flex-direction: column; } }
+
+.admin-panel-sidebar {
+  flex-basis: 200px;
+  min-width: 200px; }
+
+.admin-panel-main {
+  background-color: red; }
+
+.admin-panel-sidebar-menu {
+  background-color: #405B7D;
+  color: #fff; }
+
+.admin-panel-sidebar-menu a {
+  padding: 15px;
+  border-bottom: 1px dashed #000;
+  cursor: pointer;
+  display: block; }
+
+.admin-panel-sidebar-menu a:hover {
+  background-color: #849DB5; }
+
+/* input */
+.input-wrap {
+  margin-bottom: 15px; }
+
+.input-wrap input[type=text] {
+  display: block;
+  padding: 6px; }
+
+.single-post-wrapper {
+  display: block;
+  margin-top: 5px;
+  padding: 5px; }
+
+.single-post-wrapper:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
+
+.single-post-title {
+  display: block;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 5px; }
+
+.single-post-body {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 5px; }
+
+.edit-options {
+  margin-top: 15px;
+  color: green;
+  display: flex;
+  justify-content: flex-start;
+  cursor: pointer; }
+
+.edit-options i {
+  margin-right: 5px;
+  transition: 0.3s ease color; }
+
+.edit-options i:hover {
+  color: goldenrod; }
+
+.btn {
+  padding: 10px 25px;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin: 5px; }
+
+.btn:hover {
+  box-shadow: inset 4px 5px 19px 13px rgba(0, 0, 0, 0.1); }
+
+.btn-default {
+  color: white;
+  background-color: coral; }
+
+.articles-edit {
+  flex-grow: 1; }
+
+.info-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white; }
+
+.info-box:empty {
+  display: none; }
+
+.info-box-warning {
+  background-color: #A2071A; }
+
+.article-content {
+  width: 100%;
+  display: block; }
+
+.articles-list {
+  margin-top: 25px; }
+
+.articles-list li {
+  padding-left: 15px; }
+
+.container-app {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  box-shadow: 11px 5px 10px rgba(0, 0, 0, 0.2); }
+
+.background-app {
+  min-height: 100vh;
+  padding-top: 20px;
+  position: relative;
+  overflow: hidden; }
+
+.background-app:before {
+  content: "";
+  z-index: -1;
+  background-image: url("./../img/the-mountains.jpg");
+  background-size: cover;
+  position: absolute;
+  top: -20px;
+  bottom: -20px;
+  left: -20px;
+  right: -20px;
+  -webkit-filter: blur(20px);
+  -moz-filter: blur(20px);
+  -o-filter: blur(20px);
+  -ms-filter: blur(20px);
+  filter: blur(20px);
+  overflow: hidden; }
