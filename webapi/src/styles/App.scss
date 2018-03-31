@@ -21,7 +21,7 @@ p, label {
 
 .header a {
   text-decoration: none;
-  color: black;
+  color: $font-dark;
   transition: 0.3s all ease;
   letter-spacing: 0.11px;
 }
@@ -52,7 +52,12 @@ p, label {
   border-right: 2px solid grey;
   padding-right: 5px;
   padding-left: 5px;
-} 
+}
+
+.header-site-main-menu li a {
+  color: $font-dark;
+  transition: 0.1s ease color;
+}
 
 .header-site-main-menu li a:hover {
   color: cornflowerblue;
@@ -115,7 +120,6 @@ section {
   margin-top: 20px;
   padding: 15px;
   background-color: aliceblue;
-
 }
 
 .admin-panel {
@@ -295,4 +299,3 @@ section {
   filter: blur(20px);
   overflow: hidden;
 }
-
