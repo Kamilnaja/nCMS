@@ -22,21 +22,20 @@ export const Header = (props) => {
                     <li>
                         <Link to="/" >
                             Home
-                            </Link>
+                        </Link>
                     </li>
                     <li>
                         <Link to="/admin">
                             Admin Panel
-                            </Link>
+                        </Link>
                     </li>
                     <li>
                         <Link to="/login">
                             Log In
-                            </Link>
+                        </Link>
                     </li>
                 </ul>
             </header>
         </div>
-
     )
 }

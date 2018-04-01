@@ -18,6 +18,6 @@ router.put('/api/settings', main_site_ctrl.main_site_save_settings);
 
 router.post('/api/user', login_ctrl.login_save_user);
 router.post('/api/session', login_ctrl.login_session);
-router.get('/api/users', login_ctrl.login_get_user);
+router.get('/api/users', login_ctrl.login_users);
 
 module.exports = router;

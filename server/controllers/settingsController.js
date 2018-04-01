@@ -2,9 +2,6 @@ var mongoose = require('mongoose');
 var SettingsSchema = require('../models/settings');
 var SettingsModel = mongoose.model('Config', SettingsSchema);
 var async = require('async');
-var bcrypt = require('bcrypt');
-var jwt = require('jwt-simple');
-var User = require('./../models/user');
 
 let validateError = function () {
     return {
