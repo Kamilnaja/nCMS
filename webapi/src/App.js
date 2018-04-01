@@ -8,6 +8,7 @@ import { getSettings } from './actions/settingActions';
 import Main from './components/main';
 import AdminPanel from './components/adminPanel/adminPanel';
 import LoginScreen from './components/loginScreen';
+import CreateAccount from './components/login/createAccount';
 
 class App extends Component {
 
@@ -24,6 +25,7 @@ class App extends Component {
             <Route exact path='/' component={Main} />
             <Route path='/admin' component={AdminPanel} />
             <Route path='/login' component={LoginScreen} />
+            <Route path='/createAccount' component={CreateAccount} />
             <Footer settings={this.props.settings} />
           </div>
         </div>

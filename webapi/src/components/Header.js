@@ -34,6 +34,11 @@ export const Header = (props) => {
                             Log In
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/createAccount">
+                            Create account
+                        </Link>
+                    </li>
                 </ul>
             </header>
         </div>

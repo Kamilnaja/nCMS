@@ -17,11 +17,13 @@ class LoginScreen extends Component {
         return (
             <section>
                 <div className="small-form-wrap">
-
+                    <h2>
+                        Logged as {this.props.currentUser}
+                    </h2>
                     <form onSubmit={(e) => this.handleSubmit(e)}>
                         <h2 className="form-title">
                             Login
-                    </h2>
+                        </h2>
                         <div className="input-wrap">
                             <label>Name</label>
                             <input
@@ -51,10 +53,16 @@ class LoginScreen extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        currentUser: state.login.userName
+    }
+}
+
 const mapDispatchToProps = (dispatch) => ({
     sendLoginData: (data) => {
         dispatch(SendLoginData(data))
     }
 })
 
-export default connect(null, mapDispatchToProps)(LoginScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen)

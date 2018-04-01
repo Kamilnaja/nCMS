@@ -14,7 +14,9 @@ class Main extends Component {
         if (this.props.articles.data) {
             var dataLength = this.props.articles.data.length;
             var data = this.props.articles.data.map((item, key) =>
-                <div className="single-post-wrapper" key={key}>
+                <div
+                    className="single-post-wrapper"
+                    key={key}>
                     <ArticlesList item={item}></ArticlesList>
                 </div>
             )
@@ -22,7 +24,8 @@ class Main extends Component {
 
         return (
             <div>
-                {this.props.articles.statusInfo === 'error' && <InfoBox title="Connection error" modalType="info-box-warning"></InfoBox>}
+                {this.props.articles.statusInfo === 'error' &&
+                    <InfoBox title="Connection error" modalType="info-box-warning"></InfoBox>}
                 {dataLength === 0 && <InfoBox title="No articles in db"></InfoBox>}
                 < ul className="articles-list" >
                     {data}
