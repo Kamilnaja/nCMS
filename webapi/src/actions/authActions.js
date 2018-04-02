@@ -68,3 +68,10 @@ export function SendNewAccountData(data) {
     })
 }
 
+export function logOut() {
+    store.dispatch((dispatch) => {
+        localStorage.removeItem('jwtToken');
+        setAuthorizationToken(false);
+        store.dispatch(setCurrentUser({}));
+    })
+}

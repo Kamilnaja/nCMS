@@ -95,7 +95,8 @@ p, label {
 
 .header-site-main-menu li a {
   color: #223F5E;
-  transition: 0.1s ease color; }
+  transition: 0.1s ease color;
+  cursor: pointer; }
 
 .header-site-main-menu li a:hover {
   color: cornflowerblue;

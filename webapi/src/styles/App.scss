@@ -57,6 +57,7 @@ p, label {
 .header-site-main-menu li a {
   color: $font-dark;
   transition: 0.1s ease color;
+  cursor: pointer;
 }
 
 .header-site-main-menu li a:hover {
