@@ -1,30 +1,25 @@
 import React, { Component } from 'react';
+import { SendNewAccountData } from './../../actions/authActions';
 import { connect } from 'react-redux';
-import { login } from './../actions/authActions';
 
-class LoginScreen extends Component {
-
+class CreateAccount extends Component {
     handleSubmit(e) {
         var submitPayload = {
             username: this.username.value,
             password: this.password.value
         }
         e.preventDefault();
-        login(submitPayload);
+        SendNewAccountData(submitPayload);
     }
 
     render() {
         return (
             <section>
-                {
-                    `Logged as ${this.props.user}`
-                }
                 <div className="small-form-wrap">
-
 
                     <form onSubmit={(e) => this.handleSubmit(e)}>
                         <h2 className="form-title">
-                            Login
+                            Create new account
                         </h2>
                         <div className="input-wrap">
                             <label>Name</label>
@@ -55,16 +50,11 @@ class LoginScreen extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        user: state.auth.userName
-    }
-}
-
 const mapDispatchToProps = (dispatch) => ({
-    sendLoginData: (data) => {
-        dispatch(login(data))
+    sendNewAccountData: (data) => {
+        dispatch(SendNewAccountData(data));
     }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen)
+
+export default connect(null, mapDispatchToProps)(CreateAccount);
