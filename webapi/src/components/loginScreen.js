@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { SendLoginData } from './../actions/loginActions';
+import { Login } from './../actions/authActions';
 
 class LoginScreen extends Component {
 
@@ -10,16 +10,18 @@ class LoginScreen extends Component {
             password: this.password.value
         }
         e.preventDefault();
-        SendLoginData(submitPayload);
+        Login(submitPayload);
     }
 
     render() {
         return (
             <section>
+                {
+                    `Logged as ${this.props.user}`
+                }
                 <div className="small-form-wrap">
-                    <h2>
-                        Logged as {this.props.currentUser}
-                    </h2>
+
+
                     <form onSubmit={(e) => this.handleSubmit(e)}>
                         <h2 className="form-title">
                             Login
@@ -55,13 +57,13 @@ class LoginScreen extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        currentUser: state.login.userName
+        user: state.auth.userName
     }
 }
 
 const mapDispatchToProps = (dispatch) => ({
     sendLoginData: (data) => {
-        dispatch(SendLoginData(data))
+        dispatch(Login(data))
     }
 })
 

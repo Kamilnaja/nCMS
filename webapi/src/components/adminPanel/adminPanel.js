@@ -3,8 +3,12 @@ import ManageArticles from './manageArticles/manageArticles';
 import ManagePages from './managePages/managePages';
 import AddArticle from './AddArticles/AddArticle';
 import ChangeSettings from './siteSettings/changeSettings';
+import { connect } from 'react-redux';
+import { InfoBox } from '../utilsComponents/infoBox';
 
-export default class AdminPanel extends Component {
+var info = "";
+
+class AdminPanel extends Component {
     constructor(props) {
         super(props);
         this.state = { isVisible: 'Edit settings' }
@@ -15,9 +19,26 @@ export default class AdminPanel extends Component {
         this.setState({ isVisible: event.target.text })
     }
 
+    componentWillMount() {
+        if (!this.props.isAuthenticated) {
+            info = <InfoBox title="Authorization issue"></InfoBox>
+        } else {
+            info = <InfoBox title="Authorization ok"></InfoBox>
+        }
+    }
+
+    componentWillUpdate(nextProps) {
+        if (!nextProps.isAuthenticated) {
+            info = <InfoBox title="Authorization issue"></InfoBox>
+        } else {
+            info = <InfoBox title="Authorization ok"></InfoBox>
+        }
+    }
+
     render() {
         return (
-            <section className="admin-panel">
+            <section className="admin-panel" >
+                {info}
                 <section className="admin-panel-sidebar">
                     <ul className="admin-panel-sidebar-menu">
                         <li>
@@ -44,7 +65,22 @@ export default class AdminPanel extends Component {
                     {this.state.isVisible === 'Pages' && <ManagePages></ManagePages>}
 
                 </section>
-            </section>
+            </section >
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        isAuthenticated: state.auth.isAuthenticated
+    }
+}
+
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdminPanel);
