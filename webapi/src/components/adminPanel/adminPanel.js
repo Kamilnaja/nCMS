@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import ManageArticles from './manageArticles/manageArticles';
-import ManagePages from './managePages/managePages';
-import AddArticle from './AddArticles/AddArticle';
-import ChangeSettings from './siteSettings/changeSettings';
 import { connect } from 'react-redux';
-import { InfoBox } from '../utilsComponents/infoBox';
+import { AdminPanelMain } from './adminPanelMain';
 
-var info = "";
+var adminMain = ""
 
 class AdminPanel extends Component {
     constructor(props) {
@@ -21,24 +17,24 @@ class AdminPanel extends Component {
 
     componentWillMount() {
         if (!this.props.isAuthenticated) {
-            info = <InfoBox title="Authorization issue"></InfoBox>
+            adminMain = <div>NO Access</div>
         } else {
-            info = <InfoBox title="Authorization ok"></InfoBox>
+            adminMain = <AdminPanelMain isVisible={this.state.isVisible}></AdminPanelMain>
         }
     }
 
     componentWillUpdate(nextProps) {
         if (!nextProps.isAuthenticated) {
-            info = <InfoBox title="Authorization issue"></InfoBox>
+            adminMain = <div>NO Access</div>
+
         } else {
-            info = <InfoBox title="Authorization ok"></InfoBox>
+            adminMain = <AdminPanelMain isVisible={this.state.isVisible}></AdminPanelMain>
         }
     }
 
     render() {
         return (
             <section className="admin-panel" >
-                {info}
                 <section className="admin-panel-sidebar">
                     <ul className="admin-panel-sidebar-menu">
                         <li>
@@ -55,20 +51,14 @@ class AdminPanel extends Component {
                         </li>
                     </ul>
                 </section>
-                <section className="admin-panel-forms-wrapper">
-                    {this.state.isVisible === 'Edit settings' && <ChangeSettings></ChangeSettings>}
 
-                    {this.state.isVisible === 'Edit articles' && <ManageArticles></ManageArticles>}
+                {adminMain}
 
-                    {this.state.isVisible === 'Add article' && <AddArticle></AddArticle>}
-
-                    {this.state.isVisible === 'Pages' && <ManagePages></ManagePages>}
-
-                </section>
             </section >
         )
     }
 }
+
 
 const mapStateToProps = (state) => {
     return {

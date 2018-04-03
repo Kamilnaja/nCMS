@@ -42,11 +42,15 @@ class Header extends Component {
                                 Create account
                         </Link>
                         </li>
-                        <li>
-                            <a onClick={logOut}>
-                                Log out
-                        </a>
-                        </li>
+
+                        {this.props.isAuthenticated &&
+                            <li>
+                                <a onClick={logOut}>
+                                    Log out
+                                </a>
+                            </li>
+                        }
+
                     </ul>
                 </header>
             </div >
@@ -55,7 +59,9 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return {}
+    return {
+        isAuthenticated: state.auth.isAuthenticated
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
