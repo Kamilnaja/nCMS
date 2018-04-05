@@ -17,7 +17,7 @@ class AdminPanel extends Component {
 
     componentWillMount() {
         if (!this.props.isAuthenticated) {
-            adminMain = <div>NO Access</div>
+            adminMain = <section class="restricted">NO Access</section>
         } else {
             adminMain = <AdminPanelMain isVisible={this.state.isVisible}></AdminPanelMain>
         }
@@ -25,7 +25,7 @@ class AdminPanel extends Component {
 
     componentWillUpdate(nextProps) {
         if (!nextProps.isAuthenticated) {
-            adminMain = <div>NO Access</div>
+            adminMain = <section class="restricted">NO Access</section>
 
         } else {
             adminMain = <AdminPanelMain isVisible={this.state.isVisible}></AdminPanelMain>

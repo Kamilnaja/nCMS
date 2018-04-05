@@ -327,3 +327,15 @@ section {
   filter: blur(20px);
   overflow: hidden;
 }
+
+.restricted {
+  border: 5px dashed red;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: red;
+
+}
