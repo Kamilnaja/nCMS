@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { AdminPanelMain } from './adminPanelMain';
 
-var adminMain = ""
+var isReallyLogged = false;
 
 class AdminPanel extends Component {
     constructor(props) {
@@ -16,21 +16,22 @@ class AdminPanel extends Component {
     }
 
     componentWillMount() {
-        if (!this.props.isAuthenticated) {
-            adminMain = <section class="restricted">NO Access</section>
+        if (this.props.isAuthenticated) {
+            isReallyLogged = true
         } else {
-            adminMain = <AdminPanelMain isVisible={this.state.isVisible}></AdminPanelMain>
+            isReallyLogged = false
         }
     }
 
     componentWillUpdate(nextProps) {
-        if (!nextProps.isAuthenticated) {
-            adminMain = <section class="restricted">NO Access</section>
+        if (this.props.isAuthenticated) {
+            isReallyLogged = true
 
         } else {
-            adminMain = <AdminPanelMain isVisible={this.state.isVisible}></AdminPanelMain>
+            isReallyLogged = false
         }
     }
+
 
     render() {
         return (
@@ -51,9 +52,10 @@ class AdminPanel extends Component {
                         </li>
                     </ul>
                 </section>
-
-                {adminMain}
-
+                {isReallyLogged ?
+                    <AdminPanelMain isVisible={this.state.isVisible}></AdminPanelMain> :
+                    <section className="restricted">NO Access</section>
+                }
             </section >
         )
     }
@@ -66,11 +68,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-    }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(AdminPanel);
+export default connect(mapStateToProps, null)(AdminPanel);

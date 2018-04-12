@@ -7,7 +7,6 @@ import ManagePages from './managePages/managePages';
 export const AdminPanelMain = (props) => {
     return (
         <section className="admin-panel-forms-wrapper">
-
             {props.isVisible === 'Edit settings' && <ChangeSettings></ChangeSettings>}
 
             {props.isVisible === 'Edit articles' && <ManageArticles></ManageArticles>}
