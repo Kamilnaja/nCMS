@@ -324,3 +324,8 @@ section {
   font-size: 25px;
   font-weight: bold;
   color: red; }
+
+.loginInfoStrip {
+  color: #EEEBE0;
+  background-color: #A2071A;
+  padding: 5px 10px; }

@@ -61,7 +61,6 @@ class AdminPanel extends Component {
     }
 }
 
-
 const mapStateToProps = (state) => {
     return {
         isAuthenticated: state.auth.isAuthenticated

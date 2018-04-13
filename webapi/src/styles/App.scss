@@ -337,5 +337,10 @@ section {
   font-size: 25px;
   font-weight: bold;
   color: red;
+}
 
+.loginInfoStrip {
+  color: $font-light;
+  background-color: $accent;
+  padding: 5px 10px; 
 }
