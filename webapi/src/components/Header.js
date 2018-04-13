@@ -67,7 +67,7 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        isAuthenticated: state.auth.isAuthenticated
+        isAuthenticated: state.auth.userName
     }
 }
 

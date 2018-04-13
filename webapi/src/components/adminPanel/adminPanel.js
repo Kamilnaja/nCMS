@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { AdminPanelMain } from './adminPanelMain';
 
-var isReallyLogged = false;
-
 class AdminPanel extends Component {
     constructor(props) {
         super(props);
@@ -14,24 +12,6 @@ class AdminPanel extends Component {
     handleClick(event) {
         this.setState({ isVisible: event.target.text })
     }
-
-    componentWillMount() {
-        if (this.props.isAuthenticated) {
-            isReallyLogged = true
-        } else {
-            isReallyLogged = false
-        }
-    }
-
-    componentWillUpdate(nextProps) {
-        if (this.props.isAuthenticated) {
-            isReallyLogged = true
-
-        } else {
-            isReallyLogged = false
-        }
-    }
-
 
     render() {
         return (
@@ -52,7 +32,8 @@ class AdminPanel extends Component {
                         </li>
                     </ul>
                 </section>
-                {isReallyLogged ?
+
+                {this.props.isAuthenticated ?
                     <AdminPanelMain isVisible={this.state.isVisible}></AdminPanelMain> :
                     <section className="restricted">NO Access</section>
                 }
@@ -63,7 +44,7 @@ class AdminPanel extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        isAuthenticated: state.auth.isAuthenticated
+        isAuthenticated: state.auth.userName
     }
 }
 

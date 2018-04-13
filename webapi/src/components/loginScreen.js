@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from './../actions/authActions';
 import { LoginInfo } from './loginInfo';
-class LoginScreen extends Component {
 
+class LoginScreen extends Component {
     handleSubmit(e) {
         var submitPayload = {
             username: this.username.value,
