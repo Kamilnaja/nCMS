@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { AdminPanelMain } from './adminPanelMain';
+import { RestrictedInfo } from './../restrictedInfo';
 
 class AdminPanel extends Component {
     constructor(props) {
         super(props);
-        this.state = { isVisible: 'Edit settings' }
+        this.state = { isVisible: 'Add article' }
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -34,8 +35,9 @@ class AdminPanel extends Component {
                 </section>
 
                 {this.props.isAuthenticated ?
-                    <AdminPanelMain isVisible={this.state.isVisible}></AdminPanelMain> :
-                    <section className="restricted">NO Access</section>
+                    <AdminPanelMain isVisible={this.state.isVisible}></AdminPanelMain>
+                    :
+                    <RestrictedInfo></RestrictedInfo>
                 }
             </section >
         )

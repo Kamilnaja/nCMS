@@ -275,10 +275,6 @@ section {
 .info-box-warning {
   background-color: #A2071A; }
 
-.article-content {
-  width: 100%;
-  display: block; }
-
 .articles-list {
   margin-top: 25px; }
 
@@ -321,6 +317,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   font-size: 25px;
   font-weight: bold;
   color: red; }
@@ -329,3 +326,12 @@ section {
   color: #EEEBE0;
   background-color: #A2071A;
   padding: 5px 10px; }
+
+.form-fullwidth {
+  width: 100%; }
+  .form-fullwidth .input-wrap input {
+    width: 100%; }
+  .form-fullwidth .article-content {
+    min-height: 200px;
+    width: 100%;
+    display: block; }

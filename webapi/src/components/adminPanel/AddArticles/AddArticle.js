@@ -20,12 +20,11 @@ class AddArticles extends Component {
             var info = <InfoBox title="You have successfully added new article" />
         }
         return (
-
-            <div>
-                <div>{info}</div>
+            <div class="form-fullwidth">
+                {info && <div>{info}</div>}
                 <form onSubmit={(e) => this.handleSubmit(e)}>
                     <h2 className="form-title">
-                        Dodaj artykuł
+                        Add new article
                 </h2>
                     <div className="input-wrap">
                         <label>Tytuł</label>
