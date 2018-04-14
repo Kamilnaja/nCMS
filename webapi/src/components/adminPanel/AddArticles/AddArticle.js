@@ -10,6 +10,7 @@ class AddArticles extends Component {
             articleTitle: this.articleTitle.value,
             articleSubtitle: this.articleSubtitle.value,
             articleMainContent: this.articleMainContent.value,
+            articleAuthor: this.props.user
         }
         e.preventDefault();
         AddNewArticle(submitPayload);
@@ -20,7 +21,7 @@ class AddArticles extends Component {
             var info = <InfoBox title="You have successfully added new article" />
         }
         return (
-            <div class="form-fullwidth">
+            <div className="form-fullwidth">
                 {info && <div>{info}</div>}
                 <form onSubmit={(e) => this.handleSubmit(e)}>
                     <h2 className="form-title">
@@ -64,7 +65,8 @@ class AddArticles extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    statusInfo: state.articles.statusInfo
+    statusInfo: state.articles.statusInfo,
+    user: state.auth.userName
 })
 
 const mapDispatchToProps = (dispatch) => ({
