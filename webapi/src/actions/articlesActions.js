@@ -20,20 +20,6 @@ function articleEdited(data) {
     })
 }
 
-export function getOneArticle(e) {
-    store.dispatch((dispatch) => {
-        dispatch({
-            type: "GET_SINGLE_ARTICLE_START"
-        });
-
-        axios.get(`${localUrl}/api/posts/${e.target.getAttribute('data-key')}`)
-            .then(
-                dispatch({
-                    type: "GET_SINGLE_ARTICLE_SUCCESS"
-                })
-            )
-    })
-}
 
 export function getArticles() {
     store.dispatch((dispatch) => {

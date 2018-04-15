@@ -9,6 +9,8 @@ import Main from './components/main';
 import AdminPanel from './components/adminPanel/adminPanel';
 import LoginScreen from './components/loginScreen';
 import CreateAccount from './components/login/createAccount';
+import SingleArticle from './components/articlesParts/singleArticle';
+import FullArticle from './components/articlesParts/fullArticle';
 
 class App extends Component {
 
@@ -26,6 +28,7 @@ class App extends Component {
             <Route path='/admin' component={AdminPanel} />
             <Route path='/login' component={LoginScreen} />
             <Route path='/createAccount' component={CreateAccount} />
+            <Route path='/api/posts/:articleId' component={FullArticle} />
             <Footer settings={this.props.settings} />
           </div>
         </div>

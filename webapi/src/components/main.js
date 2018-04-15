@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getArticles, getOneArticle } from './../actions/articlesActions';
-import ArticlesList from './articlesList';
+import { getArticles } from './../actions/articlesActions';
 import { InfoBox } from './utilsComponents/infoBox';
+import SingleArticle from './articlesParts/singleArticle';
 
 class Main extends Component {
 
@@ -17,17 +17,21 @@ class Main extends Component {
                 <div
                     className="single-post-wrapper"
                     key={key}>
-                    <ArticlesList item={item}></ArticlesList>
+                    <SingleArticle item={item}></SingleArticle>
                 </div>
             )
         }
 
         return (
             <div>
-                {this.props.articles.statusInfo === 'error' &&
-                    <InfoBox title="Connection error" modalType="info-box-warning"></InfoBox>}
-                {dataLength === 0 && <InfoBox title="No articles in db"></InfoBox>}
-                < ul className="articles-list" >
+                {
+                    this.props.articles.statusInfo === 'error' &&
+                    <InfoBox title="Connection error" modalType="info-box-warning"></InfoBox>
+                }
+                {
+                    dataLength === 0 && <InfoBox title="No articles in db"></InfoBox>
+                }
+                <ul className="articles-list" >
                     {data}
                 </ul >
 
@@ -49,9 +53,6 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(getArticles(data))
         },
 
-        getOneArticle: (data) => {
-            dispatch(getOneArticle(data));
-        }
     }
 }
 
