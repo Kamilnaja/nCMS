@@ -42,8 +42,8 @@ class EditArticleForm extends Component {
             var info = <InfoBox title="You have successfully edited article" />
         }
         return (
-            <div>
-                <div>{info}</div>
+            <div className="form-fullwidth">
+                < div > {info}</div >
                 <form onSubmit={(e) => this.handleSubmit(e)} >
                     <h2 className="form-title">
                         Edit an article
@@ -95,7 +95,7 @@ class EditArticleForm extends Component {
                     <input type="button" value="cancel" className="btn btn-default"
                         onClick={() => cancelEdit()}></input>
                 </form >
-            </div>
+            </div >
         )
     }
 }
