@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from './../actions/authActions';
-import { LoginInfo } from './loginInfo';
+import { InfoStrip } from './infoStrip';
 
 class LoginScreen extends Component {
     handleSubmit(e) {
@@ -54,9 +54,9 @@ class LoginScreen extends Component {
                             <input type="submit" value="submit" className="btn btn-default"></input>
                         </form>
                     </div> :
-                    <LoginInfo
+                    <InfoStrip
                         user={this.props.user}
-                        isAuthenticated={this.props.isAuthenticated}></LoginInfo>
+                        text={"Logged as: "}></InfoStrip>
                 }
             </section >
         )

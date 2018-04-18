@@ -1,6 +1,7 @@
 const authReducer = (state = {
     isAuthenticated: false,
-    loginStatus: "waiting"
+    loginStatus: "waiting",
+    statusInfo: ''
 }, action) => {
     switch (action.type) {
 
