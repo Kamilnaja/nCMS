@@ -27,35 +27,34 @@ class Header extends Component {
                                 Home
                         </Link>
                         </li>
-                        <li>
-                            <Link to="/admin">
-                                Admin Panel
-                        </Link>
-                        </li>
                         {
                             !this.props.isAuthenticated &&
-                            <li>
+                            [<li>
                                 <Link to="/login">
                                     Log In
                                 </Link>
                             </li>
-                        }
-                        {
-                            !this.props.isAuthenticated &&
+                                ,
                             <li>
                                 <Link to="/createAccount">
                                     Create account
                                 </Link>
-                            </li>
+                            </li>]
                         }
 
-
                         {this.props.isAuthenticated &&
-                            <li>
-                                <a onClick={logOut}>
-                                    Log out
-                                </a>
-                            </li>
+                            [
+                                <li>
+                                    <a onClick={logOut}>
+                                        Log out
+                                    </a>
+                                </li>,
+                                <li>
+                                    <Link to="/admin">
+                                        Admin Panel
+                                    </Link>
+                                </li>
+                            ]
                         }
 
                     </ul>
