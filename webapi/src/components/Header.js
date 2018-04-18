@@ -29,13 +29,13 @@ class Header extends Component {
                         </li>
                         {
                             !this.props.isAuthenticated &&
-                            [<li>
+                            [<li key="logIn">
                                 <Link to="/login">
                                     Log In
                                 </Link>
                             </li>
                                 ,
-                            <li>
+                            <li key="createAccount">
                                 <Link to="/createAccount">
                                     Create account
                                 </Link>
@@ -44,12 +44,12 @@ class Header extends Component {
 
                         {this.props.isAuthenticated &&
                             [
-                                <li>
+                                <li key="logOut">
                                     <a onClick={logOut}>
                                         Log out
                                     </a>
                                 </li>,
-                                <li>
+                                <li key="adminPanel">
                                     <Link to="/admin">
                                         Admin Panel
                                     </Link>

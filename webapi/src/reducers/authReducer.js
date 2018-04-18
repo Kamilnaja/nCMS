@@ -12,6 +12,7 @@ const authReducer = (state = {
             }
             break;
         }
+
         case "SET_CURRENT_USER": {
             state = {
                 ...state,
@@ -30,7 +31,13 @@ const authReducer = (state = {
             }
             break;
         }
-
+        case "RELOAD_REGISTER_INFO": {
+            state = {
+                ...state,
+                statusInfo: ""
+            }
+            break;
+        }
         default: return state;
     }
     return state;

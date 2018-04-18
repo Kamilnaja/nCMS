@@ -74,3 +74,11 @@ export function logOut() {
         store.dispatch(setCurrentUser({}));
     })
 }
+
+export function enableRegisterAnotherUser() {
+    store.dispatch((dispatch) => {
+        dispatch({
+            type: "RELOAD_REGISTER_INFO"
+        })
+    })
+}

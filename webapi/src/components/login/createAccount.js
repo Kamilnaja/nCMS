@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { SendNewAccountData } from './../../actions/authActions';
 import { connect } from 'react-redux';
 import { InfoStrip } from './../infoStrip';
+import { enableRegisterAnotherUser } from './../../actions/authActions';
 
 class CreateAccount extends Component {
     handleSubmit(e) {
@@ -12,7 +13,15 @@ class CreateAccount extends Component {
         e.preventDefault();
         SendNewAccountData(submitPayload);
     }
-
+    componentWillMount() {
+        if (
+            this.props.statusInfo === "success"
+        ) {
+            console.log("zmiana")
+            // dispatch event 
+            enableRegisterAnotherUser()
+        }
+    }
     render() {
         return (
             <section>
@@ -67,6 +76,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
     sendNewAccountData: (data) => {
         dispatch(SendNewAccountData(data));
+    },
+    enableRegisterAnotherUser: (data) => {
+        dispatch(enableRegisterAnotherUser());
     }
 })
 

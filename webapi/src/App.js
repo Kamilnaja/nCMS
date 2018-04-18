@@ -13,41 +13,41 @@ import FullArticle from './components/articlesParts/fullArticle';
 
 class App extends Component {
 
-  componentDidMount() {
-    getSettings()
-  }
+    componentDidMount() {
+        getSettings()
+    }
 
-  render() {
-    return (
-      <Router>
-        <div className="background-app">
-          <div className="App container-app">
-            <Header settings={this.props.settings} />
-            <Route exact path='/' component={Main} />
-            <Route path='/admin' component={AdminPanel} />
-            <Route path='/login' component={LoginScreen} />
-            <Route path='/createAccount' component={CreateAccount} />
-            <Route path='/api/posts/:articleId' component={FullArticle} />
-            <Footer settings={this.props.settings} />
-          </div>
-        </div>
-      </Router>
-    );
-  }
+    render() {
+        return (
+            <Router>
+                <div className="background-app">
+                    <div className="App container-app">
+                        <Header settings={this.props.settings} />
+                        <Route exact path='/' component={Main} />
+                        <Route path='/admin' component={AdminPanel} />
+                        <Route path='/login' component={LoginScreen} />
+                        <Route path='/createAccount' component={CreateAccount} />
+                        <Route path='/api/posts/:articleId' component={FullArticle} />
+                        <Footer settings={this.props.settings} />
+                    </div>
+                </div>
+            </Router>
+        );
+    }
 }
 
 const mapStateToProps = (state) => {
-  return {
-    settings: state.settings,
-  }
+    return {
+        settings: state.settings,
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    getSettings: (data) => {
-      dispatch(getSettings(data))
+    return {
+        getSettings: (data) => {
+            dispatch(getSettings(data))
+        }
     }
-  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
