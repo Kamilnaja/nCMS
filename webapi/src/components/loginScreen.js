@@ -43,11 +43,21 @@ class LoginScreen extends Component {
                                     placeholder="very strong password"
                                 ></input>
                             </div>
+                            {
+                                this.props.loginStatus === "error" &&
+                                <div>
+                                    <p>
+                                        Wrong username or password. Please check and try again!
+                                    </p>
+                                </div>
+                            }
                             <input type="submit" value="submit" className="btn btn-default"></input>
                         </form>
-                    </div> : <LoginInfo user={this.props.user}></LoginInfo>
+                    </div> :
+                    <LoginInfo
+                        user={this.props.user}
+                        isAuthenticated={this.props.isAuthenticated}></LoginInfo>
                 }
-
             </section >
         )
     }
@@ -55,7 +65,9 @@ class LoginScreen extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        user: state.auth.userName
+        user: state.auth.userName,
+        isAuthenticated: state.auth.isAuthenticated,
+        loginStatus: state.auth.loginStatus
     }
 }
 

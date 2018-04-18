@@ -20,7 +20,6 @@ export function setUser() {
 
 export function login(data) {
     store.dispatch((dispatch) => {
-
         axios({
             method: 'post',
             url: `${localUrl}/api/session`,

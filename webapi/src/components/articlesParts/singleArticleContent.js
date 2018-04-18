@@ -15,8 +15,10 @@ const SingleArticleContent = (props) => {
                     </h2>
                     <h3 className="single-post-subtitle">{props.item.subtitle}</h3>
                     <p className="single-post-body">{props.item.content}</p>
-                    <h3>Written by: {props.item.author}</h3>
-                    <TimeInfo time={props.item}></TimeInfo>
+                    <footer className="single-post-footer">
+                        <p>Written by: {props.item.author}</p>
+                        <TimeInfo time={props.item}></TimeInfo>
+                    </footer>
                 </div>
             }
         </article>

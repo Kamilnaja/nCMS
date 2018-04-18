@@ -1,5 +1,6 @@
 const authReducer = (state = {
-    isAuthenticated: false
+    isAuthenticated: false,
+    loginStatus: "waiting"
 }, action) => {
     switch (action.type) {
 
@@ -13,11 +14,22 @@ const authReducer = (state = {
         case "SET_CURRENT_USER": {
             state = {
                 ...state,
-                isAuthenticated: true,
+                isAuthenticated: true, // todo - probably not necessary
                 userName: action.user.username
             }
             break;
         }
+
+        case "LOGIN_FAILED": {
+            state = {
+                ...state,
+                isAuthenticated: false,
+                username: "undefined",
+                loginStatus: "error"
+            }
+            break;
+        }
+
         default: return state;
     }
     return state;
