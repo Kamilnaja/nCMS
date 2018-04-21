@@ -1,11 +1,24 @@
 import axios from 'axios';
 import store from './../store';
 import { localUrl } from './../utils/AppConfig';
+import {
+    DELETE_ARTICLE_FAILED,
+    DELETE_ARTICLE_SUCCESS,
+    EDIT_ARTICLE_SUCCESS,
+    EDIT_ARTICLE_CANCEL,
+    GET_ARTICLES_ERROR,
+    GET_ARTICLES_START,
+    GET_ARTICLES_SUCCESS,
+    EDIT_ARTICLE_START,
+    SHOW_EDITION_FORM,
+    ADD_ARTICLE_PENDING,
+    ADD_NEW_ARTICLE_SUCCESS
+} from './../utils/action-types';
 
 function articleDeleted(data) {
     store.dispatch((dispatch) => {
         dispatch({
-            type: "DELETE_ARTICLE_SUCCESS",
+            type: DELETE_ARTICLE_SUCCESS,
             payload: data
         })
     })
@@ -14,7 +27,7 @@ function articleDeleted(data) {
 function articleEdited(data) {
     store.dispatch((dispatch) => {
         dispatch({
-            type: "EDIT_ARTICLE_SUCCESS",
+            type: EDIT_ARTICLE_SUCCESS,
             payload: data
         })
     })
@@ -24,20 +37,20 @@ function articleEdited(data) {
 export function getArticles() {
     store.dispatch((dispatch) => {
         dispatch({
-            type: "GET_ARTICLES_START"
+            type: GET_ARTICLES_START
         })
 
         axios.get(`${localUrl}/api/posts`)
             .then((response) => {
                 dispatch({
-                    type: "GET_ARTICLES_SUCCESS",
+                    type: GET_ARTICLES_SUCCESS,
                     payload: response.data
                 })
             })
 
             .catch((err) => {
                 dispatch({
-                    type: "GET_ARTICLES_ERROR",
+                    type: GET_ARTICLES_ERROR,
                     payload: err
                 })
             })
@@ -48,7 +61,7 @@ export function saveEditedArticle(data, editedArticle) {
     store.dispatch((dispatch) => {
 
         dispatch({
-            type: "EDIT_ARTICLE_START"
+            type: EDIT_ARTICLE_START
         })
 
         axios.put(`${localUrl}/api/posts/${editedArticle}`,
@@ -69,7 +82,7 @@ export function saveEditedArticle(data, editedArticle) {
 export function cancelEdit() {
     store.dispatch((dispatch) => {
         dispatch({
-            type: "EDIT_ARTICLE_CANCEL"
+            type: EDIT_ARTICLE_CANCEL
         })
     })
 }
@@ -77,7 +90,7 @@ export function cancelEdit() {
 export function showEditionForm(data) {
     store.dispatch((dispatch) => {
         dispatch({
-            type: "SHOW_EDITION_FORM",
+            type: SHOW_EDITION_FORM,
             payload: data
         })
     })
@@ -95,7 +108,7 @@ export function deleteArticle(data) {
             .catch((err) => {
                 if (err) {
                     dispatch({
-                        type: "DELETE_ARTICLE_FAILED",
+                        type: DELETE_ARTICLE_FAILED,
                         payload: data
                     })
                 }
@@ -106,7 +119,7 @@ export function deleteArticle(data) {
 export function AddNewArticle(payloadData) {
     store.dispatch((dispatch) => {
         dispatch({
-            type: "ADD_ARTICLE_PENDING"
+            type: ADD_ARTICLE_PENDING
         })
         axios.post(
             `${localUrl}/api/posts`, {
@@ -117,7 +130,7 @@ export function AddNewArticle(payloadData) {
             })
             .then(() => {
                 dispatch({
-                    type: "ADD_NEW_ARTICLE_SUCCESS",
+                    type: ADD_NEW_ARTICLE_SUCCESS,
                     payload: payloadData
                 })
             })

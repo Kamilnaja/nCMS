@@ -3,10 +3,17 @@ import store from './../store';
 import { localUrl } from './../utils/AppConfig';
 import setAuthorizationToken from './../utils/setAuthToken';
 import jwtDecode from 'jwt-decode';
+import {
+    SET_CURRENT_USER,
+    LOGIN_FAILED,
+    CREATE_ACCOUNT_SUCCESS,
+    CREATE_ACCOUNT_FAILED,
+    RELOAD_REGISTER_INFO,
+} from './../utils/action-types';
 
 export function setCurrentUser(user) {
     return {
-        type: "SET_CURRENT_USER",
+        type: SET_CURRENT_USER,
         user
     }
 }
@@ -36,7 +43,7 @@ export function login(data) {
             })
             .catch((err) => {
                 dispatch({
-                    type: "LOGIN_FAILED"
+                    type: LOGIN_FAILED
                 })
             })
     })
@@ -54,13 +61,13 @@ export function SendNewAccountData(data) {
         })
             .then((res) => {
                 dispatch({
-                    type: "CREATE_ACCOUNT_SUCCESS",
+                    type: CREATE_ACCOUNT_SUCCESS,
                     payload: data
                 })
             })
             .catch((err) => {
                 dispatch({
-                    type: "CREATE_ACCOUNT_FAILED",
+                    type: CREATE_ACCOUNT_FAILED,
                     payload: err
                 })
             })
@@ -78,7 +85,7 @@ export function logOut() {
 export function enableRegisterAnotherUser() {
     store.dispatch((dispatch) => {
         dispatch({
-            type: "RELOAD_REGISTER_INFO"
+            type: RELOAD_REGISTER_INFO
         })
     })
 }
