@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+
 function getSelectedText() {
     return window.getSelection().toString();
 }
 
-class NEditor extends Component {
+class Editor extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -24,17 +25,7 @@ class NEditor extends Component {
             selectedPart: getSelectedText(),
         })
     }
-
-    handleChange(e) {
-        this.setState({
-            currentText: e.target.value,
-            textLength: this.state.currentText.length
-        })
-    }
-
-    handleBold(start, end) {
-
-    }
+    // todo - funkcje do edycji tekstu, wstawiające tagi html
     render() {
         return (
             <div className="n-editor">
@@ -45,9 +36,10 @@ class NEditor extends Component {
                 </div>
 
                 <textarea
-                    onChange={this.handleChange.bind(this)}
-                    value={this.state.currentText}
-                    onSelect={this.handleSelect.bind(this)}
+                    onChange={this.props.handleChange}
+                    value={this.props.currentText}
+                    // onSelect={this.handleSelect.bind(this)}
+                    name={this.props.name}
                 >
                 </textarea>
                 <div className="info-small">{this.state.textLength}</div>
@@ -56,4 +48,4 @@ class NEditor extends Component {
     }
 }
 
-export default NEditor;
+export default Editor;

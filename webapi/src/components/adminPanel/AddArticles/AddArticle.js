@@ -2,19 +2,33 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { AddNewArticle } from './../../../actions/articlesActions';
 import { InfoBox } from '../../utilsComponents/infoBox';
-import NEditor from './../../editor/editor';
+import Editor from './../../editor/editor';
 
 class AddArticles extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentText: ''
+        }
+    }
 
     handleSubmit(e) {
+        debugger
         var submitPayload = {
             articleTitle: this.articleTitle.value,
             articleSubtitle: this.articleSubtitle.value,
-            articleMainContent: this.articleMainContent.value,
+            articleMainContent: this.state.currentText,
             articleAuthor: this.props.user
         }
         e.preventDefault();
         AddNewArticle(submitPayload);
+    }
+
+    handleChange(e) {
+        this.setState({
+            currentText: e.target.value,
+            textLength: this.state.currentText.length
+        })
     }
 
     render() {
@@ -56,7 +70,11 @@ class AddArticles extends Component {
                             ref={(input) => this.articleMainContent = input}
                             className="article-content"
                         ></textarea> */}
-                        <NEditor></NEditor>
+                        <Editor
+                            name="articleMainContent"
+                            handleChange={this.handleChange.bind(this)}
+                            currentText={this.state.currentText}
+                        ></Editor>
                     </div>
 
                     <input type="submit" value="submit" className="btn btn-default"></input>
