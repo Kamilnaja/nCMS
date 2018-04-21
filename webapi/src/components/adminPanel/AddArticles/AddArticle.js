@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { AddNewArticle } from './../../../actions/articlesActions';
 import { InfoBox } from '../../utilsComponents/infoBox';
+import NEditor from './../../editor/editor';
 
 class AddArticles extends Component {
 
@@ -49,12 +50,13 @@ class AddArticles extends Component {
 
                     <div className="input-wrap">
                         <label>Treść artykułu</label>
-                        <textarea
+                        {/* <textarea
                             name="articleMainContent"
                             type="text"
                             ref={(input) => this.articleMainContent = input}
                             className="article-content"
-                        ></textarea>
+                        ></textarea> */}
+                        <NEditor></NEditor>
                     </div>
 
                     <input type="submit" value="submit" className="btn btn-default"></input>

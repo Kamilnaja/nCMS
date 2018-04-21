@@ -50,6 +50,47 @@ body {
   box-sizing: border-box;
   font-family: sans-serif; }
 
+* {
+  box-sizing: border-box; }
+
+.n-editor {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+  border: 1px solid #A2071A;
+  overflow: hidden; }
+  .n-editor textarea {
+    width: 100%;
+    min-height: 20vh;
+    padding: 5px 10px;
+    font-family: sans-serif;
+    font-size: 15px;
+    border: 1px solid black;
+    border-left: none;
+    border-right: none; }
+  .n-editor .info-small {
+    border: 1px solid grey;
+    padding: 10px 15px;
+    float: right;
+    border-top: 0;
+    border-bottom: 0; }
+  .n-editor .btn-wrap {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end; }
+    .n-editor .btn-wrap button {
+      width: 50px;
+      border-top: none;
+      border-bottom: none;
+      border-left: 1px solid grey;
+      border-right: none;
+      padding: 10px 15px;
+      background-color: transparent;
+      cursor: pointer; }
+      .n-editor .btn-wrap button:hover {
+        background-color: #A2071A;
+        color: white; }
+
 p, label {
   margin: 5px 0 5px 0;
   display: inline-block; }
