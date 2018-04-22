@@ -5,6 +5,14 @@ const authReducer = (state = {
 }, action) => {
     switch (action.type) {
 
+        case "CREATE_ACCOUNT_FAILED": {
+            state = {
+                ...state,
+                statusInfo: action.payload
+            }
+            break;
+        }
+
         case "CREATE_ACCOUNT_SUCCESS": {
             state = {
                 ...state,

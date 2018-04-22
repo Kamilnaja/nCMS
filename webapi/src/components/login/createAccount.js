@@ -13,18 +13,16 @@ class CreateAccount extends Component {
         e.preventDefault();
         SendNewAccountData(submitPayload);
     }
+
     componentWillMount() {
-        if (
-            this.props.statusInfo === "success"
-        ) {
-            console.log("zmiana")
-            // dispatch event 
-            enableRegisterAnotherUser()
-        }
+        if (this.props.statusInfo === "success") { enableRegisterAnotherUser() }
     }
+
     render() {
         return (
             <section>
+                {this.props.statusInfo === 'notUniqueUserName' && <InfoStrip text="Your username is not unique"></InfoStrip>
+                }
                 {this.props.statusInfo === "success" ?
                     <InfoStrip
                         user={this.props.user}

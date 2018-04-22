@@ -4,15 +4,13 @@ var User = require('./../models/user');
 var config = require('./../login/config');
 
 exports.login_save_user = (req, res, next) => {
-    var user = new User({ username: req.body.username })
-    bcrypt.hash(req.body.password, 10, (err, hash) => {
-        user.password = hash;
-        user.save((err, user) => {
-            if (err) {
-                throw next(err);
-            }
-            res.sendStatus(201);
-        })
+    var newUser = new User({ username: req.body.username })
+    User.findOne({ username: req.body.username }, (err, user) => {
+        if (user === null) {
+            saveUser(req, newUser, next, res);
+        } else {
+            res.send('notUniqueUserName')
+        }
     })
 }
 
@@ -25,15 +23,7 @@ exports.login_session = (req, res, next) => {
         .exec((err, user) => {
             if (err) { return next(err) }
             if (!user) { return res.sendStatus(401) }
-            bcrypt.compare(req.body.password, user.password,
-                (err, valid) => {
-                    if (err) { return next(err) }
-                    if (!valid) { return res.sendStatus(401) }
-                    var token = jwt.encode({
-                        username: user.username
-                    }, config.secretKey);
-                    res.send(token);
-                })
+            evaluateUser(req, user, next, res);
         })
 }
 
@@ -41,9 +31,37 @@ exports.login_users = (req, res, next) => {
     if (!req.headers['x-auth']) {
         return res.sendStatus(401);
     }
+    setToken(req);
+}
+
+function setToken(req) {
     var token = req.headers['x-auth'];
     var auth = jwt.decode(token, config.secretKey);
-    User.findOne({ username: auth.username }, (err, user) => {
-        res.json(user);
-    })
+}
+
+function evaluateUser(req, user, next, res) {
+    bcrypt.compare(req.body.password, user.password, (err, valid) => {
+        if (err) {
+            return next(err);
+        }
+        if (!valid) {
+            return res.sendStatus(401);
+        }
+        var token = jwt.encode({
+            username: user.username
+        }, config.secretKey);
+        res.send(token);
+    });
+}
+
+function saveUser(req, newUser, next, res) {
+    bcrypt.hash(req.body.password, 10, (err, hash) => {
+        newUser.password = hash;
+        newUser.save((err) => {
+            if (err) {
+                throw next(err);
+            }
+            res.sendStatus(201);
+        });
+    });
 }

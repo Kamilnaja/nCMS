@@ -60,10 +60,17 @@ export function SendNewAccountData(data) {
             }
         })
             .then((res) => {
-                dispatch({
-                    type: CREATE_ACCOUNT_SUCCESS,
-                    payload: data
-                })
+                if (res.data === 'notUniqueUserName') {
+                    dispatch({
+                        type: CREATE_ACCOUNT_FAILED,
+                        payload: 'notUniqueUserName'
+                    })
+                } else {
+                    dispatch({
+                        type: CREATE_ACCOUNT_SUCCESS,
+                        payload: data
+                    })
+                }
             })
             .catch((err) => {
                 dispatch({

@@ -361,10 +361,11 @@ section {
   font-weight: bold;
   color: red; }
 
-.loginInfoStrip {
+.login-info-strip {
   color: #EEEBE0;
   background-color: #A2071A;
-  padding: 15px 20px; }
+  padding: 15px 20px;
+  margin-bottom: 20px; }
 
 .form-fullwidth {
   width: 100%; }
@@ -404,6 +405,6 @@ section {
     letter-spacing: 2px; }
   .hamburger-menu > div {
     position: absolute;
-    top: 19px;
+    top: 12px;
     left: 50%;
     transform: translate(-50%); }

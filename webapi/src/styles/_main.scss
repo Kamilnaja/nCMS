@@ -331,10 +331,11 @@ p, label {
     color: red;
   }
   
-  .loginInfoStrip {
+  .login-info-strip {
     color: $font-light;
     background-color: $accent;
     padding: 15px 20px;
+    margin-bottom: 20px;
   }
   
   .form-fullwidth {
@@ -389,7 +390,7 @@ p, label {
     }
     & > div {
       position: absolute;
-      top: 19px;
+      top: 12px;
       left: 50%;
       transform: translate(-50%);
     
