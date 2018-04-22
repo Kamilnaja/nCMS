@@ -8,7 +8,7 @@ class AddArticles extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentText: ''
+            currentText: '',
         }
     }
 
