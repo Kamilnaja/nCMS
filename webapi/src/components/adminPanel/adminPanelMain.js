@@ -3,6 +3,7 @@ import ChangeSettings from './siteSettings/changeSettings';
 import ManageArticles from './manageArticles/manageArticles';
 import AddArticle from './AddArticles/AddArticle';
 import ManagePages from './managePages/managePages';
+import ManageUsers from './manageUsers/manageUsers';
 
 export const AdminPanelMain = (props) => {
     return (
@@ -18,6 +19,9 @@ export const AdminPanelMain = (props) => {
             {props.isVisible === 'Pages' &&
                 <ManagePages></ManagePages>}
 
+            {props.isVisible === 'Users' &&
+                <ManageUsers></ManageUsers>
+            }
         </section>
     )
 }

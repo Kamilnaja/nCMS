@@ -14,23 +14,20 @@ class AdminPanel extends Component {
         this.setState({ isVisible: event.target.text })
     }
 
+    menuItems = ["Edit settings", "Edit articles", "Add article", "Pages", "Users"];
+
     render() {
         return (
             <section className="admin-panel" >
                 <section className="admin-panel-sidebar">
                     <ul className="admin-panel-sidebar-menu">
-                        <li>
-                            <a onClick={this.handleClick}>Edit settings</a>
-                        </li>
-                        <li>
-                            <a onClick={this.handleClick}>Edit articles</a>
-                        </li>
-                        <li>
-                            <a onClick={this.handleClick}>Add article</a>
-                        </li>
-                        <li>
-                            <a onClick={this.handleClick}>Pages</a>
-                        </li>
+                        {this.menuItems.map((item, key) =>
+                            <li key={key}>
+                                <a onClick={this.handleClick}>
+                                    {item}
+                                </a>
+                            </li>
+                        )}
                     </ul>
                 </section>
 
