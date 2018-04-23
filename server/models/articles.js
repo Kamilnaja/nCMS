@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+
 var articlesSchema = mongoose.Schema({
     title: {
         type: String
@@ -19,6 +20,6 @@ var articlesSchema = mongoose.Schema({
     {
         timestamps: true
     }
-
 )
+
 module.exports = articlesSchema;
