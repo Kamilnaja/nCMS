@@ -19,8 +19,7 @@ router.put('/api/settings', main_site_ctrl.main_site_save_settings);
 
 router.post('/api/user', login_ctrl.login_save_user);
 router.post('/api/session', login_ctrl.login_session);
-// todo - change this urls
-router.get('/api/users', login_ctrl.login_users);
-router.get('/api/allusers', user_ctrl.get_users);
+
+router.get('/api/users', user_ctrl.get_users);
 
 module.exports = router;

@@ -29,13 +29,6 @@ exports.login_session = (req, res, next) => {
         })
 }
 
-exports.login_users = (req, res, next) => {
-    if (!req.headers['x-auth']) {
-        return res.sendStatus(401);
-    }
-    setToken(req);
-}
-
 function setToken(req) {
     var token = req.headers['x-auth'];
     var auth = jwt.decode(token, config.secretKey);

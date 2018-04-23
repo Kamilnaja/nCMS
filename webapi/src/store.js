@@ -3,6 +3,7 @@ import { createLogger } from 'redux-logger'
 import settings from './reducers/settingsReducer';
 import articles from './reducers/articlesReducer';
 import auth from './reducers/authReducer';
+import user from './reducers/usersReducer';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware'
 
@@ -10,7 +11,8 @@ let store = createStore(
     combineReducers({
         settings,
         articles,
-        auth
+        auth,
+        user
     }),
     {},
     applyMiddleware(createLogger(), thunk, promise())
