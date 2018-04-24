@@ -56,7 +56,8 @@ export function SendNewAccountData(data) {
             url: `${localUrl}/api/user`,
             data: {
                 username: data.username,
-                password: data.password
+                password: data.password,
+                role: data.role
             }
         })
             .then((res) => {

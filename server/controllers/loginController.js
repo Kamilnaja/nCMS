@@ -6,7 +6,11 @@ var UserModel = mongoose.model("User", UserSchema);
 var config = require('./../login/config');
 
 exports.login_save_user = (req, res, next) => {
-    var newUser = new UserModel({ username: req.body.username })
+    var newUser = new UserModel({
+        username: req.body.username,
+        role: req.body.role
+    })
+
     UserModel.findOne({ username: req.body.username }, (err, user) => {
         if (user === null) {
             saveUser(req, newUser, next, res);

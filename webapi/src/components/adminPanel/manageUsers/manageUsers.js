@@ -9,7 +9,7 @@ class ManageUsers extends Component {
 
     render() {
         return (
-            <div class="full-width">
+            <div className="full-width">
                 <h2 className="form-title">List of users</h2>
                 {this.props.userList &&
                     <ul className="data-list">
