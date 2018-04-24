@@ -408,3 +408,13 @@ section {
     top: 12px;
     left: 50%;
     transform: translate(-50%); }
+
+.data-list li {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+  .data-list li:not(:last-child) {
+    border-bottom: 1px dashed grey;
+    width: 100%; }
+
+.full-width {
+  width: 100%; }

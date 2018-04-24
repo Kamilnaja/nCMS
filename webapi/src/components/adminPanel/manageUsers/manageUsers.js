@@ -9,10 +9,10 @@ class ManageUsers extends Component {
 
     render() {
         return (
-            <div>
+            <div class="full-width">
                 <h2 className="form-title">List of users</h2>
-                {this.props.userList && <div>
-                    <ul>
+                {this.props.userList &&
+                    <ul className="data-list">
                         {this.props.userList.map((item) =>
                             <li key={item._id}>
                                 Username:
@@ -20,8 +20,7 @@ class ManageUsers extends Component {
                             </li>
                         )}
                     </ul>
-
-                </div>}
+                }
             </div>
 
         )

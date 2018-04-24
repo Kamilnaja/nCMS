@@ -396,3 +396,16 @@ p, label {
     
     }
   }
+
+  .data-list li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    &:not(:last-child) {
+      border-bottom: 1px dashed grey;
+      width: 100%;
+    }
+  }
+
+  .full-width {
+    width: 100%;
+  }

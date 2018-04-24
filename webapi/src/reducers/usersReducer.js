@@ -10,7 +10,14 @@ const usersReducer = (state = {
             }
             break;
         }
-        // todo - nex reducers
+        case "GET_USERS_ERROR": {
+            state = {
+                ...state,
+                fetching: false,
+                status: 'error'
+            }
+            break;
+        }
         default: return state;
     }
     return state;
