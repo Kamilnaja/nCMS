@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { login } from './../actions/authActions';
+import { login, cleanInfoStrip } from './../actions/authActions';
 import { InfoStrip } from './infoStrip';
 
 class LoginScreen extends Component {
@@ -11,6 +11,12 @@ class LoginScreen extends Component {
         }
         e.preventDefault();
         login(submitPayload);
+    }
+
+    componentWillMount() {
+        if (this.props.loginStatus === "error") {
+            cleanInfoStrip();
+        }
     }
 
     render() {
@@ -46,9 +52,8 @@ class LoginScreen extends Component {
                             {
                                 this.props.loginStatus === "error" &&
                                 <div>
-                                    <p>
-                                        Wrong username or password. Please check and try again!
-                                    </p>
+                                    <InfoStrip text={"Wrong username or password. Please check and try again!"}>
+                                    </InfoStrip>
                                 </div>
                             }
                             <input type="submit" value="submit" className="btn btn-default"></input>
@@ -74,6 +79,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
     sendLoginData: (data) => {
         dispatch(login(data))
+    },
+    cleanInfoStrip: (data) => {
+        dispatch(cleanInfoStrip());
     }
 })
 

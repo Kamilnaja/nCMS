@@ -39,10 +39,19 @@ const authReducer = (state = {
             }
             break;
         }
+
         case "RELOAD_REGISTER_INFO": {
             state = {
                 ...state,
                 statusInfo: ""
+            }
+            break;
+        }
+
+        case "CLEAN_INFO_STRIP": {
+            state = {
+                ...state,
+                loginStatus: ""
             }
             break;
         }

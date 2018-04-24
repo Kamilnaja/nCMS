@@ -25,6 +25,15 @@ export function setUser() {
     })
 }
 
+export function cleanInfoStrip() {
+    store.dispatch((dispatch) => {
+        dispatch({
+            type: "CLEAN_INFO_STRIP"
+        })
+    })
+
+}
+
 export function login(data) {
     store.dispatch((dispatch) => {
         axios({
