@@ -16,13 +16,10 @@ let validateError = function () {
  * 
  * 
  */
-function returnArticles(req, res, query, current) {
+function returnArticles(req, res) {
 
-    ArticlesModel.find({
-
-    })
-        .skip(current)
-        .limit(parseInt(query))
+    ArticlesModel
+        .find({})
         .sort({ dateOfAdding: -1 })
         .exec((err, data) => {
             validateError();
@@ -32,9 +29,7 @@ function returnArticles(req, res, query, current) {
 
 
 exports.get_articles = (req, res) => {
-    var query = parseInt(req.params.query, 10);
-    var current = parseInt(req.params.current, 10);
-    returnArticles(req, res, query, current);
+    returnArticles(req, res);
 }
 
 exports.get_one_article = (req, res, next) => {
