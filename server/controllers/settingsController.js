@@ -22,15 +22,19 @@ exports.main_site_save_settings = (req, res) => {
         if (err) {
             res.status(500).send(err);
         } else {
-            data.title = req.body.title;
-            data.subtitle = req.body.subtitle;
-            data.footer = req.body.footer;
-            data.save((err, data) => {
-                if (err) {
-                    res.status(500).send(err);
-                }
-                res.status(200).send(data);
-            })
+            setSiteData(data, req, res);
         }
     })
+}
+
+function setSiteData(data, req, res) {
+    data.title = req.body.title;
+    data.subtitle = req.body.subtitle;
+    data.footer = req.body.footer;
+    data.save((err, data) => {
+        if (err) {
+            res.status(500).send(err);
+        }
+        res.status(200).send(data);
+    });
 }

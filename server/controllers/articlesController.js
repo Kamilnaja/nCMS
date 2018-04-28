@@ -41,13 +41,13 @@ exports.delete_article = (req, res) => {
 }
 
 exports.save_articles = (req, res) => {
-    var article = new ArticlesModel({
+    var payload = new ArticlesModel({
         title: req.body.title,
         subtitle: req.body.subtitle,
         author: req.body.author,
         content: req.body.content,
     });
-    article.save((err) => {
+    payload.save((err) => {
         if (err) return handleError(err);
         res.send('Zapisano wpis');
     })
@@ -68,7 +68,4 @@ exports.update_article = (req, res) => {
                 returnUpdatedArticlesList(req, res);
             }
         })
-
-
-
 }
