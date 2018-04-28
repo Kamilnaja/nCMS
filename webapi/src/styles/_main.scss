@@ -3,95 +3,9 @@ p, label {
     display: inline-block;
   }
   
-  .header {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    padding: 20px 15px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  @media(max-width: 772px) {
-    .header {
-      flex-flow: column;
-    }
-  }
-  
-  .header a {
-    text-decoration: none;
-    color: $font-dark;
-    transition: 0.3s all ease;
-    letter-spacing: 0.11px;
-  }
-  
-  .header-site-main-menu .active {
-    font-weight: bold;
-    letter-spacing: 0;
-  }
-  
   .main {
     padding: 15px;
   }
-  
-  .header-site-title {
-    font-size: 20px;
-    font-family: sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  
-  .header-site-main-menu {
-    display: flex;
-    align-items: center;
-  }
-  
-  .header-site-main-menu li {
-    display: inline;
-    border-right: 2px solid grey;
-    padding-right: 5px;
-    padding-left: 5px;
-  }
-  
-  .header-site-main-menu li a {
-    color: $font-dark;
-    transition: 0.1s ease color;
-    cursor: pointer;
-  }
-  
-  .header-site-main-menu li a:hover {
-    color: cornflowerblue;
-    transition: 0.1s ease color;
-  }
-  
-  .header-site-main-menu li:last-child {
-    border-right: 2px solid transparent;
-  }
-  
-  @media(max-width: 772px) {
-    .header-site-main-menu {
-      margin-top: 15px;
-      display: block;
-    }
-  
-    .header-site-main-menu li {
-      display: block;
-      padding-left: 0;
-      padding-right: 0;
-      border-right: none;
-    }
-    
-    .header-site-main-menu li a {
-      padding-top: 5px;
-      padding-bottom: 5px;
-      width: 100%;
-      display: block;
-    }
-  
-    .header-site-main-menu li:last-child {
-      border-right: none;
-    }
-  }
-  
-  
   
   /* form */
   .form {
@@ -355,47 +269,7 @@ p, label {
     margin-bottom: 5px;
   }
 
-  .hamburger-menu.is-open-true {
-    & > div {
-      transform: rotateZ(90deg);
-    }
-  }
-  
-  .hamburger-menu {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    right: 15px;
-    background-color: transparent;
-    cursor: pointer;
-    font-size: 25px;
-    font-weight: bold;
-    line-height: 0;
-    
-    @media(min-width: 772px) {
-      display: none;
-    }
-    
-    &:focus {
-      border: 1px dashed grey;
-      outline: none;
-    }
-    & > div {
-      transition: 0.3s ease all;
-    }
-    &:hover {
-      & > div {
-        letter-spacing: 2px;
-      }
-    }
-    & > div {
-      position: absolute;
-      top: 12px;
-      left: 50%;
-      transform: translate(-50%);
-    
-    }
-  }
+
 
   .data-list li {
     padding-top: 10px;

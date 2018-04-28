@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getArticles } from './../actions/articlesActions';
 import { InfoBox } from './utilsComponents/infoBox';
 import SingleArticle from './articlesParts/singleArticle';
+import Paginator from './paginator/paginator';
 
 class Main extends Component {
 
@@ -33,10 +34,9 @@ class Main extends Component {
                 }
                 <ul className="articles-list" >
                     {data}
-                </ul >
-
+                </ul>
+                <Paginator dataLength={dataLength}></Paginator>
             </div>
-
         )
     }
 };

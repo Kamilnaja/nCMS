@@ -8,7 +8,7 @@ let validateError = function () {
     }
 }
 
-function returnUpdatedArticlesList(req, res) {
+function returnArticles(req, res) {
     ArticlesModel.find({})
         .sort({ dateOfAdding: -1 })
         .exec((err, data) => {
@@ -17,8 +17,18 @@ function returnUpdatedArticlesList(req, res) {
         })
 }
 
+function returnArticlesPaginated(req, res, pag) {
+    ArticlesModel.find({})
+        .skip(pag)
+        .sort({ dateOfAdding: -1 })
+        .exec((err, data) => {
+            validateError();
+            res.send(data);
+        })
+}
+
 exports.get_articles = (req, res) => {
-    returnUpdatedArticlesList(req, res);
+    returnArticles(req, res);
 }
 
 exports.get_one_article = (req, res, next) => {
@@ -65,7 +75,7 @@ exports.update_article = (req, res) => {
             if (err) {
                 return handleError(err)
             } else {
-                returnUpdatedArticlesList(req, res);
+                returnArticles(req, res);
             }
         })
 }
