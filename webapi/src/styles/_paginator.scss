@@ -1,0 +1,8 @@
+.paginator-number {
+    display: inline;
+    padding: 5px;
+    cursor: pointer;
+    &.active {
+        color: red;
+    }
+}
