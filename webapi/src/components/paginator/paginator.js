@@ -1,25 +1,39 @@
 /* @Author: Kamil Naja
-*  @Params: int, itemsPerOnePage 
+*  @Params: int itemsPerOnePage 
 *
 *
 */
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { localUrl } from './../../utils/AppConfig';
+import { connect } from 'react-redux';
 
 class Paginator extends Component {
     numberArray = [];
-    itemsPerOnePage = 5;
+    itemsPerOnePage = 5; // todo - remove magical number
     constructor(props) {
         super(props);
         this.state = {
             currentPagination: 1
         }
     }
+    getNewDataSet() {
+        axios.get(`${localUrl}/api/posts/1`)
+            .then((res) => {
+                console.log(res.data);
+            })
+            .catch((err) => {
+                console.log('error');
+            })
+    }
     setCurrentPagination(e) {
+        e.preventDefault();
         this.setState({
             currentPagination: e.target.text,
-        })
+        });
+        this.getNewDataSet();
     }
     render() {
 
@@ -47,4 +61,10 @@ class Paginator extends Component {
     }
 }
 
-export default Paginator;
+const mapStateToProps = (state) => {
+    return {
+        // todo 
+    }
+}
+
+export default connect(mapStateToProps, null)(Paginator);

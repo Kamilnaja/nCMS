@@ -7,9 +7,22 @@ let validateError = function () {
         if(err) { return (err) }
     }
 }
+/**
+ * paginacja - daję mu numer, skąd zaczynamy (skip ) oraz 
+ * ilość wyników - limit 
+ * Chyba potrzebne jeszcze current 
+ * pomijamy te, co są do current i wybierać query
+ * current - na którym jesteśmy, czyli wyświetlamy od current do skip
+ * 
+ * 
+ */
+function returnArticles(req, res, query, current) {
 
-function returnArticles(req, res) {
-    ArticlesModel.find({})
+    ArticlesModel.find({
+
+    })
+        .skip(current)
+        .limit(parseInt(query))
         .sort({ dateOfAdding: -1 })
         .exec((err, data) => {
             validateError();
@@ -17,18 +30,11 @@ function returnArticles(req, res) {
         })
 }
 
-function returnArticlesPaginated(req, res, pag) {
-    ArticlesModel.find({})
-        .skip(pag)
-        .sort({ dateOfAdding: -1 })
-        .exec((err, data) => {
-            validateError();
-            res.send(data);
-        })
-}
 
 exports.get_articles = (req, res) => {
-    returnArticles(req, res);
+    var query = parseInt(req.params.query, 10);
+    var current = parseInt(req.params.current, 10);
+    returnArticles(req, res, query, current);
 }
 
 exports.get_one_article = (req, res, next) => {

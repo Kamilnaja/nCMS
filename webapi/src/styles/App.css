@@ -415,6 +415,35 @@ section {
   line-height: 1.4;
   margin-bottom: 5px; }
 
+.hamburger-menu.is-open-true > div {
+  transform: rotateZ(90deg); }
+
+.hamburger-menu {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 15px;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 0; }
+  @media (min-width: 772px) {
+    .hamburger-menu {
+      display: none; } }
+  .hamburger-menu:focus {
+    border: 1px dashed grey;
+    outline: none; }
+  .hamburger-menu > div {
+    transition: 0.3s ease all; }
+  .hamburger-menu:hover > div {
+    letter-spacing: 2px; }
+  .hamburger-menu > div {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translate(-50%); }
+
 .data-list li {
   padding-top: 10px;
   padding-bottom: 10px; }
