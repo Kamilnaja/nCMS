@@ -6,11 +6,17 @@ const SingleArticle = (props) => {
 
     return (
         <li key={props.item._id}>
-            <SingleArticleContent item={props.item}></SingleArticleContent>
-            <Link to={`/api/posts/${props.item._id}`}>
-                Read More
-            </Link>
+            <div
+                className="single-post-wrapper"
+            >
+                <SingleArticleContent
+                    item={props.item}></SingleArticleContent>
+                <Link to={`/api/posts/${props.item._id}`}>
+                    Read More
+                </Link>
+            </div>
         </li>
+
     )
 }
 

@@ -1,8 +1,22 @@
+import {
+    SET_SETTINGS_START,
+    SET_SETTINGS_SUCCESS,
+    GET_SETTINGS_ERROR,
+    GET_SETTINGS_SUCCESS,
+    SET_CURRENT_PAGINATION_PAGE,
+    SET_PAGINATION_SIZE
 
-const settingsReducer = (state = [],
+} from './../utils/action-types';
+
+const settingsReducer = (
+    state = {
+        paginationSize: 5,
+        currentPaginationPage: 5
+
+    },
     action) => {
     switch (action.type) {
-        case "GET_SETTINGS_SUCCESS":
+        case GET_SETTINGS_SUCCESS:
             state = {
                 ...state,
                 title: action.payload[0].title,
@@ -11,7 +25,7 @@ const settingsReducer = (state = [],
             }
             break;
 
-        case "GET_SETTINGS_ERROR": {
+        case GET_SETTINGS_ERROR: {
             state = {
                 ...state,
                 settings_error: true,
@@ -21,7 +35,7 @@ const settingsReducer = (state = [],
         }
 
 
-        case "SET_SETTINGS_START": {
+        case SET_SETTINGS_START: {
             state = {
                 ...state,
                 statusInfo: 'start'
@@ -29,7 +43,7 @@ const settingsReducer = (state = [],
             break;
         }
 
-        case "SET_SETTINGS_SUCCESS": {
+        case SET_SETTINGS_SUCCESS: {
             state = {
                 ...state,
                 title: action.payload.title,
@@ -39,6 +53,23 @@ const settingsReducer = (state = [],
             }
             break;
         }
+
+        case SET_CURRENT_PAGINATION_PAGE: {
+            state = {
+                ...state,
+                currentPaginationPage: action.payload
+            }
+            break;
+        }
+
+        case SET_PAGINATION_SIZE: {
+            state = {
+                ...state,
+                paginationSize: action.payload
+            }
+            break;
+        }
+
 
         default: return state;
     }

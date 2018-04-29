@@ -1,4 +1,8 @@
-// test purposes, remove
+/** 
+* @author Kamil Naja
+* @description Content of opened article 
+*/
+
 import React, { Component } from 'react';
 import axios from 'axios';
 import SingleArticleContent from './singleArticleContent';

@@ -8,7 +8,9 @@ import {
     SET_SETTINGS,
     GET_SETTINGS_ERROR,
     GET_SETTINGS_START,
-    GET_SETTINGS_SUCCESS
+    GET_SETTINGS_SUCCESS,
+    SET_CURRENT_PAGINATION_PAGE,
+    SET_PAGINATION_SIZE
 
 } from './../utils/action-types';
 
@@ -63,3 +65,21 @@ export function getSettings() {
             })
     })
 }
+
+export function setCurrentPaginationPage(payloadData) {
+    store.dispatch((dispatch) => {
+        dispatch({
+            type: SET_CURRENT_PAGINATION_PAGE,
+            payload: payloadData
+        })
+    })
+}
+// todo - size of valiation 
+// export function setPaginationSize(payloadData) {
+//     store.dispatch((dispatch) => {
+//         dispatch({
+//             type: SET_PAGINATION_SIZE,
+//             payload: payloadData
+//         })
+//     })
+// }
