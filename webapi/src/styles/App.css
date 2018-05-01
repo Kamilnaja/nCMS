@@ -83,7 +83,7 @@ body {
 
 .header-site-main-menu li {
   display: inline;
-  border-right: 2px solid grey;
+  border-right: 2px solid #EEEBE0;
   padding-right: 5px;
   padding-left: 5px; }
 
@@ -460,3 +460,6 @@ section {
   cursor: pointer; }
   .paginator-number.active {
     color: red; }
+
+.paginator-size-chooser {
+  float: right; }

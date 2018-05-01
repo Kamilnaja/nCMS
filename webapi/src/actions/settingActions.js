@@ -74,12 +74,12 @@ export function setCurrentPaginationPage(payloadData) {
         })
     })
 }
-// todo - size of valiation 
-// export function setPaginationSize(payloadData) {
-//     store.dispatch((dispatch) => {
-//         dispatch({
-//             type: SET_PAGINATION_SIZE,
-//             payload: payloadData
-//         })
-//     })
-// }
+
+export function setPaginationSize(payloadData) {
+    store.dispatch((dispatch) => {
+        dispatch({
+            type: SET_PAGINATION_SIZE,
+            payload: payloadData
+        })
+    })
+}

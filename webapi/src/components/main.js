@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getArticles } from './../actions/articlesActions';
-
 import { InfoBox } from './utilsComponents/infoBox';
 import SingleArticle from './articlesParts/singleArticle';
 import Paginator from './paginator/paginator';
@@ -17,7 +16,10 @@ class Main extends Component {
         if (this.props.articles.data) {
             var dataLength = this.props.articles.data.length;
 
-            var articlesListToDisplay = this.props.articles.data.slice(this.props.currentPaginationPage, 100);
+            var articlesListToDisplay = this.props.articles.data
+                .slice(
+                    this.props.currentPaginationPage, this.props.currentPaginationPage + this.props.paginationSize
+                );
 
             var articlesList = articlesListToDisplay.map(
                 (item, key) =>
@@ -52,7 +54,6 @@ const mapStateToProps = (state) => {
         articles: state.articles,
         currentPaginationPage: state.settings.currentPaginationPage,
         paginationSize: state.settings.paginationSize
-
     }
 }
 

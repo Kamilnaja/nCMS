@@ -11,8 +11,7 @@ import {
 const settingsReducer = (
     state = {
         paginationSize: 5,
-        currentPaginationPage: 5
-
+        currentPaginationPage: 0
     },
     action) => {
     switch (action.type) {
@@ -69,7 +68,6 @@ const settingsReducer = (
             }
             break;
         }
-
 
         default: return state;
     }
