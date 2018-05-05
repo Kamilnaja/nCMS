@@ -1,37 +1,62 @@
-// @flow 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
     setCurrentPaginationPage,
 } from './../../actions/settingActions';
+import PaginatorSizeChooser from './paginatorSizeChooser';
 
 class Paginator extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isFirstPage: true,
+            isLastPage: false
+        }
+    }
+    numberArray = [];
+    itemsPerOnePage = 10; // todo - remove magical number
+    currentPage;
 
     setCurrentPaginatorPage(e) {
-        setCurrentPaginationPage(parseInt(e.target.innerHTML, 10));
+        this.currentPage = e.target.innerHTML;
+        setCurrentPaginationPage(parseInt(this.currentPage, 10));
+        if (this.currentPage < this.itemsPerOnePage / 10) {
+            this.setState({
+                isFirstPage: true
+            })
+        } else {
+            this.setState({
+                isFirstPage: false
+            })
+        }
+        if (this.currentPage >= this.numberArray.length - this.itemsPerOnePage / 10) {
+            this.setState({
+                isLastPage: true
+            })
+        } else {
+            this.setState({
+                isLastPage: false
+            })
+        }
+
+
     }
 
-    setItems = () => {
+    setPaginator() {
+        for (let i = 0; i < this.props.dataLength; i++) {
+            this.numberArray[i / this.itemsPerOnePage] = i / this.itemsPerOnePage;
+        }
 
     }
 
-    numberArray = [];
-    itemsPerOnePage = 5; // todo - remove magical number
 
     render() {
-
-
-
-        for (let i = 0; i < this.props.dataLength; i++) {
-            if (i % this.itemsPerOnePage === 0) {
-                this.numberArray[i] = i;
-            }
-        }
+        this.setPaginator();
 
         return (
             <div>
                 <section>
-                    <span> previous </span>
+                    {!this.state.isFirstPage && <span> previous</span>}
                     {this.numberArray.map((currentItem) =>
                         <span
                             key={currentItem}
@@ -40,9 +65,8 @@ class Paginator extends Component {
                             {currentItem}
                         </span>
                     )}
-                    <span> > </span>
-                    {/* todo probably remove */}
-                    {/* <PaginatorSizeChooser></PaginatorSizeChooser>  */}
+                    {!this.state.isLastPage && <span>next</span>}
+                    {/* <PaginatorSizeChooser></PaginatorSizeChooser> */}
                 </section>
             </div>
         )

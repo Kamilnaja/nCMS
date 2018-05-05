@@ -44,6 +44,7 @@ class Main extends Component {
                 <ul className="articles-list" >
                     {articlesList}
                 </ul>
+
                 <Paginator dataLength={dataLength}></Paginator>
             </div>
         )
