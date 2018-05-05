@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import {
     Link
@@ -6,8 +7,8 @@ import { logOut } from './../actions/authActions';
 import { connect } from 'react-redux';
 
 class Header extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             menuIsOpen: true
         }
@@ -47,7 +48,7 @@ class Header extends Component {
                             <li>
                                 <Link to="/" >
                                     Home
-                        </Link>
+                                </Link>
                             </li>
                             {
                                 !this.props.isAuthenticated &&

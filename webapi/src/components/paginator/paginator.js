@@ -1,19 +1,26 @@
+// @flow 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
     setCurrentPaginationPage,
 } from './../../actions/settingActions';
-import PaginatorSizeChooser from './paginatorSizeChooser';
+
 class Paginator extends Component {
 
     setCurrentPaginatorPage(e) {
         setCurrentPaginationPage(parseInt(e.target.innerHTML, 10));
     }
 
+    setItems = () => {
+
+    }
+
     numberArray = [];
     itemsPerOnePage = 5; // todo - remove magical number
 
     render() {
+
+
 
         for (let i = 0; i < this.props.dataLength; i++) {
             if (i % this.itemsPerOnePage === 0) {
@@ -24,6 +31,7 @@ class Paginator extends Component {
         return (
             <div>
                 <section>
+                    <span> previous </span>
                     {this.numberArray.map((currentItem) =>
                         <span
                             key={currentItem}
@@ -32,7 +40,9 @@ class Paginator extends Component {
                             {currentItem}
                         </span>
                     )}
-                    <PaginatorSizeChooser></PaginatorSizeChooser>
+                    <span> > </span>
+                    {/* todo probably remove */}
+                    {/* <PaginatorSizeChooser></PaginatorSizeChooser>  */}
                 </section>
             </div>
         )

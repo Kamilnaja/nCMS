@@ -1,3 +1,4 @@
+// @flow 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { AddNewArticle } from './../../../actions/articlesActions';
@@ -13,7 +14,6 @@ class AddArticles extends Component {
     }
 
     handleSubmit(e) {
-        debugger
         var submitPayload = {
             articleTitle: this.articleTitle.value,
             articleSubtitle: this.articleSubtitle.value,

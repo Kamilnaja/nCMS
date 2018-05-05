@@ -1,6 +1,13 @@
+// @flow 
 import React from 'react';
 
-export const Footer = (props) => {
+type Props = {
+    settings: {
+        footer: String
+    }
+}
+
+export const Footer = (props: Props) => {
 
     return (
         <footer className="footer">
