@@ -20,33 +20,46 @@ class Paginator extends Component {
     setCurrentPaginatorPage(e) {
         this.currentPage = e.target.innerHTML;
         setCurrentPaginationPage(parseInt(this.currentPage, 10));
-        if (this.currentPage < this.itemsPerOnePage / 10) {
-            this.setState({
-                isFirstPage: true
-            })
-        } else {
-            this.setState({
-                isFirstPage: false
-            })
-        }
+        this.checkIfFirst();
+        this.checkIfLast();
+        setTimeout(this.scrollToEnd, 100);
+    }
+
+    scrollToEnd() {
+        console.log('scrolling')
+        window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
+    }
+
+    checkIfLast() {
         if (this.currentPage >= this.numberArray.length - this.itemsPerOnePage / 10) {
             this.setState({
                 isLastPage: true
-            })
-        } else {
+            });
+        }
+        else {
             this.setState({
                 isLastPage: false
-            })
+            });
         }
+    }
 
-
+    checkIfFirst() {
+        if (this.currentPage < this.itemsPerOnePage / 10) {
+            this.setState({
+                isFirstPage: true
+            });
+        }
+        else {
+            this.setState({
+                isFirstPage: false
+            });
+        }
     }
 
     setPaginator() {
         for (let i = 0; i < this.props.dataLength; i++) {
             this.numberArray[i / this.itemsPerOnePage] = i / this.itemsPerOnePage;
         }
-
     }
 
 
