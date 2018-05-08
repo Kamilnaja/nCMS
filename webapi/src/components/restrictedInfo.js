@@ -1,4 +1,3 @@
-// @flow 
 import React from 'react';
 import {
     Link
@@ -13,6 +12,5 @@ export const RestrictedInfo = () => {
                 <Link to="/login">Go to the login screen </Link>
             </div>
         </section>
-
     )
 }
