@@ -304,6 +304,7 @@ section {
 
 .edit-options {
   margin-top: 15px;
+  margin-left: 15px;
   color: green;
   display: flex;
   justify-content: flex-start;
@@ -351,6 +352,9 @@ section {
 
 .info-box-warning {
   background-color: #A2071A; }
+
+.info-box-info {
+  background-color: olivedrab; }
 
 .articles-list {
   margin-top: 25px; }

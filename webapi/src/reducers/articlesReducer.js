@@ -33,7 +33,7 @@ const articlesReducer = (state = [],
         case "DELETE_ARTICLE_SUCCESS": {
             state = {
                 ...state,
-                statusInfo: 'success',
+                statusInfo: 'deleteSuccess',
                 data: state.data.filter(item => item._id !== action.payload)
             }
             break;

@@ -1,6 +1,7 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 
-export const Footer = (props: Props) => {
+export const Footer = (props) => {
 
     return (
         <footer className="footer" id="footer">
@@ -9,4 +10,8 @@ export const Footer = (props: Props) => {
             </div>
         </footer>
     )
+}
+
+Footer.propTypes = {
+    footer: PropTypes.string
 }

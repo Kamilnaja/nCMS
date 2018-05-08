@@ -15,8 +15,7 @@ let store = createStore(
         user
     }),
     {},
-    applyMiddleware(thunk, promise())
-    // applyMiddleware(createLogger(), thunk, promise())
+    applyMiddleware(createLogger(), thunk, promise())
 );
 
 export default store;

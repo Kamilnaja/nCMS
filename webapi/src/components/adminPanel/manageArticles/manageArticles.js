@@ -33,11 +33,19 @@ class ManageArticles extends Component {
         }
 
         return (
+
+
             <div className="articles-edit">
                 <h2>
                     Chose an item from {dataLength} articles and edit or delete
                 </h2>
-                {dataLength === 0 && <InfoBox title="No articles in db"></InfoBox>}
+                {dataLength === 0 && <InfoBox title="No articles in db" infoType="info-box-info"></InfoBox>}
+
+                {this.props.statusInfo === 'deleteSuccess' && <InfoBox
+                    title="Articles deleted" infoType="info-box-info">
+                </InfoBox>
+                }
+
                 <ul>
                     {articlesList}
                 </ul>
@@ -47,14 +55,11 @@ class ManageArticles extends Component {
     }
 }
 
-ManageArticles.propTypes = {
-    articles: PropTypes.any.isRequired, // todo - remove any
-    statusInfo: PropTypes.string
-}
+
 
 const mapStateToProps = (state) => ({
     articles: state.articles,
-    statusInfo: state.statusInfo,
+    statusInfo: state.articles.statusInfo,
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -68,5 +73,10 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(showEditionForm(data))
     },
 })
+
+ManageArticles.propTypes = {
+    articles: PropTypes.any.isRequired, // todo - remove any
+    statusInfo: PropTypes.string
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManageArticles);

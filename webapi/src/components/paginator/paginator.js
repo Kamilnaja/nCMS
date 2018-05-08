@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import {
     setCurrentPaginationPage,
 } from './../../actions/settingActions';
-import PaginatorSizeChooser from './paginatorSizeChooser';
 
 class Paginator extends Component {
     constructor(props) {

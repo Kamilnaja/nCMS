@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 import { logOut } from './../actions/authActions';
 import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
 
 class Header extends Component {
     constructor(props) {
@@ -102,3 +103,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
+
+Header.propTypes = {
+    settings: PropTypes.object
+}
