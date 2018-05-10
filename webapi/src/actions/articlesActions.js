@@ -47,7 +47,6 @@ export function getArticles() {
                     payload: response.data
                 })
             })
-
             .catch((err) => {
                 dispatch({
                     type: GET_ARTICLES_ERROR,
@@ -59,7 +58,6 @@ export function getArticles() {
 
 export function saveEditedArticle(data, editedArticle) {
     store.dispatch((dispatch) => {
-
         dispatch({
             type: EDIT_ARTICLE_START
         })
