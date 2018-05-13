@@ -13,24 +13,22 @@ class Paginator extends Component {
         }
     }
     numberArray = [];
-    itemsPerOnePage = 10; // todo - remove magical number
     currentPage;
 
     setCurrentPaginatorPage(e) {
         this.currentPage = e.target.innerHTML;
-        setCurrentPaginationPage(parseInt(this.currentPage, 10));
+        setCurrentPaginationPage(parseInt(this.currentPage, this.props.paginationSize));
         this.checkIfFirst();
         this.checkIfLast();
         setTimeout(this.scrollToEnd, 100);
     }
 
     scrollToEnd() {
-        console.log('scrolling')
         window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
     }
 
     checkIfLast() {
-        if (this.currentPage >= this.numberArray.length - this.itemsPerOnePage / 10) {
+        if (this.currentPage >= this.numberArray.length - this.props.paginationSize / this.props.paginationSize) {
             this.setState({
                 isLastPage: true
             });
@@ -43,7 +41,7 @@ class Paginator extends Component {
     }
 
     checkIfFirst() {
-        if (this.currentPage < this.itemsPerOnePage / 10) {
+        if (this.currentPage < this.props.paginationSize / this.props.paginationSize) {
             this.setState({
                 isFirstPage: true
             });
@@ -57,7 +55,7 @@ class Paginator extends Component {
 
     setPaginator() {
         for (let i = 0; i < this.props.dataLength; i++) {
-            this.numberArray[i / this.itemsPerOnePage] = i / this.itemsPerOnePage;
+            this.numberArray[i / this.props.paginationSize] = i / this.props.paginationSize;
         }
     }
 
@@ -78,7 +76,6 @@ class Paginator extends Component {
                         </span>
                     )}
                     {!this.state.isLastPage && <span>next</span>}
-                    {/* <PaginatorSizeChooser></PaginatorSizeChooser> */}
                 </section>
             </div>
         )
@@ -87,7 +84,7 @@ class Paginator extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        paginationSize: state.settings.paginationSize
+        paginationSize: state.settings.paginationSize,
     }
 }
 

@@ -5,6 +5,7 @@ import { InfoBox } from '../../utilsComponents/infoBox';
 import Editor from './../../editor/editor';
 
 class AddArticles extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -19,6 +20,7 @@ class AddArticles extends Component {
             articleMainContent: this.state.currentText,
             articleAuthor: this.props.user
         }
+
         e.preventDefault();
         AddNewArticle(submitPayload);
     }
@@ -37,10 +39,12 @@ class AddArticles extends Component {
         return (
             <div className="form-fullwidth">
                 {info && <div>{info}</div>}
+
                 <form onSubmit={(e) => this.handleSubmit(e)}>
                     <h2 className="form-title">
                         Add new article
-                </h2>
+                    </h2>
+
                     <div className="input-wrap">
                         <label>Tytuł</label>
                         <input
@@ -63,12 +67,6 @@ class AddArticles extends Component {
 
                     <div className="input-wrap">
                         <label>Treść artykułu</label>
-                        {/* <textarea
-                            name="articleMainContent"
-                            type="text"
-                            ref={(input) => this.articleMainContent = input}
-                            className="article-content"
-                        ></textarea> */}
                         <Editor
                             name="articleMainContent"
                             handleChange={this.handleChange.bind(this)}

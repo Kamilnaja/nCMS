@@ -10,7 +10,7 @@ import {
 
 const settingsReducer = (
     state = {
-        paginationSize: 5,
+        paginationSize: 10,
         currentPaginationPage: 0
     },
     action) => {

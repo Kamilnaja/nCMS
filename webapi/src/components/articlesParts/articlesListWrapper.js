@@ -1,8 +1,3 @@
-/**
- * @description wrapper for all articles 
- * @param numberOfDisplayedArticles
- */
-
 import React, { Component } from 'react';
 import SingleArticle from './singleArticle';
 

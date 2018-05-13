@@ -12,7 +12,6 @@ class Main extends Component {
     }
 
     render() {
-
         if (this.props.articles.data) {
             var dataLength = this.props.articles.data.length;
 
