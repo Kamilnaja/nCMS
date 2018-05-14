@@ -5,22 +5,35 @@ import {
 } from './../../actions/settingActions';
 
 class Paginator extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
             isFirstPage: true,
-            isLastPage: false
+            isLastPage: false,
+            currentPage: 0
         }
     }
+
     numberArray = [];
-    currentPage;
+
+    setPaginator() {
+        for (let i = 0; i < this.props.dataLength; i++) {
+            this.numberArray[i / this.props.paginationSize] = i / this.props.paginationSize;
+        };
+
+    }
+
 
     setCurrentPaginatorPage(e) {
-        this.currentPage = e.target.innerHTML;
-        setCurrentPaginationPage(parseInt(this.currentPage, this.props.paginationSize));
+        let pageNumber = e.target.innerHTML;
+        setCurrentPaginationPage(parseInt(e.target.innerHTML, this.props.paginationSize));
+        this.setState({
+            currentPage: pageNumber
+        })
         this.checkIfFirst();
         this.checkIfLast();
-        setTimeout(this.scrollToEnd, 100);
+        setTimeout(this.scrollToEnd, 50);
     }
 
     scrollToEnd() {
@@ -53,31 +66,27 @@ class Paginator extends Component {
         }
     }
 
-    setPaginator() {
-        for (let i = 0; i < this.props.dataLength; i++) {
-            this.numberArray[i / this.props.paginationSize] = i / this.props.paginationSize;
-        }
-    }
-
 
     render() {
         this.setPaginator();
 
         return (
-            <div>
-                <section>
-                    {!this.state.isFirstPage && <span> previous</span>}
+            <div className="paginator">
+                {/* {!this.state.isFirstPage && <span> previous</span>} */}
+                <ul>
                     {this.numberArray.map((currentItem) =>
-                        <span
+                        <li
                             key={currentItem}
                             onClick={this.setCurrentPaginatorPage.bind(this)}
-                            className="paginator-number active">
+                            className={currentItem == this.state.currentPage ? 'active' : ''}
+                        >
                             {currentItem}
-                        </span>
+                        </li>
                     )}
-                    {!this.state.isLastPage && <span>next</span>}
-                </section>
-            </div>
+                </ul>
+
+                {/* {!this.state.isLastPage && <span>next</span>} */}
+            </div >
         )
     }
 }

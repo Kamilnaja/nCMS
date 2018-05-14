@@ -9,6 +9,7 @@ import {
 } from './../utils/action-types';
 
 const settingsReducer = (
+
     state = {
         paginationSize: 10,
         currentPaginationPage: 0
