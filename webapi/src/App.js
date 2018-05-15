@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import './styles/App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Header from './components/Header';
-import { Footer } from './components/footer';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { getSettings } from './actions/settingActions';
-import Main from './components/main';
+import Header from './components/Header';
 import AdminPanel from './components/adminPanel/adminPanel';
-import LoginScreen from './components/loginScreen';
-import CreateAccount from './components/login/createAccount';
 import FullArticle from './components/articlesParts/fullArticle';
+import { Footer } from './components/footer';
+import CreateAccount from './components/login/createAccount';
+import LoginScreen from './components/loginScreen';
+import Main from './components/main';
+import Error404 from './components/pagesParts/Error404';
+import './styles/App.css';
 
 class App extends Component {
 
@@ -23,11 +24,14 @@ class App extends Component {
                 <div className="background-app">
                     <div className="App container-app">
                         <Header settings={this.props.settings} />
-                        <Route exact path='/' component={Main} />
-                        <Route path='/admin' component={AdminPanel} />
-                        <Route path='/login' component={LoginScreen} />
-                        <Route path='/createAccount' component={CreateAccount} />
-                        <Route path='/api/posts/:articleId' component={FullArticle} />
+                        <Switch>
+                            <Route exact path='/' component={Main} />
+                            <Route path='/admin' component={AdminPanel} />
+                            <Route path='/login' component={LoginScreen} />
+                            <Route path='/createAccount' component={CreateAccount} />
+                            <Route path='/api/posts/:articleId' component={FullArticle} />
+                            <Route component={Error404}></Route>
+                        </Switch>
                         <Footer settings={this.props.settings} />
                     </div>
                 </div>

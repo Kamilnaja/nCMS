@@ -12,7 +12,6 @@ var bcrypt = require('bcrypt');
 var jwt = require('jwt-simple');
 var User = require('./models/user');
 
-//config 
 app.use(accessControl);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

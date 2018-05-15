@@ -7,15 +7,7 @@ let validateError = function () {
         if(err) { return (err) }
     }
 }
-/**
- * paginacja - daję mu numer, skąd zaczynamy (skip ) oraz 
- * ilość wyników - limit 
- * Chyba potrzebne jeszcze current 
- * pomijamy te, co są do current i wybierać query
- * current - na którym jesteśmy, czyli wyświetlamy od current do skip
- * 
- * 
- */
+
 function returnArticles(req, res) {
 
     ArticlesModel

@@ -78,7 +78,7 @@ class Paginator extends Component {
                         <li
                             key={currentItem}
                             onClick={this.setCurrentPaginatorPage.bind(this)}
-                            className={currentItem == this.state.currentPage ? 'active' : ''}
+                            className={currentItem === this.state.currentPage ? 'active' : ''}
                         >
                             {currentItem}
                         </li>
