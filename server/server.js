@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var db = require('./db');
-var routes = require('./routes/routes');
+var controller = require("./controller/mainController");
 var accessControl = require('./accessControl');
 var app = express();
 var port = 8080;
@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.set('debug', true);
 
-app.use('/', routes);
+app.use('/', controller);
 
 function findUserByUsername(username) {
     return _.find(users, { username: username })

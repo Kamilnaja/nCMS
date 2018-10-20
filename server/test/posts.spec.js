@@ -1,8 +1,8 @@
 var expect = require('chai').expect;
-var articleCtrl = require('./../controllers/articlesController');
-var loginCtrl = require('./../controllers/loginController');
-var settingsCtrl = require('./../controllers/settingsController');
-var userCtrl = require('./../controllers/usersController');
+var articleCtrl = require('../services/articlesController');
+var loginCtrl = require('../services/loginController');
+var settingsCtrl = require('../services/settingsController');
+var userCtrl = require('../services/usersController');
 
 describe('all controllers should exists', () => {
     it('exists', () => {
