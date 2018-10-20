@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { AddNewArticle } from './../../../actions/articlesActions';
-import { InfoBox } from '../../utilsComponents/infoBox';
-import Editor from './../../editor/editor';
+import { InfoBox } from '../../utilsComponents/InfoBox';
+import Editor from '../../editor/Editor';
 
 class AddArticles extends Component {
 

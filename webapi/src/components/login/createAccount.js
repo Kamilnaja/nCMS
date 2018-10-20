@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { SendNewAccountData } from './../../actions/authActions';
 import { connect } from 'react-redux';
-import { InfoStrip } from './../infoStrip';
+import { InfoStrip } from '../InfoStrip';
 import { enableRegisterAnotherUser } from './../../actions/authActions';
 
 const userRoles = [

@@ -2,7 +2,7 @@ import React from 'react';
 import {
     deleteArticle,
     showEditionForm,
-} from './../../../actions/articlesActions';
+} from '../../../actions/articlesActions';
 
 const ReturnButtons = (props) => {
     return (

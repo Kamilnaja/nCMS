@@ -1,5 +1,5 @@
 import React from 'react';
-import TimeInfo from './../articlesParts/timeInfo';
+import TimeInfo from './TimeInfo';
 
 const SingleArticleContent = (props) => {
     return (

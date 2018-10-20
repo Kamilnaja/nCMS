@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { AdminPanelMain } from './adminPanelMain';
-import { RestrictedInfo } from './../restrictedInfo';
+import { AdminPanelMain } from './AdminPanelMain';
+import { RestrictedInfo } from '../RestrictedInfo';
 
 class AdminPanel extends Component {
     constructor(props) {

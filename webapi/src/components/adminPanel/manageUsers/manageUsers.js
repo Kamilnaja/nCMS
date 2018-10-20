@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getUsers } from './../../../actions/usersActions';
+import { getUsers } from '../../../actions/usersActions';
 
 class ManageUsers extends Component {
     componentWillMount() {

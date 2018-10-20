@@ -1,15 +1,11 @@
-import React, { Component } from 'react';
-import {
-    getArticles,
-    deleteArticle,
-    showEditionForm,
-} from './../../../actions/articlesActions';
-import EditArticleForm from "./editArticleForm";
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import ReturnButtons from './editOptions';
-import { InfoBox } from './../../utilsComponents/infoBox';
-import SingleArticle from './../../articlesParts/singleArticle';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { deleteArticle, getArticles, showEditionForm } from '../../../actions/articlesActions';
+import SingleArticle from '../../articlesParts/SingleArticle';
+import { InfoBox } from '../../utilsComponents/InfoBox';
+import EditArticleForm from "./EditArticleForm";
+import ReturnButtons from './EditOptions';
 
 class ManageArticles extends Component {
 
@@ -54,8 +50,6 @@ class ManageArticles extends Component {
         )
     }
 }
-
-
 
 const mapStateToProps = (state) => ({
     articles: state.articles,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SingleArticle from './singleArticle';
+import SingleArticle from './SingleArticle';
 
 class ArticlesListWrapper extends Component {
 

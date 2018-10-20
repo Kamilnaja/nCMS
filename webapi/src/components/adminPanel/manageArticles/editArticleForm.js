@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import {
     saveEditedArticle,
     cancelEdit,
-} from './../../../actions/articlesActions';
-import { InfoBox } from './../../utilsComponents/infoBox';
+} from '../../../actions/articlesActions';
+import { InfoBox } from '../../utilsComponents/InfoBox';
 import { PropTypes } from 'prop-types';
 
 class EditArticleForm extends Component {

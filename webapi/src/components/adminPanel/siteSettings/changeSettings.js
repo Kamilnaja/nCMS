@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setSettings } from './../../../actions/settingActions';
-import { InfoBox } from './../../utilsComponents/infoBox';
+import { setSettings } from '../../../actions/settingActions';
+import { InfoBox } from '../../utilsComponents/InfoBox';
 
 class ChangeSettings extends Component {
 

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-    setCurrentPaginationPage,
-} from './../../actions/settingActions';
+import { setCurrentPaginationPage } from './../../actions/settingActions';
 
 class Paginator extends Component {
 
@@ -23,7 +21,6 @@ class Paginator extends Component {
         };
 
     }
-
 
     setCurrentPaginatorPage(e) {
         let pageNumber = e.target.innerHTML;

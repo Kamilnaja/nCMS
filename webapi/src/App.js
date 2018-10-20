@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { getSettings } from './actions/settingActions';
 import Header from './components/Header';
-import AdminPanel from './components/adminPanel/adminPanel';
-import FullArticle from './components/articlesParts/fullArticle';
-import { Footer } from './components/footer';
+import AdminPanel from './components/adminPanel/AdminPanel';
+import FullArticle from './components/articlesParts/FullArticle';
+import { Footer } from './components/Footer';
 import CreateAccount from './components/login/createAccount';
-import LoginScreen from './components/loginScreen';
-import Main from './components/main';
+import LoginScreen from './components/LoginScreen';
+import Main from './components/Main';
 import Error404 from './components/pagesParts/Error404';
 import './styles/App.css';
 

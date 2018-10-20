@@ -5,7 +5,7 @@
 
 import React, { Component } from 'react';
 import axios from 'axios';
-import SingleArticleContent from './singleArticleContent';
+import SingleArticleContent from './SingleArticleContent';
 
 class FullArticle extends Component {
     constructor(props) {

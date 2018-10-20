@@ -1,9 +1,9 @@
 import React from 'react';
-import ChangeSettings from './siteSettings/changeSettings';
-import ManageArticles from './manageArticles/manageArticles';
+import ChangeSettings from './siteSettings/ChangeSettings';
+import ManageArticles from './manageArticles/ManageArticles';
 import AddArticle from './AddArticles/AddArticle';
-import ManagePages from './managePages/managePages';
-import ManageUsers from './manageUsers/manageUsers';
+import ManagePages from './managePages/ManagePages';
+import ManageUsers from './manageUsers/ManageUsers';
 
 export const AdminPanelMain = (props) => {
     return (
