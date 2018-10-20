@@ -1,9 +1,9 @@
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
-var jwt = require('jwt-simple');
-var UserSchema = require('./../models/user');
-var UserModel = mongoose.model("User", UserSchema);
-var config = require('./../login/config');
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const jwt = require('jwt-simple');
+const UserSchema = require('./../models/user');
+const UserModel = mongoose.model("User", UserSchema);
+const config = require('./../login/config');
 
 exports.login_save_user = (req, res, next) => {
     var newUser = new UserModel({

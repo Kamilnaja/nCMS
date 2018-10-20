@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
-var SettingsSchema = require('../models/settings');
-var SettingsModel = mongoose.model('Config', SettingsSchema);
-var async = require('async');
+const mongoose = require('mongoose');
+const SettingsSchema = require('../models/settings');
+const SettingsModel = mongoose.model('Config', SettingsSchema);
+const async = require('async');
 
 let validateError = function () {
     return {
