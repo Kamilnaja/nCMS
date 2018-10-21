@@ -23,4 +23,4 @@ This file starts mongod and you service
 
 After this, go to the /webapi and run "npm run start"
 
-To start the .scss compilation, run "npm watch-css" in /webapi folder
+To start the .scss compilation, run "npm run watch-css" in /webapi folder
