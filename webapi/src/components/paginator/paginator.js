@@ -27,7 +27,7 @@ class Paginator extends Component {
         let pageNumber = e.target.innerHTML;
         setCurrentPaginationPage(parseInt(e.target.innerHTML, this.props.paginationSize));
         this.setState({
-            currentPage: pageNumber
+            currentPage: parseInt(pageNumber, 10)
         })
         this.checkIfFirst();
         this.checkIfLast();
@@ -73,10 +73,9 @@ class Paginator extends Component {
                 <ul>
                     {this.numberArray.map(currentItem =>
                         <li
-                            key={currentItem}
-                            onClick={this.setCurrentPaginatorPage}
-                            className={currentItem === this.state.currentPage ? 'active' : ''}
-                        >
+                        key={currentItem}
+                        onClick={this.setCurrentPaginatorPage}
+                        className={currentItem === this.state.currentPage ? 'active' : ''}>
                             {currentItem}
                         </li>
                     )}
