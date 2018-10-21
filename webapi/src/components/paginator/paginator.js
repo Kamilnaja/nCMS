@@ -11,9 +11,10 @@ class Paginator extends Component {
             isLastPage: false,
             currentPage: 0
         }
+        this.numberArray = [];
+        this.setCurrentPaginatorPage = this.setCurrentPaginatorPage.bind(this);
     }
 
-    numberArray = [];
 
     setPaginator() {
         for (let i = 0; i < this.props.dataLength; i++) {
@@ -69,20 +70,17 @@ class Paginator extends Component {
 
         return (
             <div className="paginator">
-                {/* {!this.state.isFirstPage && <span> previous</span>} */}
                 <ul>
-                    {this.numberArray.map((currentItem) =>
+                    {this.numberArray.map(currentItem =>
                         <li
                             key={currentItem}
-                            onClick={this.setCurrentPaginatorPage.bind(this)}
+                            onClick={this.setCurrentPaginatorPage}
                             className={currentItem === this.state.currentPage ? 'active' : ''}
                         >
                             {currentItem}
                         </li>
                     )}
                 </ul>
-
-                {/* {!this.state.isLastPage && <span>next</span>} */}
             </div >
         )
     }
