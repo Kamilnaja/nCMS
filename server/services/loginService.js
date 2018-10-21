@@ -9,7 +9,7 @@ exports.login_save_user = (req, res, next) => {
     var newUser = new UserModel({
         username: req.body.username,
         role: req.body.role
-    })
+    });
 
     UserModel.findOne({ username: req.body.username }, (err, user) => {
         if (user === null) {
@@ -18,7 +18,7 @@ exports.login_save_user = (req, res, next) => {
             res.send('notUniqueUserName')
         }
     })
-}
+};
 
 exports.login_session = (req, res, next) => {
     UserModel.findOne({
@@ -31,7 +31,7 @@ exports.login_session = (req, res, next) => {
             if (!user) { return res.sendStatus(401) }
             evaluateUser(req, user, next, res);
         })
-}
+};
 
 function setToken(req) {
     var token = req.headers['x-auth'];

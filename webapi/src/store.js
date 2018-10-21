@@ -7,7 +7,7 @@ import user from './reducers/usersReducer';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware'
 
-let store = createStore(
+const store = createStore(
     combineReducers({
         settings,
         articles,

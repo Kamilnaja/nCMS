@@ -7,7 +7,7 @@ let validateError = function () {
     return {
         if(err) { return (err) }
     }
-}
+};
 
 exports.main_site_get_settings = (req, res) => {
     SettingsModel.find({})
@@ -15,7 +15,7 @@ exports.main_site_get_settings = (req, res) => {
             validateError();
             res.send(data);
         })
-}
+};
 
 exports.main_site_save_settings = (req, res) => {
     SettingsModel.findOne({ title: { $ne: null } }, (err, data) => {
@@ -25,7 +25,7 @@ exports.main_site_save_settings = (req, res) => {
             setSiteData(data, req, res);
         }
     })
-}
+};
 
 function setSiteData(data, req, res) {
     data.title = req.body.title;
