@@ -15,7 +15,6 @@ module.exports = class articlesService {
                 res.send(data);
             })
     }
-    ;
 
     getOneById(req, res) {
         ArticlesModel.findById(req.params.id, (err, article) => {
