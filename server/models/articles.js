@@ -20,6 +20,6 @@ var articlesSchema = mongoose.Schema({
     {
         timestamps: true
     }
-)
+);
 
 module.exports = articlesSchema;

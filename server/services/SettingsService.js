@@ -20,12 +20,13 @@ module.exports = class SettingsService {
             });
     };
 
-    setMainSettings(req, res){
+    setMainSettings(req, res) {
         SettingsModel.findOne({title: {$ne: null}}, (err, data) => {
             if (err) {
                 res.status(500).send(err);
             } else {
-                setSiteData(data, req, res);
+                data.title = req.body.title;
+                data.subtitle = req.body.subtitle;
             }
         })
     };
