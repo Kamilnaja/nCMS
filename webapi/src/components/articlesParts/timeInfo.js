@@ -9,7 +9,6 @@ function returnFormattedData(item) {
     )
 }
 
-
 function checkItemWasEdited(props) {
     if (props.time.createdAt !== props.time.updatedAt) {
         return true // item was edited
@@ -19,13 +18,13 @@ function checkItemWasEdited(props) {
 const TimeInfo = (props) => {
     return (
         <div>
-
-            {/* <time>Created at: {returnFormattedData(props.time.createdAt)}</time>
+            <time>Created at: {returnFormattedData(props.time.createdAt)}</time>
             <br />
-            {checkItemWasEdited(props) &&
+            {
+                checkItemWasEdited(props) &&
                 <time>
                     Edited at: {returnFormattedData(props.time.updatedAt)}</time>
-            } */}
+            }
         </div>
 
     )

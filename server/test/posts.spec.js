@@ -1,6 +1,6 @@
 var expect = require('chai').expect;
 var articleCtrl = require('../services/articlesService');
-var loginCtrl = require('../services/loginService');
+var loginCtrl = require('../services/LoginService');
 var settingsCtrl = require('../services/SettingsService');
 var userCtrl = require('../services/usersService');
 
