@@ -11,7 +11,7 @@ module.exports = class LoginService {
             username: req.body.username,
             role: req.body.role
         });
-        UserModel.findOne({username: req.body.username}, (err, user) => {
+        UserModel.findOne({ username: req.body.username }, (err, user) => {
             if (user === null) {
                 saveUser(req, newUser, next, res);
             } else {
@@ -33,19 +33,23 @@ module.exports = class LoginService {
                 if (!user) {
                     return res.sendStatus(401)
                 }
-                bcrypt.compare(req.body.password, user.password, (err, valid) => {
-                    if (err) {
-                        return next(err);
-                    }
-                    if (!valid) {
-                        return res.sendStatus(401);
-                    }
-                    var token = jwt.encode({
-                        username: user.username
-                    }, config.secretKey);
-                    res.send(token);
-                });
+                this.compare(req, user, next, res);
             })
+    }
+
+    compare(req, user, next, res) {
+        bcrypt.compare(req.body.password, user.password, (err, valid) => {
+            if (err) {
+                return next(err);
+            }
+            if (!valid) {
+                return res.sendStatus(401);
+            }
+            var token = jwt.encode({
+                username: user.username
+            }, config.secretKey);
+            res.send(token);
+        });
     }
 };
 
