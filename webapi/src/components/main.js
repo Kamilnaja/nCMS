@@ -36,7 +36,8 @@ class Main extends Component {
                         title="Connection error" modalType="info-box-warning"></InfoBox>
                 }
                 {
-                    dataLength === 0 && <InfoBox
+                    dataLength === 0 &&
+                    <InfoBox
                         title="No articles in db"></InfoBox>
                 }
                 <ul className="articles-list" >

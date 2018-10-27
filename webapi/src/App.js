@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { getSettings } from './actions/settingActions';
-import Header from './components/Header';
 import AdminPanel from './components/adminPanel/AdminPanel';
 import FullArticle from './components/articlesParts/FullArticle';
 import { Footer } from './components/Footer';
+import Header from './components/Header';
 import CreateAccount from './components/login/createAccount';
 import LoginScreen from './components/LoginScreen';
 import Main from './components/Main';
-import Error404 from './components/pagesParts/Error404';
 import './styles/App.css';
 
 class App extends Component {
@@ -29,8 +28,8 @@ class App extends Component {
                             <Route path='/admin' component={AdminPanel} />
                             <Route path='/login' component={LoginScreen} />
                             <Route path='/createAccount' component={CreateAccount} />
-                            <Route path='/api/posts/:articleId' component={FullArticle} />
-                            <Route component={Error404}></Route>
+                            <Route path='/api/articles/:articleId' component={FullArticle} />
+                            {/* <Route component={Error404}></Route> */}
                         </Switch>
                         <Footer settings={this.props.settings} />
                     </div>

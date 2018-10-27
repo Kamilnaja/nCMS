@@ -4,12 +4,12 @@ import SingleArticleContent from './SingleArticleContent';
 
 const SingleArticle = (props) => {
     return (
-        <li key={props.item._id}>
+        <li key={props.item.id}>
             <div
                 className="single-post-wrapper">
                 <SingleArticleContent
                     item={props.item}></SingleArticleContent>
-                <Link to={`/api/posts/${props.item._id}`}>
+                <Link to={`/api/articles/${props.item.id}`}>
                     Read More
                 </Link>
             </div>

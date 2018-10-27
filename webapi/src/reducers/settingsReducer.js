@@ -19,9 +19,9 @@ const settingsReducer = (
         case GET_SETTINGS_SUCCESS:
             state = {
                 ...state,
-                title: action.payload[0].title,
-                subtitle: action.payload[0].subtitle,
-                footer: action.payload[0].footer
+                title: action.payload.title,
+                subtitle: action.payload.subtitle,
+                footer: action.payload.footer
             }
             break;
 
