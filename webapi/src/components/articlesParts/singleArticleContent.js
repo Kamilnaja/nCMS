@@ -1,5 +1,4 @@
 import React from 'react';
-import TimeInfo from './TimeInfo';
 
 const SingleArticleContent = (props) => {
     return (
@@ -17,7 +16,7 @@ const SingleArticleContent = (props) => {
                     <p className="single-post-body">{props.item.content}</p>
                     <footer className="single-post-footer">
                         <p>Written by: {props.item.author}</p>
-                        <TimeInfo time={props.item}></TimeInfo>
+                        {/* todo - poprawić time info */}
                     </footer>
                 </div>
             }
