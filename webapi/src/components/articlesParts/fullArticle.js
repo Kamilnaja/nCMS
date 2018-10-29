@@ -6,6 +6,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import SingleArticleContent from './SingleArticleContent';
+import { localUrl } from './../../utils/AppConfig';
 
 class FullArticle extends Component {
     constructor(props) {
@@ -16,7 +17,8 @@ class FullArticle extends Component {
     componentDidMount() {
         axios({
             method: "GET",
-            url: `${window.location.href}`
+            url: `${localUrl}/api${window.location.pathname}`
+
         })
             .then(
                 res => {
@@ -33,7 +35,6 @@ class FullArticle extends Component {
             <div className="articles-list">
                 <div className="single-post-wrapper">
                     <SingleArticleContent item={this.state.item}></SingleArticleContent>
-                    <div>My</div>
                 </div>
             </div>
         )

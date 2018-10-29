@@ -33,14 +33,13 @@ function articleEdited(data) {
     })
 }
 
-
 export function getArticles() {
     store.dispatch((dispatch) => {
         dispatch({
             type: GET_ARTICLES_START
         })
 
-        axios.get(`${localUrl}/api/posts`)
+        axios.get(`${localUrl}/api/post`)
             .then((response) => {
                 dispatch({
                     type: GET_ARTICLES_SUCCESS,
@@ -62,7 +61,7 @@ export function saveEditedArticle(data, editedArticle) {
             type: EDIT_ARTICLE_START
         })
 
-        axios.put(`${localUrl}/api/posts/${editedArticle}`,
+        axios.put(`${localUrl}/api/post/${editedArticle}`,
             {
                 title: data.articleTitle,
                 subtitle: data.articleSubtitle,
@@ -98,7 +97,7 @@ export function deleteArticle(data) {
     store.dispatch((dispatch) => {
         axios({
             method: 'delete',
-            url: `${localUrl}/api/posts/${data}`
+            url: `${localUrl}/api/post/${data}`
         })
             .then(
                 articleDeleted(data)
@@ -120,7 +119,7 @@ export function AddNewArticle(payloadData) {
             type: ADD_ARTICLE_PENDING
         })
         axios.post(
-            `${localUrl}/api/posts`, {
+            `${localUrl}/api/post`, {
                 title: payloadData.articleTitle,
                 subtitle: payloadData.articleSubtitle,
                 content: payloadData.articleMainContent,

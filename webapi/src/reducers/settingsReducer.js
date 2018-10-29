@@ -34,7 +34,6 @@ const settingsReducer = (
             break;
         }
 
-
         case SET_SETTINGS_START: {
             state = {
                 ...state,

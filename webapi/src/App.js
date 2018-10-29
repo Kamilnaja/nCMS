@@ -9,7 +9,7 @@ import Header from './components/Header';
 import CreateAccount from './components/login/createAccount';
 import LoginScreen from './components/LoginScreen';
 import Main from './components/Main';
-import Error404 from './components/pagesParts/Error404';
+import AuthorPage from './components/articlesParts/AuthorPage';
 import './styles/App.css';
 
 class App extends Component {
@@ -29,8 +29,8 @@ class App extends Component {
                             <Route path='/admin' component={AdminPanel} />
                             <Route path='/login' component={LoginScreen} />
                             <Route path='/createAccount' component={CreateAccount} />
-                            <Route path='/api/posts/:articleId' component={FullArticle} />
-                            <Route component={Error404}></Route>
+                            <Route path='/post/:articleId' component={FullArticle} />
+                            <Route path='/author' component={AuthorPage} />
                         </Switch>
                         <Footer settings={this.props.settings} />
                     </div>
