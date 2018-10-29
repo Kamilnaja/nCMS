@@ -68,9 +68,9 @@ class Header extends Component {
                             {this.props.isAuthenticated &&
                                 [
                                     <li key="logOut">
-                                        <a onClick={logOut}>
+                                        <a onClick={logOut} href="logout">
                                             Log out
-                                    </a>
+                                        </a>
                                     </li>,
                                     <li key="adminPanel">
                                         <Link to="/admin">

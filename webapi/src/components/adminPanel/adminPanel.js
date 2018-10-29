@@ -23,7 +23,7 @@ class AdminPanel extends Component {
                     <ul className="admin-panel-sidebar-menu">
                         {this.menuItems.map((item, key) =>
                             <li key={key}>
-                                <a onClick={this.handleClick}>
+                                <a onClick={this.handleClick} href={item}>
                                     {item}
                                 </a>
                             </li>

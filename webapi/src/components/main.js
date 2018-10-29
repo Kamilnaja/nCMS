@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getArticles } from './../actions/articlesActions';
+import { getArticles } from '../actions/articlesActions';
 import { InfoBox } from './utilsComponents/InfoBox';
 import SingleArticle from './articlesParts/SingleArticle';
 import Paginator from './paginator/Paginator';
