@@ -28,7 +28,7 @@ class App extends Component {
                             <Route path='/admin' component={AdminPanel} />
                             <Route path='/login' component={LoginScreen} />
                             <Route path='/createAccount' component={CreateAccount} />
-                            <Route path='/api/articles/:articleId' component={FullArticle} />
+                            <Route path='/api/article/:articleId' component={FullArticle} />
                             {/* <Route component={Error404}></Route> */}
                         </Switch>
                         <Footer settings={this.props.settings} />

@@ -7,7 +7,8 @@ import App from './App';
 import store from './store';
 import { setUser } from './actions/authActions';
 
-if (localStorage.jwtToken) {
+// todo - change this 
+if (localStorage.jwtToken && localStorage.jwtToken !== 'string') {
     setUser();
 }
 
