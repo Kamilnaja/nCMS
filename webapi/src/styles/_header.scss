@@ -85,12 +85,11 @@
     font-weight: bold;
     text-transform: uppercase;
     color: $font-light;
-    border-top: 2px solid transparent;
     transition: 0.3s ease;
   }
   
   .site-title:hover {
-    border-top: 2px dashed orange;
+    letter-spacing: 0.5px;
   }
   
   .hamburger-menu.is-open-true {

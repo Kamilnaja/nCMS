@@ -5,3 +5,4 @@ node_modules
 .vscode
 .idea
 todolist.todo
+webapi/src/styles/App.css
