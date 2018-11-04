@@ -1,6 +1,6 @@
 import axios from 'axios';
 import store from './../store';
-import { localUrl } from './../utils/AppConfig';
+import appConfig from './../utils/AppConfig';
 import {
     SET_SETTINGS_START,
     SET_SETTINGS_SUCCESS,
@@ -20,7 +20,7 @@ export function setSettings(payloadData) {
             type: SET_SETTINGS_START
         })
 
-        axios.put(`${localUrl}/api/pagesettings`, {
+        axios.put(`${appConfig.localUrl}/api/pagesettings`, {
             title: payloadData.title,
             subtitle: payloadData.subtitle,
             footer: payloadData.footer
@@ -50,7 +50,7 @@ export function getSettings() {
         dispatch({
             type: GET_SETTINGS_START
         })
-        axios.get(`${localUrl}/api/pagesettings`)
+        axios.get(`${appConfig.localUrl}/api/pagesettings`)
             .then((response) => {
                 dispatch({
                     type: GET_SETTINGS_SUCCESS,

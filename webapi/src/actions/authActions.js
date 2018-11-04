@@ -1,6 +1,6 @@
 import axios from 'axios';
 import store from './../store';
-import { localUrl } from './../utils/AppConfig';
+import appConfig from './../utils/AppConfig';
 import setAuthorizationToken from './../utils/setAuthToken';
 import jwtDecode from 'jwt-decode';
 import {
@@ -38,7 +38,7 @@ export function login(data) {
     store.dispatch((dispatch) => {
         axios({
             method: 'post',
-            url: `${localUrl}/api/session`,
+            url: `${appConfig.localUrl}/api/session`,
             data: {
                 username: data.username,
                 password: data.password
@@ -62,7 +62,7 @@ export function SendNewAccountData(data) {
     store.dispatch((dispatch) => {
         axios({
             method: 'post',
-            url: `${localUrl}/api/user`,
+            url: `${appConfig.localUrl}/api/user`,
             data: {
                 username: data.username,
                 password: data.password,

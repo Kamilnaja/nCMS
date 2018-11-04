@@ -14,7 +14,7 @@ const SingleArticleContent = (props) => {
                     <h3 className="single-post-subtitle">{props.item.subtitle}</h3>
                     <p className="single-post-body">{props.item.content}</p>
                     <footer className="single-post-footer">
-                        <p>Written by: {props.item.author.firstname}{props.item.author.lastname}</p>
+                        <p>Written by: {props.item.author.firstname} {props.item.author.lastname}</p>
                         {/* todo - check time info */}
                     </footer>
                 </div>

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { localUrl } from './../utils/AppConfig';
+import appConfig from './../utils/AppConfig';
 import store from './../store';
 import {
     GET_USERS_ERROR,
@@ -13,7 +13,7 @@ export function getUsers() {
             type: GET_USERS_START
         })
 
-        axios.get(`${localUrl}/api/users`)
+        axios.get(`${appConfig.localUrl}/api/users`)
             .then((response) => {
                 dispatch({
                     type: GET_USERS_SUCCESS,

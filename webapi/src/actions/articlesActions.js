@@ -1,6 +1,6 @@
 import axios from 'axios';
 import store from './../store';
-import { localUrl } from './../utils/AppConfig';
+import appConfig from './../utils/AppConfig';
 import {
     DELETE_ARTICLE_FAILED,
     DELETE_ARTICLE_SUCCESS,
@@ -39,7 +39,7 @@ export function getArticles() {
             type: GET_ARTICLES_START
         })
 
-        axios.get(`${localUrl}/api/articles`)
+        axios.get(`${appConfig.localUrl}/api/articles`)
             .then((response) => {
                 dispatch({
                     type: GET_ARTICLES_SUCCESS,
@@ -61,7 +61,7 @@ export function saveEditedArticle(data, editedArticle) {
             type: EDIT_ARTICLE_START
         })
 
-        axios.put(`${localUrl}/api/articles/${editedArticle}`,
+        axios.put(`${appConfig.localUrl}/api/articles/${editedArticle}`,
             {
                 title: data.articleTitle,
                 subtitle: data.articleSubtitle,
@@ -97,7 +97,7 @@ export function deleteArticle(data) {
     store.dispatch((dispatch) => {
         axios({
             method: 'delete',
-            url: `${localUrl}/api/articles/${data}`
+            url: `${appConfig.localUrl}/api/articles/${data}`
         })
             .then(
                 articleDeleted(data)
@@ -119,7 +119,7 @@ export function AddNewArticle(payloadData) {
             type: ADD_ARTICLE_PENDING
         })
         axios.post(
-            `${localUrl}/api/articles`, {
+            `${appConfig.localUrl}/api/articles`, {
                 title: payloadData.articleTitle,
                 subtitle: payloadData.articleSubtitle,
                 content: payloadData.articleMainContent,

@@ -9,7 +9,7 @@ const SingleArticle = (props) => {
                 className="single-post-wrapper">
                 <SingleArticleContent
                     item={props.item}></SingleArticleContent>
-                <Link to={`/api/article/${props.item.id}`}>
+                <Link to={`/api/articles/${props.item.id}`}>
                     Read More
                 </Link>
             </div>
