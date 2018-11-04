@@ -62,25 +62,18 @@ export function SendNewAccountData(data) {
     store.dispatch((dispatch) => {
         axios({
             method: 'post',
-            url: `${appConfig.serverUrl}/api/user`,
+            url: `${appConfig.serverUrl}/api/register`,
             data: {
-                username: data.username,
+                login: data.login,
                 password: data.password,
-                role: data.role
+                email: data.email
             }
         })
             .then((res) => {
-                if (res.data === 'notUniqueUserName') {
-                    dispatch({
-                        type: CREATE_ACCOUNT_FAILED,
-                        payload: 'notUniqueUserName'
-                    })
-                } else {
-                    dispatch({
-                        type: CREATE_ACCOUNT_SUCCESS,
-                        payload: data
-                    })
-                }
+                dispatch({
+                    type: CREATE_ACCOUNT_SUCCESS,
+                    payload: data
+                })
             })
             .catch((err) => {
                 dispatch({

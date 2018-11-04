@@ -4,18 +4,16 @@ import { connect } from 'react-redux';
 import { InfoStrip } from '../InfoStrip';
 import { enableRegisterAnotherUser } from './../../actions/authActions';
 
-const userRoles = [
-    "admin",
-    "user",
-    "editor"
-]
-
 class CreateAccount extends Component {
+    constructor() {
+        super();
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
     handleSubmit(e) {
         var submitPayload = {
-            username: this.username.value,
+            login: this.login.value,
             password: this.password.value,
-            role: this.role.value
         }
         e.preventDefault();
         SendNewAccountData(submitPayload);
@@ -42,15 +40,25 @@ class CreateAccount extends Component {
                                 Create new account
                             </h2>
                             <div className="input-wrap">
-                                <label>Name</label>
+                                <label>Login</label>
                                 <input
-                                    name="username"
+                                    name="login"
                                     type="text"
                                     required
-                                    ref={(input) => this.username = input}
-                                    placeholder="someUser@gmail.com"
+                                    ref={(input) => this.login = input}
+                                    placeholder="someUser"
                                 >
                                 </input>
+                            </div>
+
+                            <div className="input-wrap">
+                                <label>Email</label>
+                                <input
+                                    name="email"
+                                    type="text"
+                                    ref={(input) => this.email = input}
+                                    placeholder="youremail@gmail.com"
+                                ></input>
                             </div>
 
                             <div className="input-wrap">
@@ -62,22 +70,7 @@ class CreateAccount extends Component {
                                     placeholder="very strong password"
                                 ></input>
                             </div>
-                            {/* temporary solution, move to admin panel */}
-                            <div className="input-wrap">
-                                <label>Select role</label>
-                                <select
-                                    name="role"
-                                    ref={(input) => this.role = input}
-                                    className="full-width"
 
-                                >
-                                    {
-                                        userRoles.map(
-                                            (item) => <option key={item}> {item}</option>
-                                        )
-                                    }
-                                </select>
-                            </div>
                             <input
                                 type="submit"
                                 value="submit"
