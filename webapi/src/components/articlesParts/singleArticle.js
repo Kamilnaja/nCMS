@@ -9,7 +9,8 @@ const SingleArticle = (props) => {
                 className="single-article-wrapper">
                 <SingleArticleContent
                     item={props.item}></SingleArticleContent>
-                <Link to={`/api/articles/${props.item.id}`}>
+
+                <Link to={`/articles/${props.item.id}`}>
                     Read More
                 </Link>
             </div>

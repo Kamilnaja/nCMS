@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import appConfig from './../../utils/AppConfig';
+import { Link } from 'react-router-dom';
 
 class Author extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            authorArticles: '',
             author: ''
         }
     }
 
     componentDidMount() {
-        axios.get("http://localhost:8080/api/authors/1/articles")
+        axios.get(`${appConfig.serverUrl}/api${window.location.pathname}/articles`)
+            .then(res => {
+                this.setState({
+                    authorArticles: res.data
+                })
+            });
+        // authors/:authorId
+        axios.get(`${appConfig.serverUrl}/api${window.location.pathname}`)
             .then(res => {
                 this.setState({
                     author: res.data
@@ -21,8 +31,13 @@ class Author extends Component {
     render() {
         return (
             <div>
+                <h3>Articles written by : {this.state.author.firstname} {this.state.author.lastname}</h3>
                 <ul>
-                    {this.state.author.content && this.state.author.content.map((item, idx) => <li key={idx}>{item.id}</li>)}
+                    {this.state.authorArticles.content && this.state.authorArticles.content.map((item, idx) =>
+                        <li key={idx}>
+                            <Link to={''}>{item.id} {item.title}</Link>
+
+                        </li>)}
                 </ul>
             </div>
         );

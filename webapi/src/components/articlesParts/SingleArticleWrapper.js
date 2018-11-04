@@ -12,7 +12,7 @@ class SingleArticleWrapper extends Component {
     componentDidMount() {
         axios({
             method: "GET",
-            url: `${appConfig.serverUrl}${window.location.pathname}`
+            url: `${appConfig.serverUrl}/api${window.location.pathname}`
         })
             .then(
                 res => {

@@ -29,7 +29,7 @@ class App extends Component {
                             <Route path='/admin' component={AdminPanel} />
                             <Route path='/login' component={LoginScreen} />
                             <Route path='/createAccount' component={CreateAccount} />
-                            <Route path='/api/articles/:articleId' component={SingleArticleWrapper} />
+                            <Route path='/articles/:articleId' component={SingleArticleWrapper} />
                             <Route path="/authors/:authorId" component={Author} />
                             {/* <Route component={Error404}></Route> */}
                         </Switch>
