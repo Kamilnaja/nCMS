@@ -38,7 +38,7 @@ export function login(data) {
     store.dispatch((dispatch) => {
         axios({
             method: 'post',
-            url: `${appConfig.localUrl}/api/session`,
+            url: `${appConfig.serverUrl}/api/session`,
             data: {
                 username: data.username,
                 password: data.password
@@ -62,7 +62,7 @@ export function SendNewAccountData(data) {
     store.dispatch((dispatch) => {
         axios({
             method: 'post',
-            url: `${appConfig.localUrl}/api/user`,
+            url: `${appConfig.serverUrl}/api/user`,
             data: {
                 username: data.username,
                 password: data.password,

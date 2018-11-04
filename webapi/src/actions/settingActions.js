@@ -20,7 +20,7 @@ export function setSettings(payloadData) {
             type: SET_SETTINGS_START
         })
 
-        axios.put(`${appConfig.localUrl}/api/pagesettings`, {
+        axios.put(`${appConfig.serverUrl}/api/pagesettings`, {
             title: payloadData.title,
             subtitle: payloadData.subtitle,
             footer: payloadData.footer
@@ -50,7 +50,7 @@ export function getSettings() {
         dispatch({
             type: GET_SETTINGS_START
         })
-        axios.get(`${appConfig.localUrl}/api/pagesettings`)
+        axios.get(`${appConfig.serverUrl}/api/pagesettings`)
             .then((response) => {
                 dispatch({
                     type: GET_SETTINGS_SUCCESS,

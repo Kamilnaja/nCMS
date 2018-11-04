@@ -1,11 +1,7 @@
-/** 
-* @author Kamil Naja
-* @description Content of opened article 
-*/
-
 import React, { Component } from 'react';
 import axios from 'axios';
 import SingleArticleContent from './SingleArticleContent';
+import appConfig from './../../utils/AppConfig';
 
 class FullArticle extends Component {
     constructor(props) {
@@ -16,7 +12,7 @@ class FullArticle extends Component {
     componentDidMount() {
         axios({
             method: "GET",
-            url: `${window.location.href}`
+            url: `${appConfig.serverUrl}${window.location.href}`
         })
             .then(
                 res => {

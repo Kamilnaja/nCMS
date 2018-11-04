@@ -13,7 +13,7 @@ export function getUsers() {
             type: GET_USERS_START
         })
 
-        axios.get(`${appConfig.localUrl}/api/users`)
+        axios.get(`${appConfig.serverUrl}/api/users`)
             .then((response) => {
                 dispatch({
                     type: GET_USERS_SUCCESS,
