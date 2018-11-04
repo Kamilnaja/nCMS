@@ -6,7 +6,7 @@ const SingleArticle = (props) => {
     return (
         <li key={props.item.id}>
             <div
-                className="single-article-wrapper">
+                className="page-wrapper">
                 <SingleArticleContent
                     item={props.item}></SingleArticleContent>
 

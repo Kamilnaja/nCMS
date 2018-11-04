@@ -26,7 +26,7 @@ class SingleArticleWrapper extends Component {
 
     render() {
         return (
-            <div className="single-article-wrapper">
+            <div className="page-wrapper">
                 <SingleArticleContent item={this.state.item}></SingleArticleContent>
             </div>
         )

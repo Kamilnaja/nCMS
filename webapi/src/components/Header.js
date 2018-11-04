@@ -26,7 +26,7 @@ class Header extends Component {
                 <header className="header">
                     <div>
                         <Link to="/">
-                            <h1 className="header-site-title">
+                            <h1 className="site-title">
                                 {this.props.settings.title}
                             </h1>
                             <h2>

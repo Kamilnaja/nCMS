@@ -9,11 +9,11 @@ const SingleArticleContent = (props) => {
                 <div>
                     <h2
                         data-key={props.item._id}
-                        className="single-post-title">
+                        className="page-title">
                         {props.item.title}
                     </h2>
-                    <h3 className="single-post-subtitle">{props.item.subtitle}</h3>
-                    <p className="single-post-body">{props.item.content}</p>
+                    <h3 className="page-subtitle">{props.item.subtitle}</h3>
+                    <p className="page-body">{props.item.content}</p>
                     <ArticleFooter author={props.item.author}></ArticleFooter>
                 </div>
             }

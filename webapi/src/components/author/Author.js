@@ -30,13 +30,12 @@ class Author extends Component {
 
     render() {
         return (
-            <div>
-                <h3>Articles written by : {this.state.author.firstname} {this.state.author.lastname}</h3>
-                <ul>
+            <div className="page-wrapper">
+                <h3 className="page-title">Articles written by : {this.state.author.firstname} {this.state.author.lastname}</h3>
+                <ul className="page-list">
                     {this.state.authorArticles.content && this.state.authorArticles.content.map((item, idx) =>
                         <li key={idx}>
-                            <Link to={''}>{item.id} {item.title}</Link>
-
+                            <Link to={`/articles/${item.id}`}>{item.id} {item.title}</Link>
                         </li>)}
                 </ul>
             </div>
