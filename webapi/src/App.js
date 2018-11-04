@@ -11,6 +11,7 @@ import LoginScreen from './components/LoginScreen';
 import Main from './components/Main';
 import './styles/App.css';
 import Author from './components/author/Author';
+import ActivateAccount from './components/login/ActivateAccount';
 
 class App extends Component {
 
@@ -31,6 +32,7 @@ class App extends Component {
                             <Route path='/createAccount' component={CreateAccount} />
                             <Route path='/articles/:articleId' component={SingleArticleWrapper} />
                             <Route path="/authors/:authorId" component={Author} />
+                            <Route path="/activateaccount" component={ActivateAccount} />
                             {/* <Route component={Error404}></Route> */}
                         </Switch>
                         <Footer settings={this.props.settings} />

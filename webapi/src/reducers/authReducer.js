@@ -16,7 +16,8 @@ const authReducer = (state = {
         case "CREATE_ACCOUNT_SUCCESS": {
             state = {
                 ...state,
-                statusInfo: 'success'
+                statusInfo: 'success',
+                activation_key: action.payload.data
             }
             break;
         }

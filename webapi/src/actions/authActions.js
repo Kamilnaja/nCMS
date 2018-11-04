@@ -72,7 +72,7 @@ export function SendNewAccountData(data) {
             .then((res) => {
                 dispatch({
                     type: CREATE_ACCOUNT_SUCCESS,
-                    payload: data
+                    payload: res
                 })
             })
             .catch((err) => {

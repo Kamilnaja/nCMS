@@ -14,6 +14,7 @@ class CreateAccount extends Component {
         var submitPayload = {
             login: this.login.value,
             password: this.password.value,
+            email: this.email.value
         }
         e.preventDefault();
         SendNewAccountData(submitPayload);
@@ -26,13 +27,10 @@ class CreateAccount extends Component {
     render() {
         return (
             <section>
-                {this.props.statusInfo === 'notUniqueUserName' && <InfoStrip text="Your username is not unique"></InfoStrip>
-                }
                 {this.props.statusInfo === "success" ?
                     <InfoStrip
-                        user={this.props.user}
-                        text={"Account has been created"}
-                    >
+                        {...this.props}
+                        text={`Account has been created. Click on link, to go into activation page`}>
                     </InfoStrip> :
                     <div className="small-form-wrap">
                         <form onSubmit={(e) => this.handleSubmit(e)}>
