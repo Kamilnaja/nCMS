@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import SingleArticleContent from './SingleArticleContent';
-import appConfig from './../../utils/AppConfig';
+import appConfig from '../../utils/AppConfig';
 
-class FullArticle extends Component {
+class SingleArticleWrapper extends Component {
     constructor(props) {
         super(props);
         this.state = { content: '' }
@@ -12,7 +12,7 @@ class FullArticle extends Component {
     componentDidMount() {
         axios({
             method: "GET",
-            url: `${appConfig.serverUrl}${window.location.href}`
+            url: `${appConfig.serverUrl}${window.location.pathname}`
         })
             .then(
                 res => {
@@ -26,14 +26,11 @@ class FullArticle extends Component {
 
     render() {
         return (
-            <div className="articles-list">
-                <div className="single-post-wrapper">
-                    <SingleArticleContent item={this.state.item}></SingleArticleContent>
-                    <div>My</div>
-                </div>
+            <div className="single-article-wrapper">
+                <SingleArticleContent item={this.state.item}></SingleArticleContent>
             </div>
         )
     }
 }
 
-export default FullArticle;
+export default SingleArticleWrapper;

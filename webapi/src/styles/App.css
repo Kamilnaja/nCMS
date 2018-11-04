@@ -277,14 +277,14 @@ section {
   display: block;
   padding: 6px; }
 
-.single-post-wrapper {
+.single-article-wrapper {
   display: block;
   margin-top: 5px;
   padding: 10px 15px; }
-  .single-post-wrapper time {
+  .single-article-wrapper time {
     color: #849DB5; }
 
-.single-post-wrapper:not(:last-child) {
+.single-article-wrapper:not(:last-child) {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
 
 .single-post-title {

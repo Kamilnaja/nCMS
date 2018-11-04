@@ -104,7 +104,7 @@ p, label {
     padding: 6px;
   }
   
-  .single-post-wrapper {
+  .single-article-wrapper {
     display: block;
     margin-top: 5px;
     padding: 10px 15px;
@@ -113,7 +113,7 @@ p, label {
     }
   }
   
-  .single-post-wrapper:not(:last-child) {
+  .single-article-wrapper:not(:last-child) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   }
   

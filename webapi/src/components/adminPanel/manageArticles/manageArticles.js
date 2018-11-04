@@ -21,7 +21,7 @@ class ManageArticles extends Component {
             var dataLength = this.props.articles.data.length;
 
             var articlesList = this.props.articles.data.map((item, key) =>
-                <div key={key} className="single-post-wrapper">
+                <div key={key} className="single-article-wrapper">
                     <SingleArticle item={item}></SingleArticle>
                     <ReturnButtons item={item}></ReturnButtons>
                 </div>

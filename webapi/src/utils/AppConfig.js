@@ -1,7 +1,7 @@
-let localUrl = "http://localhost:8080";
+let devUrl = "http://localhost:8080";
 
 let appConfig = {
-    "serverUrl": localUrl
+    "serverUrl": devUrl
 }
 
 export default appConfig;
