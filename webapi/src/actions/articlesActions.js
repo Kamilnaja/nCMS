@@ -1,19 +1,7 @@
 import axios from 'axios';
 import store from './../store';
+import { ADD_ARTICLE_PENDING, ADD_NEW_ARTICLE_SUCCESS, DELETE_ARTICLE_FAILED, DELETE_ARTICLE_SUCCESS, EDIT_ARTICLE_CANCEL, EDIT_ARTICLE_START, EDIT_ARTICLE_SUCCESS, GET_ARTICLES_ERROR, GET_ARTICLES_START, GET_ARTICLES_SUCCESS, SHOW_EDITION_FORM } from './../utils/action-types';
 import appConfig from './../utils/AppConfig';
-import {
-    DELETE_ARTICLE_FAILED,
-    DELETE_ARTICLE_SUCCESS,
-    EDIT_ARTICLE_SUCCESS,
-    EDIT_ARTICLE_CANCEL,
-    GET_ARTICLES_ERROR,
-    GET_ARTICLES_START,
-    GET_ARTICLES_SUCCESS,
-    EDIT_ARTICLE_START,
-    SHOW_EDITION_FORM,
-    ADD_ARTICLE_PENDING,
-    ADD_NEW_ARTICLE_SUCCESS
-} from './../utils/action-types';
 
 function articleDeleted(data) {
     store.dispatch((dispatch) => {

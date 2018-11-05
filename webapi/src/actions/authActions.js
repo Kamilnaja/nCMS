@@ -1,15 +1,9 @@
 import axios from 'axios';
+import jwtDecode from 'jwt-decode';
 import store from './../store';
+import { CREATE_ACCOUNT_FAILED, CREATE_ACCOUNT_SUCCESS, LOGIN_FAILED, RELOAD_REGISTER_INFO, SET_CURRENT_USER } from './../utils/action-types';
 import appConfig from './../utils/AppConfig';
 import setAuthorizationToken from './../utils/setAuthToken';
-import jwtDecode from 'jwt-decode';
-import {
-    SET_CURRENT_USER,
-    LOGIN_FAILED,
-    CREATE_ACCOUNT_SUCCESS,
-    CREATE_ACCOUNT_FAILED,
-    RELOAD_REGISTER_INFO,
-} from './../utils/action-types';
 
 export function setCurrentUser(user) {
     return {
@@ -31,7 +25,6 @@ export function cleanInfoStrip() {
             type: "CLEAN_INFO_STRIP"
         })
     })
-
 }
 
 export function login(data) {

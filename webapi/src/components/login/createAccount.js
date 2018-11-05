@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { SendNewAccountData } from './../../actions/authActions';
 import { connect } from 'react-redux';
+import { enableRegisterAnotherUser, SendNewAccountData } from '../../actions/authActions';
 import { InfoStrip } from '../InfoStrip';
-import { enableRegisterAnotherUser } from './../../actions/authActions';
 
 class CreateAccount extends Component {
     constructor() {
@@ -30,7 +29,7 @@ class CreateAccount extends Component {
                 {this.props.statusInfo === "success" ?
                     <InfoStrip
                         {...this.props}
-                        text={`Account has been created. Click on link, to go into activation page`}>
+                        text={`Account has been created. Please check your email and activate your account!`}>
                     </InfoStrip> :
                     <div className="small-form-wrap">
                         <form onSubmit={(e) => this.handleSubmit(e)}>
