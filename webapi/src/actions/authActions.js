@@ -1,7 +1,7 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
+import { CREATE_ACCOUNT_FAILED, CREATE_ACCOUNT_FAILED_SHORT_PASSWORD, CREATE_ACCOUNT_FAILED_USER_ALREADY_EXISTS, CREATE_ACCOUNT_SUCCESS, LOGIN_FAILED, RELOAD_REGISTER_INFO, SET_CURRENT_USER } from '../utils/ActionTypes';
 import store from './../store';
-import { CREATE_ACCOUNT_FAILED, CREATE_ACCOUNT_FAILED_SHORT_PASSWORD, CREATE_ACCOUNT_FAILED_USER_ALREADY_EXISTS, CREATE_ACCOUNT_SUCCESS, LOGIN_FAILED, RELOAD_REGISTER_INFO, SET_CURRENT_USER } from './../utils/action-types';
 import appConfig from './../utils/AppConfig';
 import setAuthorizationToken from './../utils/setAuthToken';
 

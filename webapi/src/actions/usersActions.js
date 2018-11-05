@@ -1,11 +1,7 @@
 import axios from 'axios';
-import appConfig from './../utils/AppConfig';
 import store from './../store';
-import {
-    GET_USERS_ERROR,
-    GET_USERS_START,
-    GET_USERS_SUCCESS
-} from './../utils/action-types';
+import { GET_USERS_ERROR, GET_USERS_START, GET_USERS_SUCCESS } from './../utils/ActionTypes';
+import appConfig from './../utils/AppConfig';
 
 export function getUsers() {
     store.dispatch((dispatch) => {

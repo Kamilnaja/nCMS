@@ -5,7 +5,7 @@ export const InfoBox = (props) => {
 
     function disableVisibility() {
         var hideContent = document.getElementById('hideContent');
-        // hideContent.style.display = 'none'
+        hideContent.style.display = 'none'
     }
 
     return (

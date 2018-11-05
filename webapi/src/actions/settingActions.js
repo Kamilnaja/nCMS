@@ -1,18 +1,7 @@
 import axios from 'axios';
 import store from './../store';
+import { GET_SETTINGS_ERROR, GET_SETTINGS_START, GET_SETTINGS_SUCCESS, SET_CURRENT_PAGINATION_PAGE, SET_PAGINATION_SIZE, SET_SETTINGS, SET_SETTINGS_ERROR, SET_SETTINGS_START, SET_SETTINGS_SUCCESS } from './../utils/ActionTypes';
 import appConfig from './../utils/AppConfig';
-import {
-    SET_SETTINGS_START,
-    SET_SETTINGS_SUCCESS,
-    SET_SETTINGS_ERROR,
-    SET_SETTINGS,
-    GET_SETTINGS_ERROR,
-    GET_SETTINGS_START,
-    GET_SETTINGS_SUCCESS,
-    SET_CURRENT_PAGINATION_PAGE,
-    SET_PAGINATION_SIZE
-
-} from './../utils/action-types';
 
 export function setSettings(payloadData) {
     store.dispatch((dispatch) => {

@@ -11,6 +11,15 @@ const authReducer = (state = {
             }
             break;
         }
+
+        case "CREATE_ACCOUNT_FAILED_SHORT_PASSWORD": {
+            state = {
+                ...state,
+                statusInfo: action.payload
+            }
+            break;
+        }
+
         case "CREATE_ACCOUNT_FAILED": {
             state = {
                 ...state,

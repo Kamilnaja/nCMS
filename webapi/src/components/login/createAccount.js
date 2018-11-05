@@ -27,7 +27,11 @@ class CreateAccount extends Component {
         return (
             <section>
                 {this.props.statusInfo === "userexists" &&
-                    <InfoStrip text={`Account cannot be created, user already exists`}></InfoStrip>
+                    <InfoStrip text="Account cannot be created, user already exists"></InfoStrip>
+                }
+                {
+                    this.props.statusInfo === "toshort" &&
+                    <InfoStrip text="Password is to short"></InfoStrip>
                 }
                 {this.props.statusInfo === "success" ?
                     <InfoStrip
@@ -36,6 +40,7 @@ class CreateAccount extends Component {
                     </InfoStrip> :
                     <div className="small-form-wrap">
                         <form onSubmit={(e) => this.handleSubmit(e)}>
+                            {/* todo - move form to separate file */}
                             <h2 className="form-title">
                                 Create new account
                             </h2>
@@ -44,9 +49,9 @@ class CreateAccount extends Component {
                                 <input
                                     name="login"
                                     type="text"
-                                    required
                                     ref={(input) => this.login = input}
                                     placeholder="someUser"
+                                    required
                                 >
                                 </input>
                             </div>
@@ -58,6 +63,7 @@ class CreateAccount extends Component {
                                     type="text"
                                     ref={(input) => this.email = input}
                                     placeholder="youremail@gmail.com"
+                                    required
                                 ></input>
                             </div>
 
@@ -68,6 +74,7 @@ class CreateAccount extends Component {
                                     type="password"
                                     ref={(input) => this.password = input}
                                     placeholder="very strong password"
+                                    required
                                 ></input>
                             </div>
 
