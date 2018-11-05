@@ -12,6 +12,14 @@ const authReducer = (state = {
             break;
         }
 
+        case "CREATE_ACCOUNT_FAILED_EMAIL_EXISTS": {
+            state = {
+                ...state,
+                statusInfo: 'emailAlreadyExists'
+            }
+            break;
+        }
+
         case "CREATE_ACCOUNT_FAILED_SHORT_PASSWORD": {
             state = {
                 ...state,

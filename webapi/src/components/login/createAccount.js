@@ -26,6 +26,7 @@ class CreateAccount extends Component {
     render() {
         return (
             <section>
+                {/* todo - refactor this  */}
                 {this.props.statusInfo === "userAlreadyExists" &&
                     <InfoStrip text="Account cannot be created, user already exists"></InfoStrip>
                 }
@@ -33,6 +34,11 @@ class CreateAccount extends Component {
                     this.props.statusInfo === "tooShortPassword" &&
                     <InfoStrip text="Password is to short"></InfoStrip>
                 }
+                {
+                    this.props.statusInfo === "emailAlreadyExists" &&
+                    <InfoStrip text="Duplicated Email"></InfoStrip>
+                }
+
                 {this.props.statusInfo === "success" ?
                     <InfoStrip
                         {...this.props}
