@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SingleArticleContent from './SingleArticleContent';
 
-const SingleArticle = (props) => {
+const SingleArticle = props => {
     return (
         <li key={props.item.id}>
             <div
