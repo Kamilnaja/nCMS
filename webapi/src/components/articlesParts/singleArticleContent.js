@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import ArticleFooter from './ArticleFooter';
 
 const SingleArticleContent = props => {
     return (
@@ -13,11 +13,7 @@ const SingleArticleContent = props => {
                     </h2>
                     <h3 className="single-post-subtitle">{props.item.subtitle}</h3>
                     <p className="single-post-body">{props.item.content}</p>
-                    <footer className="single-post-footer">
-                        <Link to={`/author/${props.item.author.id}`}>
-                            Written by: {props.item.author.firstname} {props.item.author.secondname}
-                        </Link>
-                    </footer>
+                    <ArticleFooter author={props.item.author}></ArticleFooter>
                 </div>
             }
         </article>

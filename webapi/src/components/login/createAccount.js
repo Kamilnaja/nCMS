@@ -39,58 +39,59 @@ class CreateAccount extends Component {
                     <InfoStrip text="Duplicated Email"></InfoStrip>
                 }
 
-                {this.props.statusInfo === "success" ?
+                {this.props.statusInfo === "success" &&
                     <InfoStrip
                         {...this.props}
-                        text={`Account has been created. Please check your email and activate your account!`}>
-                    </InfoStrip> :
-                    <div className="small-form-wrap">
-                        <form onSubmit={(e) => this.handleSubmit(e)}>
-                            {/* todo - move form to separate file */}
-                            <h2 className="form-title">
-                                Create new account
-                            </h2>
-                            <div className="input-wrap">
-                                <label>Login</label>
-                                <input
-                                    name="login"
-                                    type="text"
-                                    ref={(input) => this.login = input}
-                                    placeholder="someUser"
-                                    required
-                                >
-                                </input>
-                            </div>
-
-                            <div className="input-wrap">
-                                <label>Email</label>
-                                <input
-                                    name="email"
-                                    type="text"
-                                    ref={(input) => this.email = input}
-                                    placeholder="youremail@gmail.com"
-                                    required
-                                ></input>
-                            </div>
-
-                            <div className="input-wrap">
-                                <label>Password</label>
-                                <input
-                                    name="password"
-                                    type="password"
-                                    ref={(input) => this.password = input}
-                                    placeholder="very strong password"
-                                    required
-                                ></input>
-                            </div>
-
-                            <input
-                                type="submit"
-                                value="submit"
-                                className="btn btn-default"></input>
-                        </form>
-                    </div>
+                        text={`Account has been created and activated. Please try login into your account!`}>
+                    </InfoStrip>
                 }
+
+                <div className="small-form-wrap">
+                    <form onSubmit={(e) => this.handleSubmit(e)}>
+                        {/* todo - move form to separate file */}
+                        <h2 className="form-title">
+                            Create new account
+                            </h2>
+                        <div className="input-wrap">
+                            <label>Login</label>
+                            <input
+                                name="login"
+                                type="text"
+                                ref={(input) => this.login = input}
+                                placeholder="someUser"
+                                required
+                            >
+                            </input>
+                        </div>
+
+                        <div className="input-wrap">
+                            <label>Email</label>
+                            <input
+                                name="email"
+                                type="text"
+                                ref={(input) => this.email = input}
+                                placeholder="youremail@gmail.com"
+                                required
+                            ></input>
+                        </div>
+
+                        <div className="input-wrap">
+                            <label>Password</label>
+                            <input
+                                name="password"
+                                type="password"
+                                ref={(input) => this.password = input}
+                                placeholder="very strong password"
+                                required
+                            ></input>
+                        </div>
+
+                        <input
+                            type="submit"
+                            value="submit"
+                            className="btn btn-default"></input>
+                    </form>
+                </div>
             </section >
         )
     }
