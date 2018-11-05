@@ -26,6 +26,9 @@ class CreateAccount extends Component {
     render() {
         return (
             <section>
+                {this.props.statusInfo === "userexists" &&
+                    <InfoStrip text={`Account cannot be created, user already exists`}></InfoStrip>
+                }
                 {this.props.statusInfo === "success" ?
                     <InfoStrip
                         {...this.props}

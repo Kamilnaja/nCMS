@@ -4,7 +4,12 @@ const authReducer = (state = {
     statusInfo: ''
 }, action) => {
     switch (action.type) {
-
+        case "CREATE_ACCOUNT_FAILED_USER_ALREADY_EXISTS": {
+            state = {
+                ...state,
+                statusInfo: action.payload
+            }
+        }
         case "CREATE_ACCOUNT_FAILED": {
             state = {
                 ...state,
