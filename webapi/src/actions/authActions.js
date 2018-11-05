@@ -1,13 +1,13 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import { CREATE_ACCOUNT_FAILED, CREATE_ACCOUNT_FAILED_EMAIL_EXISTS, CREATE_ACCOUNT_FAILED_SHORT_PASSWORD, CREATE_ACCOUNT_FAILED_USER_ALREADY_EXISTS, CREATE_ACCOUNT_SUCCESS, LOGIN_FAILED, RELOAD_REGISTER_INFO, SET_CURRENT_USER } from '../utils/ActionTypes';
 import store from './../store';
+import ActionTypes from './../utils/ActionTypes';
 import appConfig from './../utils/AppConfig';
 import setAuthorizationToken from './../utils/setAuthToken';
 
 export function setCurrentUser(user) {
     return {
-        type: SET_CURRENT_USER,
+        type: ActionTypes.SET_CURRENT_USER,
         user
     }
 }
@@ -45,7 +45,7 @@ export function login(data) {
             })
             .catch((err) => {
                 dispatch({
-                    type: LOGIN_FAILED
+                    type: ActionTypes.LOGIN_FAILED
                 })
             })
     })
@@ -64,31 +64,31 @@ export function SendNewAccountData(data) {
         })
             .then((res) => {
                 dispatch({
-                    type: CREATE_ACCOUNT_SUCCESS,
+                    type: ActionTypes.CREATE_ACCOUNT_SUCCESS,
                     payload: res
                 })
             })
             .catch((err) => {
                 if (typeof err.response.data.fieldErrors !== 'undefined' && err.response.data.fieldErrors[0].message === "Size") {
                     dispatch({
-                        type: CREATE_ACCOUNT_FAILED_SHORT_PASSWORD,
+                        type: ActionTypes.CREATE_ACCOUNT_FAILED_SHORT_PASSWORD,
                         payload: "tooShortPassword"
                     })
                 } else if (typeof err.response.data.message !== 'undefined' && err.response.data.message === "error.userexists") {
                     dispatch({
-                        type: CREATE_ACCOUNT_FAILED_USER_ALREADY_EXISTS,
+                        type: ActionTypes.CREATE_ACCOUNT_FAILED_USER_ALREADY_EXISTS,
                         payload: "userAlreadyExists"
                     })
                 }
                 else if (err.response.data.message !== 'undefined' && err.response.data.message === "error.emailexists") {
                     dispatch({
-                        type: CREATE_ACCOUNT_FAILED_EMAIL_EXISTS,
+                        type: ActionTypes.CREATE_ACCOUNT_FAILED_EMAIL_EXISTS,
                         payload: "emailAlreadyExists"
                     })
                 }
                 else {
                     dispatch({
-                        type: CREATE_ACCOUNT_FAILED,
+                        type: ActionTypes.CREATE_ACCOUNT_FAILED,
                         payload: err
                     })
                 }
@@ -107,7 +107,7 @@ export function logOut() {
 export function enableRegisterAnotherUser() {
     store.dispatch((dispatch) => {
         dispatch({
-            type: RELOAD_REGISTER_INFO
+            type: ActionTypes.RELOAD_REGISTER_INFO
         })
     })
 }

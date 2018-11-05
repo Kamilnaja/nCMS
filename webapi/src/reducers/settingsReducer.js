@@ -1,4 +1,4 @@
-import { GET_SETTINGS_ERROR, GET_SETTINGS_SUCCESS, SET_CURRENT_PAGINATION_PAGE, SET_PAGINATION_SIZE, SET_SETTINGS_START, SET_SETTINGS_SUCCESS } from '../utils/ActionTypes';
+import ActionTypes from './../utils/ActionTypes';
 
 const settingsReducer = (
 
@@ -8,7 +8,7 @@ const settingsReducer = (
     },
     action) => {
     switch (action.type) {
-        case GET_SETTINGS_SUCCESS:
+        case ActionTypes.GET_SETTINGS_SUCCESS:
             state = {
                 ...state,
                 title: action.payload.title,
@@ -17,7 +17,7 @@ const settingsReducer = (
             }
             break;
 
-        case GET_SETTINGS_ERROR: {
+        case ActionTypes.GET_SETTINGS_ERROR: {
             state = {
                 ...state,
                 settings_error: true,
@@ -26,7 +26,7 @@ const settingsReducer = (
             break;
         }
 
-        case SET_SETTINGS_START: {
+        case ActionTypes.SET_SETTINGS_START: {
             state = {
                 ...state,
                 statusInfo: 'start'
@@ -34,7 +34,7 @@ const settingsReducer = (
             break;
         }
 
-        case SET_SETTINGS_SUCCESS: {
+        case ActionTypes.SET_SETTINGS_SUCCESS: {
             state = {
                 ...state,
                 title: action.payload.title,
@@ -45,7 +45,7 @@ const settingsReducer = (
             break;
         }
 
-        case SET_CURRENT_PAGINATION_PAGE: {
+        case ActionTypes.SET_CURRENT_PAGINATION_PAGE: {
             state = {
                 ...state,
                 currentPaginationPage: action.payload
@@ -53,7 +53,7 @@ const settingsReducer = (
             break;
         }
 
-        case SET_PAGINATION_SIZE: {
+        case ActionTypes.SET_PAGINATION_SIZE: {
             state = {
                 ...state,
                 paginationSize: action.payload
