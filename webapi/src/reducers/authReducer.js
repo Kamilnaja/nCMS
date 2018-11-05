@@ -9,6 +9,7 @@ const authReducer = (state = {
                 ...state,
                 statusInfo: action.payload
             }
+            break;
         }
         case "CREATE_ACCOUNT_FAILED": {
             state = {
