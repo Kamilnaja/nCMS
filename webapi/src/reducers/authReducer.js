@@ -1,10 +1,12 @@
+import ActionTypes from './../utils/ActionTypes';
+
 const authReducer = (state = {
     isAuthenticated: false,
     loginStatus: "waiting",
     statusInfo: ''
 }, action) => {
     switch (action.type) {
-        case "CREATE_ACCOUNT_FAILED_USER_ALREADY_EXISTS": {
+        case ActionTypes.CREATE_ACCOUNT_FAILED_USER_ALREADY_EXISTS: {
             state = {
                 ...state,
                 statusInfo: action.payload
@@ -12,7 +14,7 @@ const authReducer = (state = {
             break;
         }
 
-        case "CREATE_ACCOUNT_FAILED_EMAIL_EXISTS": {
+        case ActionTypes.CREATE_ACCOUNT_FAILED_EMAIL_EXISTS: {
             state = {
                 ...state,
                 statusInfo: 'emailAlreadyExists'
@@ -20,7 +22,7 @@ const authReducer = (state = {
             break;
         }
 
-        case "CREATE_ACCOUNT_FAILED_SHORT_PASSWORD": {
+        case ActionTypes.CREATE_ACCOUNT_FAILED_SHORT_PASSWORD: {
             state = {
                 ...state,
                 statusInfo: action.payload
@@ -28,7 +30,7 @@ const authReducer = (state = {
             break;
         }
 
-        case "CREATE_ACCOUNT_FAILED": {
+        case ActionTypes.CREATE_ACCOUNT_FAILED: {
             state = {
                 ...state,
                 statusInfo: action.payload
@@ -36,7 +38,7 @@ const authReducer = (state = {
             break;
         }
 
-        case "CREATE_ACCOUNT_SUCCESS": {
+        case ActionTypes.CREATE_ACCOUNT_SUCCESS: {
             state = {
                 ...state,
                 statusInfo: 'success',
@@ -45,7 +47,7 @@ const authReducer = (state = {
             break;
         }
 
-        case "SET_CURRENT_USER": {
+        case ActionTypes.SET_CURRENT_USER: {
             state = {
                 ...state,
                 isAuthenticated: true, // todo - probably not necessary
@@ -54,7 +56,7 @@ const authReducer = (state = {
             break;
         }
 
-        case "LOGIN_FAILED": {
+        case ActionTypes.LOGIN_FAILED: {
             state = {
                 ...state,
                 isAuthenticated: false,
@@ -64,7 +66,7 @@ const authReducer = (state = {
             break;
         }
 
-        case "RELOAD_REGISTER_INFO": {
+        case ActionTypes.RELOAD_REGISTER_INFO: {
             state = {
                 ...state,
                 statusInfo: ""
@@ -72,7 +74,7 @@ const authReducer = (state = {
             break;
         }
 
-        case "CLEAN_INFO_STRIP": {
+        case ActionTypes.CLEAN_INFO_STRIP: {
             state = {
                 ...state,
                 loginStatus: ""

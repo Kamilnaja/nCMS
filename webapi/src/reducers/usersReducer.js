@@ -1,8 +1,10 @@
+import ActionTypes from './../utils/ActionTypes';
+
 const usersReducer = (state = {
     userList: []
 }, action) => {
     switch (action.type) {
-        case "GET_USERS_SUCCESS": {
+        case ActionTypes.GET_USERS_SUCCESS: {
             state = {
                 ...state,
                 fetching: false,
@@ -10,7 +12,7 @@ const usersReducer = (state = {
             }
             break;
         }
-        case "GET_USERS_ERROR": {
+        case ActionTypes.GET_USERS_ERROR: {
             state = {
                 ...state,
                 fetching: false,

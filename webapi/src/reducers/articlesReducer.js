@@ -1,8 +1,10 @@
+import ActionTypes from './../utils/ActionTypes';
+
 const articlesReducer = (state = [],
     action) => {
 
     switch (action.type) {
-        case "GET_ARTICLES_START": {
+        case ActionTypes.GET_ARTICLES_START: {
             state = {
                 ...state,
                 fetching: true
@@ -10,7 +12,7 @@ const articlesReducer = (state = [],
             break;
         }
 
-        case "GET_ARTICLES_ERROR": {
+        case ActionTypes.GET_ARTICLES_ERROR: {
             state = {
                 ...state,
                 fetching: false,
@@ -20,7 +22,7 @@ const articlesReducer = (state = [],
             break;
         }
 
-        case "GET_ARTICLES_SUCCESS": {
+        case ActionTypes.GET_ARTICLES_SUCCESS: {
             state = {
                 ...state,
                 fetching: false,
@@ -30,7 +32,7 @@ const articlesReducer = (state = [],
             break;
         }
 
-        case "DELETE_ARTICLE_SUCCESS": {
+        case ActionTypes.DELETE_ARTICLE_SUCCESS: {
             state = {
                 ...state,
                 statusInfo: 'deleteSuccess',
@@ -39,7 +41,7 @@ const articlesReducer = (state = [],
             break;
         }
 
-        case "DELETE_ARTICLE_FAILED": {
+        case ActionTypes.DELETE_ARTICLE_FAILED: {
             state = {
                 ...state,
                 statusInfo: 'error'
@@ -47,7 +49,7 @@ const articlesReducer = (state = [],
             break
         }
 
-        case "ADD_NEW_ARTICLE_SUCCESS": {
+        case ActionTypes.ADD_NEW_ARTICLE_SUCCESS: {
             state = {
                 ...state,
                 statusInfo: 'success',
@@ -56,7 +58,7 @@ const articlesReducer = (state = [],
             break;
         }
 
-        case "EDIT_ARTICLE_START": {
+        case ActionTypes.EDIT_ARTICLE_START: {
             state = {
                 ...state,
                 statusInfo: 'inprogress',
@@ -65,7 +67,7 @@ const articlesReducer = (state = [],
             break
         }
 
-        case "EDIT_ARTICLE_SUCCESS": {
+        case ActionTypes.EDIT_ARTICLE_SUCCESS: {
             state = {
                 ...state,
                 statusInfo: 'success',
@@ -75,7 +77,7 @@ const articlesReducer = (state = [],
             break;
         }
 
-        case "EDIT_ARTICLE_CANCEL": {
+        case ActionTypes.EDIT_ARTICLE_CANCEL: {
             state = {
                 ...state,
                 isOnEdition: false
@@ -83,7 +85,7 @@ const articlesReducer = (state = [],
             break;
         }
 
-        case "ADD_ARTICLE_PENDING": {
+        case ActionTypes.ADD_ARTICLE_PENDING: {
             state = {
                 ...state,
                 statusInfo: 'pending'
@@ -91,7 +93,7 @@ const articlesReducer = (state = [],
             break;
         }
 
-        case "SHOW_EDITION_FORM": {
+        case ActionTypes.SHOW_EDITION_FORM: {
             state = {
                 ...state,
                 isOnEdition: true,
