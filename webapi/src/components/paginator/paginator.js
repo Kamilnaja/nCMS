@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setCurrentPaginationPage } from './../../actions/settingActions';
+import { setCurrentPaginationPage } from '../../actions/settingActions';
 
 class Paginator extends Component {
 
@@ -14,7 +14,6 @@ class Paginator extends Component {
         this.numberArray = [];
         this.setCurrentPaginatorPage = this.setCurrentPaginatorPage.bind(this);
     }
-
 
     setPaginator() {
         for (let i = 0; i < this.props.dataLength; i++) {
@@ -73,9 +72,9 @@ class Paginator extends Component {
                 <ul>
                     {this.numberArray.map(currentItem =>
                         <li
-                        key={currentItem}
-                        onClick={this.setCurrentPaginatorPage}
-                        className={currentItem === this.state.currentPage ? 'active' : ''}>
+                            key={currentItem}
+                            onClick={this.setCurrentPaginatorPage}
+                            className={currentItem === this.state.currentPage ? 'active' : ''}>
                             {currentItem}
                         </li>
                     )}
