@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { cleanInfoStrip, login } from '../actions/authActions';
+import { login } from '../actions/authActions';
+import { cleanInfoStrip } from '../actions/utilsActions';
 import { InfoStrip } from './InfoStrip';
 
 class LoginScreen extends Component {

@@ -19,26 +19,18 @@ export function setUser() {
     })
 }
 
-export function cleanInfoStrip() {
-    store.dispatch((dispatch) => {
-        dispatch({
-            type: "CLEAN_INFO_STRIP"
-        })
-    })
-}
-
 export function login(data) {
     store.dispatch((dispatch) => {
         axios({
             method: 'post',
-            url: `${appConfig.serverUrl}/api/session`,
+            url: `${appConfig.serverUrl}/api/authenticate`,
             data: {
                 username: data.username,
                 password: data.password
             }
         })
             .then((res) => {
-                const token = res.data;
+                const token = res.data.id_token;
                 localStorage.setItem('jwtToken', token);
                 setAuthorizationToken(token);
                 dispatch(setCurrentUser(jwtDecode(token)));
