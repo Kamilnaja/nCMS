@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { login, cleanInfoStrip } from '../actions/authActions';
+import { cleanInfoStrip, login } from '../actions/authActions';
 import { InfoStrip } from './InfoStrip';
 
 class LoginScreen extends Component {
@@ -14,55 +14,53 @@ class LoginScreen extends Component {
     }
 
     componentWillMount() {
-        if (this.props.loginStatus === "error") {
-            cleanInfoStrip();
-        }
+        cleanInfoStrip();
     }
-
+    // todo - maybe get common form parts and put to one file
     render() {
         return (
             <section>
-                {!this.props.user ?
-                    <div className="small-form-wrap">
-                        <form onSubmit={(e) => this.handleSubmit(e)}>
-                            <h2 className="form-title">
-                                Login
+                <div className="small-form-wrap">
+                    {
+                        this.props.loginStatus === "error" &&
+                        <InfoStrip text={"Wrong username or password. Please check and try again!"}>
+                        </InfoStrip>
+                    }
+                    {
+                        // todo - change this
+                        this.props.loginStatus === "" && <InfoStrip
+                            user={this.props.user}
+                            text={"Logged as: "}></InfoStrip>
+                    }
+                    <form onSubmit={(e) => this.handleSubmit(e)}>
+                        <h2 className="form-title">
+                            Login
                             </h2>
-                            <div className="input-wrap">
-                                <label>Name</label>
-                                <input
-                                    name="username"
-                                    type="text"
-                                    required
-                                    ref={(input) => this.username = input}
-                                    placeholder="someUser@gmail.com"
-                                >
-                                </input>
-                            </div>
+                        <div className="input-wrap">
+                            <label>Name</label>
+                            <input
+                                name="username"
+                                type="text"
+                                required
+                                ref={(input) => this.username = input}
+                                placeholder="you@gmail.com"
+                            >
+                            </input>
+                        </div>
 
-                            <div className="input-wrap">
-                                <label>Password</label>
-                                <input
-                                    name="password"
-                                    type="password"
-                                    ref={(input) => this.password = input}
-                                    placeholder="very strong password"
-                                ></input>
-                            </div>
-                            {
-                                this.props.loginStatus === "error" &&
-                                <div>
-                                    <InfoStrip text={"Wrong username or password. Please check and try again!"}>
-                                    </InfoStrip>
-                                </div>
-                            }
-                            <input type="submit" value="submit" className="btn btn-default"></input>
-                        </form>
-                    </div> :
-                    <InfoStrip
-                        user={this.props.user}
-                        text={"Logged as: "}></InfoStrip>
-                }
+                        <div className="input-wrap">
+                            <label>Password</label>
+                            <input
+                                name="password"
+                                type="password"
+                                ref={(input) => this.password = input}
+                                placeholder="your password"
+                            ></input>
+                        </div>
+
+                        <input type="submit" value="submit" className="btn btn-default"></input>
+                    </form>
+                </div>
             </section >
         )
     }

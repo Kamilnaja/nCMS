@@ -39,12 +39,12 @@ class CreateAccount extends Component {
                     <InfoStrip text="Duplicated Email"></InfoStrip>
                 }
 
-                {/* {this.props.statusInfo === "success" && */}
+                {this.props.statusInfo === "success" && 
                     <InfoStrip
                         link = {"/login"}
                         text={`Account has been created and activated. Please try login into your account!`}>
                     </InfoStrip>
-                {/* } */}
+                 }
 
                 <div className="small-form-wrap">
                     <form onSubmit={(e) => this.handleSubmit(e)}>
