@@ -76,13 +76,14 @@ class CreateAccount extends Component {
                         </div>
 
                         <div className="input-wrap">
-                            <label>Password</label>
+                            <label>Password (at least 4 characters)</label>
                             <input
                                 name="password"
                                 type="password"
                                 ref={(input) => this.password = input}
                                 placeholder="very strong password"
-                                required
+                                required title="Password is to short"
+                                pattern=".{4,}"
                             ></input>
                         </div>
 
