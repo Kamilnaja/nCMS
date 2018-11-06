@@ -1,4 +1,4 @@
-import store from './../store';
+import store from '../reducers/store';
 
 export function cleanInfoStrip() {
     store.dispatch((dispatch) => {

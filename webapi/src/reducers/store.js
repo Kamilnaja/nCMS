@@ -1,9 +1,9 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger'
-import settings from './reducers/settingsReducer';
-import articles from './reducers/articlesReducer';
-import auth from './reducers/authReducer';
-import user from './reducers/usersReducer';
+import settings from './settingsReducer';
+import articles from './articlesReducer';
+import auth from './authReducer';
+import user from './usersReducer';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware'
 

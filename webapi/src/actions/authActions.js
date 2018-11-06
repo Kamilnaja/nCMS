@@ -1,6 +1,6 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import store from './../store';
+import store from '../reducers/store';
 import ActionTypes from './../utils/ActionTypes';
 import appConfig from './../utils/AppConfig';
 import setAuthorizationToken from './../utils/setAuthToken';

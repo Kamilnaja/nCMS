@@ -5,7 +5,7 @@ import { setUser } from './actions/authActions';
 import App from './App';
 import './assets/styles/App.css';
 import registerServiceWorker from './registerServiceWorker';
-import store from './store';
+import store from './reducers/store';
 
 // todo - change this 
 if (localStorage.jwtToken && localStorage.jwtToken !== 'string') {

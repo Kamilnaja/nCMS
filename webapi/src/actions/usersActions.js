@@ -1,5 +1,5 @@
 import axios from 'axios';
-import store from './../store';
+import store from '../reducers/store';
 import ActionTypes from './../utils/ActionTypes';
 import appConfig from './../utils/AppConfig';
 

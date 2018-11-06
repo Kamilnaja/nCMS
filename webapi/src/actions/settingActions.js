@@ -1,5 +1,5 @@
 import axios from 'axios';
-import store from './../store';
+import store from '../reducers/store';
 import ActionTypes from './../utils/ActionTypes';
 import appConfig from './../utils/AppConfig';
 
@@ -9,7 +9,7 @@ export function setSettings(payloadData) {
         dispatch({
             type: ActionTypes.SET_SETTINGS_START
         });
-        
+
         var requestConfig = {
             headers: {
                 'Content-Type': 'application/json',
