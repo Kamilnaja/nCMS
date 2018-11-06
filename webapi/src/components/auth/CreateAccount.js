@@ -28,23 +28,35 @@ class CreateAccount extends Component {
             <section>
                 {/* todo - refactor this  */}
                 {this.props.statusInfo === "userAlreadyExists" &&
-                    <InfoStrip text="Account cannot be created, user already exists"></InfoStrip>
+                    <InfoStrip
+                        text="Account cannot be created, user already exists"
+                        type="warning"
+                    ></InfoStrip>
                 }
                 {
                     this.props.statusInfo === "tooShortPassword" &&
-                    <InfoStrip text="Password is to short"></InfoStrip>
+                    <InfoStrip
+                        text="Password is to short"
+                        type="warning"
+                    ></InfoStrip>
                 }
                 {
                     this.props.statusInfo === "emailAlreadyExists" &&
-                    <InfoStrip text="Duplicated Email"></InfoStrip>
+                    <InfoStrip
+                        text="Duplicated Email"
+                        type="warning"
+                    ></InfoStrip>
                 }
 
-                {this.props.statusInfo === "success" && 
+                {this.props.statusInfo === "success" &&
                     <InfoStrip
-                        link = {"/login"}
-                        text={`Account has been created and activated. Please try login into your account!`}>
+                        link={"/login"}
+                        linkText="Go to login page"
+                        text={`Account has been created and activated. Please try login into your account!`}
+                        type="standard"
+                        >
                     </InfoStrip>
-                 }
+                }
 
                 <div className="small-form-wrap">
                     <form onSubmit={(e) => this.handleSubmit(e)}>

@@ -4,18 +4,18 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { getSettings } from './actions/settingActions';
 import AdminPanel from './components/adminPanel/AdminPanel';
 import SingleArticleWrapper from './components/articlesParts/SingleArticleWrapper';
+import CreateAccount from './components/auth/CreateAccount';
+import LoginScreen from './components/auth/login/LoginScreen';
 import Author from './components/author/Author';
 import { Footer } from './components/Footer';
 import Header from './components/Header';
-import CreateAccount from './components/login/CreateAccount';
-import LoginScreen from './components/LoginScreen';
 import Main from './components/Main';
 import './styles/App.css';
 
 class App extends Component {
 
     componentDidMount() {
-        getSettings()
+        getSettings();
     }
 
     render() {

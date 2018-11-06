@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 
 export const InfoStrip = (props) => {
     return (
-        <div className="login-info-strip">
+        <div className={`info-strip info-strip-${props.type}`}>
             <p>
-                {props.text} {props.user}
+                {props.children} {props.user}
             </p>
-            {props.link && <Link to={props.link}>Login page</Link>}
+            <p>
+            {props.link && <Link to={props.link}>
+                 {props.linkText}
+            </Link>}
+            </p>
         </div>
     )
 }

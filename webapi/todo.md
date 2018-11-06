@@ -1,5 +1,9 @@
 **todo**
-when login success, show info
+> when login success, show info and redirect to main
+> multiple types of infobox
+
+
+
 access to menu items, when user is logged in 
 > if user is logged in, not show menu items login 
 make use of token
