@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { getSettings } from './actions/settingActions';
+import './assets/styles/App.css';
 import AdminPanel from './components/adminPanel/AdminPanel';
 import SingleArticleWrapper from './components/articlesParts/SingleArticleWrapper';
-import CreateAccount from './components/auth/CreateAccount';
+import CreateAccount from './components/auth/createAccount/CreateAccount';
 import LoginScreen from './components/auth/login/LoginScreen';
 import Author from './components/author/Author';
 import { Footer } from './components/Footer';
 import Header from './components/Header';
 import Main from './components/Main';
-import './styles/App.css';
 
 class App extends Component {
 

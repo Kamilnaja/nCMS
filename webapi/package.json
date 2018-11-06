@@ -25,7 +25,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "build-css": "node-sass-chokidar src/styles/ -o src/styles/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/styles/ -o src/styles/ --watch --recursive",
+    "watch-css": "npm run build-css && node-sass-chokidar src/assets/styles/ -o src/assets/styles/ --watch --recursive",
     "start-compile": "npm run start | npm run watch-css"
   },
   "proxy": "http://localhost:8080",
