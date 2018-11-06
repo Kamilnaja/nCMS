@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { AdminPanelMain } from './AdminPanelMain';
 import { RestrictedInfo } from '../RestrictedInfo';
+import { AdminPanelMain } from './AdminPanelMain';
 
 class AdminPanel extends Component {
     constructor(props) {
@@ -10,8 +10,9 @@ class AdminPanel extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(event) {
-        this.setState({ isVisible: event.target.text })
+    handleClick(e) {
+        e.preventDefault();
+        this.setState({ isVisible: e.target.text })
     }
 
     menuItems = ["Edit settings", "Edit articles", "Add article", "Pages", "Users"];

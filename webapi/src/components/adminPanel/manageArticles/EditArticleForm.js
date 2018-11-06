@@ -1,11 +1,8 @@
+import { PropTypes } from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-    saveEditedArticle,
-    cancelEdit,
-} from '../../../actions/articlesActions';
+import { cancelEdit, saveEditedArticle } from '../../../actions/articlesActions';
 import { InfoBox } from '../../utilsComponents/InfoBox';
-import { PropTypes } from 'prop-types';
 
 class EditArticleForm extends Component {
     constructor(props) {
@@ -20,7 +17,7 @@ class EditArticleForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        var editPayload = {
+        let editPayload = {
             articleTitle: this.articleTitle.value,
             articleSubtitle: this.articleSubtitle.value,
             articleMainContent: this.articleMainContent.value,

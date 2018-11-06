@@ -5,15 +5,25 @@ import appConfig from './../utils/AppConfig';
 
 export function setSettings(payloadData) {
     store.dispatch((dispatch) => {
+
         dispatch({
             type: ActionTypes.SET_SETTINGS_START
-        })
+        });
+        
+        var requestConfig = {
+            headers: {
+                'Content-Type': 'application/json',
+                "Access-Control-Allow-Origin": "*"
+            }
+        }
 
-        axios.put(`${appConfig.serverUrl}/api/pagesettings`, {
+        var payload = {
             title: payloadData.title,
             subtitle: payloadData.subtitle,
             footer: payloadData.footer
-        })
+        }
+
+        axios.post(`${appConfig.serverUrl}/api/pagesettings`, payload, requestConfig)
             .then(() => {
                 dispatch({
                     type: ActionTypes.SET_SETTINGS_SUCCESS,
