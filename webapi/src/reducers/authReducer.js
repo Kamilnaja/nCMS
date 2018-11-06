@@ -2,7 +2,6 @@ import ActionTypes from './../utils/ActionTypes';
 
 const authReducer = (state = {
     isAuthenticated: false,
-    loginStatus: "waiting",
     statusInfo: ''
 }, action) => {
     switch (action.type) {
@@ -50,8 +49,9 @@ const authReducer = (state = {
         case ActionTypes.SET_CURRENT_USER: {
             state = {
                 ...state,
-                isAuthenticated: true, // todo - probably not necessary
-                userName: action.user.username
+                isAuthenticated: true,
+                userName: action.user.sub,
+                loginStatus: "success"
             }
             break;
         }
@@ -60,7 +60,7 @@ const authReducer = (state = {
             state = {
                 ...state,
                 isAuthenticated: false,
-                username: "undefined",
+                username: action.user.sub,
                 loginStatus: "error"
             }
             break;

@@ -4,8 +4,10 @@ export const InfoBox = (props) => {
     const classes = `${props.modalType} info-box`;
 
     function disableVisibility() {
-        var hideContent = document.getElementById('hideContent');
-        hideContent.style.display = 'none'
+        if (document.getElementById('hideContent')){
+            var hideContent = document.getElementById('hideContent');
+            hideContent.style.display = 'none'
+        }
     }
 
     return (

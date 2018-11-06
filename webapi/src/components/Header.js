@@ -31,9 +31,7 @@ class Header extends Component {
                                 {this.props.settings.subtitle}
                             </h2>
                         </Link>
-
                     </div>
-
                     <div
                         onClick={this.toggleMenu.bind(this)} className={"hamburger-menu is-open-" + this.state.menuIsOpen}  >
                         <div>
@@ -48,6 +46,7 @@ class Header extends Component {
                                     Home
                                 </Link>
                             </li>
+                            {this.props.isAuthenticated}
                             {
                                 !this.props.isAuthenticated &&
                                 [<li key="logIn">
@@ -75,9 +74,7 @@ class Header extends Component {
                                             Admin Panel
                                     </Link>
                                     </li>
-                                ]
-                            }
-
+                                ]}
                         </ul>
                     }
                 </header>
@@ -88,7 +85,7 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        isAuthenticated: state.auth.userName
+        isAuthenticated: state.auth.isAuthenticated
     }
 }
 
