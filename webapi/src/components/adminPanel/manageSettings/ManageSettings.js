@@ -20,8 +20,7 @@ class ManageSettings extends Component {
         return (
             <div>
                 {
-                    this.props.statusInfo === "success" ?
-                        <InfoBox
+                    this.props.statusInfo === "success" ? <InfoBox
                             title="You have successfully changed the settings"
                             type="standard"
                         />
