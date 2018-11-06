@@ -74,7 +74,7 @@ class EditArticleForm extends Component {
                                 ].subtitle
                             }
                             ref={(input) => this.articleSubtitle = input}
-                        ></input>
+                        />
                     </div>
                     <div className="input-wrap">
                         <label>Treść artykułu</label>

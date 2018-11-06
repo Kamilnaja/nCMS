@@ -1,19 +1,15 @@
-
 .paginator {
     height: 50px;
     margin-top: 15px;
-
     li {
         display: block;
         float: left;
         margin-left: 15px;
         cursor: pointer;
         transition: all 0.3s ease;
-        
-        &:first-child{
+        &:first-child {
             margin-left: 50px;
         }
-
         &.active {
             position: relative;
             text-decoration: underline;

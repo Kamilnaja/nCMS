@@ -13,15 +13,15 @@
         border: 1px solid black;
         border-left: none;
         border-right: none;
-      }
-      .info-small {
-          border: 1px solid grey;
-          padding: 10px 15px;
-          float: right;
-          border-top: 0;
-          border-bottom: 0;
-      }
-      .btn-wrap {
+    }
+    .info-small {
+        border: 1px solid grey;
+        padding: 10px 15px;
+        float: right;
+        border-top: 0;
+        border-bottom: 0;
+    }
+    .btn-wrap {
         display: flex;
         width: 100%;
         justify-content: flex-end;
@@ -40,4 +40,4 @@
             }
         }
     }
-  }
+}
