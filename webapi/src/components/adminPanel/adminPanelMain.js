@@ -1,7 +1,7 @@
 import React from 'react';
 import ChangeSettings from './siteSettings/ChangeSettings';
 import ManageArticles from './manageArticles/ManageArticles';
-import AddArticle from './AddArticles/AddArticle';
+import AddArticle from './addArticles/AddArticle';
 import ManagePages from './managePages/ManagePages';
 import ManageUsers from './manageUsers/ManageUsers';
 
