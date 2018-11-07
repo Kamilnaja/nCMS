@@ -9,9 +9,11 @@ export const AdminPanelMain = (props) => {
     return (
         <section className="admin-panel-forms-wrapper">
 
-            {props.isVisible === 'Edit settings' && <ManageSettings></ManageSettings>}
+            {props.isVisible === 'Edit settings' &&
+                <ManageSettings></ManageSettings>}
 
-            {props.isVisible === 'Edit articles' && <ManageArticles></ManageArticles>}
+            {props.isVisible === 'Edit articles' &&
+                <ManageArticles></ManageArticles>}
 
             {props.isVisible === 'Add article' &&
                 <AddArticle></AddArticle>}

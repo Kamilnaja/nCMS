@@ -23,7 +23,6 @@ class CreateAccountForm extends Component {
         return (
             <div className="small-form-wrap">
                 <form onSubmit={(e) => this.handleSubmit(e)}>
-                    {/* todo - move form to separate file */}
                     <h2 className="form-title">
                         Create new account
                     </h2>

@@ -23,12 +23,13 @@ class LoginScreen extends Component {
                     }
                     {
                         this.props.loginStatus === "success" ?
-                        <InfoStrip
-                            type="standard"
-                            link="/"
-                            linkText=" Go to main page"
-                        >Login success. Logged as {this.props.user}</InfoStrip> :
-                        <LoginForm></LoginForm>
+                            <InfoStrip
+                                type="standard"
+                                link="/"
+                                linkText=" Go to main page"
+                            >
+                                Login success. Logged as {this.props.username}</InfoStrip> :
+                            <LoginForm></LoginForm>
                     }
                 </div>
             </section >
@@ -38,7 +39,8 @@ class LoginScreen extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        loginStatus: state.auth.loginStatus
+        loginStatus: state.auth.loginStatus,
+        username: state.auth.userName
     }
 }
 

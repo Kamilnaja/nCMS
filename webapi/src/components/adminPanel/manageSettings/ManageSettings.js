@@ -21,9 +21,9 @@ class ManageSettings extends Component {
             <div>
                 {
                     this.props.statusInfo === "success" ? <InfoBox
-                            title="You have successfully changed the settings"
-                            type="standard"
-                        />
+                        title="You have successfully changed the settings"
+                        type="standard"
+                    />
                         :
                         <form onSubmit={(e) => this.handleSubmit(e)}>
                             <h2 className="form-title">

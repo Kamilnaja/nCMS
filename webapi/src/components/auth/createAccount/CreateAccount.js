@@ -15,35 +15,34 @@ class CreateAccount extends Component {
                 {/* todo - refactor this  */}
                 {this.props.statusInfo === "userAlreadyExists" &&
                     <InfoStrip
-                        text="Account cannot be created, user already exists"
                         type="warning"
-                    ></InfoStrip>
+                    >Account cannot be created, user already exists</InfoStrip>
                 }
                 {
                     this.props.statusInfo === "tooShortPassword" &&
                     <InfoStrip
-                        text="Password is to short"
                         type="warning"
-                    ></InfoStrip>
+                    >Password is to short</InfoStrip>
                 }
                 {
                     this.props.statusInfo === "emailAlreadyExists" &&
                     <InfoStrip
-                        text="Duplicated Email"
                         type="warning"
-                    ></InfoStrip>
+                    >This email already exists</InfoStrip>
                 }
 
-                {this.props.statusInfo === "success" &&
+                {this.props.statusInfo === "success" ?
                     <InfoStrip
                         link={"/login"}
                         linkText="Go to login page"
-                        text={`Account has been created and activated. Please try login into your account!`}
                         type="standard"
                     >
-                    </InfoStrip>
+                        Account has been created and activated. Please try login into your account!
+                    </InfoStrip> :
+                    <CreateAccountForm></CreateAccountForm>
+
+
                 }
-                <CreateAccountForm></CreateAccountForm>
             </section >
         )
     }
