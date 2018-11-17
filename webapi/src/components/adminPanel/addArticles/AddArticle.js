@@ -83,7 +83,7 @@ class AddArticles extends Component {
 
 const mapStateToProps = (state) => ({
     statusInfo: state.articles.statusInfo,
-    user: state.auth.userName
+    author: state.auth.userName
 })
 
 const mapDispatchToProps = (dispatch) => ({

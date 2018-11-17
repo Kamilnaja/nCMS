@@ -51,7 +51,6 @@ const authReducer = (state = {
                 ...state,
                 isAuthenticated: true,
                 userName: action.user.sub,
-                loginStatus: "success"
             }
             break;
         }
