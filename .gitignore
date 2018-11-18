@@ -1,8 +1,0 @@
-server/node_modules
-webapi/node_modules
-node_modules
-.vs/
-.vscode
-.idea
-todolist.todo
-webapi/src/styles/App.css
