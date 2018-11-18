@@ -16,7 +16,6 @@ export function setSettings(payloadData) {
                 "Access-Control-Allow-Origin": "*"
             }
         }
-
         var payload = {
             title: payloadData.title,
             subtitle: payloadData.subtitle,
@@ -45,12 +44,12 @@ export function setSettings(payloadData) {
 }
 
 export function getSettings() {
-    store.dispatch((dispatch) => {
+    return store.dispatch(dispatch => {
         dispatch({
             type: ActionTypes.GET_SETTINGS_START
         })
         axios.get(`${appConfig.serverUrl}/api/pagesettings`)
-            .then((response) => {
+            .then(response => {
                 dispatch({
                     type: ActionTypes.GET_SETTINGS_SUCCESS,
                     payload: response.data
@@ -65,14 +64,10 @@ export function getSettings() {
     })
 }
 
-export function setCurrentPaginationPage(payloadData) {
-    store.dispatch((dispatch) => {
-        dispatch({
-            type: ActionTypes.SET_CURRENT_PAGINATION_PAGE,
-            payload: payloadData
-        })
-    })
-}
+export const setCurrentPaginationPage = (payloadData) => ({
+    type: ActionTypes.SET_CURRENT_PAGINATION_PAGE,
+    payload: payloadData
+})
 
 export function setPaginationSize(payloadData) {
     store.dispatch((dispatch) => {

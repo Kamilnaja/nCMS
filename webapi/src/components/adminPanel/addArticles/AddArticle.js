@@ -27,8 +27,7 @@ class AddArticles extends Component {
 
     handleChange(e) {
         this.setState({
-            currentText: e.target.value,
-            textLength: this.state.currentText.length
+            currentText: e.target.value
         })
     }
 
@@ -70,7 +69,7 @@ class AddArticles extends Component {
                         <Editor
                             name="articleMainContent"
                             handleChange={this.handleChange.bind(this)}
-                            currentText={this.state.currentText}
+                            textLength={this.state.currentText.length}
                         ></Editor>
                     </div>
 
