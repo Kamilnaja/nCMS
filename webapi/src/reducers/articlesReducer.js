@@ -27,7 +27,7 @@ const articlesReducer = (state = [],
                 ...state,
                 fetching: false,
                 fetched: true,
-                data: action.payload
+                data: action.payload.content
             }
             break;
         }

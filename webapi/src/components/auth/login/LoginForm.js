@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../../../actions/authActions';
 
-
 class LoginForm extends Component {
     constructor(props) {
         super(props);
@@ -42,6 +41,7 @@ class LoginForm extends Component {
                         type="password"
                         ref={(input) => this.password = input}
                         placeholder="your password"
+                        required
                     ></input>
                 </div>
                 <input type="submit" value="submit" className="btn btn-default"></input>

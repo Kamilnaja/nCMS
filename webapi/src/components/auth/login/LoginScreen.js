@@ -16,9 +16,8 @@ class LoginScreen extends Component {
                 <div className="small-form-wrap">
                     {
                         this.props.loginStatus === "error" &&
-                        <InfoStrip
-                            text={"Wrong username or password. Please check and try again!"}
-                            type="warning">
+                        <InfoStrip type="warning">
+                            Wrong username or password. Please check and try again!
                         </InfoStrip>
                     }
                     {

@@ -19,7 +19,6 @@ class Paginator extends Component {
         for (let i = 0; i < this.props.dataLength; i++) {
             this.numberArray[i / this.props.paginationSize] = i / this.props.paginationSize;
         };
-
     }
 
     setCurrentPaginatorPage(e) {

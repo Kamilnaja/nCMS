@@ -14,12 +14,7 @@ class Main extends Component {
     render() {
         if (this.props.articles.data) {
             var dataLength = this.props.articles.data.length;
-
-            var articlesListToDisplay = this.props.articles.data
-                .slice(
-                    this.props.currentPaginationPage, this.props.currentPaginationPage + this.props.paginationSize
-                );
-
+            var articlesListToDisplay = this.props.articles.data;
             var articlesList = articlesListToDisplay.map(
                 (item, key) =>
                     <SingleArticle
