@@ -9,6 +9,7 @@ class Editor extends Component {
                     onChange={this.props.handleChange}
                     value={this.props.currentText}
                     name={this.props.name}
+                    required
                 >
                 </textarea>
                 <div className="info-small">

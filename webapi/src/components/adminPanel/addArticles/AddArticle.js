@@ -10,19 +10,33 @@ class AddArticles extends Component {
         super(props);
         this.state = {
             currentText: '',
+            showInfo: false
         }
     }
 
     handleSubmit(e) {
+        e.preventDefault();
         var submitPayload = {
             articleTitle: this.articleTitle.value,
             articleSubtitle: this.articleSubtitle.value,
             articleMainContent: this.state.currentText,
             articleAuthor: this.props.user
         }
-
-        e.preventDefault();
+        
         AddNewArticle(submitPayload);
+        this.setState({
+            showInfo: true
+        })
+        this.hideInfoBox();
+        document.getElementById("addArticleForm").reset();
+    }
+
+    hideInfoBox() {
+        setTimeout(() => {
+            this.setState({
+                showInfo: false
+            });
+        }, 3000);
     }
 
     handleChange(e) {
@@ -32,18 +46,16 @@ class AddArticles extends Component {
     }
 
     render() {
-        if (this.props.statusInfo === "success") {
-            var info = <InfoBox title="You have successfully added new article" />
-        }
+
         return (
             <div className="form-fullwidth">
-                {info && <div>{info}</div>}
-
-                <form onSubmit={(e) => this.handleSubmit(e)}>
+            {
+                this.state.showInfo && <InfoBox title="You have successfully added new article" type="info"/>
+            }
+                <form id="addArticleForm" onSubmit={(e) => this.handleSubmit(e)}>
                     <h2 className="form-title">
                         Add new article
                     </h2>
-
                     <div className="input-wrap">
                         <label>Tytuł</label>
                         <input
@@ -72,7 +84,6 @@ class AddArticles extends Component {
                             textLength={this.state.currentText.length}
                         ></Editor>
                     </div>
-
                     <input type="submit" value="submit" className="btn btn-default"></input>
                 </form>
             </div>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getArticles } from '../actions/articlesActions';
-import { InfoBox } from './utilsComponents/InfoBox';
 import SingleArticle from './articlesParts/SingleArticle';
+import { InfoStrip } from './InfoStrip';
 import Paginator from './paginator/Paginator';
 
 class Main extends Component {
@@ -27,18 +27,18 @@ class Main extends Component {
             <div>
                 {
                     this.props.articles.statusInfo === 'error' &&
-                    <InfoBox
-                        title="Connection error" modalType="info-box-warning"></InfoBox>
+                    <InfoStrip
+                        title="Connection error" modalType="info-box-warning"></InfoStrip>
                 }
                 {
                     dataLength === 0 &&
-                    <InfoBox
-                        title="No articles in db"></InfoBox>
+                    <InfoStrip type="warning">
+                        No articles in db
+                    </InfoStrip>
                 }
                 <ul className="articles-list" >
                     {articlesList}
                 </ul>
-
                 <Paginator dataLength={dataLength}></Paginator>
             </div>
         )
