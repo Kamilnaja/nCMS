@@ -1,18 +1,20 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { createLogger } from 'redux-logger'
-import settings from './settingsReducer';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { createLogger } from 'redux-logger';
+import promise from 'redux-promise-middleware';
+import thunk from 'redux-thunk';
 import articles from './articlesReducer';
 import auth from './authReducer';
+import paginator from './paginatorReducer';
+import settings from './settingsReducer';
 import user from './usersReducer';
-import thunk from 'redux-thunk';
-import promise from 'redux-promise-middleware'
 
 const store = createStore(
     combineReducers({
         settings,
         articles,
         auth,
-        user
+        user,
+        paginator
     }),
     {},
     applyMiddleware(createLogger(), thunk, promise())

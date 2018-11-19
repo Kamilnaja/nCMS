@@ -63,17 +63,3 @@ export function getSettings() {
             })
     })
 }
-
-export const setCurrentPaginationPage = (payloadData) => ({
-    type: ActionTypes.SET_CURRENT_PAGINATION_PAGE,
-    payload: payloadData
-})
-
-export function setPaginationSize(payloadData) {
-    store.dispatch((dispatch) => {
-        dispatch({
-            type: ActionTypes.SET_PAGINATION_SIZE,
-            payload: payloadData
-        })
-    })
-}

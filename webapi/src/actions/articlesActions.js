@@ -27,7 +27,7 @@ export function getArticles() {
             type: ActionTypes.GET_ARTICLES_START
         })
 
-        axios.get(`${appConfig.serverUrl}/api/articles`)
+        axios.get(`${appConfig.serverUrl}/api/articles?page=1&size=10`)
             .then((response) => {
                 dispatch({
                     type: ActionTypes.GET_ARTICLES_SUCCESS,

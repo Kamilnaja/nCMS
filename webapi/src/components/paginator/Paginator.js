@@ -1,29 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setCurrentPaginationPage } from '../../actions/settingActions';
+import { setCurrentPaginationPage } from '../../actions/paginatorActions';
 
 class Paginator extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            isFirstPage: true,
-            isLastPage: false,
-            currentPage: 0
-        }
-        this.numberArray = [];
         this.setCurrentPaginatorPage = this.setCurrentPaginatorPage.bind(this);
     }
 
     setPaginator() {
-        for (let i = 0; i < this.props.dataLength; i++) {
-            this.numberArray[i / this.props.paginationSize] = i / this.props.paginationSize;
-        };
+        // total pages
     }
 
     setCurrentPaginatorPage(e) {
         let pageNumber = e.target.innerHTML;
-        setCurrentPaginationPage(parseInt(e.target.innerHTML, this.props.paginationSize));
+        setCurrentPaginationPage(parseInt(e.target.innerHTML, this.props.size));
         this.setState({
             currentPage: parseInt(pageNumber, 10)
         })
@@ -37,29 +29,11 @@ class Paginator extends Component {
     }
 
     checkIfLast() {
-        if (this.currentPage >= this.numberArray.length - this.props.paginationSize / this.props.paginationSize) {
-            this.setState({
-                isLastPage: true
-            });
-        }
-        else {
-            this.setState({
-                isLastPage: false
-            });
-        }
+
     }
 
     checkIfFirst() {
-        if (this.currentPage < this.props.paginationSize / this.props.paginationSize) {
-            this.setState({
-                isFirstPage: true
-            });
-        }
-        else {
-            this.setState({
-                isFirstPage: false
-            });
-        }
+
     }
 
 
@@ -68,7 +42,10 @@ class Paginator extends Component {
 
         return (
             <div className="paginator">
-                <ul>
+                {
+                    this.props.totalPages
+                }
+                {/* <ul>
                     {this.numberArray.map(currentItem =>
                         <li
                             key={currentItem}
@@ -77,7 +54,7 @@ class Paginator extends Component {
                             {currentItem}
                         </li>
                     )}
-                </ul>
+                </ul> */}
             </div >
         )
     }
@@ -85,7 +62,8 @@ class Paginator extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        paginationSize: state.settings.paginationSize,
+        size: state.paginator.size,
+        totalPages: state.paginator.totalPages
     }
 }
 
