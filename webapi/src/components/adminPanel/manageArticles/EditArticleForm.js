@@ -46,7 +46,7 @@ class EditArticleForm extends Component {
                         Edit an article
                     </h2>
                     <div className="input-wrap">
-                        <label>Tytuł</label>
+                        <label>Title</label>
                         <input
                             name="articleTitle"
                             type="text"
@@ -61,7 +61,7 @@ class EditArticleForm extends Component {
                         </input>
                     </div>
                     <div className="input-wrap">
-                        <label>Podtytuł</label>
+                        <label>Subtitle</label>
                         <input
                             name="articleSubtitle"
                             type="text"
@@ -74,8 +74,7 @@ class EditArticleForm extends Component {
                         />
                     </div>
                     <div className="input-wrap">
-                        <label>Treść artykułu</label>
-
+                        <label>Article content</label>
                         <textarea
                             name="articleMainContent"
                             type="text"

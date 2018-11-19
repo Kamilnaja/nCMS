@@ -39,7 +39,7 @@ export default class AddArticleForm extends Component {
                     Add new article
                 </h2>
                 <div className="input-wrap">
-                    <label>Tytuł</label>
+                    <label>Title</label>
                     <input
                         name="articleTitle"
                         type="text"
@@ -49,7 +49,7 @@ export default class AddArticleForm extends Component {
                     </input>
                 </div>
                 <div className="input-wrap">
-                    <label>Podtytuł</label>
+                    <label>Subtitle</label>
                     <input
                         name="articleSubtitle"
                         type="text"
@@ -57,7 +57,7 @@ export default class AddArticleForm extends Component {
                     ></input>
                 </div>
                 <div className="input-wrap">
-                    <label>Treść artykułu</label>
+                    <label>Article content</label>
                     <Editor
                         name="articleMainContent"
                         handleChange={this.handleChange.bind(this)}

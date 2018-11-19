@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import FormActions from '../../../utils/FormActions';
 import { setSettings } from './../../../actions/settingActions';
 
 class ManageSettingsForm extends Component {
@@ -17,11 +18,7 @@ class ManageSettingsForm extends Component {
 
         e.preventDefault();
         setSettings(submitPayload);
-        // FormReseter.resetForm("changeSettings");
-        this.props.toggleInfoBar();
-        setTimeout(() => {
-            this.props.toggleInfoBar();
-        }, 3000)
+        FormActions.doPostSubmitActions("changeSettings", this.props)
     }
 
     render() {
