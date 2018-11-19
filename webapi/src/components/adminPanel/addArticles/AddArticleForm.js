@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
-import FormReseter from '../../../utils/FormReseter';
+import FormActions from '../../../utils/FormActions';
 import { AddNewArticle } from './../../../actions/articlesActions';
 import Editor from './../../editor/Editor';
 
 export default class AddArticleForm extends Component {
-
-    handleChange(e) {
-        this.setState({
-            currentText: e.target.value
-        })
-    }
-
     constructor(props) {
         super(props);
         this.state = {
             currentText: ''
         }
+    }
+
+    handleChange(e) {
+        this.setState({
+            currentText: e.target.value
+        })
     }
 
     handleSubmit(e) {
@@ -26,13 +25,8 @@ export default class AddArticleForm extends Component {
             articleMainContent: this.state.currentText,
             articleAuthor: this.props.user
         }
-
         AddNewArticle(submitPayload);
-        this.props.toggleInfoBar();
-        setTimeout(() => {
-            this.props.toggleInfoBar();
-        }, 3000)
-        FormReseter.resetForm("addArticleForm");
+        FormActions.doPostSubmitActions("addArticleForm", this.props);
     }
 
     render() {

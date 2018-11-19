@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setSettings } from './../../../actions/settingActions';
-import FormReseter from './../../../utils/FormReseter';
 
 class ManageSettingsForm extends Component {
     constructor(props) {
@@ -18,7 +17,7 @@ class ManageSettingsForm extends Component {
 
         e.preventDefault();
         setSettings(submitPayload);
-        FormReseter.resetForm("changeSettings");
+        // FormReseter.resetForm("changeSettings");
         this.props.toggleInfoBar();
         setTimeout(() => {
             this.props.toggleInfoBar();
@@ -46,17 +45,17 @@ class ManageSettingsForm extends Component {
                         required
                         ref={(input) => this.subtitle = input}
                     />
-                    <div className="input-wrap">
-                        <label>Text for footer</label>
-                        <input
-                            type="text"
-                            required
-                            ref={(input) => this.footer = input}
-                        />
-                    </div>
+                </div>
+                <div className="input-wrap">
+                    <label>Text for footer</label>
+                    <input
+                        type="text"
+                        required
+                        ref={(input) => this.footer = input}
+                    />
                 </div>
                 <input type="submit" value="Save" className="btn btn-default" />
-            </form>
+            </form >
         );
     }
 }
