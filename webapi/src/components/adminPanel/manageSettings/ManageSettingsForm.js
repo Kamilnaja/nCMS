@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setSettings } from './../../../actions/settingActions';
+import FormReseter from './../../../utils/FormReseter';
 
 class ManageSettingsForm extends Component {
     constructor(props) {
@@ -16,33 +17,30 @@ class ManageSettingsForm extends Component {
         }
         e.preventDefault();
         setSettings(submitPayload);
+        FormReseter.resetForm("changeSettings");
     }
 
     render() {
-        return (<form onSubmit={(e) => this.handleSubmit(e)}>
-            <h2 className="form-title">
-                Change the website title
-            </h2>
-            <div>
-                <div>
-                    <div className="input-wrap">
-                        <label>New website name</label>
-                        <input
-                            type="text"
-                            ref={(input) => this.title = input}
-                            required
-                        />
-                    </div>
+        return (
+            <form id="changeSettings" className="form-fullwidth" onSubmit={(e) => this.handleSubmit(e)}>
+                <h2 className="form-title">
+                    Change the website data
+                </h2>
+                <div className="input-wrap">
+                    <label>New website name</label>
+                    <input
+                        type="text"
+                        ref={(input) => this.title = input}
+                        required
+                    />
                 </div>
-                <div>
-                    <div className="input-wrap">
-                        <label>New website slogan</label>
-                        <input
-                            type="text"
-                            required
-                            ref={(input) => this.subtitle = input}
-                        />
-                    </div>
+                <div className="input-wrap">
+                    <label>New website slogan</label>
+                    <input
+                        type="text"
+                        required
+                        ref={(input) => this.subtitle = input}
+                    />
                     <div className="input-wrap">
                         <label>Text for footer</label>
                         <input
@@ -53,8 +51,7 @@ class ManageSettingsForm extends Component {
                     </div>
                 </div>
                 <input type="submit" value="Save" className="btn btn-default" />
-            </div>
-        </form>
+            </form>
         );
     }
 }

@@ -6,14 +6,17 @@ import ManageSettingsForm from './ManageSettingsForm';
 class ManageSettings extends Component {
     render() {
         return (
-            <div>
+            <React.Fragment>
                 {
-                    this.props.statusInfo === "success" ? <InfoBox
+                    this.props.statusInfo === "success" && <InfoBox
                         title="You have successfully changed the settings"
-                        type="standard"
-                    /> : <ManageSettingsForm></ManageSettingsForm>
+                        type="standard" />
                 }
-            </div>
+                {
+                    <ManageSettingsForm></ManageSettingsForm>
+                }
+
+            </React.Fragment>
         )
     };
 }

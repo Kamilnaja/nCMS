@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { AddNewArticle } from './../../../actions/articlesActions';
 import { InfoBox } from '../../utilsComponents/InfoBox';
 import Editor from '../../editor/Editor';
+import FormReseter from './../../../utils/FormReseter';
 
 class AddArticles extends Component {
 
@@ -28,7 +29,7 @@ class AddArticles extends Component {
             showInfo: true
         })
         this.hideInfoBox();
-        document.getElementById("addArticleForm").reset();
+        FormReseter.resetForm("addArticleForm");
     }
 
     hideInfoBox() {
