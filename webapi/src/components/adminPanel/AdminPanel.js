@@ -6,7 +6,7 @@ import { AdminPanelMain } from './AdminPanelMain';
 class AdminPanel extends Component {
     constructor(props) {
         super(props);
-        this.state = { isVisible: 'Add article' }
+        this.state = { isVisible: 'Edit settings' }
         this.handleClick = this.handleClick.bind(this);
     }
 

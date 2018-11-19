@@ -37,7 +37,10 @@ export default class AddArticleForm extends Component {
 
     render() {
         return (
-            <form id="addArticleForm" onSubmit={(e) => this.handleSubmit(e)} className="form-fullwidth">
+            <form
+                id="addArticleForm"
+                onSubmit={(e) => this.handleSubmit(e)}
+                className="form-fullwidth">
                 <h2 className="form-title">
                     Add new article
                 </h2>

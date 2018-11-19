@@ -1,29 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import InfoBox from '../../utilsComponents/InfoBox';
+import InfoboxToggler from '../../utilsComponents/InfoboxToggler';
 import ManageSettingsForm from './ManageSettingsForm';
 
 class ManageSettings extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showInfo: false
+        };
+    }
+
     render() {
         return (
             <React.Fragment>
                 {
-                    this.props.statusInfo === "success" && <InfoBox
-                        title="You have successfully changed the settings"
-                        type="standard" />
+                    this.state.showInfo && <InfoBox>You have successfully changed the settings</InfoBox>
                 }
-                {
-                    <ManageSettingsForm></ManageSettingsForm>
-                }
-
+                <ManageSettingsForm toggleInfoBar={InfoboxToggler.toggleInfoBox.bind(this)}></ManageSettingsForm>
             </React.Fragment>
         )
     };
 }
 
 const mapStateToProps = (state) => ({
-    settings: state.settings,
-    statusInfo: state.settings.statusInfo
+    settings: state.settings
 })
 
 

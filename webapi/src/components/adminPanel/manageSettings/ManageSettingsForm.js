@@ -15,9 +15,14 @@ class ManageSettingsForm extends Component {
             subtitle: this.subtitle.value,
             footer: this.footer.value
         }
+
         e.preventDefault();
         setSettings(submitPayload);
         FormReseter.resetForm("changeSettings");
+        this.props.toggleInfoBar();
+        setTimeout(() => {
+            this.props.toggleInfoBar();
+        }, 3000)
     }
 
     render() {
