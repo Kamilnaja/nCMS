@@ -57,8 +57,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getArticles: (data) => {
             dispatch(getArticles(data))
-        },
-
+        }
     }
 }
 

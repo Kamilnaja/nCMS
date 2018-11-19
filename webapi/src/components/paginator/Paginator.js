@@ -1,26 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setCurrentPaginationPage } from '../../actions/paginatorActions';
+import { setPaginatorProperties } from '../../actions/paginatorActions';
 
 class Paginator extends Component {
 
-    constructor(props) {
-        super(props);
-        this.setCurrentPaginatorPage = this.setCurrentPaginatorPage.bind(this);
-    }
-
-    setPaginator() {
-        // total pages
+    componentDidMount() {
+        this.props.setPaginatorProperties();
     }
 
     setCurrentPaginatorPage(e) {
         let pageNumber = e.target.innerHTML;
-        setCurrentPaginationPage(parseInt(e.target.innerHTML, this.props.size));
         this.setState({
             currentPage: parseInt(pageNumber, 10)
         })
-        this.checkIfFirst();
-        this.checkIfLast();
         setTimeout(this.scrollToEnd, 50);
     }
 
@@ -28,34 +20,9 @@ class Paginator extends Component {
         window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
     }
 
-    checkIfLast() {
-
-    }
-
-    checkIfFirst() {
-
-    }
-
-
     render() {
-        this.setPaginator();
-
         return (
-            <div className="paginator">
-                {
-                    this.props.totalPages
-                }
-                {/* <ul>
-                    {this.numberArray.map(currentItem =>
-                        <li
-                            key={currentItem}
-                            onClick={this.setCurrentPaginatorPage}
-                            className={currentItem === this.state.currentPage ? 'active' : ''}>
-                            {currentItem}
-                        </li>
-                    )}
-                </ul> */}
-            </div >
+            <div className="paginator"></div >
         )
     }
 }
@@ -69,8 +36,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setPagination: (data) => {
-            dispatch(setCurrentPaginationPage(data))
+        setPaginatorProperties: (data) => {
+            dispatch(setPaginatorProperties(data))
         }
     }
 }

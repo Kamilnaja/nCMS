@@ -10,11 +10,11 @@ import user from './usersReducer';
 
 const store = createStore(
     combineReducers({
+        paginator,
         settings,
         articles,
         auth,
-        user,
-        paginator
+        user
     }),
     {},
     applyMiddleware(createLogger(), thunk, promise())
