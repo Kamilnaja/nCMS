@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { AddNewArticle } from '../../../actions/articlesActions';
+import InfoboxToggler from '../../utilsComponents/InfoboxToggler';
 import InfoBox from './../../utilsComponents/InfoBox';
 import AddArticleForm from './AddArticleForm';
 
@@ -10,13 +11,6 @@ class AddArticles extends Component {
         this.state = {
             showInfo: false
         };
-        this.toggleInfoBar = this.toggleInfoBar.bind(this);
-    }
-
-    toggleInfoBar() {
-        this.setState({
-            showInfo: !this.state.showInfo
-        })
     }
 
     render() {
@@ -25,7 +19,7 @@ class AddArticles extends Component {
                 {
                     this.state.showInfo && <InfoBox>Article added successfully</InfoBox>
                 }
-                <AddArticleForm toggleInfoBar={this.toggleInfoBar} />
+                <AddArticleForm toggleInfoBar={InfoboxToggler.toggleInfoBox.bind(this)} />
             </React.Fragment>
         )
     }
