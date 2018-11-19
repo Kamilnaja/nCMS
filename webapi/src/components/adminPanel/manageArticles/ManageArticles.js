@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteArticle, getArticles, showEditionForm } from '../../../actions/articlesActions';
 import SingleArticle from '../../articlesParts/SingleArticle';
-import { InfoBox } from '../../utilsComponents/InfoBox';
+import InfoBox from '../../utilsComponents/InfoBox';
 import EditArticleForm from "./EditArticleForm";
 import ReturnButtons from './EditOptions';
 

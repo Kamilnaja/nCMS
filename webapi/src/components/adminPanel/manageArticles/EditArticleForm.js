@@ -2,7 +2,7 @@ import { PropTypes } from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { cancelEdit, saveEditedArticle } from '../../../actions/articlesActions';
-import { InfoBox } from '../../utilsComponents/InfoBox';
+import InfoBox from '../../utilsComponents/InfoBox';
 
 class EditArticleForm extends Component {
     constructor(props) {

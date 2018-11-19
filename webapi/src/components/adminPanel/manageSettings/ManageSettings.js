@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { InfoBox } from '../../utilsComponents/InfoBox';
+import InfoBox from '../../utilsComponents/InfoBox';
 import ManageSettingsForm from './ManageSettingsForm';
 
 class ManageSettings extends Component {

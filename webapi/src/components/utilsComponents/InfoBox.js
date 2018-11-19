@@ -1,14 +1,12 @@
 import React from 'react';
 
-export const InfoBox = (props) => {
-    const classes = `${props.type} info-box`;
+const InfoBox = (props) => {
+    let classes = `${props.type} info-box`;
 
     return (
-        <div id="hideContent">
-
-            <div className={classes}>
-                {props.title}
-            </div>
+        <div className={classes}>
+            {props.children}
         </div>
     )
 }
+export default InfoBox;
