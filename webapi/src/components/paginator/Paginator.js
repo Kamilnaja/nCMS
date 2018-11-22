@@ -8,21 +8,24 @@ class Paginator extends Component {
         this.props.setPaginatorProperties();
     }
 
-    setCurrentPaginatorPage(e) {
-        let pageNumber = e.target.innerHTML;
-        this.setState({
-            currentPage: parseInt(pageNumber, 10)
-        })
-        setTimeout(this.scrollToEnd, 50);
-    }
-
     scrollToEnd() {
         window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
     }
 
     render() {
+        this.pages = [];
+        for (let i = 0; i < this.props.totalPages; i++) {
+            this.pages.push(i);
+        }
+
         return (
-            <div className="paginator"></div >
+            <div className="paginator">
+                <ul>
+                    {
+                        this.pages.map((item, idx) => <li key={idx}>{item}</li>)
+                    }
+                </ul>
+            </div>
         )
     }
 }
