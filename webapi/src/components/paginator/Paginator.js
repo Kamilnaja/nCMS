@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setPaginatorProperties } from '../../actions/paginatorActions';
+import { setPaginatorProperties, setCurrentPaginationPage } from '../../actions/paginatorActions';
 
 class Paginator extends Component {
+    constructor() {
+        super();
+        this.handlePageChange = this.handlePageChange.bind(this);
+    }
 
     componentDidMount() {
         this.props.setPaginatorProperties();
@@ -10,6 +14,10 @@ class Paginator extends Component {
 
     scrollToEnd() {
         window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
+    }
+
+    handlePageChange(elem) {
+        this.props.setCurrentPaginationPage(elem.target.innerHTML);
     }
 
     render() {
@@ -22,7 +30,11 @@ class Paginator extends Component {
             <div className="paginator">
                 <ul>
                     {
-                        this.pages.map((item, idx) => <li key={idx}>{item}</li>)
+                        this.pages.map((item, idx) => (
+                            <li key={idx} onClick={this.handlePageChange}>
+                                {item}
+                            </li>)
+                        )
                     }
                 </ul>
             </div>
@@ -33,7 +45,8 @@ class Paginator extends Component {
 const mapStateToProps = (state) => {
     return {
         size: state.paginator.size,
-        totalPages: state.paginator.totalPages
+        totalPages: state.paginator.totalPages,
+        currentPage: state.paginator.currentPage
     }
 }
 
@@ -41,6 +54,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         setPaginatorProperties: (data) => {
             dispatch(setPaginatorProperties(data))
+        },
+        setCurrentPaginationPage: (data) => {
+            dispatch(setCurrentPaginationPage(data))
         }
     }
 }
