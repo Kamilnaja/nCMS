@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { enableRegisterAnotherUser } from '../../../actions/authActions';
-import { InfoStrip } from '../../InfoStrip';
+import { InfoStrip } from '../../utilsComponents/InfoStrip';
 import CreateAccountForm from './CreateAccountForm';
 
 class CreateAccount extends Component {

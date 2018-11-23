@@ -21,13 +21,15 @@ function articleEdited(data) {
     })
 }
 
-export function getArticles() {
+export function getArticles(payload) {
+
     store.dispatch((dispatch) => {
         dispatch({
-            type: ActionTypes.GET_ARTICLES_START
+            type: ActionTypes.GET_ARTICLES_START,
+            payload: payload
         })
 
-        axios.get(`${appConfig.serverUrl}/api/articles?page=1&size=10`)
+        axios.get(`${appConfig.serverUrl}/api/articles?page=${payload.page}&size=${payload.size}`)
             .then((response) => {
                 dispatch({
                     type: ActionTypes.GET_ARTICLES_SUCCESS,

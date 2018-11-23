@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { cleanInfoStrip } from '../../../actions/utilsActions';
-import { InfoStrip } from '../../InfoStrip';
+import { InfoStrip } from '../../utilsComponents/InfoStrip';
 import LoginForm from './LoginForm';
 
 class LoginScreen extends Component {

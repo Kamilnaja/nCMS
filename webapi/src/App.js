@@ -8,9 +8,9 @@ import SingleArticleWrapper from './components/articlesParts/SingleArticleWrappe
 import CreateAccount from './components/auth/createAccount/CreateAccount';
 import LoginScreen from './components/auth/login/LoginScreen';
 import Author from './components/author/Author';
-import { Footer } from './components/Footer';
-import Header from './components/Header';
 import Main from './components/Main';
+import { Footer } from './components/pagesParts/Footer';
+import Header from './components/pagesParts/Header';
 
 class App extends Component {
 
