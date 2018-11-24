@@ -3,12 +3,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setCurrentPaginationPage, setPaginatorProperties } from '../../actions/paginatorActions';
 import { getArticles } from './../../actions/articlesActions';
+import PaginatorItem from './PaginatorItem';
 
 class Paginator extends Component {
 
     constructor() {
         super();
-        this.handlePageChange = this.handlePageChange.bind(this);
+        this.state = {
+            isActive: false
+        }
+        this.handlePaginatorClick = this.handlePaginatorClick.bind(this);
     }
 
     componentDidMount() {
@@ -21,9 +25,9 @@ class Paginator extends Component {
         }, 200);
     }
 
-    handlePageChange(elem) {
+    handlePaginatorClick(elem) {
         this.props.setCurrentPaginationPage(parseInt(elem.target.innerHTML, 10));
-        getArticles({ page: parseInt(elem.target.innerHTML, 10), size: this.props.size })
+        getArticles({ page: parseInt(elem.target.innerHTML, 10), size: this.props.size });
         this._scrollToBottom();
     }
 
@@ -35,12 +39,17 @@ class Paginator extends Component {
 
         return (
             <div className="paginator">
-                <ul>
+                <ul className="paginator-list">
                     {
-                        this.pages.map((item, idx) => (
-                            <li key={idx} onClick={this.handlePageChange}>
-                                {item}
-                            </li>
+                        this.pages.map(idx => (
+                            <PaginatorItem
+                                key={idx}
+                                idx={idx}
+                                handleClick={this.handlePaginatorClick}
+                                currentPage={this.props.currentPage}
+                            >
+                                {idx}
+                            </PaginatorItem>
                         ))
                     }
                 </ul>
