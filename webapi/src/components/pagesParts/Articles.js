@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import SingleArticle from '../articlesParts/SingleArticle';
 
 class Articles extends Component {
+
     componentDidMount() {
         getArticles({ page: this.props.currentPaginationPage, size: this.props.paginationSize })
     }
@@ -13,6 +14,7 @@ class Articles extends Component {
         super(props);
         this.state = {}
     }
+
     render() {
         if (this.props.articles.data) {
             var dataLength = this.props.articles.data.length;
@@ -49,7 +51,7 @@ const mapStateToProps = (state) => {
     return {
         articles: state.articles,
         currentPaginationPage: state.paginator.currentPaginationPage,
-        paginationSize: state.paginator.paginationSize
+        paginationSize: state.paginator.size
     }
 }
 
