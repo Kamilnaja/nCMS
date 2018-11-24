@@ -15,13 +15,16 @@ class Paginator extends Component {
         setPaginatorProperties();
     }
 
-    scrollToEnd() {
-        window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
+    _scrollToBottom() {
+        setTimeout(() => {
+            window.scrollTo(0, document.querySelector("#root").scrollHeight);
+        }, 100);
     }
 
     handlePageChange(elem) {
         this.props.setCurrentPaginationPage(parseInt(elem.target.innerHTML, 10));
         getArticles({ page: parseInt(elem.target.innerHTML, 10), size: this.props.size })
+        this._scrollToBottom();
     }
 
     render() {
