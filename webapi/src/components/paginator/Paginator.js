@@ -18,7 +18,7 @@ class Paginator extends Component {
     _scrollToBottom() {
         setTimeout(() => {
             window.scrollTo(0, document.querySelector("#root").scrollHeight);
-        }, 100);
+        }, 200);
     }
 
     handlePageChange(elem) {
