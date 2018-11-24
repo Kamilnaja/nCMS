@@ -21,7 +21,7 @@ class Paginator extends Component {
 
     handlePageChange(elem) {
         this.props.setCurrentPaginationPage(parseInt(elem.target.innerHTML, 10));
-        getArticles({ page: this.props.currentPage, size: this.props.size })
+        getArticles({ page: parseInt(elem.target.innerHTML, 10), size: this.props.size })
     }
 
     render() {

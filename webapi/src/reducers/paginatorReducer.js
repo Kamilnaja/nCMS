@@ -4,7 +4,7 @@ const paginatorReducer = (
     state = {
         size: 10,
         currentPaginationPage: 0,
-        totalPages: undefined
+        totalPages: 1
     }, action) => {
 
     switch (action.type) {
@@ -12,7 +12,7 @@ const paginatorReducer = (
             if (action.payload !== undefined) {
                 state = {
                     ...state,
-                    totalPages: action.payload.totalPages // todo - problem 
+                    totalPages: action.payload.totalPages
                 }
             }
             break;
