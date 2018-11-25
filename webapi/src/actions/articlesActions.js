@@ -12,7 +12,7 @@ function articleDeleted(data) {
     })
 }
 
-function articleEdited(data) {
+export function articleEdited(data) {
     store.dispatch((dispatch) => {
         dispatch({
             type: ActionTypes.EDIT_ARTICLE_SUCCESS,

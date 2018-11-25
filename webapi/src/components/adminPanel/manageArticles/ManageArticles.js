@@ -39,7 +39,6 @@ class ManageArticles extends Component {
                     title="Articles deleted" infoType="info-box-info">
                 </InfoBox>
                 }
-
                 <ul>
                     {articlesList}
                 </ul>

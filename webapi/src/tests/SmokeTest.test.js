@@ -1,7 +1,6 @@
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import React from 'react';
-import configureMockStore from 'redux-mock-store';
 import Main from './../components/Main';
 import Articles from './../components/pagesParts/Articles';
 import Paginator from './../components/paginator/Paginator';
