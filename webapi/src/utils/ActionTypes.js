@@ -32,4 +32,5 @@ export default class ActionTypes {
     static GET_USERS_START = 'GET_USERS_START';
     static GET_USERS_SUCCESS = 'GET_USERS_SUCCESS';
     static GET_USERS_ERROR = 'GET_USERS_ERROR';
+    static CLEAN_INFO_STRIP = 'CLEAN_INFO_STRIP';
 }

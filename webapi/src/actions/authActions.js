@@ -5,7 +5,7 @@ import ActionTypes from './../utils/ActionTypes';
 import appConfig from './../utils/AppConfig';
 import setAuthorizationToken from './../utils/setAuthToken';
 
-export function setCurrentUser(user) {
+function setCurrentUser(user) {
     return {
         type: ActionTypes.SET_CURRENT_USER,
         user
@@ -13,9 +13,9 @@ export function setCurrentUser(user) {
 }
 
 export function setUser() {
-    store.dispatch((dispatch) => {
+    return store.dispatch((dispatch) => {
         setAuthorizationToken(localStorage.jwtToken);
-        store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)));
+        dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)));
     })
 }
 
@@ -33,7 +33,7 @@ export function login(data) {
                 const token = res.data.id_token;
                 localStorage.setItem('jwtToken', token);
                 setAuthorizationToken(token);
-                dispatch(setCurrentUser(jwtDecode(token)));
+                store.dispatch(setCurrentUser(jwtDecode(token)));
             })
             .catch((err) => {
                 dispatch({

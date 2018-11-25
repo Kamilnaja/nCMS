@@ -45,9 +45,6 @@ export function setSettings(payloadData) {
 
 export function getSettings() {
     return store.dispatch(dispatch => {
-        dispatch({
-            type: ActionTypes.GET_SETTINGS_START
-        })
         axios.get(`${appConfig.serverUrl}/api/pagesettings`)
             .then(response => {
                 dispatch({

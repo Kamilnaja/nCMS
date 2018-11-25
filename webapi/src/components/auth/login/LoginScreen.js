@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { cleanInfoStrip } from '../../../actions/utilsActions';
 import { InfoStrip } from '../../utilsComponents/InfoStrip';
 import LoginForm from './LoginForm';
 
 class LoginScreen extends Component {
-
-    componentDidMount() {
-        cleanInfoStrip();
-    }
 
     render() {
         return (
@@ -43,10 +38,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    cleanInfoStrip: (data) => {
-        dispatch(cleanInfoStrip());
-    }
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen)
+export default connect(mapStateToProps)(LoginScreen)
