@@ -10,7 +10,7 @@ import ReturnButtons from './EditOptions';
 class ManageArticles extends Component {
 
     componentDidMount() {
-        getArticles();
+        getArticles({ page: this.props.currentPaginationPage, size: this.props.paginationSize })
     }
 
     render() {
@@ -21,7 +21,7 @@ class ManageArticles extends Component {
             var dataLength = this.props.articles.data.length;
 
             var articlesList = this.props.articles.data.map((item, key) =>
-                <div key={key} className="page-wrapper">
+                <div key={key}>
                     <SingleArticle item={item}></SingleArticle>
                     <ReturnButtons item={item}></ReturnButtons>
                 </div>
@@ -51,6 +51,8 @@ class ManageArticles extends Component {
 const mapStateToProps = (state) => ({
     articles: state.articles,
     statusInfo: state.articles.statusInfo,
+    currentPaginationPage: state.paginator.currentPaginationPage,
+    paginationSize: state.paginator.size
 })
 
 const mapDispatchToProps = (dispatch) => ({

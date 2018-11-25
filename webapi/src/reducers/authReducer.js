@@ -1,10 +1,7 @@
 import ActionTypes from './../utils/ActionTypes';
 
 const authReducer = (
-    state = {
-        isAuthenticated: false,
-        statusInfo: ''
-    }, action) => {
+    state = {}, action) => {
 
     switch (action.type) {
         case ActionTypes.CREATE_ACCOUNT_FAILED_USER_ALREADY_EXISTS: {

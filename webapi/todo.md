@@ -4,6 +4,7 @@
 > authorize /pagesettings post
 after change settings, clear props to show editor again, the same in other places with editor
 > As a user, I can edit my account data
+one component for articles and manage articles
 **doing**
 **done**
 

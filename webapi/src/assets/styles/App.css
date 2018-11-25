@@ -230,8 +230,7 @@ p {
   margin-left: 15px; }
 
 .admin-panel-forms-wrapper {
-  display: flex;
-  flex-grow: 1; }
+  display: block; }
 
 section {
   margin-top: 20px;
