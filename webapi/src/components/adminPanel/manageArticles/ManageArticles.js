@@ -29,8 +29,6 @@ class ManageArticles extends Component {
         }
 
         return (
-
-
             <div className="articles-edit">
                 <h2>
                     Chose an item from {dataLength} articles and edit or delete

@@ -7,7 +7,7 @@ const ArticleFooter = (props) => {
             <p>
                 Written by:
                 <Link to={`/authors/${props.author.id}`}>
-                    {props.author.firstname} {props.author.lastname}
+                    {props.author.firstName} {props.author.lastName}
                 </Link>
             </p>
         </footer>

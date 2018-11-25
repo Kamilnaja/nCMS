@@ -15,7 +15,7 @@ class AdminPanel extends Component {
         this.setState({ isVisible: e.target.text })
     }
 
-    menuItems = ["Edit settings", "Edit articles", "Add article", "Pages", "Users"];
+    menuItems = ["Add article", "Edit settings", "Edit articles", "Edit account settings", /*"Pages", "Users" */];
 
     render() {
         return (
@@ -33,9 +33,7 @@ class AdminPanel extends Component {
                 </section>
 
                 {this.props.isAuthenticated ?
-                    <AdminPanelMain isVisible={this.state.isVisible}></AdminPanelMain>
-                    :
-                    <RestrictedInfo></RestrictedInfo>
+                    <AdminPanelMain isVisible={this.state.isVisible}></AdminPanelMain> : <RestrictedInfo />
                 }
             </section >
         )

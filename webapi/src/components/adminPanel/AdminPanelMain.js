@@ -1,28 +1,24 @@
 import React from 'react';
 import AddArticle from './addArticles/AddArticle';
+import ManageAccountSettings from './manageAccountSettings/ManageAccountSettings';
 import ManageArticles from './manageArticles/ManageArticles';
-import ManagePages from './managePages/ManagePages';
 import ManageSettings from './manageSettings/ManageSettings';
-import ManageUsers from './manageUsers/ManageUsers';
 
 export const AdminPanelMain = (props) => {
     return (
         <section className="admin-panel-forms-wrapper">
 
             {props.isVisible === 'Edit settings' &&
-                <ManageSettings></ManageSettings>}
+                <ManageSettings />}
 
             {props.isVisible === 'Edit articles' &&
-                <ManageArticles></ManageArticles>}
+                <ManageArticles />}
 
             {props.isVisible === 'Add article' &&
-                <AddArticle></AddArticle>}
+                <AddArticle />}
 
-            {props.isVisible === 'Pages' &&
-                <ManagePages></ManagePages>}
-
-            {props.isVisible === 'Users' &&
-                <ManageUsers></ManageUsers>
+            {props.isVisible === 'Edit account settings' &&
+                <ManageAccountSettings />
             }
         </section>
     )
