@@ -21,9 +21,9 @@ export const AdminPanelMain = (props) => {
             {props.isVisible === 'Add article' &&
                 <AddArticle />}
 
-            {props.isVisible === 'Edit account settings' &&
-                <ManageAccountSettings />
-            }
+            {/* {props.isVisible === 'Edit account settings' && */}
+            <ManageAccountSettings />
+            {/* } */}
         </section>
     )
 }

@@ -5,6 +5,8 @@
 after change settings, clear props to show editor again, the same in other places with editor
 > As a user, I can edit my account data
 one component for articles and manage articles
+add edit article option and info
+remove paginator on edit article view
 **doing**
 **done**
 
