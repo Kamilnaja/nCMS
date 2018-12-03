@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 import FormActions from '../../../utils/FormActions';
 import { AddNewArticle } from './../../../actions/articlesActions';
 import Editor from './../../editor/Editor';
+import { PropTypes } from 'prop-types';
 
 export default class AddArticleForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
             currentText: ''
-        }
+        };
     }
 
     handleChange(e) {
         this.setState({
             currentText: e.target.value
-        })
+        });
     }
 
     handleSubmit(e) {
@@ -24,9 +25,9 @@ export default class AddArticleForm extends Component {
             articleSubtitle: this.articleSubtitle.value,
             articleMainContent: this.state.currentText,
             articleAuthor: this.props.user
-        }
+        };
         AddNewArticle(submitPayload);
-        FormActions.doPostSubmitActions("addArticleForm", this.props);
+        FormActions.doPostSubmitActions('addArticleForm', this.props);
     }
 
     render() {
@@ -69,3 +70,7 @@ export default class AddArticleForm extends Component {
         );
     }
 }
+
+AddArticleForm.propTypes = {
+    user: PropTypes.String
+};

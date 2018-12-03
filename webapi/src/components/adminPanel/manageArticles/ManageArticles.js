@@ -4,18 +4,18 @@ import { connect } from 'react-redux';
 import { deleteArticle, getArticles, showEditionForm } from '../../../actions/articlesActions';
 import SingleArticle from '../../articlesParts/SingleArticle';
 import InfoBox from '../../utilsComponents/InfoBox';
-import EditArticleForm from "./EditArticleForm";
+import EditArticleForm from './EditArticleForm';
 import ReturnButtons from './EditOptions';
 
 class ManageArticles extends Component {
 
     componentDidMount() {
-        getArticles({ page: this.props.currentPaginationPage, size: this.props.paginationSize })
+        getArticles({ page: this.props.currentPaginationPage, size: this.props.paginationSize });
     }
 
     render() {
         if (this.props.articles.isOnEdition) {
-            var editForm = <EditArticleForm></EditArticleForm>
+            var editForm = <EditArticleForm></EditArticleForm>;
         }
         else if (this.props.articles.data) {
             var dataLength = this.props.articles.data.length;
@@ -25,7 +25,7 @@ class ManageArticles extends Component {
                     <SingleArticle item={item}></SingleArticle>
                     <ReturnButtons item={item}></ReturnButtons>
                 </div>
-            )
+            );
         }
 
         return (
@@ -44,7 +44,7 @@ class ManageArticles extends Component {
                 </ul>
                 {editForm}
             </div>
-        )
+        );
     }
 }
 
@@ -53,23 +53,23 @@ const mapStateToProps = (state) => ({
     statusInfo: state.articles.statusInfo,
     currentPaginationPage: state.paginator.currentPaginationPage,
     paginationSize: state.paginator.size
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
     getArticles: (data) => {
-        dispatch(getArticles(data))
+        dispatch(getArticles(data));
     },
     deleteArticle: (data) => {
-        dispatch(deleteArticle(data))
+        dispatch(deleteArticle(data));
     },
     editArticle: (data) => {
-        dispatch(showEditionForm(data))
+        dispatch(showEditionForm(data));
     },
-})
+});
 
 ManageArticles.propTypes = {
     articles: PropTypes.any.isRequired, // todo - remove any
     statusInfo: PropTypes.string
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManageArticles);

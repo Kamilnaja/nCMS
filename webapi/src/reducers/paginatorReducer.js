@@ -1,4 +1,4 @@
-import ActionTypes from "../utils/ActionTypes";
+import ActionTypes from '../utils/ActionTypes';
 
 const paginatorReducer = (
     state = {
@@ -13,7 +13,7 @@ const paginatorReducer = (
                 state = {
                     ...state,
                     totalPages: action.payload.totalPages
-                }
+                };
             }
             break;
         }
@@ -21,11 +21,11 @@ const paginatorReducer = (
             state = {
                 ...state,
                 currentPaginationPage: action.payload
-            }
+            };
             break;
         default: return state;
     }
     return state;
-}
+};
 
 export default paginatorReducer;

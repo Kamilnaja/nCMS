@@ -4,6 +4,7 @@ import ManageAccountSettings from './manageAccountSettings/ManageAccountSettings
 import ManageArticles from './manageArticles/ManageArticles';
 import ManageSettings from './manageSettings/ManageSettings';
 import Paginator from './../paginator/Paginator';
+import { PropTypes } from 'prop-types';
 
 export const AdminPanelMain = (props) => {
     return (
@@ -21,9 +22,13 @@ export const AdminPanelMain = (props) => {
             {props.isVisible === 'Add article' &&
                 <AddArticle />}
 
-            {/* {props.isVisible === 'Edit account settings' && */}
-            <ManageAccountSettings />
-            {/* } */}
+            {props.isVisible === 'Edit account settings' &&
+                <ManageAccountSettings />
+            }
         </section>
-    )
-}
+    );
+};
+
+AdminPanelMain.propTypes = {
+    isVisible: PropTypes.string
+};

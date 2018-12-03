@@ -8,7 +8,7 @@ const authReducer = (
             state = {
                 ...state,
                 statusInfo: action.payload
-            }
+            };
             break;
         }
 
@@ -16,7 +16,7 @@ const authReducer = (
             state = {
                 ...state,
                 statusInfo: 'emailAlreadyExists'
-            }
+            };
             break;
         }
 
@@ -24,7 +24,7 @@ const authReducer = (
             state = {
                 ...state,
                 statusInfo: action.payload
-            }
+            };
             break;
         }
 
@@ -32,7 +32,7 @@ const authReducer = (
             state = {
                 ...state,
                 statusInfo: action.payload
-            }
+            };
             break;
         }
 
@@ -41,7 +41,7 @@ const authReducer = (
                 ...state,
                 statusInfo: 'success',
                 activation_key: action.payload.data
-            }
+            };
             break;
         }
 
@@ -50,8 +50,8 @@ const authReducer = (
                 ...state,
                 isAuthenticated: true,
                 userName: action.user.sub,
-                loginStatus: "success"
-            }
+                loginStatus: 'success'
+            };
             break;
         }
 
@@ -59,29 +59,29 @@ const authReducer = (
             state = {
                 ...state,
                 isAuthenticated: false,
-                loginStatus: "error"
-            }
+                loginStatus: 'error'
+            };
             break;
         }
 
         case ActionTypes.RELOAD_REGISTER_INFO: {
             state = {
                 ...state,
-                statusInfo: ""
-            }
+                statusInfo: ''
+            };
             break;
         }
 
         case ActionTypes.CLEAN_INFO_STRIP: {
             state = {
                 ...state,
-                loginStatus: ""
-            }
+                loginStatus: ''
+            };
             break;
         }
         default: return state;
     }
     return state;
-}
+};
 
-export default authReducer
+export default authReducer;

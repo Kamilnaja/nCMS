@@ -20,8 +20,8 @@ class ManageSettings extends Component {
                 }
                 <ManageSettingsForm toggleInfoBar={InfoboxToggler.toggleInfoBox.bind(this)}></ManageSettingsForm>
             </React.Fragment>
-        )
-    };
+        );
+    }
 }
 
 const mapStateToProps = (state) => ({

@@ -8,7 +8,7 @@ const articlesReducer = (state = [],
             state = {
                 ...state,
                 fetching: true
-            }
+            };
             break;
         }
 
@@ -18,7 +18,7 @@ const articlesReducer = (state = [],
                 fetching: false,
                 error: action.payload,
                 statusInfo: 'error'
-            }
+            };
             break;
         }
 
@@ -28,7 +28,7 @@ const articlesReducer = (state = [],
                 fetching: false,
                 fetched: true,
                 data: action.payload.content
-            }
+            };
             break;
         }
 
@@ -37,7 +37,7 @@ const articlesReducer = (state = [],
                 ...state,
                 statusInfo: 'deleteSuccess',
                 data: state.data.filter(item => item._id !== action.payload)
-            }
+            };
             break;
         }
 
@@ -45,8 +45,8 @@ const articlesReducer = (state = [],
             state = {
                 ...state,
                 statusInfo: 'error'
-            }
-            break
+            };
+            break;
         }
 
         case ActionTypes.ADD_NEW_ARTICLE_SUCCESS: {
@@ -54,7 +54,7 @@ const articlesReducer = (state = [],
                 ...state,
                 statusInfo: 'success',
                 isOnEdition: false
-            }
+            };
             break;
         }
 
@@ -63,8 +63,8 @@ const articlesReducer = (state = [],
                 ...state,
                 statusInfo: 'inprogress',
                 isOnEdition: true
-            }
-            break
+            };
+            break;
         }
 
         case ActionTypes.EDIT_ARTICLE_SUCCESS: {
@@ -73,7 +73,7 @@ const articlesReducer = (state = [],
                 statusInfo: 'success',
                 isOnEdition: false,
                 data: action.payload
-            }
+            };
             break;
         }
 
@@ -81,7 +81,7 @@ const articlesReducer = (state = [],
             state = {
                 ...state,
                 isOnEdition: false
-            }
+            };
             break;
         }
 
@@ -89,7 +89,7 @@ const articlesReducer = (state = [],
             state = {
                 ...state,
                 statusInfo: 'pending'
-            }
+            };
             break;
         }
 
@@ -98,13 +98,13 @@ const articlesReducer = (state = [],
                 ...state,
                 isOnEdition: true,
                 articleEdited: action.payload
-            }
+            };
             break;
         }
 
         default: return state;
     }
     return state;
-}
+};
 
 export default articlesReducer;

@@ -6,7 +6,7 @@ import { setSettings } from './../../../actions/settingActions';
 class ManageSettingsForm extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {};
     }
 
     handleSubmit(e) {
@@ -14,11 +14,11 @@ class ManageSettingsForm extends Component {
             title: this.title.value,
             subtitle: this.subtitle.value,
             footer: this.footer.value
-        }
+        };
 
         e.preventDefault();
         setSettings(submitPayload);
-        FormActions.doPostSubmitActions("changeSettings", this.props)
+        FormActions.doPostSubmitActions('changeSettings', this.props);
     }
 
     render() {
@@ -59,12 +59,12 @@ class ManageSettingsForm extends Component {
 
 const mapStateToProps = (state) => ({
     settings: state.settings,
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
     setSettings: (data) => {
         dispatch(setSettings(data));
     }
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManageSettingsForm);

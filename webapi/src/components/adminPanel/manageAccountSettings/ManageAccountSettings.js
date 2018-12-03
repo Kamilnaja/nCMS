@@ -8,7 +8,7 @@ class ManageAccountSettings extends Component {
         super(props);
         this.state = {
             showInfo: false
-        }
+        };
     }
 
     render() {
