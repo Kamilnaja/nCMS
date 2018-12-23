@@ -33,6 +33,7 @@ class ManageSettingsForm extends Component {
                         type="text"
                         ref={(input) => this.title = input}
                         required
+                        defaultValue={this.state.settings}
                     />
                 </div>
                 <div className="input-wrap">

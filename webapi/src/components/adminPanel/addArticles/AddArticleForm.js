@@ -1,8 +1,8 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import FormActions from '../../../utils/FormActions';
 import { AddNewArticle } from './../../../actions/articlesActions';
 import Editor from './../../editor/Editor';
-import { PropTypes } from 'prop-types';
 
 export default class AddArticleForm extends Component {
     constructor(props) {
@@ -72,5 +72,5 @@ export default class AddArticleForm extends Component {
 }
 
 AddArticleForm.propTypes = {
-    user: PropTypes.String
+    user: PropTypes.string
 };

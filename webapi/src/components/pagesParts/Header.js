@@ -83,11 +83,11 @@ class Header extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        isAuthenticated: state.auth.isAuthenticated
-    }
-}
+const mapStateToProps = (state) => ({
+    settings: state.settings,
+    isAuthenticated: state.auth.isAuthenticated
+
+})
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -97,8 +97,13 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
-
 Header.propTypes = {
-    settings: PropTypes.object
+    settings: PropTypes.shape({
+        title: PropTypes.string,
+        subtitle: PropTypes.string
+    }),
+    isAuthenticated: PropTypes.bool.isRequired
+
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

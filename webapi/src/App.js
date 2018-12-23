@@ -23,7 +23,7 @@ class App extends Component {
             <Router>
                 <div className="background-app">
                     <div className="App container-app">
-                        <Header settings={this.props.settings} />
+                        <Header />
                         <Switch>
                             <Route exact path='/' component={Main} />
                             <Route path='/admin' component={AdminPanel} />
@@ -43,7 +43,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        settings: state.settings,
+        settings: state.settings
     }
 }
 
