@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { InfoStrip } from '../../utilsComponents/InfoStrip';
 import appConfig from './../../../utils/AppConfig';
+import ChangePassword from './changePassword/ChangePassword';
 
 class ManageAccountSettingsForm extends Component {
     constructor(props) {
@@ -71,33 +72,7 @@ class ManageAccountSettingsForm extends Component {
                         this.state.isAlertVisible
                     }
                     {
-                        this.state.showPasswordForm &&
-                        <form id="changeSettings" className="form-fullwidth" onSubmit={(e) => this.handleSubmit(e)}>
-                            <div className="input-wrap">
-                                <label>New password</label>
-                                <input
-                                    type="password"
-                                    value={this.state.password}
-                                    onChange={e => this.handleChange(e)}
-                                    name="password"
-                                />
-                            </div>
-                            <div className="input-wrap">
-                                <label>Repeat</label>
-                                <input
-                                    type="password"
-                                    value={this.state.passwordRepeated}
-                                    onChange={e => this.handleChange(e)}
-                                    name="passwordRepeated"
-                                />
-                            </div>
-                            <div className="input-wrap">
-                                <label>Show passwords?</label>
-                                <input type="checkbox" className="input-checkbox"></input>
-                            </div>
-                            <input type="submit" value="Save" className="btn btn-default" />
-                            <input type="cancel" value="Cancel" className="btn btn-default" />
-                        </form>
+                        this.state.showPasswordForm && <ChangePassword></ChangePassword>
                     }
                 </div>
             </React.Fragment>
