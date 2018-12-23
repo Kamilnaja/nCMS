@@ -15,7 +15,7 @@ class AdminPanel extends Component {
         this.setState({ isVisible: e.target.text })
     }
 
-    menuItems = ["Add article", "Edit settings", "Edit articles", "Edit account settings", /*"Pages", "Users" */];
+    menuItems = ["Add article", "Edit settings", "Edit articles", "Edit account settings"];
 
     render() {
         return (

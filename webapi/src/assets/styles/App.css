@@ -274,6 +274,10 @@ section {
   background-color: #849DB5;
   color: white; }
 
+.admin-panel-sidebar-menu a:focus {
+  background-color: #A2071A;
+  color: white; }
+
 /* input */
 .input-wrap {
   margin-bottom: 5px; }
