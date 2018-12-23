@@ -12,7 +12,7 @@ class AdminPanel extends Component {
 
     handleClick(e) {
         e.preventDefault();
-        this.setState({ isVisible: e.target.text })
+        this.setState({ isVisible: e.target.text });
     }
 
     menuItems = ["Add article", "Edit settings", "Edit articles", "Edit account settings"];
@@ -24,7 +24,7 @@ class AdminPanel extends Component {
                     <ul className="admin-panel-sidebar-menu">
                         {this.menuItems.map((item, key) =>
                             <li key={key}>
-                                <a onClick={this.handleClick} href={item}>
+                                <a onClick={this.handleClick} href={item} className={this.state.isVisible === item ? "selected" : ""}>
                                     {item}
                                 </a>
                             </li>

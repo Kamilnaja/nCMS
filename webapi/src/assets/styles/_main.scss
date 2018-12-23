@@ -87,7 +87,7 @@ section {
 
 .admin-panel-sidebar-menu a {
     padding: 15px;
-    border-bottom: 1px dashed #000;
+    border-bottom: 1px dashed #fff;
     cursor: pointer;
     display: block;
     text-decoration: none;
@@ -98,7 +98,7 @@ section {
     color: white;
 }
 
-.admin-panel-sidebar-menu a:focus {
+.admin-panel-sidebar-menu .selected {
     background-color: #A2071A;
     color: white;
 }
