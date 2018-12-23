@@ -357,7 +357,8 @@ section {
   text-transform: uppercase;
   cursor: pointer;
   transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  margin: 5px; }
+  margin: 5px;
+  text-align: center; }
 
 .btn:hover {
   box-shadow: inset 4px 5px 19px 13px rgba(0, 0, 0, 0.1); }
@@ -525,3 +526,10 @@ section {
     .paginator li.active {
       position: relative;
       text-decoration: underline; }
+
+.form-fullwidth input.input-checkbox {
+  float: left;
+  width: unset; }
+
+.input-wrap .input-checkbox {
+  margin-top: 10px; }

@@ -17,7 +17,6 @@ class ManageAccountSettings extends Component {
                 {
                     this.state.showInfo && <InfoBox>You have successfully changed the settings</InfoBox>
                 }
-                <div>Account settings</div>
                 <ManageAccountSettingsForm toggleInfoBar={InfoboxToggler.toggleInfoBox.bind(this)}></ManageAccountSettingsForm>
             </React.Fragment>
         );
