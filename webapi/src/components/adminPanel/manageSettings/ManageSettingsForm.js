@@ -24,6 +24,7 @@ class ManageSettingsForm extends Component {
     render() {
         return (
             <form id="changeSettings" className="form-fullwidth" onSubmit={(e) => this.handleSubmit(e)}>
+
                 <h2 className="form-title">
                     Change the website data
                 </h2>
@@ -33,7 +34,8 @@ class ManageSettingsForm extends Component {
                         type="text"
                         ref={(input) => this.title = input}
                         required
-                        defaultValue={this.state.settings}
+                        defaultValue={this.props.settings.title}
+                        key={`${Math.floor((Math.random() * 1000))}-min`}
                     />
                 </div>
                 <div className="input-wrap">
@@ -42,6 +44,8 @@ class ManageSettingsForm extends Component {
                         type="text"
                         required
                         ref={(input) => this.subtitle = input}
+                        defaultValue={this.props.settings.subtitle}
+                        key={`${Math.floor((Math.random() * 1000))}-min`}
                     />
                 </div>
                 <div className="input-wrap">
@@ -50,6 +54,8 @@ class ManageSettingsForm extends Component {
                         type="text"
                         required
                         ref={(input) => this.footer = input}
+                        defaultValue={this.props.settings.footer}
+                        key={`${Math.floor((Math.random() * 1000))}-min`}
                     />
                 </div>
                 <input type="submit" value="Save" className="btn btn-default" />
@@ -59,7 +65,7 @@ class ManageSettingsForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    settings: state.settings,
+    settings: state.settings
 });
 
 const mapDispatchToProps = (dispatch) => ({

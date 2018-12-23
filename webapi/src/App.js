@@ -31,7 +31,6 @@ class App extends Component {
                             <Route path='/createAccount' component={CreateAccount} />
                             <Route path='/articles/:articleId' component={SingleArticleWrapper} />
                             <Route path="/authors/:authorId" component={Author} />
-                            {/* <Route component={Error404}></Route> */}
                         </Switch>
                         <Footer settings={this.props.settings} />
                     </div>
@@ -41,11 +40,9 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        settings: state.settings
-    }
-}
+const mapStateToProps = (state) => ({
+    settings: state.settings
+});
 
 const mapDispatchToProps = (dispatch) => {
     return {

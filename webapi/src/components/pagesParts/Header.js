@@ -86,7 +86,6 @@ class Header extends Component {
 const mapStateToProps = (state) => ({
     settings: state.settings,
     isAuthenticated: state.auth.isAuthenticated
-
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -103,7 +102,6 @@ Header.propTypes = {
         subtitle: PropTypes.string
     }),
     isAuthenticated: PropTypes.bool.isRequired
-
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
